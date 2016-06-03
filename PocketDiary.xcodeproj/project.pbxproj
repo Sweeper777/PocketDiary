@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA711D01B16000B36AA7 /* AppDelegate.swift */; };
+		5A21FA741D01B16000B36AA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA731D01B16000B36AA7 /* ViewController.swift */; };
+		5A21FA771D01B16000B36AA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A21FA751D01B16000B36AA7 /* Main.storyboard */; };
+		5A21FA7A1D01B16000B36AA7 /* PocketDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA781D01B16000B36AA7 /* PocketDiary.xcdatamodeld */; };
+		5A21FA7C1D01B16000B36AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A21FA7B1D01B16000B36AA7 /* Assets.xcassets */; };
+		5A21FA7F1D01B16000B36AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A21FA7D1D01B16000B36AA7 /* LaunchScreen.storyboard */; };
+		5A21FA8A1D01B16000B36AA7 /* PocketDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA891D01B16000B36AA7 /* PocketDiaryTests.swift */; };
+		5A21FA951D01B16000B36AA7 /* PocketDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA941D01B16000B36AA7 /* PocketDiaryUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A21FA861D01B16000B36AA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A21FA661D01B16000B36AA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A21FA6D1D01B16000B36AA7;
+			remoteInfo = PocketDiary;
+		};
+		5A21FA911D01B16000B36AA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A21FA661D01B16000B36AA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A21FA6D1D01B16000B36AA7;
+			remoteInfo = PocketDiary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5A21FA6E1D01B16000B36AA7 /* PocketDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A21FA711D01B16000B36AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5A21FA731D01B16000B36AA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5A21FA761D01B16000B36AA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5A21FA791D01B16000B36AA7 /* PocketDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PocketDiary.xcdatamodel; sourceTree = "<group>"; };
+		5A21FA7B1D01B16000B36AA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A21FA7E1D01B16000B36AA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5A21FA801D01B16000B36AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A21FA851D01B16000B36AA7 /* PocketDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A21FA891D01B16000B36AA7 /* PocketDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketDiaryTests.swift; sourceTree = "<group>"; };
+		5A21FA8B1D01B16000B36AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A21FA901D01B16000B36AA7 /* PocketDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A21FA941D01B16000B36AA7 /* PocketDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketDiaryUITests.swift; sourceTree = "<group>"; };
+		5A21FA961D01B16000B36AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A21FA6B1D01B16000B36AA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A21FA821D01B16000B36AA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A21FA8D1D01B16000B36AA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A21FA651D01B16000B36AA7 = {
+			isa = PBXGroup;
+			children = (
+				5A21FA701D01B16000B36AA7 /* PocketDiary */,
+				5A21FA881D01B16000B36AA7 /* PocketDiaryTests */,
+				5A21FA931D01B16000B36AA7 /* PocketDiaryUITests */,
+				5A21FA6F1D01B16000B36AA7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5A21FA6F1D01B16000B36AA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A21FA6E1D01B16000B36AA7 /* PocketDiary.app */,
+				5A21FA851D01B16000B36AA7 /* PocketDiaryTests.xctest */,
+				5A21FA901D01B16000B36AA7 /* PocketDiaryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A21FA701D01B16000B36AA7 /* PocketDiary */ = {
+			isa = PBXGroup;
+			children = (
+				5A21FA711D01B16000B36AA7 /* AppDelegate.swift */,
+				5A21FA731D01B16000B36AA7 /* ViewController.swift */,
+				5A21FA751D01B16000B36AA7 /* Main.storyboard */,
+				5A21FA7B1D01B16000B36AA7 /* Assets.xcassets */,
+				5A21FA7D1D01B16000B36AA7 /* LaunchScreen.storyboard */,
+				5A21FA801D01B16000B36AA7 /* Info.plist */,
+				5A21FA781D01B16000B36AA7 /* PocketDiary.xcdatamodeld */,
+			);
+			path = PocketDiary;
+			sourceTree = "<group>";
+		};
+		5A21FA881D01B16000B36AA7 /* PocketDiaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A21FA891D01B16000B36AA7 /* PocketDiaryTests.swift */,
+				5A21FA8B1D01B16000B36AA7 /* Info.plist */,
+			);
+			path = PocketDiaryTests;
+			sourceTree = "<group>";
+		};
+		5A21FA931D01B16000B36AA7 /* PocketDiaryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5A21FA941D01B16000B36AA7 /* PocketDiaryUITests.swift */,
+				5A21FA961D01B16000B36AA7 /* Info.plist */,
+			);
+			path = PocketDiaryUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A21FA6D1D01B16000B36AA7 /* PocketDiary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A21FA991D01B16000B36AA7 /* Build configuration list for PBXNativeTarget "PocketDiary" */;
+			buildPhases = (
+				5A21FA6A1D01B16000B36AA7 /* Sources */,
+				5A21FA6B1D01B16000B36AA7 /* Frameworks */,
+				5A21FA6C1D01B16000B36AA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketDiary;
+			productName = PocketDiary;
+			productReference = 5A21FA6E1D01B16000B36AA7 /* PocketDiary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5A21FA841D01B16000B36AA7 /* PocketDiaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A21FA9C1D01B16000B36AA7 /* Build configuration list for PBXNativeTarget "PocketDiaryTests" */;
+			buildPhases = (
+				5A21FA811D01B16000B36AA7 /* Sources */,
+				5A21FA821D01B16000B36AA7 /* Frameworks */,
+				5A21FA831D01B16000B36AA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A21FA871D01B16000B36AA7 /* PBXTargetDependency */,
+			);
+			name = PocketDiaryTests;
+			productName = PocketDiaryTests;
+			productReference = 5A21FA851D01B16000B36AA7 /* PocketDiaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5A21FA8F1D01B16000B36AA7 /* PocketDiaryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A21FA9F1D01B16000B36AA7 /* Build configuration list for PBXNativeTarget "PocketDiaryUITests" */;
+			buildPhases = (
+				5A21FA8C1D01B16000B36AA7 /* Sources */,
+				5A21FA8D1D01B16000B36AA7 /* Frameworks */,
+				5A21FA8E1D01B16000B36AA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A21FA921D01B16000B36AA7 /* PBXTargetDependency */,
+			);
+			name = PocketDiaryUITests;
+			productName = PocketDiaryUITests;
+			productReference = 5A21FA901D01B16000B36AA7 /* PocketDiaryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5A21FA661D01B16000B36AA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Mulang Su";
+				TargetAttributes = {
+					5A21FA6D1D01B16000B36AA7 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					5A21FA841D01B16000B36AA7 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 5A21FA6D1D01B16000B36AA7;
+					};
+					5A21FA8F1D01B16000B36AA7 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 5A21FA6D1D01B16000B36AA7;
+					};
+				};
+			};
+			buildConfigurationList = 5A21FA691D01B16000B36AA7 /* Build configuration list for PBXProject "PocketDiary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5A21FA651D01B16000B36AA7;
+			productRefGroup = 5A21FA6F1D01B16000B36AA7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A21FA6D1D01B16000B36AA7 /* PocketDiary */,
+				5A21FA841D01B16000B36AA7 /* PocketDiaryTests */,
+				5A21FA8F1D01B16000B36AA7 /* PocketDiaryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A21FA6C1D01B16000B36AA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A21FA7F1D01B16000B36AA7 /* LaunchScreen.storyboard in Resources */,
+				5A21FA7C1D01B16000B36AA7 /* Assets.xcassets in Resources */,
+				5A21FA771D01B16000B36AA7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A21FA831D01B16000B36AA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A21FA8E1D01B16000B36AA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A21FA6A1D01B16000B36AA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A21FA7A1D01B16000B36AA7 /* PocketDiary.xcdatamodeld in Sources */,
+				5A21FA741D01B16000B36AA7 /* ViewController.swift in Sources */,
+				5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A21FA811D01B16000B36AA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A21FA8A1D01B16000B36AA7 /* PocketDiaryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A21FA8C1D01B16000B36AA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A21FA951D01B16000B36AA7 /* PocketDiaryUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A21FA871D01B16000B36AA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A21FA6D1D01B16000B36AA7 /* PocketDiary */;
+			targetProxy = 5A21FA861D01B16000B36AA7 /* PBXContainerItemProxy */;
+		};
+		5A21FA921D01B16000B36AA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A21FA6D1D01B16000B36AA7 /* PocketDiary */;
+			targetProxy = 5A21FA911D01B16000B36AA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5A21FA751D01B16000B36AA7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A21FA761D01B16000B36AA7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5A21FA7D1D01B16000B36AA7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A21FA7E1D01B16000B36AA7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5A21FA971D01B16000B36AA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A21FA981D01B16000B36AA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A21FA9A1D01B16000B36AA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PocketDiary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5A21FA9B1D01B16000B36AA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PocketDiary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5A21FA9D1D01B16000B36AA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PocketDiaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiaryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketDiary.app/PocketDiary";
+			};
+			name = Debug;
+		};
+		5A21FA9E1D01B16000B36AA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PocketDiaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiaryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketDiary.app/PocketDiary";
+			};
+			name = Release;
+		};
+		5A21FAA01D01B16000B36AA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PocketDiaryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiaryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PocketDiary;
+			};
+			name = Debug;
+		};
+		5A21FAA11D01B16000B36AA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PocketDiaryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiaryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PocketDiary;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A21FA691D01B16000B36AA7 /* Build configuration list for PBXProject "PocketDiary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A21FA971D01B16000B36AA7 /* Debug */,
+				5A21FA981D01B16000B36AA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A21FA991D01B16000B36AA7 /* Build configuration list for PBXNativeTarget "PocketDiary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A21FA9A1D01B16000B36AA7 /* Debug */,
+				5A21FA9B1D01B16000B36AA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5A21FA9C1D01B16000B36AA7 /* Build configuration list for PBXNativeTarget "PocketDiaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A21FA9D1D01B16000B36AA7 /* Debug */,
+				5A21FA9E1D01B16000B36AA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5A21FA9F1D01B16000B36AA7 /* Build configuration list for PBXNativeTarget "PocketDiaryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A21FAA01D01B16000B36AA7 /* Debug */,
+				5A21FAA11D01B16000B36AA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5A21FA781D01B16000B36AA7 /* PocketDiary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5A21FA791D01B16000B36AA7 /* PocketDiary.xcdatamodel */,
+			);
+			currentVersion = 5A21FA791D01B16000B36AA7 /* PocketDiary.xcdatamodel */;
+			path = PocketDiary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5A21FA661D01B16000B36AA7 /* Project object */;
+}
