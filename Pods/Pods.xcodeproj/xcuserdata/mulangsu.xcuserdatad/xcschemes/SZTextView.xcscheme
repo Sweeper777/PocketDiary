@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B8509750BE28E2DEE58FE9A8'
-               BlueprintName = 'FSCalendar'
+               BlueprintIdentifier = '9DEB211FDFE4D05DCFA3C05A'
+               BlueprintName = 'SZTextView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'FSCalendar.framework'>
+               BuildableName = 'SZTextView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

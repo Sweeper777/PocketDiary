@@ -14,10 +14,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SZTextView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>621EBE4AB245FAB27CD5F0BFF8BCDE44</key>
+		<key>274749DBD5E8B313AB95D52053258B48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>685950927317D389DA5CED7E89E67CCF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

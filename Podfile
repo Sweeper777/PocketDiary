@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'PocketDiary' do
     pod 'FSCalendar'
+    pod 'SZTextView'
 end
 
 target 'PocketDiaryTests' do

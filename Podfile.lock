@@ -1,10 +1,13 @@
 PODS:
   - FSCalendar (2.1.1)
+  - SZTextView (1.2.2)
 
 DEPENDENCIES:
   - FSCalendar
+  - SZTextView
 
 SPEC CHECKSUMS:
   FSCalendar: 04dc531f06fbde8a8e5b7394e9d4edebd45a591f
+  SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
 
 COCOAPODS: 0.39.0
