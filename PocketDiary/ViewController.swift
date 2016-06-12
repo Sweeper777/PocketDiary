@@ -17,7 +17,7 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
     }
     
     func calendar(calendar: FSCalendar, didSelectDate date: NSDate) {
-        
+        performSegueWithIdentifier("showEditor", sender: self)
     }
     
     func calendar(calendar: FSCalendar, hasEventForDate date: NSDate) -> Bool {

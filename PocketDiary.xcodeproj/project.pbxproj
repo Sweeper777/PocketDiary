@@ -18,6 +18,7 @@
 		5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A21FAA21D01B78400B36AA7 /* FSCalendar.framework */; };
 		5AF571261D02582400DF004F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571241D02582400DF004F /* Entry.swift */; };
 		5AF571271D02582400DF004F /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */; };
+		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
 		9CEE7BB01359CA45B52C2BA6 /* Pods_PocketDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		5A21FAA21D01B78400B36AA7 /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = "Pods/../build/Debug-iphoneos/FSCalendar.framework"; sourceTree = "<group>"; };
 		5AF571241D02582400DF004F /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SZTextView.framework; path = "Pods/../build/Debug-iphoneos/SZTextView.framework"; sourceTree = "<group>"; };
 		6289957AE47031AEF251179F /* Pods-PocketDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		64DC5DF19320A8A21F275BBF /* Pods-PocketDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.release.xcconfig"; sourceTree = "<group>"; };
 		C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */,
 				5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */,
 				9CEE7BB01359CA45B52C2BA6 /* Pods_PocketDiary.framework in Frameworks */,
 			);
@@ -156,6 +159,7 @@
 		CB021911B0AE96F7D484390D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */,
 				5A21FAA21D01B78400B36AA7 /* FSCalendar.framework */,
 				C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */,
 			);

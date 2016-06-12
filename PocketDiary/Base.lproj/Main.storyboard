@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-gP-K6c" customClass="FSCalendar">
-                                <rect key="frame" x="20" y="72" width="560" height="514"/>
+                                <rect key="frame" x="20" y="102" width="560" height="484"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSizeToFitContentSize" value="YES"/>
@@ -54,11 +54,88 @@
                             <constraint firstItem="nnA-gP-K6c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eoH-Po-k2p"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="neZ-ZS-p48"/>
+                    <navigationItem key="navigationItem" title="My Diaries" prompt="Select a date to view an entry" id="neZ-ZS-p48"/>
+                    <connections>
+                        <segue destination="cWU-7j-YM0" kind="presentation" identifier="showEditor" modalPresentationStyle="formSheet" id="AnO-NI-CJs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245" y="306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vHf-xe-Wvz">
+            <objects>
+                <navigationController id="cWU-7j-YM0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HUE-nG-YcW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5Gq-PU-LlI" kind="relationship" relationship="rootViewController" id="OF9-j1-a0O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQa-Dm-G8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="1079"/>
+        </scene>
+        <!--Edit Diary-->
+        <scene sceneID="Ebe-PC-Shd">
+            <objects>
+                <viewController id="5Gq-PU-LlI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ucl-O4-vnj"/>
+                        <viewControllerLayoutGuide type="bottom" id="GON-14-g5h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SKN-oE-cS5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGo-FT-iU7">
+                                <rect key="frame" x="73" y="52" width="507" height="30"/>
+                                <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOt-fM-dKW">
+                                <rect key="frame" x="20" y="56" width="45" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="2S6-KE-rzy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-71-Cvw" customClass="SZTextView">
+                                <rect key="frame" x="20" y="90" width="560" height="502"/>
+                                <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Dear Diary..."/>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mOt-fM-dKW" firstAttribute="leading" secondItem="SKN-oE-cS5" secondAttribute="leadingMargin" id="25k-cl-fSi"/>
+                            <constraint firstItem="mOt-fM-dKW" firstAttribute="top" secondItem="Ucl-O4-vnj" secondAttribute="bottom" constant="12" id="7In-lk-jbo"/>
+                            <constraint firstItem="KGo-FT-iU7" firstAttribute="top" secondItem="Ucl-O4-vnj" secondAttribute="bottom" constant="8" symbolic="YES" id="7dI-tB-rbZ"/>
+                            <constraint firstItem="GON-14-g5h" firstAttribute="top" secondItem="Gqd-71-Cvw" secondAttribute="bottom" constant="8" symbolic="YES" id="Ata-yL-h5k"/>
+                            <constraint firstItem="KGo-FT-iU7" firstAttribute="trailing" secondItem="Gqd-71-Cvw" secondAttribute="trailing" id="HxP-Eh-ylx"/>
+                            <constraint firstItem="mOt-fM-dKW" firstAttribute="centerY" secondItem="KGo-FT-iU7" secondAttribute="centerY" id="MmD-51-YqY"/>
+                            <constraint firstItem="mOt-fM-dKW" firstAttribute="leading" secondItem="Gqd-71-Cvw" secondAttribute="leading" id="Msy-3p-zSo"/>
+                            <constraint firstItem="KGo-FT-iU7" firstAttribute="trailing" secondItem="SKN-oE-cS5" secondAttribute="trailingMargin" id="U4Y-Jt-qSF"/>
+                            <constraint firstItem="Gqd-71-Cvw" firstAttribute="top" secondItem="KGo-FT-iU7" secondAttribute="bottom" constant="8" symbolic="YES" id="Xtg-LX-v4T"/>
+                            <constraint firstItem="KGo-FT-iU7" firstAttribute="leading" secondItem="mOt-fM-dKW" secondAttribute="trailing" constant="8" symbolic="YES" id="efY-NA-GRl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Diary" id="2Sp-CY-yz4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LN3-bI-lPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1018" y="1079"/>
         </scene>
     </scenes>
 </document>
