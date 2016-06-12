@@ -25,7 +25,7 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
     }
     
     func calendar(calendar: FSCalendar, subtitleForDate date: NSDate) -> String? {
-        return entries[date]?.title
+        return nil
     }
     
     func calendar(calendar: FSCalendar, numberOfEventsForDate date: NSDate) -> Int {
