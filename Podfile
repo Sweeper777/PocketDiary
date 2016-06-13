@@ -6,6 +6,9 @@ use_frameworks!
 target 'PocketDiary' do
     pod 'FSCalendar'
     pod 'SZTextView'
+    pod 'EZSwiftExtensions'
+    pod 'EZLoadingActivity'
+    pod 'SearchableTableView'
 end
 
 target 'PocketDiaryTests' do
