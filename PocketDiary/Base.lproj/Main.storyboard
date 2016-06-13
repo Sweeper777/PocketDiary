@@ -13,6 +13,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cdx-TW-mYv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="41c-wa-DII"/>
@@ -39,6 +43,30 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSizeToFitContentSize" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="eventColor">
+                                        <color key="value" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" red="0.23132071430000001" green="0.48063303969999999" blue="0.23132071430000001" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" red="0.23132071430000001" green="0.48063303969999999" blue="0.23132071430000001" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleWeekendColor">
+                                        <color key="value" red="1" green="0.0" blue="0.037429042760000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" red="0.17984115359094227" green="0.37366995245167783" blue="0.17984115359094227" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.79215686269999996" green="1" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTodayColor">
+                                        <color key="value" red="0.23132071430000001" green="0.48063303969999999" blue="0.23132071430000001" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderDefaultColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="lrE-fe-pNO"/>
@@ -54,7 +82,7 @@
                             <constraint firstItem="nnA-gP-K6c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eoH-Po-k2p"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Diaries" prompt="Select a date to view an entry" id="neZ-ZS-p48"/>
+                    <navigationItem key="navigationItem" title="My Diaries" prompt="Select a date to view/edit an entry" id="neZ-ZS-p48"/>
                     <connections>
                         <segue destination="cWU-7j-YM0" kind="presentation" identifier="showEditor" modalPresentationStyle="formSheet" id="AnO-NI-CJs"/>
                     </connections>
@@ -131,7 +159,10 @@
                             <constraint firstItem="KGo-FT-iU7" firstAttribute="leading" secondItem="mOt-fM-dKW" secondAttribute="trailing" constant="8" symbolic="YES" id="efY-NA-GRl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Diary" id="2Sp-CY-yz4"/>
+                    <navigationItem key="navigationItem" title="Edit Diary" id="2Sp-CY-yz4">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wPc-DO-SL0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="M0w-AL-15Y"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LN3-bI-lPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
