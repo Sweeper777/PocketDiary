@@ -29,7 +29,7 @@
         <!--Data Source-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalendarController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -91,82 +91,106 @@
             </objects>
             <point key="canvasLocation" x="245" y="306"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Data Passer Controller-->
         <scene sceneID="vHf-xe-Wvz">
             <objects>
-                <navigationController id="cWU-7j-YM0" sceneMemberID="viewController">
+                <navigationController id="cWU-7j-YM0" customClass="DataPasserController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HUE-nG-YcW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="5Gq-PU-LlI" kind="relationship" relationship="rootViewController" id="OF9-j1-a0O"/>
+                        <segue destination="5Xw-TL-cWl" kind="relationship" relationship="rootViewController" id="axw-lH-8yR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQa-Dm-G8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245" y="1079"/>
         </scene>
-        <!--Edit Diary-->
-        <scene sceneID="Ebe-PC-Shd">
+        <!--Diary Editor Controller-->
+        <scene sceneID="CQh-dT-YpS">
             <objects>
-                <viewController id="5Gq-PU-LlI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ucl-O4-vnj"/>
-                        <viewControllerLayoutGuide type="bottom" id="GON-14-g5h"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SKN-oE-cS5">
+                <tableViewController id="5Xw-TL-cWl" customClass="DiaryEditorController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jrU-Gs-6Yf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGo-FT-iU7">
-                                <rect key="frame" x="73" y="52" width="507" height="30"/>
-                                <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOt-fM-dKW">
-                                <rect key="frame" x="20" y="56" width="45" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="2S6-KE-rzy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-71-Cvw" customClass="SZTextView">
-                                <rect key="frame" x="20" y="90" width="560" height="502"/>
-                                <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Dear Diary..."/>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mOt-fM-dKW" firstAttribute="leading" secondItem="SKN-oE-cS5" secondAttribute="leadingMargin" id="25k-cl-fSi"/>
-                            <constraint firstItem="mOt-fM-dKW" firstAttribute="top" secondItem="Ucl-O4-vnj" secondAttribute="bottom" constant="12" id="7In-lk-jbo"/>
-                            <constraint firstItem="KGo-FT-iU7" firstAttribute="top" secondItem="Ucl-O4-vnj" secondAttribute="bottom" constant="8" symbolic="YES" id="7dI-tB-rbZ"/>
-                            <constraint firstItem="GON-14-g5h" firstAttribute="top" secondItem="Gqd-71-Cvw" secondAttribute="bottom" constant="8" symbolic="YES" id="Ata-yL-h5k"/>
-                            <constraint firstItem="KGo-FT-iU7" firstAttribute="trailing" secondItem="Gqd-71-Cvw" secondAttribute="trailing" id="HxP-Eh-ylx"/>
-                            <constraint firstItem="mOt-fM-dKW" firstAttribute="centerY" secondItem="KGo-FT-iU7" secondAttribute="centerY" id="MmD-51-YqY"/>
-                            <constraint firstItem="mOt-fM-dKW" firstAttribute="leading" secondItem="Gqd-71-Cvw" secondAttribute="leading" id="Msy-3p-zSo"/>
-                            <constraint firstItem="KGo-FT-iU7" firstAttribute="trailing" secondItem="SKN-oE-cS5" secondAttribute="trailingMargin" id="U4Y-Jt-qSF"/>
-                            <constraint firstItem="Gqd-71-Cvw" firstAttribute="top" secondItem="KGo-FT-iU7" secondAttribute="bottom" constant="8" symbolic="YES" id="Xtg-LX-v4T"/>
-                            <constraint firstItem="KGo-FT-iU7" firstAttribute="leading" secondItem="mOt-fM-dKW" secondAttribute="trailing" constant="8" symbolic="YES" id="efY-NA-GRl"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Edit Diary" id="2Sp-CY-yz4">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wPc-DO-SL0"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="M0w-AL-15Y"/>
+                        <sections>
+                            <tableViewSection id="ICq-Wk-yey">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="553" id="Sbg-ez-Bx4">
+                                        <rect key="frame" x="0.0" y="44" width="600" height="553"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sbg-ez-Bx4" id="O91-jT-BsM">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="553"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mja-hJ-8a0">
+                                                    <rect key="frame" x="61" y="8" width="531" height="30"/>
+                                                    <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5S-wR-Nsj">
+                                                    <rect key="frame" x="8" y="12" width="45" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="Q0F-Wq-CVb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-Xr-ERB" customClass="SZTextView">
+                                                    <rect key="frame" x="8" y="46" width="584" height="499"/>
+                                                    <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Dear Diary..."/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="leading" secondItem="hmB-Xr-ERB" secondAttribute="leading" id="5MX-5t-Fqh"/>
+                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="centerY" secondItem="mja-hJ-8a0" secondAttribute="centerY" id="5Wh-9Z-L1o"/>
+                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="top" secondItem="O91-jT-BsM" secondAttribute="topMargin" id="9XN-Sk-GbO"/>
+                                                <constraint firstItem="hmB-Xr-ERB" firstAttribute="top" secondItem="f5S-wR-Nsj" secondAttribute="bottom" constant="13" id="CqA-bV-XZU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mja-hJ-8a0" secondAttribute="trailing" id="FK2-c3-WMA"/>
+                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="leading" secondItem="O91-jT-BsM" secondAttribute="leadingMargin" id="c6N-gI-IfK"/>
+                                                <constraint firstItem="hmB-Xr-ERB" firstAttribute="top" secondItem="mja-hJ-8a0" secondAttribute="bottom" constant="8" symbolic="YES" id="gCl-Jl-4Ql"/>
+                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="trailing" secondItem="hmB-Xr-ERB" secondAttribute="trailing" id="oaG-RV-y2c"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hmB-Xr-ERB" secondAttribute="bottom" constant="-0.5" id="tbu-Dd-EN8"/>
+                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="leading" secondItem="f5S-wR-Nsj" secondAttribute="trailing" constant="8" symbolic="YES" id="xnz-SY-GVW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="5Xw-TL-cWl" id="xWt-vY-KXp"/>
+                            <outlet property="delegate" destination="5Xw-TL-cWl" id="aTt-05-2t8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="IuX-8e-rIx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yDh-Jv-El5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel:" destination="5Xw-TL-cWl" id="7PL-xc-H8m"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tAM-NU-GL0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LN3-bI-lPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMf-fg-2Be" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="1079"/>
+            <point key="canvasLocation" x="1103" y="1079"/>
         </scene>
     </scenes>
 </document>
