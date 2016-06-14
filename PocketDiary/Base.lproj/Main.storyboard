@@ -84,10 +84,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Diaries" prompt="Select a date to view/edit an entry" id="neZ-ZS-p48"/>
                     <connections>
+                        <outlet property="calendar" destination="nnA-gP-K6c" id="AgN-lW-76U"/>
                         <segue destination="cWU-7j-YM0" kind="presentation" identifier="showEditor" modalPresentationStyle="formSheet" id="AnO-NI-CJs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="K5t-qg-3VK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="245" y="306"/>
         </scene>
@@ -185,8 +187,16 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="tAM-NU-GL0">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="save:" destination="5Xw-TL-cWl" id="yw3-ad-02c"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="txtContent" destination="hmB-Xr-ERB" id="r6L-Nd-VBm"/>
+                        <outlet property="txtTitle" destination="mja-hJ-8a0" id="jmc-9y-dTL"/>
+                        <segue destination="K5t-qg-3VK" kind="unwind" identifier="unwindFromEditor" unwindAction="unwindFromEditor:" id="iaA-UE-z39"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMf-fg-2Be" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

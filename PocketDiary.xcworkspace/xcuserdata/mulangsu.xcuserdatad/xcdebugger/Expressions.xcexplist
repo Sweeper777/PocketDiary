@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "CalendarController.prepareForSegue(UIStoryboardSegue, sender : AnyObject?) -&gt; ():CalendarController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DiaryEditorController.save(UIBarButtonItem) -&gt; ():DiaryEditorController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "entry.content">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CalendarController.calendar(FSCalendar, numberOfEventsForDate : NSDate) -&gt; Int:CalendarController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "entries[date]!.content">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CalendarController.calendar(FSCalendar, didSelectDate : NSDate) -&gt; ():CalendarController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "entries[NSDate()]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CalendarController.unwindFromEditor(UIStoryboardSegue) -&gt; ():CalendarController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.entry.content">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
