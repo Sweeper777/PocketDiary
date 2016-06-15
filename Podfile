@@ -9,6 +9,7 @@ target 'PocketDiary' do
     pod 'EZSwiftExtensions'
     pod 'EZLoadingActivity'
     pod 'SearchableTableView'
+    pod 'MMMarkdown'
 end
 
 target 'PocketDiaryTests' do

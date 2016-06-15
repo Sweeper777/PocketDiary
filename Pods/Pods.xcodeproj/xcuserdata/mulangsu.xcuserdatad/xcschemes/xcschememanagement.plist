@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MMMarkdown.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PocketDiary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>115F710AF9FAEA0D051BE7B515FDE935</key>
+		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4102BE08D798641296FF3B496EF06BFC</key>
+		<key>5D542909BA61AEE91FFCD5ACDA22C7A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4164E43FB2367D7FFD47C4853A34FCF5</key>
+		<key>82F3C3FBBC62A4B7FA0EB19CE3D1E5A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +68,11 @@
 			<true/>
 		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9AFBA28891E739BD22C1F14F6472F65</key>
 		<dict>
 			<key>primary</key>
 			<true/>

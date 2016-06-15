@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D9A8DBAC56FF6B8D830DFB0C'
+               BlueprintIdentifier = 'B9785ED87DBD2CEDA066C2D2'
                BlueprintName = 'SearchableTableView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SearchableTableView.framework'>

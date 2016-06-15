@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '08578B8CA8F3CBC72BD20EDE'
-               BlueprintName = 'EZSwiftExtensions'
+               BlueprintIdentifier = 'E16B165162D8C0358F022A18'
+               BlueprintName = 'MMMarkdown'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'EZSwiftExtensions.framework'>
+               BuildableName = 'MMMarkdown.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
