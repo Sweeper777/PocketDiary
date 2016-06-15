@@ -2,6 +2,7 @@ import UIKit
 import FSCalendar
 import SZTextView
 import CoreData
+import MMMarkdown
 
 class DiaryEditorController: UITableViewController {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -25,6 +26,9 @@ class DiaryEditorController: UITableViewController {
             txtTitle.text = entry.title
             txtContent.text = entry.content
             tabs.selectedSegmentIndex = 1
+            txtContent.hidden = true
+            preview.hidden = false
+            updatePreview()
         }
     }
 
@@ -71,8 +75,25 @@ class DiaryEditorController: UITableViewController {
             txtContent.hidden = true
             preview.hidden = false
         }
+        
+        updatePreview()
     }
     
     @IBAction func textChanged(sender: AnyObject) {
+        updatePreview()
+    }
+    
+    func updatePreview() {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .NoStyle
+        let dateFormatted = formatter.stringFromDate(date)
+        
+        let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
+        
+        let mdHtml = try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)\n<hr>\n# \(txtTitle.text!)\n\n\(txtContent.text!)", extensions: .GitHubFlavored) ?? "\(dateFormatted)\n\n\(txtTitle.text!)\n\n\(txtContent.text!)"
+        print(mdHtml)
+        
+        preview.loadHTMLString("<style>\(stylesheet)</style> \(mdHtml!)", baseURL: nil)
     }
 }
