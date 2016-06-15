@@ -127,6 +127,14 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright 2015. Neeraj Baid. This library is distributed under the terms of the MIT/X11.</string>
+			<key>Title</key>
+			<string>NBEmojiSearchView</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (c) 2013 glaszig &lt;glaszig@gmail.com&gt;
 
 MIT License

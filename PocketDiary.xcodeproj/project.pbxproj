@@ -16,6 +16,7 @@
 		5A21FA8A1D01B16000B36AA7 /* PocketDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA891D01B16000B36AA7 /* PocketDiaryTests.swift */; };
 		5A21FA951D01B16000B36AA7 /* PocketDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA941D01B16000B36AA7 /* PocketDiaryUITests.swift */; };
 		5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A21FAA21D01B78400B36AA7 /* FSCalendar.framework */; };
+		5A6BC49A1D116D8B00EAB8E8 /* NBEmojiSearchView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6BC4991D116D8B00EAB8E8 /* NBEmojiSearchView.framework */; };
 		5AF571261D02582400DF004F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571241D02582400DF004F /* Entry.swift */; };
 		5AF571271D02582400DF004F /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */; };
 		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
@@ -23,7 +24,6 @@
 		5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */; };
 		5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */; };
 		5AFB0E7B1D0EC14C00EEEA1F /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E781D0EC14C00EEEA1F /* EZSwiftExtensions.framework */; };
-		5AFB0E7C1D0EC14C00EEEA1F /* SearchableTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E791D0EC14C00EEEA1F /* SearchableTableView.framework */; };
 		5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBEAC01D111D4800F8A8D2 /* MMMarkdown.framework */; };
 		5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBEAC21D111E1D00F8A8D2 /* modest.css */; };
 		9CEE7BB01359CA45B52C2BA6 /* Pods_PocketDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */; };
@@ -62,6 +62,7 @@
 		5A21FA941D01B16000B36AA7 /* PocketDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketDiaryUITests.swift; sourceTree = "<group>"; };
 		5A21FA961D01B16000B36AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A21FAA21D01B78400B36AA7 /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = "Pods/../build/Debug-iphoneos/FSCalendar.framework"; sourceTree = "<group>"; };
+		5A6BC4991D116D8B00EAB8E8 /* NBEmojiSearchView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NBEmojiSearchView.framework; path = "Pods/../build/Debug-iphoneos/NBEmojiSearchView.framework"; sourceTree = "<group>"; };
 		5AF571241D02582400DF004F /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SZTextView.framework; path = "Pods/../build/Debug-iphoneos/SZTextView.framework"; sourceTree = "<group>"; };
@@ -82,10 +83,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6BC49A1D116D8B00EAB8E8 /* NBEmojiSearchView.framework in Frameworks */,
 				5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */,
 				5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */,
 				5AFB0E7B1D0EC14C00EEEA1F /* EZSwiftExtensions.framework in Frameworks */,
-				5AFB0E7C1D0EC14C00EEEA1F /* SearchableTableView.framework in Frameworks */,
 				5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */,
 				5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */,
 				9CEE7BB01359CA45B52C2BA6 /* Pods_PocketDiary.framework in Frameworks */,
@@ -180,6 +181,7 @@
 		CB021911B0AE96F7D484390D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A6BC4991D116D8B00EAB8E8 /* NBEmojiSearchView.framework */,
 				5AFBEAC01D111D4800F8A8D2 /* MMMarkdown.framework */,
 				5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */,
 				5AFB0E781D0EC14C00EEEA1F /* EZSwiftExtensions.framework */,

@@ -1,0 +1,1 @@
+../../../NBEmojiSearchView/Source/NBEmojiSearchResultTableViewCell.h

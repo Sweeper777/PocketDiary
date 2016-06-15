@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NBEmojiSearchView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PocketDiary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,22 +47,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>059DDB5DBC0FA29E5B723A23D228C17A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D542909BA61AEE91FFCD5ACDA22C7A9</key>
+		<key>5E4B7588DEC498E280EC110DFFC228FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82F3C3FBBC62A4B7FA0EB19CE3D1E5A7</key>
+		<key>82E0F3FEF712B5F5798C68B6842311DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A288CBEC7FF14BC729FA3F6E016594B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -68,11 +83,6 @@
 			<true/>
 		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F9AFBA28891E739BD22C1F14F6472F65</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D1D7C5EF62659FAF849078C2'
-               BlueprintName = 'Pods-PocketDiary'
+               BlueprintIdentifier = 'EE924C6C0ADFBBCF3DDF65BA'
+               BlueprintName = 'NBEmojiSearchView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_PocketDiary.framework'>
+               BuildableName = 'NBEmojiSearchView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

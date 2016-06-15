@@ -3,6 +3,7 @@ PODS:
   - EZSwiftExtensions (1.5)
   - FSCalendar (2.1.1)
   - MMMarkdown (0.5.4)
+  - NBEmojiSearchView (1.0)
   - SearchableTableView (1.1)
   - SZTextView (1.2.2)
 
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - EZSwiftExtensions
   - FSCalendar
   - MMMarkdown
+  - NBEmojiSearchView
   - SearchableTableView
   - SZTextView
 
@@ -19,6 +21,7 @@ SPEC CHECKSUMS:
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   FSCalendar: 04dc531f06fbde8a8e5b7394e9d4edebd45a591f
   MMMarkdown: 754f9154136d224178f51f2b2ba67a66a89d96ea
+  NBEmojiSearchView: 7d4f37d294eb1cdb63c94518d072f7b3714a0590
   SearchableTableView: 81cce1f5122eb46f1e41dffb0ccd540025849be1
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
 

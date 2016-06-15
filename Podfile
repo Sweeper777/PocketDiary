@@ -10,6 +10,7 @@ target 'PocketDiary' do
     pod 'EZLoadingActivity'
     pod 'SearchableTableView'
     pod 'MMMarkdown'
+    pod 'NBEmojiSearchView'
 end
 
 target 'PocketDiaryTests' do

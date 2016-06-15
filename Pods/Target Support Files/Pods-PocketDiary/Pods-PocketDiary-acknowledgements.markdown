@@ -98,6 +98,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## NBEmojiSearchView
+
+Copyright 2015. Neeraj Baid. This library is distributed under the terms of the MIT/X11.
+
 ## SZTextView
 
 Copyright (c) 2013 glaszig <glaszig@gmail.com>
