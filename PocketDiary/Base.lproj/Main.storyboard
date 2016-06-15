@@ -136,37 +136,64 @@
                                                     <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textChanged:" destination="5Xw-TL-cWl" eventType="editingChanged" id="bky-3h-6gD"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5S-wR-Nsj">
                                                     <rect key="frame" x="8" y="12" width="45" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="Q0F-Wq-CVb"/>
+                                                        <constraint firstAttribute="width" constant="45" id="TyQ-Sn-N8a"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-Xr-ERB" customClass="SZTextView">
-                                                    <rect key="frame" x="8" y="46" width="584" height="499"/>
+                                                    <rect key="frame" x="8" y="82" width="584" height="463"/>
                                                     <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Dear Diary..."/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Write your diary here! (Markdown supported!)"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </textView>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UZU-P6-qNj">
+                                                    <rect key="frame" x="240" y="46" width="121" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="121" id="CZE-CO-Rf0"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="Editor"/>
+                                                        <segment title="Preview"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.23132071430000001" green="0.48063303969999999" blue="0.23132071430000001" alpha="1" colorSpace="deviceRGB"/>
+                                                    <connections>
+                                                        <action selector="changedTab:" destination="5Xw-TL-cWl" eventType="valueChanged" id="Kdm-ey-sqE"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dF4-lW-4bQ">
+                                                    <rect key="frame" x="8" y="82" width="584" height="463"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </webView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="leading" secondItem="hmB-Xr-ERB" secondAttribute="leading" id="5MX-5t-Fqh"/>
-                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="centerY" secondItem="mja-hJ-8a0" secondAttribute="centerY" id="5Wh-9Z-L1o"/>
-                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="top" secondItem="O91-jT-BsM" secondAttribute="topMargin" id="9XN-Sk-GbO"/>
-                                                <constraint firstItem="hmB-Xr-ERB" firstAttribute="top" secondItem="f5S-wR-Nsj" secondAttribute="bottom" constant="13" id="CqA-bV-XZU"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="mja-hJ-8a0" secondAttribute="trailing" id="FK2-c3-WMA"/>
-                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="leading" secondItem="O91-jT-BsM" secondAttribute="leadingMargin" id="c6N-gI-IfK"/>
-                                                <constraint firstItem="hmB-Xr-ERB" firstAttribute="top" secondItem="mja-hJ-8a0" secondAttribute="bottom" constant="8" symbolic="YES" id="gCl-Jl-4Ql"/>
-                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="trailing" secondItem="hmB-Xr-ERB" secondAttribute="trailing" id="oaG-RV-y2c"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hmB-Xr-ERB" secondAttribute="bottom" constant="-0.5" id="tbu-Dd-EN8"/>
-                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="leading" secondItem="f5S-wR-Nsj" secondAttribute="trailing" constant="8" symbolic="YES" id="xnz-SY-GVW"/>
+                                                <constraint firstItem="dF4-lW-4bQ" firstAttribute="bottom" secondItem="hmB-Xr-ERB" secondAttribute="bottom" id="0OJ-d0-KtL"/>
+                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="leading" secondItem="f5S-wR-Nsj" secondAttribute="trailing" constant="8" symbolic="YES" id="4Tm-Dg-v6b"/>
+                                                <constraint firstItem="dF4-lW-4bQ" firstAttribute="trailing" secondItem="hmB-Xr-ERB" secondAttribute="trailing" id="55A-SJ-SKV"/>
+                                                <constraint firstItem="hmB-Xr-ERB" firstAttribute="top" secondItem="UZU-P6-qNj" secondAttribute="bottom" constant="8" symbolic="YES" id="BLs-5d-hFY"/>
+                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="leading" secondItem="hmB-Xr-ERB" secondAttribute="leading" id="CaA-Ka-wGl"/>
+                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="top" secondItem="O91-jT-BsM" secondAttribute="topMargin" id="M9v-cS-CUZ"/>
+                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="trailing" secondItem="O91-jT-BsM" secondAttribute="trailingMargin" id="Rfp-LS-cqQ"/>
+                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="top" secondItem="O91-jT-BsM" secondAttribute="topMargin" constant="4" id="b9R-Gg-RmL"/>
+                                                <constraint firstItem="dF4-lW-4bQ" firstAttribute="top" secondItem="hmB-Xr-ERB" secondAttribute="top" id="egN-jq-StF"/>
+                                                <constraint firstItem="dF4-lW-4bQ" firstAttribute="leading" secondItem="hmB-Xr-ERB" secondAttribute="leading" id="hUb-yv-iVx"/>
+                                                <constraint firstItem="hmB-Xr-ERB" firstAttribute="bottom" secondItem="O91-jT-BsM" secondAttribute="bottomMargin" id="kBE-wA-CPw"/>
+                                                <constraint firstItem="UZU-P6-qNj" firstAttribute="centerX" secondItem="hmB-Xr-ERB" secondAttribute="centerX" id="nVI-eQ-x3Q"/>
+                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="leading" secondItem="O91-jT-BsM" secondAttribute="leadingMargin" id="tTp-pA-Dci"/>
+                                                <constraint firstItem="UZU-P6-qNj" firstAttribute="top" secondItem="mja-hJ-8a0" secondAttribute="bottom" constant="8" symbolic="YES" id="wAn-CD-Smx"/>
+                                                <constraint firstItem="f5S-wR-Nsj" firstAttribute="centerY" secondItem="mja-hJ-8a0" secondAttribute="centerY" id="wee-2T-Z69"/>
+                                                <constraint firstItem="mja-hJ-8a0" firstAttribute="trailing" secondItem="hmB-Xr-ERB" secondAttribute="trailing" id="y53-6u-xg3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -193,6 +220,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="preview" destination="dF4-lW-4bQ" id="meJ-OS-VTk"/>
+                        <outlet property="tabs" destination="UZU-P6-qNj" id="kwA-LU-1uy"/>
                         <outlet property="txtContent" destination="hmB-Xr-ERB" id="r6L-Nd-VBm"/>
                         <outlet property="txtTitle" destination="mja-hJ-8a0" id="jmc-9y-dTL"/>
                         <segue destination="K5t-qg-3VK" kind="unwind" identifier="unwindFromEditor" unwindAction="unwindFromEditor:" id="iaA-UE-z39"/>

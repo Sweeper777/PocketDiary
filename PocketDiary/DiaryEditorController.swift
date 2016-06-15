@@ -11,6 +11,8 @@ class DiaryEditorController: UITableViewController {
     var userDeletedEntry = false
     @IBOutlet var txtTitle: UITextField!
     @IBOutlet var txtContent: SZTextView!
+    @IBOutlet var preview: UIWebView!
+    @IBOutlet var tabs: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +24,12 @@ class DiaryEditorController: UITableViewController {
         if entry != nil {
             txtTitle.text = entry.title
             txtContent.text = entry.content
+            tabs.selectedSegmentIndex = 1
         }
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UIApplication.sharedApplication().delegate!.window!!.frame.height - 100
+        return view.frame.height - 75
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
@@ -58,5 +61,18 @@ class DiaryEditorController: UITableViewController {
         }
         
         performSegueWithIdentifier("unwindFromEditor", sender: self)
+    }
+    
+    @IBAction func changedTab(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            txtContent.hidden = false
+            preview.hidden = true
+        } else if sender.selectedSegmentIndex == 1 {
+            txtContent.hidden = true
+            preview.hidden = false
+        }
+    }
+    
+    @IBAction func textChanged(sender: AnyObject) {
     }
 }

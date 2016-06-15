@@ -19,6 +19,11 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        calendar.deselectDate(calendar.selectedDate)
+    }
+    
     func calendar(calendar: FSCalendar, didSelectDate date: NSDate) {
         dateToPass = date
         performSegueWithIdentifier("showEditor", sender: self)
@@ -56,18 +61,6 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
                 calendar.reloadData()
             }
         }
-    }
-    
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        let entity = NSEntityDescription.entityForName("Entry", inManagedObjectContext: dataContext)
-        for i in 0...365 {
-            let thatDate = NSDate().fs_dateByIgnoringTimeComponents.fs_dateByAddingDays(i)
-            let entry = Entry(entity: entity!, insertIntoManagedObjectContext: dataContext, title: "abcdefghijiklmnopq", content: "ieewhfwefuhwlfnihghfonguehrognrufhgnrgikrfgoinrfhoinergohfingoedhneusfhocncihsfonsifhowfwhrfrghoenrgoeijgjehoirgnhgoengheojgnjehgonoghiegioenghogneoiehfhdifhdhgjernginerglehoigjingoiejgijgiogiejoijgiojijg", date: thatDate)
-            entries[thatDate] = entry
-        }
-        dataContext.saveData()
-        print("dataSaved")
-        calendar.reloadData()
     }
 }
 

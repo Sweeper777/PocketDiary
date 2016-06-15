@@ -25,6 +25,7 @@
 		5AFB0E7B1D0EC14C00EEEA1F /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E781D0EC14C00EEEA1F /* EZSwiftExtensions.framework */; };
 		5AFB0E7C1D0EC14C00EEEA1F /* SearchableTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E791D0EC14C00EEEA1F /* SearchableTableView.framework */; };
 		5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBEAC01D111D4800F8A8D2 /* MMMarkdown.framework */; };
+		5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBEAC21D111E1D00F8A8D2 /* modest.css */; };
 		9CEE7BB01359CA45B52C2BA6 /* Pods_PocketDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		5AFB0E781D0EC14C00EEEA1F /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
 		5AFB0E791D0EC14C00EEEA1F /* SearchableTableView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SearchableTableView.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/SearchableTableView.framework"; sourceTree = "<group>"; };
 		5AFBEAC01D111D4800F8A8D2 /* MMMarkdown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMMarkdown.framework; path = "Pods/../build/Debug-iphoneos/MMMarkdown.framework"; sourceTree = "<group>"; };
+		5AFBEAC21D111E1D00F8A8D2 /* modest.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = modest.css; sourceTree = "<group>"; };
 		6289957AE47031AEF251179F /* Pods-PocketDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		64DC5DF19320A8A21F275BBF /* Pods-PocketDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.release.xcconfig"; sourceTree = "<group>"; };
 		C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 		5A21FA701D01B16000B36AA7 /* PocketDiary */ = {
 			isa = PBXGroup;
 			children = (
+				5AFBEAC21D111E1D00F8A8D2 /* modest.css */,
 				5AF571241D02582400DF004F /* Entry.swift */,
 				5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */,
 				5A21FA711D01B16000B36AA7 /* AppDelegate.swift */,
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A21FA7F1D01B16000B36AA7 /* LaunchScreen.storyboard in Resources */,
+				5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */,
 				5A21FA7C1D01B16000B36AA7 /* Assets.xcassets in Resources */,
 				5A21FA771D01B16000B36AA7 /* Main.storyboard in Resources */,
 			);
