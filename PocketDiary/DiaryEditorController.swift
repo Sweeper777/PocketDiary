@@ -15,6 +15,7 @@ class DiaryEditorController: UITableViewController {
     @IBOutlet var txtContent: SZTextView!
     @IBOutlet var preview: UIWebView!
     @IBOutlet var tabs: UISegmentedControl!
+    @IBOutlet var deleteBtn: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,8 @@ class DiaryEditorController: UITableViewController {
             txtContent.hidden = true
             preview.hidden = false
             updatePreview()
+        } else {
+            self.navigationItem.leftBarButtonItems?.removeObject(deleteBtn)
         }
     }
 
@@ -82,6 +85,25 @@ class DiaryEditorController: UITableViewController {
     
     @IBAction func textChanged(sender: AnyObject) {
         updatePreview()
+    }
+    
+    @IBAction func deleteEntry(sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: NSLocalizedString("Delete this?", comment: ""), message: NSLocalizedString("Do you really want to delete this entry?", comment: ""), preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes, delete it!", comment: ""), style: .Destructive) {
+            _ in
+            if self.entry != nil {
+                self.dataContext.deleteObject(self.entry)
+                self.dataContext.saveData()
+                self.userDeletedEntry = true
+                self.performSegueWithIdentifier("unwindFromEditor", sender: self)
+            } else {
+                self.dismissVC(completion: nil)
+            }
+        })
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .Cancel, handler: nil))
+        
+        presentVC(alert)
     }
     
     func updatePreview() {
