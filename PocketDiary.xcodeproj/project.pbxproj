@@ -21,6 +21,7 @@
 		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
 		5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9ACF21D124B1F00C8B856 /* Emoji.framework */; };
 		5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */; };
+		5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF81D12769300C8B856 /* UserSettings.swift */; };
 		5AFB0E741D0E751000EEEA1F /* DiaryEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E731D0E751000EEEA1F /* DiaryEditorController.swift */; };
 		5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */; };
 		5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */; };
@@ -68,6 +69,7 @@
 		5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SZTextView.framework; path = "Pods/../build/Debug-iphoneos/SZTextView.framework"; sourceTree = "<group>"; };
 		5AF9ACF21D124B1F00C8B856 /* Emoji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Emoji.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/Emoji.framework"; sourceTree = "<group>"; };
 		5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiarySearchController.swift; sourceTree = "<group>"; };
+		5AF9ACF81D12769300C8B856 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		5AFB0E731D0E751000EEEA1F /* DiaryEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryEditorController.swift; sourceTree = "<group>"; };
 		5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
 		5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/EZLoadingActivity.framework"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */,
 				5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */,
 				5A21FA751D01B16000B36AA7 /* Main.storyboard */,
+				5AF9ACF81D12769300C8B856 /* UserSettings.swift */,
 				5A21FA7B1D01B16000B36AA7 /* Assets.xcassets */,
 				5A21FA7D1D01B16000B36AA7 /* LaunchScreen.storyboard */,
 				5A21FA801D01B16000B36AA7 /* Info.plist */,
@@ -381,6 +384,7 @@
 				5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */,
 				5AF571261D02582400DF004F /* Entry.swift in Sources */,
 				5A21FA7A1D01B16000B36AA7 /* PocketDiary.xcdatamodeld in Sources */,
+				5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */,
 				5A21FA741D01B16000B36AA7 /* CalendarController.swift in Sources */,
 				5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */,
 				5AFB0E741D0E751000EEEA1F /* DiaryEditorController.swift in Sources */,

@@ -11,15 +11,22 @@ class DiarySearchController: UITableViewController {
         let advanced2 = tableView.dequeueReusableCellWithIdentifier("advanced2")!
         let advanced3 = tableView.dequeueReusableCellWithIdentifier("advanced3")!
         
-        (advanced1.viewWithTag(1) as! UISwitch).addTarget(self, action: #selector(exactMatchChanged), forControlEvents: .ValueChanged)
-        (advanced2.viewWithTag(1) as! UISegmentedControl).addTarget(self, action: #selector(searchInChanged), forControlEvents: .ValueChanged)
-        (advanced3.viewWithTag(1) as! UISegmentedControl).addTarget(self, action: #selector(timeRangeChanged), forControlEvents: .ValueChanged)
-        (searchCell.viewWithTag(2) as! UIButton).addTarget(self, action: #selector(search), forControlEvents: .TouchUpInside)
-        
+        let swExactMatch = advanced1.viewWithTag(1) as! UISwitch
+        let segSearchRange = advanced2.viewWithTag(1) as! UISegmentedControl
+        let segTimeRange = advanced3.viewWithTag(1) as! UISegmentedControl
         searchText = searchCell.viewWithTag(1) as! UITextField
         
-        (advanced2.viewWithTag(1) as! UISegmentedControl).apportionsSegmentWidthsByContent = true
-        (advanced3.viewWithTag(1) as! UISegmentedControl).apportionsSegmentWidthsByContent = true
+        swExactMatch.on = UserSettings.exactMatch
+        segSearchRange.selectedSegmentIndex = UserSettings.searchRange.rawValue
+        segTimeRange.selectedSegmentIndex = UserSettings.timeRange.rawValue
+        
+        swExactMatch.addTarget(self, action: #selector(exactMatchChanged), forControlEvents: .ValueChanged)
+        segSearchRange.addTarget(self, action: #selector(searchInChanged), forControlEvents: .ValueChanged)
+        segTimeRange.addTarget(self, action: #selector(timeRangeChanged), forControlEvents: .ValueChanged)
+        (searchCell.viewWithTag(2) as! UIButton).addTarget(self, action: #selector(search), forControlEvents: .TouchUpInside)
+        
+        segSearchRange.apportionsSegmentWidthsByContent = true
+        segTimeRange.apportionsSegmentWidthsByContent = true
         
         addCellToSection(0, cell: tableView.dequeueReusableCellWithIdentifier("searchCell")!)
         addCellToSection(1, cell: tableView.dequeueReusableCellWithIdentifier("advanced1")!)
@@ -76,14 +83,14 @@ class DiarySearchController: UITableViewController {
     }
     
     @IBAction func exactMatchChanged(sender: UISwitch) {
-        
+        UserSettings.exactMatch = sender.on
     }
     
     @IBAction func searchInChanged(sender: UISegmentedControl) {
-        
+        UserSettings.searchRange = SearchRange(rawValue: sender.selectedSegmentIndex)!
     }
     
     @IBAction func timeRangeChanged(sender: UISegmentedControl) {
-        
+        UserSettings.timeRange = TimeRange(rawValue: sender.selectedSegmentIndex)!
     }
 }
