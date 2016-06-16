@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EE924C6C0ADFBBCF3DDF65BA'
-               BlueprintName = 'NBEmojiSearchView'
+               BlueprintIdentifier = '2412C871A45CADCF9AE2AF22'
+               BlueprintName = 'Emoji-swift'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'NBEmojiSearchView.framework'>
+               BuildableName = 'Emoji.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

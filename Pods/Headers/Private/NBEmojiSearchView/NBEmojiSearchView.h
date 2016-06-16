@@ -1,1 +1,0 @@
-../../../NBEmojiSearchView/Source/NBEmojiSearchView.h

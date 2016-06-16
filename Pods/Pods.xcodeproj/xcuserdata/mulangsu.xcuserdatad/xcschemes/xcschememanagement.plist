@@ -14,17 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Emoji-swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FSCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>MMMarkdown.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>NBEmojiSearchView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,7 +47,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>059DDB5DBC0FA29E5B723A23D228C17A</key>
+		<key>01A35AC68D07C7FAA72B3F2C3BAE0EF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,22 +57,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E4B7588DEC498E280EC110DFFC228FF</key>
+		<key>5FBEC9ED54B6B6442EFAB9CB08E43EA7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82E0F3FEF712B5F5798C68B6842311DB</key>
+		<key>7F634B73A49047D3247EF102CBF2A03F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A288CBEC7FF14BC729FA3F6E016594B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7C06F1DE87DF470324E3D6858FADE9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

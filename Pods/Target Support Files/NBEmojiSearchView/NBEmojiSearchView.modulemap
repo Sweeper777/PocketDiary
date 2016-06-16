@@ -1,6 +1,0 @@
-framework module NBEmojiSearchView {
-  umbrella header "NBEmojiSearchView-umbrella.h"
-
-  export *
-  module * { export * }
-}

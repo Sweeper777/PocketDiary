@@ -10,7 +10,7 @@ target 'PocketDiary' do
     pod 'EZLoadingActivity'
     pod 'SearchableTableView'
     pod 'MMMarkdown'
-    pod 'NBEmojiSearchView'
+    pod 'Emoji-swift'
 end
 
 target 'PocketDiaryTests' do

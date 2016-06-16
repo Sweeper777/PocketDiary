@@ -3,6 +3,7 @@ import FSCalendar
 import SZTextView
 import CoreData
 import MMMarkdown
+import Emoji
 
 class DiaryEditorController: UITableViewController {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -92,8 +93,7 @@ class DiaryEditorController: UITableViewController {
         let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
         
         let mdHtml = try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)\n<hr>\n# \(txtTitle.text!)\n\n\(txtContent.text!)", extensions: .GitHubFlavored) ?? "\(dateFormatted)\n\n\(txtTitle.text!)\n\n\(txtContent.text!)"
-        print(mdHtml)
         
-        preview.loadHTMLString("<style>\(stylesheet)</style> \(mdHtml!)", baseURL: nil)
+        preview.loadHTMLString("<style>\(stylesheet)</style> \(mdHtml!.emojiUnescapedString)", baseURL: nil)
     }
 }
