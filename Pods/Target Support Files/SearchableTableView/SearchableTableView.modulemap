@@ -1,0 +1,6 @@
+framework module SearchableTableView {
+  umbrella header "SearchableTableView-umbrella.h"
+
+  export *
+  module * { export * }
+}
