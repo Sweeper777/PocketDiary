@@ -62,6 +62,10 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
             }
         }
     }
+    
+    @IBAction func search(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("showSearch", sender: self)
+    }
 }
 
 extension NSManagedObjectContext {
