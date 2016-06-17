@@ -8,9 +8,9 @@ target 'PocketDiary' do
     pod 'SZTextView'
     pod 'EZSwiftExtensions'
     pod 'EZLoadingActivity'
-    pod 'SearchableTableView'
     pod 'MMMarkdown'
     pod 'Emoji-swift'
+    pod 'CHTCollectionViewWaterfallLayout'
 end
 
 target 'PocketDiaryTests' do

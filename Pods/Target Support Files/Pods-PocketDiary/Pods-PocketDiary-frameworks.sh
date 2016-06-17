@@ -84,20 +84,20 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-PocketDiary/CHTCollectionViewWaterfallLayout.framework"
   install_framework "Pods-PocketDiary/EZLoadingActivity.framework"
   install_framework "Pods-PocketDiary/EZSwiftExtensions.framework"
   install_framework "Pods-PocketDiary/Emoji.framework"
   install_framework "Pods-PocketDiary/FSCalendar.framework"
   install_framework "Pods-PocketDiary/MMMarkdown.framework"
   install_framework "Pods-PocketDiary/SZTextView.framework"
-  install_framework "Pods-PocketDiary/SearchableTableView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-PocketDiary/CHTCollectionViewWaterfallLayout.framework"
   install_framework "Pods-PocketDiary/EZLoadingActivity.framework"
   install_framework "Pods-PocketDiary/EZSwiftExtensions.framework"
   install_framework "Pods-PocketDiary/Emoji.framework"
   install_framework "Pods-PocketDiary/FSCalendar.framework"
   install_framework "Pods-PocketDiary/MMMarkdown.framework"
   install_framework "Pods-PocketDiary/SZTextView.framework"
-  install_framework "Pods-PocketDiary/SearchableTableView.framework"
 fi
