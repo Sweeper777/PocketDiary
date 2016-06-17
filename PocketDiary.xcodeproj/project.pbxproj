@@ -26,6 +26,7 @@
 		5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */; };
 		5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */; };
 		5AFB0E7B1D0EC14C00EEEA1F /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E781D0EC14C00EEEA1F /* EZSwiftExtensions.framework */; };
+		5AFB20661D13BCB8007910E6 /* DiarySearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB20651D13BCB8007910E6 /* DiarySearcher.swift */; };
 		5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBEAC01D111D4800F8A8D2 /* MMMarkdown.framework */; };
 		5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBEAC21D111E1D00F8A8D2 /* modest.css */; };
 		9CEE7BB01359CA45B52C2BA6 /* Pods_PocketDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */; };
@@ -74,6 +75,7 @@
 		5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
 		5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/EZLoadingActivity.framework"; sourceTree = "<group>"; };
 		5AFB0E781D0EC14C00EEEA1F /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
+		5AFB20651D13BCB8007910E6 /* DiarySearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiarySearcher.swift; sourceTree = "<group>"; };
 		5AFBEAC01D111D4800F8A8D2 /* MMMarkdown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMMarkdown.framework; path = "Pods/../build/Debug-iphoneos/MMMarkdown.framework"; sourceTree = "<group>"; };
 		5AFBEAC21D111E1D00F8A8D2 /* modest.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = modest.css; sourceTree = "<group>"; };
 		6289957AE47031AEF251179F /* Pods-PocketDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */,
 				5A21FA751D01B16000B36AA7 /* Main.storyboard */,
 				5AF9ACF81D12769300C8B856 /* UserSettings.swift */,
+				5AFB20651D13BCB8007910E6 /* DiarySearcher.swift */,
 				5A21FA7B1D01B16000B36AA7 /* Assets.xcassets */,
 				5A21FA7D1D01B16000B36AA7 /* LaunchScreen.storyboard */,
 				5A21FA801D01B16000B36AA7 /* Info.plist */,
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AFB20661D13BCB8007910E6 /* DiarySearcher.swift in Sources */,
 				5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */,
 				5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */,
 				5AF571261D02582400DF004F /* Entry.swift in Sources */,

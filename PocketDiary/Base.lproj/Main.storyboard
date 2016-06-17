@@ -274,6 +274,40 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="advanced4" rowHeight="65" id="cKc-XN-u0x">
+                                <rect key="frame" x="0.0" y="331.5" width="600" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKc-XN-u0x" id="fwa-vT-XrJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="INs-SK-uvC">
+                                            <rect key="frame" x="8" y="28" width="584" height="29"/>
+                                            <segments>
+                                                <segment title="Date⬆︎"/>
+                                                <segment title="Date⬇︎"/>
+                                                <segment title="Title⬆︎"/>
+                                                <segment title="Title⬇︎"/>
+                                            </segments>
+                                            <color key="tintColor" red="0.23132071430000001" green="0.48063303969999999" blue="0.23132071430000001" alpha="1" colorSpace="deviceRGB"/>
+                                        </segmentedControl>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUo-ta-j3B">
+                                            <rect key="frame" x="277" y="8" width="47" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xUo-ta-j3B" firstAttribute="top" secondItem="fwa-vT-XrJ" secondAttribute="topMargin" id="BF9-Gp-nOt"/>
+                                        <constraint firstItem="xUo-ta-j3B" firstAttribute="centerX" secondItem="fwa-vT-XrJ" secondAttribute="centerX" id="FFr-L2-Ydr"/>
+                                        <constraint firstItem="INs-SK-uvC" firstAttribute="centerX" secondItem="xUo-ta-j3B" secondAttribute="centerX" id="HR7-Rh-JEW"/>
+                                        <constraint firstItem="INs-SK-uvC" firstAttribute="leading" secondItem="fwa-vT-XrJ" secondAttribute="leadingMargin" id="MUg-kX-qwV"/>
+                                        <constraint firstItem="INs-SK-uvC" firstAttribute="top" secondItem="xUo-ta-j3B" secondAttribute="bottom" constant="3" id="aRd-v7-bdG"/>
+                                        <constraint firstItem="INs-SK-uvC" firstAttribute="trailing" secondItem="fwa-vT-XrJ" secondAttribute="trailingMargin" id="nlc-J9-eWw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="CNA-yY-MHI" id="KfB-iH-E3x"/>
