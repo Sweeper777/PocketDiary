@@ -19,4 +19,8 @@ class Entry: NSManagedObject {
     func getDescription() -> String {
         return "\(date)\n\(title)\n\(content)"
     }
+    
+    override var hashValue: Int {
+        return date!.hashValue
+    }
 }

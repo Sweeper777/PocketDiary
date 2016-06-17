@@ -31,5 +31,5 @@ enum TimeRange: Int {
 }
 
 enum SortMode: Int {
-    case DateAcending, DateDecending, TitleAcending, TitleDecending
+    case DateAscending, DateDescending, TitleAscending, TitleDescending
 }
