@@ -1,9 +1,10 @@
 import UIKit
 
-class SearchResultsController: UIViewController {
+class SearchResultsController: UIViewController, UIWebViewDelegate {
     var entries: [Entry] = []
     var searchText: String!
     var nowDisplayingIndex = -1
+    var highlighted = false
     
     @IBOutlet var resultView: UIWebView!
     
@@ -17,6 +18,7 @@ class SearchResultsController: UIViewController {
     
     override func viewDidLoad() {
         automaticallyAdjustsScrollViewInsets = false
+        resultView.delegate = self
         loadNextResult()
     }
     
@@ -31,6 +33,7 @@ class SearchResultsController: UIViewController {
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
             resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(.TitleOnly), baseURL: nil)
+            highlighted = false
         }
     }
     
@@ -45,6 +48,17 @@ class SearchResultsController: UIViewController {
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
             resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(.TitleOnly), baseURL: nil)
+            highlighted = false
         }
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        if highlighted {
+            return
+        }
+        
+        webView.stringByEvaluatingJavaScriptFromString("highlightSearch(\"\(searchText)\")")
+        
+        highlighted = true
     }
 }
