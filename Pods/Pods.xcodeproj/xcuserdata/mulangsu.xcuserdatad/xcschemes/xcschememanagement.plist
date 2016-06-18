@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CHTCollectionViewWaterfallLayout.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,22 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>22CB1C6626DA7BB21E6651DAF3A570F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>52C1B5A2084F9B3A2B61A89803680B93</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>77612750823E8F2AB940D092E7182AAD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8FEB9B56676836A5038EE92D08E53365</key>
+		<key>40B198473AC6B236923564C827E7E24A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

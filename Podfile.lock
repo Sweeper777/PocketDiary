@@ -1,7 +1,4 @@
 PODS:
-  - CHTCollectionViewWaterfallLayout (0.9.4):
-    - CHTCollectionViewWaterfallLayout/ObjC (= 0.9.4)
-  - CHTCollectionViewWaterfallLayout/ObjC (0.9.4)
   - Emoji-swift (0.0.3)
   - EZLoadingActivity (0.8)
   - EZSwiftExtensions (1.5)
@@ -10,7 +7,6 @@ PODS:
   - SZTextView (1.2.2)
 
 DEPENDENCIES:
-  - CHTCollectionViewWaterfallLayout
   - Emoji-swift
   - EZLoadingActivity
   - EZSwiftExtensions
@@ -19,7 +15,6 @@ DEPENDENCIES:
   - SZTextView
 
 SPEC CHECKSUMS:
-  CHTCollectionViewWaterfallLayout: db74be9135826d285f45ff163fd090e57c99fc50
   Emoji-swift: 1f9bbabce9aebace9fd9824b0dbb0d9eb31a746c
   EZLoadingActivity: 6fd75a05765a4085f4b6fef6f62edf9f144b3139
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a

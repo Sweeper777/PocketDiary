@@ -146,10 +146,10 @@
         <scene sceneID="hf8-pj-qkc">
             <objects>
                 <tableViewController id="CNA-yY-MHI" customClass="DiarySearchController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="TCa-5n-v34">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="TCa-5n-v34">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" id="P8p-LK-1gR">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
@@ -171,6 +171,9 @@
                                             <state key="normal" title="Search">
                                                 <color key="titleColor" red="0.23132071430000001" green="0.48063303969999999" blue="0.23132071430000001" alpha="1" colorSpace="deviceRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="search:" destination="CNA-yY-MHI" eventType="touchUpInside" id="ImM-CG-PTe"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -194,7 +197,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NLe-74-EM6">
@@ -217,7 +220,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hji-Dx-xdp">
                                             <rect key="frame" x="270" y="8" width="61" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hvY-bp-OBM">
@@ -260,7 +263,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9b-2f-uAy">
                                             <rect key="frame" x="262" y="8" width="77" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -294,7 +297,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUo-ta-j3B">
                                             <rect key="frame" x="277" y="8" width="47" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -322,10 +325,62 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="T7z-i3-XFA" kind="show" identifier="showResults" id="gQ8-HB-yvG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VaB-Yd-ErI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1755" y="306"/>
+        </scene>
+        <!--Results-->
+        <scene sceneID="SVB-g9-e57">
+            <objects>
+                <viewController id="T7z-i3-XFA" customClass="SearchResultsController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UlX-Sg-f1H"/>
+                        <viewControllerLayoutGuide type="bottom" id="v9n-nz-ld6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vMA-4C-jEc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaM-gQ-ZnO">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iaM-gQ-ZnO" firstAttribute="bottom" secondItem="v9n-nz-ld6" secondAttribute="top" id="EGf-sv-mCh"/>
+                            <constraint firstItem="iaM-gQ-ZnO" firstAttribute="leading" secondItem="vMA-4C-jEc" secondAttribute="leading" id="PVi-DN-T1r"/>
+                            <constraint firstAttribute="trailing" secondItem="iaM-gQ-ZnO" secondAttribute="trailing" id="UVJ-aX-eGg"/>
+                            <constraint firstItem="iaM-gQ-ZnO" firstAttribute="top" secondItem="UlX-Sg-f1H" secondAttribute="bottom" id="kLW-NZ-5j7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Results" id="Qid-zh-dbY">
+                        <rightBarButtonItems>
+                            <barButtonItem image="right" id="mwI-gb-evd">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="next:" destination="T7z-i3-XFA" id="QiZ-Zj-X6n"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="left" id="qe1-AR-h5F">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="previous:" destination="T7z-i3-XFA" id="tjs-bY-9Cb"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="resultView" destination="iaM-gQ-ZnO" id="uXq-yb-bJ8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTM-HH-6wO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2443" y="306"/>
         </scene>
         <!--Diary Editor Controller-->
         <scene sceneID="CQh-dT-YpS">
@@ -456,6 +511,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="left" width="25" height="25"/>
+        <image name="right" width="25" height="25"/>
         <image name="search_filled" width="25" height="25"/>
     </resources>
 </document>

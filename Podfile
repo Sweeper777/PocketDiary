@@ -10,7 +10,6 @@ target 'PocketDiary' do
     pod 'EZLoadingActivity'
     pod 'MMMarkdown'
     pod 'Emoji-swift'
-    pod 'CHTCollectionViewWaterfallLayout'
 end
 
 target 'PocketDiaryTests' do

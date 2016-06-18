@@ -1,9 +1,11 @@
 import UIKit
+import CoreData
 
 class DiarySearchController: UITableViewController {
     var cells: [[UITableViewCell]] = [[], []]
     
     var searchText: UITextField!
+    var resultsToPass: [Entry]!
     
     override func viewDidLoad() {
         let searchCell = tableView.dequeueReusableCellWithIdentifier("searchCell")!
@@ -27,14 +29,14 @@ class DiarySearchController: UITableViewController {
         segSearchRange.addTarget(self, action: #selector(searchInChanged), forControlEvents: .ValueChanged)
         segTimeRange.addTarget(self, action: #selector(timeRangeChanged), forControlEvents: .ValueChanged)
         segSort.addTarget(self, action: #selector(sortModeChanged), forControlEvents: .ValueChanged)
-        (searchCell.viewWithTag(2) as! UIButton).addTarget(self, action: #selector(search), forControlEvents: .TouchUpInside)
+        //(searchCell.viewWithTag(2) as! UIButton).addTarget(self, action: #selector(search), forControlEvents: .TouchUpInside)
         
         segSearchRange.apportionsSegmentWidthsByContent = true
         segTimeRange.apportionsSegmentWidthsByContent = true
         segSort.apportionsSegmentWidthsByContent = true
         
-        addCellToSection(0, cell: tableView.dequeueReusableCellWithIdentifier("searchCell")!)
-        addCellToSection(1, cell: tableView.dequeueReusableCellWithIdentifier("advanced1")!)
+        addCellToSection(0, cell: searchCell)
+        addCellToSection(1, cell: advanced1)
         addCellToSection(1, cell: advanced2)
         addCellToSection(1, cell: advanced3)
         addCellToSection(1, cell: advanced4)
@@ -85,7 +87,16 @@ class DiarySearchController: UITableViewController {
     }
     
     @IBAction func search(sender: UIButton) {
+        let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let searcher = DiarySearcher(searchText: searchText.text!,
+                                     exactMatch: UserSettings.exactMatch,
+                                     searchRange: UserSettings.searchRange,
+                                     timeRange: UserSettings.timeRange,
+                                     sortMode: UserSettings.sortMode)
         
+        resultsToPass = searcher.search(dataContext)
+        
+        performSegueWithIdentifier("showResults", sender: self)
     }
     
     @IBAction func exactMatchChanged(sender: UISwitch) {
@@ -102,5 +113,12 @@ class DiarySearchController: UITableViewController {
     
     @IBAction func sortModeChanged(sender: UISegmentedControl) {
         UserSettings.sortMode = SortMode(rawValue: sender.selectedSegmentIndex)!
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? SearchResultsController {
+            vc.entries = resultsToPass
+            vc.searchText = searchText.text!
+        }
     }
 }
