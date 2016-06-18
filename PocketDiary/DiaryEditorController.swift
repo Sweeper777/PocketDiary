@@ -108,7 +108,7 @@ class DiaryEditorController: UITableViewController {
     
     func updatePreview() {
         let formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
+        formatter.dateStyle = .LongStyle
         formatter.timeStyle = .NoStyle
         let dateFormatted = formatter.stringFromDate(date)
         
