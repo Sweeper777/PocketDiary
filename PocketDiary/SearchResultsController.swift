@@ -4,7 +4,6 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
     var entries: [Entry] = []
     var searchText: String!
     var nowDisplayingIndex = -1
-    var highlighted = false
     
     @IBOutlet var resultView: UIWebView!
     
@@ -16,9 +15,14 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         loadPreviousResult()
     }
     
+    @IBAction func highlight(sender: UIBarButtonItem) {
+        resultView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(searchText)')")
+    }
+    
     override func viewDidLoad() {
         automaticallyAdjustsScrollViewInsets = false
         resultView.delegate = self
+        //resultView.initializeHighlighting()
         loadNextResult()
     }
     
@@ -33,12 +37,14 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
             resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(.TitleOnly), baseURL: nil)
-            highlighted = false
+            //resultView.initializeHighlighting()
+            //resultView.highlightAllOccurencesOfString(searchText)
         }
     }
     
     private func loadPreviousResult() {
         if entries.count > 0 {
+            
             if nowDisplayingIndex == 0 {
                 nowDisplayingIndex = entries.count - 1
             } else {
@@ -47,18 +53,23 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
-            resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(.TitleOnly), baseURL: nil)
-            highlighted = false
+            resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(.TitleOnly), baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
+            //resultView.initializeHighlighting()
+            //resultView.highlightAllOccurencesOfString(searchText)
         }
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        if highlighted {
-            return
-        }
+        webView.initializeHighlighting()
         
-        webView.stringByEvaluatingJavaScriptFromString("highlightSearch(\"\(searchText)\")")
-        
-        highlighted = true
+        webView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(searchText)')")
+    }
+}
+
+extension UIWebView {
+    func initializeHighlighting() {
+        let path = NSBundle.mainBundle().pathForResource("highlight", ofType: "js")
+        let jsCode = try! String(contentsOfFile: path!)
+        self.stringByEvaluatingJavaScriptFromString(jsCode)!
     }
 }

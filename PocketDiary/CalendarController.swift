@@ -21,7 +21,10 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        calendar.deselectDate(calendar.selectedDate)
+        
+        if calendar.selectedDates.count > 0 {
+            calendar.deselectDate(calendar.selectedDate)
+        }
     }
     
     func calendar(calendar: FSCalendar, didSelectDate date: NSDate) {

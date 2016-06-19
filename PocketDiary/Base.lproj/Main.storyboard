@@ -372,6 +372,12 @@
                                     <action selector="previous:" destination="T7z-i3-XFA" id="tjs-bY-9Cb"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem image="spotlight_filled" id="OCY-j8-wDH">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="highlight:" destination="T7z-i3-XFA" id="wSj-RK-Xf8"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -514,5 +520,6 @@
         <image name="left" width="25" height="25"/>
         <image name="right" width="25" height="25"/>
         <image name="search_filled" width="25" height="25"/>
+        <image name="spotlight_filled" width="25" height="25"/>
     </resources>
 </document>
