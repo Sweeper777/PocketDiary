@@ -119,6 +119,8 @@ class DiarySearchController: UITableViewController {
         if let vc = segue.destinationViewController as? SearchResultsController {
             vc.entries = resultsToPass
             vc.searchText = searchText.text!
+            vc.searchMode = UserSettings.searchRange
+            vc.exactMatch = UserSettings.exactMatch
         }
     }
 }

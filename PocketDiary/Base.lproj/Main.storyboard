@@ -318,6 +318,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="nZt-Tr-sw1">
+                        <barButtonItem key="backBarButtonItem" title=" " id="nOf-cH-tA8"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="VaP-wr-ozZ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -359,6 +360,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="Qid-zh-dbY">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Ux2-0K-46S"/>
                         <rightBarButtonItems>
                             <barButtonItem image="right" id="mwI-gb-evd">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -370,12 +372,6 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="previous:" destination="T7z-i3-XFA" id="tjs-bY-9Cb"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="spotlight_filled" id="OCY-j8-wDH">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="highlight:" destination="T7z-i3-XFA" id="wSj-RK-Xf8"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -520,6 +516,5 @@
         <image name="left" width="25" height="25"/>
         <image name="right" width="25" height="25"/>
         <image name="search_filled" width="25" height="25"/>
-        <image name="spotlight_filled" width="25" height="25"/>
     </resources>
 </document>

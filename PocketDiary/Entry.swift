@@ -33,14 +33,16 @@ class Entry: NSManagedObject {
         
         let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
         
-        let displayTitle = mode != .ContentOnly ? "<span class=\"searchtext\">\(title!)</span>" : title!
-        let displayContent = mode != .TitleOnly ? "<span class=\"searchtext\">\(content!)</span>" : content!
+        let displayTitle = mode == .TitleOnly ? "<span id=\"searchtext\">\(title!)</span>" : title!
+        let displayContent = mode == .ContentOnly ? "<span id=\"searchtext\">\(content!)</span>" : content!
         
         let mdHtml = try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)\n<hr>\n# \(displayTitle)\n\n\(displayContent)", extensions: .GitHubFlavored) ?? "\(dateFormatted)\n\n\(displayTitle)\n\n\(displayContent)"
         
+        let displayHtml = mode == .TitleAndContent ? "<span id=\"searchtext\">\(mdHtml!)</span>" : mdHtml!
+        print(displayHtml)
+        print(mode)
         
-        
-        let ret = "<style>\(stylesheet)</style> \(mdHtml!.emojiUnescapedString)"
+        let ret = "<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)"
         return ret
     }
 }

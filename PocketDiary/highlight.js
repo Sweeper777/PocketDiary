@@ -41,8 +41,8 @@ function uiWebview_HighlightAllOccurencesOfStringForElement(element,keyword) {
 
 // the main entry point to start the search
 function uiWebview_HighlightAllOccurencesOfString(keyword) {
-    var elements = document.getElementsByClassName("searchtext");
-        uiWebview_HighlightAllOccurencesOfStringForElement(document.body, keyword.toLowerCase());
+    var element = document.getElementById("searchtext");
+    uiWebview_HighlightAllOccurencesOfStringForElement(element, keyword.toLowerCase());
 }
 
 // helper function, recursively removes the highlights in elements and their childs

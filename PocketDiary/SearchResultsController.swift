@@ -5,6 +5,8 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
     var entries: [Entry] = []
     var searchText: String!
     var nowDisplayingIndex = -1
+    var searchMode: SearchRange!
+    var exactMatch: Bool!
     
     @IBOutlet var resultView: UIWebView!
     
@@ -16,12 +18,12 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         loadPreviousResult()
     }
     
-    @IBAction func highlight(sender: UIBarButtonItem) {
-        resultView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(searchText)')")
-    }
-    
     override func viewDidLoad() {
         automaticallyAdjustsScrollViewInsets = false
+        
+        UINavigationBar.appearance().barStyle = .Black
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
         resultView.delegate = self
         //resultView.initializeHighlighting()
         loadNextResult()
@@ -37,7 +39,7 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
-            resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(.TitleOnly), baseURL: nil)
+            resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(searchMode), baseURL: nil)
             //resultView.initializeHighlighting()
             //resultView.highlightAllOccurencesOfString(searchText)
         }
@@ -54,7 +56,7 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
-            resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(.TitleOnly), baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
+            resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(searchMode), baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
             //resultView.initializeHighlighting()
             //resultView.highlightAllOccurencesOfString(searchText)
         }
@@ -63,7 +65,14 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         webView.initializeHighlighting()
         
-        webView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(searchText.emojiUnescapedString)')")
+        if exactMatch == true {
+            webView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(searchText.emojiUnescapedString)')")
+        } else {
+            let keywords = searchText.componentsSeparatedByString(" ").filter { $0 != "" }
+            for keyword in keywords {
+                webView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(keyword.emojiUnescapedString)')")
+            }
+        }
     }
 }
 
