@@ -1,4 +1,5 @@
 import UIKit
+import Emoji
 
 class SearchResultsController: UIViewController, UIWebViewDelegate {
     var entries: [Entry] = []
@@ -62,7 +63,7 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         webView.initializeHighlighting()
         
-        webView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(searchText)')")
+        webView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(searchText.emojiUnescapedString)')")
     }
 }
 
