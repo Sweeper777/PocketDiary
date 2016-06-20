@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+import EZLoadingActivity
 
 class DiarySearchController: UITableViewController {
     var cells: [[UITableViewCell]] = [[], []]
@@ -94,9 +95,20 @@ class DiarySearchController: UITableViewController {
                                      timeRange: UserSettings.timeRange,
                                      sortMode: UserSettings.sortMode)
         
-        resultsToPass = searcher.search(dataContext)
+        let overlay: UIView = UIView(frame: ((UIApplication.sharedApplication().delegate as! AppDelegate).window?.frame)!)
+        overlay.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
+        self.parentViewController!.view.addSubview(overlay)
+        overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.colorWithAlphaComponent(0.5)}, completion: nil)
         
-        performSegueWithIdentifier("showResults", sender: self)
+        EZLoadingActivity.show(NSLocalizedString("Searching...", comment: ""), disableUI: true);
+        
+        { searcher.search(dataContext) } ~> {
+            EZLoadingActivity.hide()
+            self.resultsToPass = $0
+            overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.colorWithAlphaComponent(0)}, completion: nil)
+            overlay.removeFromSuperview()
+            self.performSegueWithIdentifier("showResults", sender: self)
+        };
     }
     
     @IBAction func exactMatchChanged(sender: UISwitch) {

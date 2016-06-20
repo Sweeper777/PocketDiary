@@ -1,6 +1,7 @@
 import UIKit
 import CoreData
 import EZSwiftExtensions
+import EZLoadingActivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,6 +11,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window?.tintColor = UIColor(hexString: "5abb5a")
+        
+        EZLoadingActivity.Settings.BackgroundColor = UIColor(hexString: "5abb5a")!
+        EZLoadingActivity.Settings.ActivityColor = UIColor.whiteColor()
+        EZLoadingActivity.Settings.TextColor = UIColor.whiteColor()
         return true
     }
 
