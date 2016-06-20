@@ -8,6 +8,10 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
     var searchMode: SearchRange!
     var exactMatch: Bool!
     
+    lazy var htmls: [String] = {
+        return self.entries.map { $0.htmlDescriptionForSearchMode(self.searchMode) }
+    }()
+    
     @IBOutlet var resultView: UIWebView!
     
     @IBAction func next(sender: UIBarButtonItem) {
@@ -25,7 +29,6 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         resultView.delegate = self
-        //resultView.initializeHighlighting()
         loadNextResult()
     }
     
@@ -39,9 +42,7 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
-            resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(searchMode), baseURL: nil)
-            //resultView.initializeHighlighting()
-            //resultView.highlightAllOccurencesOfString(searchText)
+            resultView.loadHTMLString(htmls[nowDisplayingIndex], baseURL: nil)
         }
     }
     
@@ -56,9 +57,7 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
-            resultView.loadHTMLString(entries[nowDisplayingIndex].htmlDescriptionForSearchMode(searchMode), baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
-            //resultView.initializeHighlighting()
-            //resultView.highlightAllOccurencesOfString(searchText)
+            resultView.loadHTMLString(htmls[nowDisplayingIndex], baseURL: nil)
         }
     }
     

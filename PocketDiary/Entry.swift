@@ -27,20 +27,20 @@ class Entry: NSManagedObject {
     
     func htmlDescriptionForSearchMode(mode: SearchRange) -> String {
         let formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
+        formatter.dateStyle = .LongStyle
         formatter.timeStyle = .NoStyle
         let dateFormatted = formatter.stringFromDate(date!)
         
         let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
         
+        let contentHtml = (try? MMMarkdown.HTMLStringWithMarkdown(content!, extensions: .GitHubFlavored)) ?? content!
+        
         let displayTitle = mode == .TitleOnly ? "<span id=\"searchtext\">\(title!)</span>" : title!
-        let displayContent = mode == .ContentOnly ? "<span id=\"searchtext\">\(content!)</span>" : content!
+        let displayContent = mode == .ContentOnly ? "<span id=\"searchtext\">\(contentHtml)</span>" : contentHtml
+        let displayTitleAndContent = mode == .TitleAndContent ? "<span id=\"searchtext\"><h1>\(displayTitle)</h1>\(displayContent)</span>" : "<h1>\(displayTitle)</h1>\(displayContent)"
+        let displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
         
-        let mdHtml = try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)\n<hr>\n# \(displayTitle)\n\n\(displayContent)", extensions: .GitHubFlavored) ?? "\(dateFormatted)\n\n\(displayTitle)\n\n\(displayContent)"
-        
-        let displayHtml = mode == .TitleAndContent ? "<span id=\"searchtext\">\(mdHtml!)</span>" : mdHtml!
         print(displayHtml)
-        print(mode)
         
         let ret = "<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)"
         return ret

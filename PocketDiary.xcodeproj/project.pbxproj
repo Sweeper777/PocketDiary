@@ -16,7 +16,6 @@
 		5A21FA8A1D01B16000B36AA7 /* PocketDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA891D01B16000B36AA7 /* PocketDiaryTests.swift */; };
 		5A21FA951D01B16000B36AA7 /* PocketDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA941D01B16000B36AA7 /* PocketDiaryUITests.swift */; };
 		5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A21FAA21D01B78400B36AA7 /* FSCalendar.framework */; };
-		5A8F55051D13E76700EBE196 /* SelfSizingWaterfallCollectionViewLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8F55041D13E76700EBE196 /* SelfSizingWaterfallCollectionViewLayout.framework */; };
 		5AF571261D02582400DF004F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571241D02582400DF004F /* Entry.swift */; };
 		5AF571271D02582400DF004F /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */; };
 		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
@@ -95,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A8F55051D13E76700EBE196 /* SelfSizingWaterfallCollectionViewLayout.framework in Frameworks */,
 				5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */,
 				5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */,
 				5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */,
