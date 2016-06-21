@@ -1,8 +1,9 @@
 import UIKit
 import CoreData
 import EZLoadingActivity
+import LLSwitch
 
-class DiarySearchController: UITableViewController {
+class DiarySearchController: UITableViewController, LLSwitchDelegate {
     var cells: [[UITableViewCell]] = [[], []]
     
     var searchText: UITextField!
@@ -15,7 +16,7 @@ class DiarySearchController: UITableViewController {
         let advanced3 = tableView.dequeueReusableCellWithIdentifier("advanced3")!
         let advanced4 = tableView.dequeueReusableCellWithIdentifier("advanced4")!
         
-        let swExactMatch = advanced1.viewWithTag(1) as! UISwitch
+        let swExactMatch = advanced1.viewWithTag(1) as! LLSwitch
         let segSearchRange = advanced2.viewWithTag(1) as! UISegmentedControl
         let segTimeRange = advanced3.viewWithTag(1) as! UISegmentedControl
         let segSort = advanced4.viewWithTag(1) as! UISegmentedControl
@@ -26,7 +27,7 @@ class DiarySearchController: UITableViewController {
         segTimeRange.selectedSegmentIndex = UserSettings.timeRange.rawValue
         segSort.selectedSegmentIndex = UserSettings.sortMode.rawValue
         
-        swExactMatch.addTarget(self, action: #selector(exactMatchChanged), forControlEvents: .ValueChanged)
+        swExactMatch.delegate = self
         segSearchRange.addTarget(self, action: #selector(searchInChanged), forControlEvents: .ValueChanged)
         segTimeRange.addTarget(self, action: #selector(timeRangeChanged), forControlEvents: .ValueChanged)
         segSort.addTarget(self, action: #selector(sortModeChanged), forControlEvents: .ValueChanged)
@@ -83,6 +84,10 @@ class DiarySearchController: UITableViewController {
         }
     }
     
+    func didTapLLSwitch(llSwitch: LLSwitch!) {
+        UserSettings.exactMatch = !llSwitch.on
+    }
+    
     @IBAction func done(sender: UIBarButtonItem) {
         dismissVC(completion: nil)
     }
@@ -109,10 +114,6 @@ class DiarySearchController: UITableViewController {
             overlay.removeFromSuperview()
             self.performSegueWithIdentifier("showResults", sender: self)
         };
-    }
-    
-    @IBAction func exactMatchChanged(sender: UISwitch) {
-        UserSettings.exactMatch = sender.on
     }
     
     @IBAction func searchInChanged(sender: UISegmentedControl) {

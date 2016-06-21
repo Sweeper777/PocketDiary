@@ -186,27 +186,39 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="advanced1" textLabel="aSB-Xb-wSq" rowHeight="44" style="IBUITableViewCellStyleDefault" id="yf0-E9-7lt">
-                                <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="advanced1" rowHeight="44" id="yf0-E9-7lt">
+                                <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yf0-E9-7lt" id="oGT-2j-sDe">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Exact Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aSB-Xb-wSq">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exact Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I1-2f-IxJ">
+                                            <rect key="frame" x="15" y="11" width="95" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NLe-74-EM6">
-                                            <rect key="frame" x="536" y="7" width="51" height="31"/>
-                                        </switch>
+                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5a3-kt-v0O" customClass="LLSwitch">
+                                            <rect key="frame" x="541" y="8" width="51" height="28"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="51" id="XjV-uy-t4d"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
+                                                    <real key="value" value="0.40000000000000002"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="NLe-74-EM6" firstAttribute="trailing" secondItem="aSB-Xb-wSq" secondAttribute="trailing" id="e29-f0-EXY"/>
-                                        <constraint firstItem="NLe-74-EM6" firstAttribute="centerY" secondItem="aSB-Xb-wSq" secondAttribute="centerY" id="fas-eE-qMs"/>
+                                        <constraint firstItem="5a3-kt-v0O" firstAttribute="trailing" secondItem="oGT-2j-sDe" secondAttribute="trailingMargin" id="AQp-uU-Qkg"/>
+                                        <constraint firstItem="7I1-2f-IxJ" firstAttribute="centerY" secondItem="oGT-2j-sDe" secondAttribute="centerY" id="PWT-QU-5P6"/>
+                                        <constraint firstItem="7I1-2f-IxJ" firstAttribute="leading" secondItem="oGT-2j-sDe" secondAttribute="leadingMargin" constant="7" id="ae5-3X-u4x"/>
+                                        <constraint firstItem="5a3-kt-v0O" firstAttribute="centerY" secondItem="7I1-2f-IxJ" secondAttribute="centerY" id="dsr-Cj-3sF"/>
+                                        <constraint firstItem="5a3-kt-v0O" firstAttribute="top" secondItem="oGT-2j-sDe" secondAttribute="topMargin" id="t0l-vB-Vq9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
