@@ -5,6 +5,7 @@ PODS:
   - FSCalendar (2.1.1)
   - LLSwitch (1.0.2)
   - MMMarkdown (0.5.4)
+  - RadioButton (1.0)
   - SZTextView (1.2.2)
 
 DEPENDENCIES:
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - FSCalendar
   - LLSwitch
   - MMMarkdown
+  - RadioButton
   - SZTextView
 
 SPEC CHECKSUMS:
@@ -23,6 +25,7 @@ SPEC CHECKSUMS:
   FSCalendar: 04dc531f06fbde8a8e5b7394e9d4edebd45a591f
   LLSwitch: b3f9af40ab16c11865c753ef11803c989d9ff7c1
   MMMarkdown: 754f9154136d224178f51f2b2ba67a66a89d96ea
+  RadioButton: 7ef053baf6ff0e7f9e777016c28e9ba4e330edba
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
 
 COCOAPODS: 0.39.0

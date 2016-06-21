@@ -11,6 +11,7 @@ target 'PocketDiary' do
     pod 'MMMarkdown'
     pod 'Emoji-swift'
     pod 'LLSwitch'
+    pod 'RadioButton'
 end
 
 target 'PocketDiaryTests' do

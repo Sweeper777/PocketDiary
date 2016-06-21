@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RadioButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SZTextView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,6 +52,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>26A60F2379717AE340E41011E130EEBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
@@ -57,22 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>439106AC33F11BA949A31E065D8543F3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B2619B2813D910DBC9FE9714E0788D55</key>
+		<key>AA563E7FB6E2EFAA1263C443D47E96A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B4327DB4FE62267CDA38D339D52B416D</key>
+		<key>B2619B2813D910DBC9FE9714E0788D55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>C7C06F1DE87DF470324E3D6858FADE9B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB6277DC46BF022D8E87F11BE482874F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

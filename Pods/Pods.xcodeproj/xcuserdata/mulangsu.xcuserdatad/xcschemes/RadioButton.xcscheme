@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D2220508B26E66D59E7ADA81'
-               BlueprintName = 'Emoji-swift'
+               BlueprintIdentifier = '3E5CEAC015E21ADFE6AB6127'
+               BlueprintName = 'RadioButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Emoji.framework'>
+               BuildableName = 'RadioButton.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
