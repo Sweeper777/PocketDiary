@@ -10,6 +10,7 @@ target 'PocketDiary' do
     pod 'EZLoadingActivity'
     pod 'MMMarkdown'
     pod 'Emoji-swift'
+    pod 'LLSwitch'
 end
 
 target 'PocketDiaryTests' do

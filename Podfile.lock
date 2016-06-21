@@ -3,6 +3,7 @@ PODS:
   - EZLoadingActivity (0.8)
   - EZSwiftExtensions (1.5)
   - FSCalendar (2.1.1)
+  - LLSwitch (1.0.2)
   - MMMarkdown (0.5.4)
   - SZTextView (1.2.2)
 
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - EZLoadingActivity
   - EZSwiftExtensions
   - FSCalendar
+  - LLSwitch
   - MMMarkdown
   - SZTextView
 
@@ -19,6 +21,7 @@ SPEC CHECKSUMS:
   EZLoadingActivity: 6fd75a05765a4085f4b6fef6f62edf9f144b3139
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   FSCalendar: 04dc531f06fbde8a8e5b7394e9d4edebd45a591f
+  LLSwitch: b3f9af40ab16c11865c753ef11803c989d9ff7c1
   MMMarkdown: 754f9154136d224178f51f2b2ba67a66a89d96ea
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
 

@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LLSwitch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MMMarkdown.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +47,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>22CB1C6626DA7BB21E6651DAF3A570F7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>40B198473AC6B236923564C827E7E24A</key>
+		<key>407008D903E1416E0909E37AB84FE38D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>439106AC33F11BA949A31E065D8543F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +68,11 @@
 			<true/>
 		</dict>
 		<key>B2619B2813D910DBC9FE9714E0788D55</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4327DB4FE62267CDA38D339D52B416D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
