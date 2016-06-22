@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import EZLoadingActivity
 import LLSwitch
+import Emoji
 
 class DiarySearchController: UITableViewController, LLSwitchDelegate {
     var cells: [[UITableViewCell]] = [[], []]
@@ -84,8 +85,8 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
         }
     }
     
-    func didTapLLSwitch(llSwitch: LLSwitch!) {
-        UserSettings.exactMatch = !llSwitch.on
+    func animationDidStopForLLSwitch(llSwitch: LLSwitch!) {
+        UserSettings.exactMatch = llSwitch.on
     }
     
     @IBAction func done(sender: UIBarButtonItem) {
@@ -94,7 +95,9 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
     
     @IBAction func search(sender: UIButton) {
         let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let searcher = DiarySearcher(searchText: searchText.text!,
+        let text = searchText.text!.emojiEscapedString
+        print(text)
+        let searcher = DiarySearcher(searchText: text,
                                      exactMatch: UserSettings.exactMatch,
                                      searchRange: UserSettings.searchRange,
                                      timeRange: UserSettings.timeRange,
