@@ -187,10 +187,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="advanced1" rowHeight="44" id="yf0-E9-7lt">
-                                <rect key="frame" x="0.0" y="158" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yf0-E9-7lt" id="oGT-2j-sDe">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exact Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I1-2f-IxJ">
@@ -399,6 +399,7 @@
         <!--Diary Editor Controller-->
         <scene sceneID="CQh-dT-YpS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMf-fg-2Be" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="5Xw-TL-cWl" customClass="DiaryEditorController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jrU-Gs-6Yf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -519,7 +520,6 @@
                         <segue destination="K5t-qg-3VK" kind="unwind" identifier="unwindFromEditor" unwindAction="unwindFromEditor:" id="iaA-UE-z39"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YMf-fg-2Be" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1103" y="1079"/>
         </scene>
