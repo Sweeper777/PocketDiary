@@ -346,7 +346,7 @@
             </objects>
             <point key="canvasLocation" x="1755" y="306"/>
         </scene>
-        <!--Results-->
+        <!--No Results-->
         <scene sceneID="SVB-g9-e57">
             <objects>
                 <viewController id="T7z-i3-XFA" customClass="SearchResultsController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
@@ -371,7 +371,7 @@
                             <constraint firstItem="iaM-gQ-ZnO" firstAttribute="top" secondItem="UlX-Sg-f1H" secondAttribute="bottom" id="kLW-NZ-5j7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Results" id="Qid-zh-dbY">
+                    <navigationItem key="navigationItem" title="No Results" id="Qid-zh-dbY">
                         <barButtonItem key="backBarButtonItem" title=" " id="Ux2-0K-46S"/>
                         <rightBarButtonItems>
                             <barButtonItem image="right" id="mwI-gb-evd">
@@ -399,7 +399,6 @@
         <!--Diary Editor Controller-->
         <scene sceneID="CQh-dT-YpS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YMf-fg-2Be" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="5Xw-TL-cWl" customClass="DiaryEditorController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jrU-Gs-6Yf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -520,6 +519,7 @@
                         <segue destination="K5t-qg-3VK" kind="unwind" identifier="unwindFromEditor" unwindAction="unwindFromEditor:" id="iaA-UE-z39"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMf-fg-2Be" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1103" y="1079"/>
         </scene>
