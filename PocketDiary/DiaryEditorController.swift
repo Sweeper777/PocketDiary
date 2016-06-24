@@ -72,6 +72,7 @@ class DiaryEditorController: UITableViewController {
     }
     
     @IBAction func changedTab(sender: UISegmentedControl) {
+        view.endEditing(true)
         if sender.selectedSegmentIndex == 0 {
             txtContent.hidden = false
             preview.hidden = true
