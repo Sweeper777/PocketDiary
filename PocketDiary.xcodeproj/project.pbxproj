@@ -25,7 +25,6 @@
 		5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */; };
 		5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF81D12769300C8B856 /* UserSettings.swift */; };
 		5AF9B09D1D1A8DC6000E15B2 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9B09B1D1A8DC6000E15B2 /* IQKeyboardManager.framework */; };
-		5AF9B09E1D1A8DC6000E15B2 /* RadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9B09C1D1A8DC6000E15B2 /* RadioButton.framework */; };
 		5AFB0E741D0E751000EEEA1F /* DiaryEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E731D0E751000EEEA1F /* DiaryEditorController.swift */; };
 		5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */; };
 		5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */; };
@@ -103,7 +102,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF9B09D1D1A8DC6000E15B2 /* IQKeyboardManager.framework in Frameworks */,
-				5AF9B09E1D1A8DC6000E15B2 /* RadioButton.framework in Frameworks */,
 				5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */,
 				5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */,
 				5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */,

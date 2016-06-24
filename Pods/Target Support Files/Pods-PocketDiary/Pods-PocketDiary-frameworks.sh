@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-PocketDiary/ActionSheetPicker.framework"
   install_framework "Pods-PocketDiary/EZLoadingActivity.framework"
   install_framework "Pods-PocketDiary/EZSwiftExtensions.framework"
   install_framework "Pods-PocketDiary/Emoji.framework"
@@ -91,10 +92,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PocketDiary/IQKeyboardManager.framework"
   install_framework "Pods-PocketDiary/LLSwitch.framework"
   install_framework "Pods-PocketDiary/MMMarkdown.framework"
-  install_framework "Pods-PocketDiary/RadioButton.framework"
   install_framework "Pods-PocketDiary/SZTextView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-PocketDiary/ActionSheetPicker.framework"
   install_framework "Pods-PocketDiary/EZLoadingActivity.framework"
   install_framework "Pods-PocketDiary/EZSwiftExtensions.framework"
   install_framework "Pods-PocketDiary/Emoji.framework"
@@ -102,6 +103,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PocketDiary/IQKeyboardManager.framework"
   install_framework "Pods-PocketDiary/LLSwitch.framework"
   install_framework "Pods-PocketDiary/MMMarkdown.framework"
-  install_framework "Pods-PocketDiary/RadioButton.framework"
   install_framework "Pods-PocketDiary/SZTextView.framework"
 fi

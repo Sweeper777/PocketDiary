@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ActionSheetPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,11 +49,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RadioButton.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SZTextView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F1A5A820E804BA4FEC0F3BD8BB5BD88</key>
+		<key>7D84F5D31841E50B1093E671117EFC69</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88CD366AA073C908DD50211FC9060D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5CB3795EBE91CEB360F67D98221C120</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,16 +103,6 @@
 			<true/>
 		</dict>
 		<key>C7C06F1DE87DF470324E3D6858FADE9B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF76FBEC5C49AABEEC88CB793304E4EC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F1E1D7CD235A24DD8FC64E3AC94B7D21</key>
 		<dict>
 			<key>primary</key>
 			<true/>
