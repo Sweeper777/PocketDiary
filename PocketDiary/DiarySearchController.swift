@@ -3,6 +3,7 @@ import CoreData
 import EZLoadingActivity
 import LLSwitch
 import Emoji
+import ActionSheetPicker
 
 class DiarySearchController: UITableViewController, LLSwitchDelegate {
     var cells: [[UITableViewCell]] = [[], []]
@@ -11,6 +12,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
     @IBOutlet var searchRangeLbl: UILabel!
     @IBOutlet var dateRangeLbl: UILabel!
     @IBOutlet var sortModeLbl: UILabel!
+    @IBOutlet var exactMatch: LLSwitch!
     
     var resultsToPass: [Entry]!
     
@@ -18,13 +20,41 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
         UserSettings.exactMatch = llSwitch.on
     }
     
+    override func viewDidLoad() {
+        exactMatch.on = UserSettings.exactMatch
+    }
+    
     @IBAction func selectSearchRange(sender: UIButton) {
+        let strs = ["Title and Content", "Content only", "Title only"]
+        let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
+        
+        let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.searchRange.rawValue, doneBlock: { (picker, index, value) in
+            //self.searchRangeLbl.text = NSLocalizedString("Search in: ", comment: "") + (value! as! String)
+            UserSettings.searchRange = SearchRange(rawValue: index)!
+            }, cancelBlock: nil, origin: sender)
+        picker.showActionSheetPicker()
     }
     
     @IBAction func selectDateRange(sender: UIButton) {
+        let strs = ["All", "Previous 365 days", "Previous 30 days", "Previous 7 days"]
+        let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
+        
+        let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.timeRange.rawValue, doneBlock: { (picker, index, value) in
+            //self.dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + (value! as! String)
+            UserSettings.timeRange = TimeRange(rawValue: index)!
+            }, cancelBlock: nil, origin: sender)
+        picker.showActionSheetPicker()
     }
     
     @IBAction func selectSortMode(sender: UIButton) {
+        let strs = ["Earlier → Later", "Later → Earlier", "Title A → Z", "Title Z → A"]
+        let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
+        
+        let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.sortMode.rawValue, doneBlock: { (picker, index, value) in
+            //self.sortModeLbl.text = NSLocalizedString("Sort: ", comment: "") + (value! as! String)
+            UserSettings.sortMode = SortMode(rawValue: index)!
+            }, cancelBlock: nil, origin: sender)
+        picker.showActionSheetPicker()
     }
     
     @IBAction func done(sender: UIBarButtonItem) {
