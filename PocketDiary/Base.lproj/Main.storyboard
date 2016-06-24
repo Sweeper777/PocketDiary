@@ -157,34 +157,20 @@
                                         <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P8p-LK-1gR" id="ZzT-A8-zni">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xYS-Wp-g1d">
-                                                    <rect key="frame" x="16" y="7" width="520" height="30"/>
+                                                    <rect key="frame" x="16" y="7" width="576" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igE-R4-ffD">
-                                                    <rect key="frame" x="544" y="7" width="48" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="48" id="ekl-aW-Qss"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Search">
-                                                        <color key="titleColor" red="0.23132071430000001" green="0.48063303969999999" blue="0.23132071430000001" alpha="1" colorSpace="deviceRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="CNA-yY-MHI" eventType="touchUpInside" id="ImM-CG-PTe"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="igE-R4-ffD" firstAttribute="trailing" secondItem="ZzT-A8-zni" secondAttribute="trailingMargin" id="0Up-b0-VIx"/>
-                                                <constraint firstItem="igE-R4-ffD" firstAttribute="leading" secondItem="xYS-Wp-g1d" secondAttribute="trailing" constant="8" symbolic="YES" id="HAQ-F3-kcS"/>
-                                                <constraint firstItem="xYS-Wp-g1d" firstAttribute="centerY" secondItem="ZzT-A8-zni" secondAttribute="centerY" id="Hsy-qF-Zr6"/>
-                                                <constraint firstItem="xYS-Wp-g1d" firstAttribute="leading" secondItem="ZzT-A8-zni" secondAttribute="leadingMargin" constant="8" id="Knf-iD-hbS"/>
-                                                <constraint firstItem="igE-R4-ffD" firstAttribute="top" secondItem="xYS-Wp-g1d" secondAttribute="top" id="X1r-sg-t2F"/>
-                                                <constraint firstItem="igE-R4-ffD" firstAttribute="bottom" secondItem="xYS-Wp-g1d" secondAttribute="bottom" id="oqK-qN-0xq"/>
+                                                <constraint firstItem="xYS-Wp-g1d" firstAttribute="trailing" secondItem="ZzT-A8-zni" secondAttribute="trailingMargin" id="dRD-Yj-GPS"/>
+                                                <constraint firstItem="xYS-Wp-g1d" firstAttribute="centerY" secondItem="ZzT-A8-zni" secondAttribute="centerY" id="gs4-M8-oeK"/>
+                                                <constraint firstItem="xYS-Wp-g1d" firstAttribute="top" secondItem="ZzT-A8-zni" secondAttribute="topMargin" constant="-1" id="vVg-Ha-Ovc"/>
+                                                <constraint firstItem="xYS-Wp-g1d" firstAttribute="leading" secondItem="ZzT-A8-zni" secondAttribute="leadingMargin" constant="8" id="yte-8t-k0x"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -346,10 +332,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="nZt-Tr-sw1">
                         <barButtonItem key="backBarButtonItem" title=" " id="nOf-cH-tA8"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="VaP-wr-ozZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VaP-wr-ozZ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="done:" destination="CNA-yY-MHI" id="hK9-lU-I6y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="search_colored" id="mN5-Lo-9sy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="search:" destination="CNA-yY-MHI" id="8hS-X9-zFt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -547,6 +539,7 @@
     <resources>
         <image name="left" width="25" height="25"/>
         <image name="right" width="25" height="25"/>
+        <image name="search_colored" width="25" height="25"/>
         <image name="search_filled" width="25" height="25"/>
     </resources>
 </document>

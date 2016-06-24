@@ -61,7 +61,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
         dismissVC(completion: nil)
     }
     
-    @IBAction func search(sender: UIButton) {
+    @IBAction func search(sender: UIBarButtonItem) {
         let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let text = searchText.text!.emojiEscapedString
         print(text)
