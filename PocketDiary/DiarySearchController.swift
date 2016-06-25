@@ -35,6 +35,8 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
             self.searchRangeLbl.text = NSLocalizedString("Search in: ", comment: "") + (value! as! String)
             UserSettings.searchRange = SearchRange(rawValue: index)!
             }, cancelBlock: nil, origin: sender)
+        picker.setDoneButton(getDoneBtn())
+        picker.setCancelButton(getCancelBtn())
         picker.showActionSheetPicker()
     }
     
@@ -46,6 +48,8 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
             self.dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + (value! as! String)
             UserSettings.timeRange = TimeRange(rawValue: index)!
             }, cancelBlock: nil, origin: sender)
+        picker.setDoneButton(getDoneBtn())
+        picker.setCancelButton(getCancelBtn())
         picker.showActionSheetPicker()
     }
     
@@ -57,6 +61,8 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
             self.sortModeLbl.text = NSLocalizedString("Sort: ", comment: "") + (value! as! String)
             UserSettings.sortMode = SortMode(rawValue: index)!
             }, cancelBlock: nil, origin: sender)
+        picker.setDoneButton(getDoneBtn())
+        picker.setCancelButton(getCancelBtn())
         picker.showActionSheetPicker()
     }
     
@@ -96,5 +102,17 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
             vc.searchMode = UserSettings.searchRange
             vc.exactMatch = UserSettings.exactMatch
         }
+    }
+    
+    func getCancelBtn() -> UIBarButtonItem {
+        let btn = UIBarButtonItem(barButtonSystemItem: .Cancel, target: nil, action: nil)
+        btn.tintColor = UIColor(hexString: "3b7b3b")
+        return btn
+    }
+    
+    func getDoneBtn() -> UIBarButtonItem{
+        let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: nil)
+        btn.tintColor = UIColor(hexString: "3b7b3b")
+        return btn
     }
 }
