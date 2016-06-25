@@ -22,7 +22,7 @@ class UserSettings {
     }
     
     static let searchRangeStrings: [SearchRange: String] = [
-        .TitleAndContent: "Title and content",
+        .TitleAndContent: "Title and Content",
         .ContentOnly: "Content only",
         .TitleOnly: "Title only"
     ]

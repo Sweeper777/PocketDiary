@@ -34,6 +34,8 @@ class DiaryEditorController: UITableViewController {
         } else {
             self.navigationItem.leftBarButtonItems?.removeObject(deleteBtn)
         }
+        
+        txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
