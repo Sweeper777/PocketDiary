@@ -1,0 +1,24 @@
+"Delete this?" = "删除？";
+"Do you really want to delete this entry?" = "你真的要删除这个日记吗？";
+"Yes, delete it!" = "是的";
+"No" = "不";
+
+"Search in: " = "搜索范围：";
+"Date Range: " = "日期范围：";
+"Sort: " = "排序";
+"Title and Content" = "标题和内容";
+"Content only" = "只有内容";
+"Title only" = "只有标题";
+"All" = "所有";
+"Previous 365 days" = "过去 365 天";
+"Previous 30 days" = "过去 30 天";
+"Previous 7 days" = "过去 7 天";
+"Earlier → Later" = "较早 → 较晚";
+"Later → Earlier" = "较晚 → 较早";
+"Title A → Z" = "标题字母顺序";
+"Title Z → A" = "标题字母倒序";
+"Searching..." = "搜索中...";
+
+"Results - " = "结果 - ";
+
+"Write your diary here! (Markdown supported!)" = "在这里写日记（支持 Markdown）";

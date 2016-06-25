@@ -1,0 +1,57 @@
+
+/* Class = "UIButton"; normalTitle = "Select"; ObjectID = "2TD-Ye-vaG"; */
+"2TD-Ye-vaG.normalTitle" = "选择";
+
+/* Class = "UIButton"; normalTitle = "Select"; ObjectID = "Den-vz-rLO"; */
+"Den-vz-rLO.normalTitle" = "选择";
+
+/* Class = "UINavigationItem"; title = "No Results"; ObjectID = "Qid-zh-dbY"; */
+"Qid-zh-dbY.title" = "没有结果";
+
+/* Class = "UIButton"; normalTitle = "Select"; ObjectID = "RF8-R8-ycK"; */
+"RF8-R8-ycK.normalTitle" = "选择";
+
+/* Class = "UISegmentedControl"; UZU-P6-qNj.segmentTitles[0] = "Editor"; ObjectID = "UZU-P6-qNj"; */
+"UZU-P6-qNj.segmentTitles[0]" = "编辑";
+
+/* Class = "UISegmentedControl"; UZU-P6-qNj.segmentTitles[1] = "Preview"; ObjectID = "UZU-P6-qNj"; */
+"UZU-P6-qNj.segmentTitles[1]" = "预览";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Ux2-0K-46S"; */
+"Ux2-0K-46S.title" = " ";
+
+/* Class = "UILabel"; text = "Search Range"; ObjectID = "aWD-ve-TiZ"; */
+"aWD-ve-TiZ.text" = "搜索范围";
+
+/* Class = "UILabel"; text = "Sort"; ObjectID = "ab1-BL-KDb"; */
+"ab1-BL-KDb.text" = "排序";
+
+/* Class = "UILabel"; text = "Title:"; ObjectID = "f5S-wR-Nsj"; */
+"f5S-wR-Nsj.text" = "标题：";
+
+/* Class = "UITextField"; placeholder = "Optional Title"; ObjectID = "mja-hJ-8a0"; */
+"mja-hJ-8a0.placeholder" = "标题（可不填）";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "nOf-cH-tA8"; */
+"nOf-cH-tA8.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Search"; ObjectID = "nZt-Tr-sw1"; */
+"nZt-Tr-sw1.title" = "搜索";
+
+/* Class = "UINavigationItem"; prompt = "Select a date to view/edit an entry"; ObjectID = "neZ-ZS-p48"; */
+"neZ-ZS-p48.prompt" = "选择一个日期以查看／编辑日记";
+
+/* Class = "UINavigationItem"; title = "My Diaries"; ObjectID = "neZ-ZS-p48"; */
+"neZ-ZS-p48.title" = "我的日记";
+
+/* Class = "UILabel"; text = "Exact Match"; ObjectID = "opR-0b-wgL"; */
+"opR-0b-wgL.text" = "完全符合";
+
+/* Class = "UILabel"; text = "Date Range"; ObjectID = "pN4-wN-2pu"; */
+"pN4-wN-2pu.text" = "日期范围";
+
+/* Class = "UITableViewSection"; headerTitle = "advanced"; ObjectID = "tMF-kb-3Ja"; */
+"tMF-kb-3Ja.headerTitle" = "高级";
+
+/* Class = "UITextField"; placeholder = "Search"; ObjectID = "xYS-Wp-g1d"; */
+"xYS-Wp-g1d.placeholder" = "搜索";

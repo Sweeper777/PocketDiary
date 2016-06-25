@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A04D0701D18FC8000868126 /* LLSwitch.framework */; };
+		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
 		5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA711D01B16000B36AA7 /* AppDelegate.swift */; };
 		5A21FA741D01B16000B36AA7 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA731D01B16000B36AA7 /* CalendarController.swift */; };
 		5A21FA771D01B16000B36AA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A21FA751D01B16000B36AA7 /* Main.storyboard */; };
@@ -24,7 +25,6 @@
 		5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9ACF21D124B1F00C8B856 /* Emoji.framework */; };
 		5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */; };
 		5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF81D12769300C8B856 /* UserSettings.swift */; };
-		5AF9B09D1D1A8DC6000E15B2 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9B09B1D1A8DC6000E15B2 /* IQKeyboardManager.framework */; };
 		5AFB0E741D0E751000EEEA1F /* DiaryEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E731D0E751000EEEA1F /* DiaryEditorController.swift */; };
 		5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */; };
 		5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */; };
@@ -56,6 +56,13 @@
 
 /* Begin PBXFileReference section */
 		5A04D0701D18FC8000868126 /* LLSwitch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLSwitch.framework; path = "Pods/../build/Debug-iphoneos/LLSwitch.framework"; sourceTree = "<group>"; };
+		5A2193611D1E6E8800966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		5A2193621D1E6E8900966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5A2193631D1E6E9800966DD4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		5A2193641D1E6E9800966DD4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5A2193681D1E6EC500966DD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A21936A1D1E6ECD00966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5A21936B1D1E6ECE00966DD4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5A21FA6E1D01B16000B36AA7 /* PocketDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A21FA711D01B16000B36AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A21FA731D01B16000B36AA7 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -101,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AF9B09D1D1A8DC6000E15B2 /* IQKeyboardManager.framework in Frameworks */,
 				5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */,
 				5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */,
 				5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */,
@@ -156,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF875B81D17D4DF00DF0669 /* Threading.swift */,
+				5A2193691D1E6EC500966DD4 /* Localizable.strings */,
 				5AFBEAC21D111E1D00F8A8D2 /* modest.css */,
 				5AFB59D91D14CA2500BF4CAD /* highlight.js */,
 				5AF571241D02582400DF004F /* Entry.swift */,
@@ -312,6 +319,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 5A21FA651D01B16000B36AA7;
 			productRefGroup = 5A21FA6F1D01B16000B36AA7 /* Products */;
@@ -331,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A21FA7F1D01B16000B36AA7 /* LaunchScreen.storyboard in Resources */,
+				5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */,
 				5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */,
 				5A21FA7C1D01B16000B36AA7 /* Assets.xcassets in Resources */,
 				5A21FA771D01B16000B36AA7 /* Main.storyboard in Resources */,
@@ -454,10 +464,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5A2193691D1E6EC500966DD4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A2193681D1E6EC500966DD4 /* en */,
+				5A21936A1D1E6ECD00966DD4 /* zh-Hans */,
+				5A21936B1D1E6ECE00966DD4 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5A21FA751D01B16000B36AA7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5A21FA761D01B16000B36AA7 /* Base */,
+				5A2193611D1E6E8800966DD4 /* zh-Hans */,
+				5A2193631D1E6E9800966DD4 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -466,6 +488,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				5A21FA7E1D01B16000B36AA7 /* Base */,
+				5A2193621D1E6E8900966DD4 /* zh-Hans */,
+				5A2193641D1E6E9800966DD4 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
