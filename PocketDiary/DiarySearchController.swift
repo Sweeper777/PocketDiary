@@ -16,8 +16,8 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
     
     var resultsToPass: [Entry]!
     
-    func animationDidStopForLLSwitch(llSwitch: LLSwitch!) {
-        UserSettings.exactMatch = llSwitch.on
+    func valueDidChanged(llSwitch: LLSwitch!, on: Bool) {
+        UserSettings.exactMatch = on
     }
     
     override func viewDidLoad() {
