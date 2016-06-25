@@ -2,7 +2,6 @@ import UIKit
 import CoreData
 import EZSwiftExtensions
 import EZLoadingActivity
-import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

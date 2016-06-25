@@ -40,8 +40,6 @@ class Entry: NSManagedObject {
         let displayTitleAndContent = mode == .TitleAndContent ? "<span id=\"searchtext\"><h1>\(displayTitle)</h1>\(displayContent)</span>" : "<h1>\(displayTitle)</h1>\(displayContent)"
         let displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
         
-        print(displayHtml)
-        
         let ret = "<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)"
         return ret
     }

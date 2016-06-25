@@ -39,6 +39,10 @@ struct DiarySearcher {
             entries = Array(titleOnlySet.union(contentOnlySet))
         }
         
+        print("Before")
+        print(entries.map {$0.title})
+        print("")
+        
         // sort
         switch sortMode {
         case .DateAscending:
@@ -54,14 +58,18 @@ struct DiarySearcher {
         case .TitleAscending:
             entries.sortInPlace {
                 (entry1, entry2) -> Bool in
-                return entry1.title!.compare(entry2.title!) == NSComparisonResult.OrderedAscending
+                return entry1.title!.lowercaseString < entry2.title!.lowercaseString
             }
         case .TitleDescending:
             entries.sortInPlace {
                 (entry1, entry2) -> Bool in
-                return entry1.title!.compare(entry2.title!) == NSComparisonResult.OrderedDescending
+                return entry1.title!.lowercaseString > entry2.title!.lowercaseString
             }
         }
+        
+        print("After:")
+        print(entries.map {$0.title})
+        print("")
         
         return entries
     }

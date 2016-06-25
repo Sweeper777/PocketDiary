@@ -22,6 +22,9 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
     
     override func viewDidLoad() {
         exactMatch.on = UserSettings.exactMatch
+        searchRangeLbl.text = NSLocalizedString("Search in: ", comment: "") + UserSettings.searchRangeDesc
+        dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + UserSettings.timeRangeDesc
+        sortModeLbl.text = NSLocalizedString("Sort: ", comment: "") + UserSettings.sortModeDesc
     }
     
     @IBAction func selectSearchRange(sender: UIButton) {
@@ -29,7 +32,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.searchRange.rawValue, doneBlock: { (picker, index, value) in
-            //self.searchRangeLbl.text = NSLocalizedString("Search in: ", comment: "") + (value! as! String)
+            self.searchRangeLbl.text = NSLocalizedString("Search in: ", comment: "") + (value! as! String)
             UserSettings.searchRange = SearchRange(rawValue: index)!
             }, cancelBlock: nil, origin: sender)
         picker.showActionSheetPicker()
@@ -40,7 +43,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.timeRange.rawValue, doneBlock: { (picker, index, value) in
-            //self.dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + (value! as! String)
+            self.dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + (value! as! String)
             UserSettings.timeRange = TimeRange(rawValue: index)!
             }, cancelBlock: nil, origin: sender)
         picker.showActionSheetPicker()
@@ -51,7 +54,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.sortMode.rawValue, doneBlock: { (picker, index, value) in
-            //self.sortModeLbl.text = NSLocalizedString("Sort: ", comment: "") + (value! as! String)
+            self.sortModeLbl.text = NSLocalizedString("Sort: ", comment: "") + (value! as! String)
             UserSettings.sortMode = SortMode(rawValue: index)!
             }, cancelBlock: nil, origin: sender)
         picker.showActionSheetPicker()
@@ -64,7 +67,6 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
     @IBAction func search(sender: UIBarButtonItem) {
         let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let text = searchText.text!.emojiEscapedString
-        print(text)
         let searcher = DiarySearcher(searchText: text,
                                      exactMatch: UserSettings.exactMatch,
                                      searchRange: UserSettings.searchRange,

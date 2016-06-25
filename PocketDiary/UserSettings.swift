@@ -20,6 +20,38 @@ class UserSettings {
         get { return SortMode(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("sortMode"))! }
         set { NSUserDefaults.standardUserDefaults().setInteger(newValue.rawValue, forKey: "sortMode") }
     }
+    
+    static let searchRangeStrings: [SearchRange: String] = [
+        .TitleAndContent: "Title and content",
+        .ContentOnly: "Content only",
+        .TitleOnly: "Title only"
+    ]
+    
+    static let timeRangeStrings: [TimeRange: String] = [
+        .Lifetime: "All",
+        .LastYear: "Previous 365 days",
+        .LastMonth: "Previous 30 days",
+        .LastWeek: "Previous 7 days"
+    ]
+    
+    static let sortModeStrings: [SortMode: String] = [
+        .DateAscending: "Earlier → Later",
+        .DateDescending: "Later → Earlier",
+        .TitleAscending: "Title A → Z",
+        .TitleDescending: "Title Z → A"
+    ]
+    
+    static var searchRangeDesc: String {
+        return NSLocalizedString(searchRangeStrings[searchRange]!, comment: "")
+    }
+    
+    static var timeRangeDesc: String {
+        return NSLocalizedString(timeRangeStrings[timeRange]!, comment: "")
+    }
+    
+    static var sortModeDesc: String {
+        return NSLocalizedString(sortModeStrings[sortMode]!, comment: "")
+    }
 }
 
 enum SearchRange: Int {
