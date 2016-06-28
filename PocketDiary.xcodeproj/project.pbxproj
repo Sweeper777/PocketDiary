@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A003C961D223C55001EA872 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A003C981D223C55001EA872 /* InfoPlist.strings */; };
 		5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A04D0701D18FC8000868126 /* LLSwitch.framework */; };
 		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
 		5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA711D01B16000B36AA7 /* AppDelegate.swift */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A003C971D223C55001EA872 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5A003C991D223C57001EA872 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5A04D0701D18FC8000868126 /* LLSwitch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLSwitch.framework; path = "Pods/../build/Debug-iphoneos/LLSwitch.framework"; sourceTree = "<group>"; };
 		5A2193611D1E6E8800966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5A2193621D1E6E8900966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 			children = (
 				5AF875B81D17D4DF00DF0669 /* Threading.swift */,
 				5A2193691D1E6EC500966DD4 /* Localizable.strings */,
+				5A003C981D223C55001EA872 /* InfoPlist.strings */,
 				5AFBEAC21D111E1D00F8A8D2 /* modest.css */,
 				5AFB59D91D14CA2500BF4CAD /* highlight.js */,
 				5AF571241D02582400DF004F /* Entry.swift */,
@@ -340,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A21FA7F1D01B16000B36AA7 /* LaunchScreen.storyboard in Resources */,
+				5A003C961D223C55001EA872 /* InfoPlist.strings in Resources */,
 				5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */,
 				5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */,
 				5A21FA7C1D01B16000B36AA7 /* Assets.xcassets in Resources */,
@@ -464,6 +469,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5A003C981D223C55001EA872 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A003C971D223C55001EA872 /* zh-Hans */,
+				5A003C991D223C57001EA872 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		5A2193691D1E6EC500966DD4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
