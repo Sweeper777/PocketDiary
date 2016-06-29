@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>IQKeyboardManager.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Keyboardy.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +57,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>37C76CD246D637B8E4C586284A0D96B2</key>
+		<key>09531FE1E5C653E7530D8298D56D357D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,16 +82,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AAB8FDA261534E8EE2A026D9F792D5AD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ABF82A0835580D4DCDEDFC533C3DC807</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B2619B2813D910DBC9FE9714E0788D55</key>
 		<dict>
 			<key>primary</key>
@@ -113,6 +98,11 @@
 			<true/>
 		</dict>
 		<key>D2E30C6C3DF686C325691F5D8F214812</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC0064E1E51C0E4CFB90EC2DB3483649</key>
 		<dict>
 			<key>primary</key>
 			<true/>
