@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import EZSwiftExtensions
 import EZLoadingActivity
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EZLoadingActivity.Settings.BackgroundColor = UIColor(hexString: "5abb5a")!
         EZLoadingActivity.Settings.ActivityColor = UIColor.whiteColor()
         EZLoadingActivity.Settings.TextColor = UIColor.whiteColor()
+        
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
         return true
     }

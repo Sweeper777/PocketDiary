@@ -4,8 +4,9 @@ import SZTextView
 import CoreData
 import MMMarkdown
 import Emoji
+import Keyboardy
 
-class DiaryEditorController: UITableViewController {
+class DiaryEditorController: UIViewController {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var date: NSDate!
@@ -16,6 +17,7 @@ class DiaryEditorController: UITableViewController {
     @IBOutlet var preview: UIWebView!
     @IBOutlet var tabs: UISegmentedControl!
     @IBOutlet var deleteBtn: UIBarButtonItem!
+    @IBOutlet var bottomConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +39,17 @@ class DiaryEditorController: UITableViewController {
         
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
     }
-
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return view.frame.height - 75
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        registerForKeyboardNotifications(self)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        unregisterFromKeyboardNotifications()
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
@@ -120,5 +130,27 @@ class DiaryEditorController: UITableViewController {
         let mdHtml = try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)\n<hr>\n# \(txtTitle.text!)\n\n\(txtContent.text!)", extensions: .GitHubFlavored) ?? "\(dateFormatted)\n\n\(txtTitle.text!)\n\n\(txtContent.text!)"
         
         preview.loadHTMLString("<style>\(stylesheet)</style> \(mdHtml!.emojiUnescapedString)", baseURL: nil)
+    }
+}
+
+extension DiaryEditorController: KeyboardStateDelegate {
+    
+    func keyboardWillTransition(state: KeyboardState) {
+        // keyboard will show or hide
+    }
+    
+    func keyboardTransitionAnimation(state: KeyboardState) {
+        switch state {
+        case .ActiveWithHeight(let height):
+            bottomConstraint.constant = height + 10
+        case .Hidden:
+            bottomConstraint.constant = 10
+        }
+        
+        view.layoutIfNeeded()
+    }
+    
+    func keyboardDidTransition(state: KeyboardState) {
+        // keyboard animation finished
     }
 }

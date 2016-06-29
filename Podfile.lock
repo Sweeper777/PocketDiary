@@ -4,6 +4,8 @@ PODS:
   - EZLoadingActivity (0.8)
   - EZSwiftExtensions (1.5)
   - FSCalendar (2.1.1)
+  - IQKeyboardManager (4.0.4)
+  - Keyboardy (0.1.1)
   - LLSwitch (1.0.3)
   - MMMarkdown (0.5.4)
   - SZTextView (1.2.2)
@@ -14,6 +16,8 @@ DEPENDENCIES:
   - EZLoadingActivity
   - EZSwiftExtensions
   - FSCalendar
+  - IQKeyboardManager
+  - Keyboardy
   - LLSwitch
   - MMMarkdown
   - SZTextView
@@ -24,6 +28,8 @@ SPEC CHECKSUMS:
   EZLoadingActivity: 6fd75a05765a4085f4b6fef6f62edf9f144b3139
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   FSCalendar: 04dc531f06fbde8a8e5b7394e9d4edebd45a591f
+  IQKeyboardManager: 4a6f83b540283c2645aaeba2bd8dc0f09b5c77f8
+  Keyboardy: 73ce93cedc45f60ef21a463bc713893772034ea3
   LLSwitch: 386ff732bf8f8b8a73773b3139fd2df9b1c99fe3
   MMMarkdown: 754f9154136d224178f51f2b2ba67a66a89d96ea
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82

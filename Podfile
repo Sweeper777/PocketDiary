@@ -12,6 +12,8 @@ target 'PocketDiary' do
     pod 'Emoji-swift'
     pod 'LLSwitch'
     pod 'ActionSheetPicker'
+    pod 'IQKeyboardManager'
+    pod 'Keyboardy'
 end
 
 target 'PocketDiaryTests' do
