@@ -12,10 +12,10 @@
 "RF8-R8-ycK.normalTitle" = "選擇";
 
 /* Class = "UISegmentedControl"; UZU-P6-qNj.segmentTitles[0] = "Editor"; ObjectID = "UZU-P6-qNj"; */
-"UZU-P6-qNj.segmentTitles[0]" = "編輯";
+"4ps-LB-78G.segmentTitles[0]" = "編輯";
 
 /* Class = "UISegmentedControl"; UZU-P6-qNj.segmentTitles[1] = "Preview"; ObjectID = "UZU-P6-qNj"; */
-"UZU-P6-qNj.segmentTitles[1]" = "預覽";
+"4ps-LB-78G.segmentTitles[1]" = "預覽";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "Ux2-0K-46S"; */
 "Ux2-0K-46S.title" = " ";
@@ -27,10 +27,10 @@
 "ab1-BL-KDb.text" = "排序";
 
 /* Class = "UILabel"; text = "Title:"; ObjectID = "f5S-wR-Nsj"; */
-"f5S-wR-Nsj.text" = "標題：";
+"qp5-ON-xng.text" = "標題：";
 
 /* Class = "UITextField"; placeholder = "Optional Title"; ObjectID = "mja-hJ-8a0"; */
-"mja-hJ-8a0.placeholder" = "標題（可不填）";
+"hVF-Dm-pSP.placeholder" = "標題（可不填）";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "nOf-cH-tA8"; */
 "nOf-cH-tA8.title" = " ";
