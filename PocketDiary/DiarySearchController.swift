@@ -5,7 +5,7 @@ import LLSwitch
 import Emoji
 import ActionSheetPicker
 
-class DiarySearchController: UITableViewController, LLSwitchDelegate {
+class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFieldDelegate {
     var cells: [[UITableViewCell]] = [[], []]
     
     @IBOutlet var searchText: UITextField!
@@ -25,6 +25,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
         searchRangeLbl.text = NSLocalizedString("Search in: ", comment: "") + UserSettings.searchRangeDesc
         dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + UserSettings.timeRangeDesc
         sortModeLbl.text = NSLocalizedString("Sort: ", comment: "") + UserSettings.sortModeDesc
+        searchText.delegate = self
     }
     
     @IBAction func selectSearchRange(sender: UIButton) {
@@ -114,5 +115,10 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate {
         let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: nil)
         btn.tintColor = UIColor(hexString: "3b7b3b")
         return btn
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
     }
 }
