@@ -39,10 +39,6 @@ struct DiarySearcher {
             entries = Array(titleOnlySet.union(contentOnlySet))
         }
         
-        print("Before")
-        print(entries.map {$0.title})
-        print("")
-        
         // sort
         switch sortMode {
         case .DateAscending:
@@ -66,10 +62,6 @@ struct DiarySearcher {
                 return entry1.title!.lowercaseString > entry2.title!.lowercaseString
             }
         }
-        
-        print("After:")
-        print(entries.map {$0.title})
-        print("")
         
         return entries
     }
