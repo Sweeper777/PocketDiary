@@ -17,9 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EZLoadingActivity.Settings.ActivityColor = UIColor.whiteColor()
         EZLoadingActivity.Settings.TextColor = UIColor.whiteColor()
         
-        IQKeyboardManager.sharedManager().enable = false
-        IQKeyboardManager.sharedManager().enableAutoToolbar = false
-        
         return true
     }
 

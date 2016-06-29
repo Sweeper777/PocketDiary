@@ -431,7 +431,7 @@
                                     <segment title="Editor"/>
                                     <segment title="Preview"/>
                                 </segments>
-                                <color key="tintColor" red="0.23132071430000001" green="0.48063303969999999" blue="0.23132071430000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="tintColor" red="0.23137254901960785" green="0.4823529411764706" blue="0.23137254901960785" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <action selector="changedTab:" destination="raf-vE-H24" eventType="valueChanged" id="cP3-Vb-ZI9"/>
                                 </connections>
