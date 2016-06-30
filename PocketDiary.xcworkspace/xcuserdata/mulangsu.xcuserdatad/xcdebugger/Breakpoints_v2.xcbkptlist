@@ -112,11 +112,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PocketDiary/DiarySearchController.swift"
-            timestampString = "488883590.044904"
+            timestampString = "488966779.962032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "search(_:)"
             landmarkType = "5">
          </BreakpointContent>

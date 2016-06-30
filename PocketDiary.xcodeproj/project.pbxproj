@@ -93,6 +93,7 @@
 		5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SZTextView.framework; path = "Pods/../build/Debug-iphoneos/SZTextView.framework"; sourceTree = "<group>"; };
 		5AF875B81D17D4DF00DF0669 /* Threading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
 		5AF8E5071D2502A100E2A547 /* RWDropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RWDropdownMenu.framework; path = "Pods/../build/Debug-iphoneos/RWDropdownMenu.framework"; sourceTree = "<group>"; };
+		5AF8E5091D250C4600E2A547 /* PocketDiary 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PocketDiary 2.xcdatamodel"; sourceTree = "<group>"; };
 		5AF9ACF21D124B1F00C8B856 /* Emoji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Emoji.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/Emoji.framework"; sourceTree = "<group>"; };
 		5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiarySearchController.swift; sourceTree = "<group>"; };
 		5AF9ACF81D12769300C8B856 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -737,9 +738,10 @@
 		5A21FA781D01B16000B36AA7 /* PocketDiary.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5AF8E5091D250C4600E2A547 /* PocketDiary 2.xcdatamodel */,
 				5A21FA791D01B16000B36AA7 /* PocketDiary.xcdatamodel */,
 			);
-			currentVersion = 5A21FA791D01B16000B36AA7 /* PocketDiary.xcdatamodel */;
+			currentVersion = 5AF8E5091D250C4600E2A547 /* PocketDiary 2.xcdatamodel */;
 			path = PocketDiary.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
