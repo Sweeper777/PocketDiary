@@ -42,10 +42,14 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     @IBAction func selectDateRange(sender: UIButton) {
-        let strs = ["All", "Previous 365 days", "Previous 30 days", "Previous 7 days"]
+        let strs = ["All", "Previous 365 days", "Previous 30 days", "Previous 7 days", "Custom"]
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.timeRange.rawValue, doneBlock: { (picker, index, value) in
+            if index == 4 {
+                self.performSegueWithIdentifier("showDateRangeSelector", sender: self)
+                return
+            }
             self.dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + (value! as! String)
             UserSettings.timeRange = TimeRange(rawValue: index)!
             }, cancelBlock: nil, origin: sender)
@@ -94,6 +98,14 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
             overlay.removeFromSuperview()
             self.performSegueWithIdentifier("showResults", sender: self)
         };
+    }
+    
+    @IBAction func unwindCancel(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindDone(segue: UIStoryboardSegue) {
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
