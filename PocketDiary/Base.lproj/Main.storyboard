@@ -98,6 +98,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="UYu-6k-pMV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="245" y="306"/>
         </scene>
@@ -373,7 +374,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaM-gQ-ZnO">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
@@ -519,6 +520,7 @@
                         <outlet property="tabs" destination="4ps-LB-78G" id="qYR-fw-07X"/>
                         <outlet property="txtContent" destination="gJf-nL-CvL" id="wmn-AW-B19"/>
                         <outlet property="txtTitle" destination="hVF-Dm-pSP" id="5ci-rR-M1C"/>
+                        <segue destination="UYu-6k-pMV" kind="unwind" identifier="unwindFromEditor" unwindAction="unwindFromEditor:" id="gkL-hR-779"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eja-ar-nC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
