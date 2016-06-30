@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RWDropdownMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SZTextView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +62,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09531FE1E5C653E7530D8298D56D357D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>407008D903E1416E0909E37AB84FE38D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>60D3869B44C430AD0D02C9B705F5E6D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +102,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>CE5C4C6EDE9F8229D3C09ED98537F1CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D2E30C6C3DF686C325691F5D8F214812</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FC0064E1E51C0E4CFB90EC2DB3483649</key>
+		<key>EBC20632888DDF4D3D271E1A75FA10B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -5,6 +5,7 @@ import CoreData
 import MMMarkdown
 import Emoji
 import Keyboardy
+import RWDropdownMenu
 
 class DiaryEditorController: UIViewController {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -117,6 +118,24 @@ class DiaryEditorController: UIViewController {
         alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .Cancel, handler: nil))
         
         presentVC(alert)
+    }
+    
+    @IBAction func showMore(sender: UIBarButtonItem) {
+        let menuItems = [
+            RWDropdownMenuItem(text: NSLocalizedString("Set Background Color", comment: ""), image: UIImage(named: "paint_brush")) {
+                
+            },
+            
+            RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
+                
+            },
+            
+            RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
+                
+            }
+        ]
+        
+        RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Right, style: .Translucent, navBarImage: nil, completion: nil)
     }
     
     func updatePreview() {

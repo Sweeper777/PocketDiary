@@ -7,6 +7,7 @@ PODS:
   - Keyboardy (0.1.1)
   - LLSwitch (1.0.3)
   - MMMarkdown (0.5.4)
+  - RWDropdownMenu (1.0.3)
   - SZTextView (1.2.2)
 
 DEPENDENCIES:
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - Keyboardy
   - LLSwitch
   - MMMarkdown
+  - RWDropdownMenu
   - SZTextView
 
 SPEC CHECKSUMS:
@@ -29,6 +31,7 @@ SPEC CHECKSUMS:
   Keyboardy: 73ce93cedc45f60ef21a463bc713893772034ea3
   LLSwitch: 386ff732bf8f8b8a73773b3139fd2df9b1c99fe3
   MMMarkdown: 754f9154136d224178f51f2b2ba67a66a89d96ea
+  RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
 
 COCOAPODS: 0.39.0

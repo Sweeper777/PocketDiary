@@ -13,6 +13,7 @@ target 'PocketDiary' do
     pod 'LLSwitch'
     pod 'ActionSheetPicker'
     pod 'Keyboardy'
+    pod 'RWDropdownMenu'
 end
 
 target 'PocketDiaryTests' do

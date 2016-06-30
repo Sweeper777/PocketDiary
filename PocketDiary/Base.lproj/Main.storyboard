@@ -505,12 +505,20 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="M47-bZ-pzj">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="save:" destination="raf-vE-H24" id="st9-Uw-pl4"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="M47-bZ-pzj">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="save:" destination="raf-vE-H24" id="st9-Uw-pl4"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="more_filled" id="Iys-fP-mWd">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="showMore:" destination="raf-vE-H24" id="eWl-d6-Eq2"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -530,6 +538,7 @@
     </scenes>
     <resources>
         <image name="left" width="25" height="25"/>
+        <image name="more_filled" width="25" height="25"/>
         <image name="right" width="25" height="25"/>
         <image name="search_colored" width="25" height="25"/>
         <image name="search_filled" width="25" height="25"/>

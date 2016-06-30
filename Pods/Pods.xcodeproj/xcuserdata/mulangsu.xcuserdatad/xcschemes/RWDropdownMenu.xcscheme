@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '056058D96914C7DEA95C11DC'
-               BlueprintName = 'EZSwiftExtensions'
+               BlueprintIdentifier = '1502DB9C39BF0E92D09CE7D3'
+               BlueprintName = 'RWDropdownMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'EZSwiftExtensions.framework'>
+               BuildableName = 'RWDropdownMenu.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

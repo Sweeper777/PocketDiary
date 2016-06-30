@@ -92,6 +92,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PocketDiary/Keyboardy.framework"
   install_framework "Pods-PocketDiary/LLSwitch.framework"
   install_framework "Pods-PocketDiary/MMMarkdown.framework"
+  install_framework "Pods-PocketDiary/RWDropdownMenu.framework"
   install_framework "Pods-PocketDiary/SZTextView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -103,5 +104,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PocketDiary/Keyboardy.framework"
   install_framework "Pods-PocketDiary/LLSwitch.framework"
   install_framework "Pods-PocketDiary/MMMarkdown.framework"
+  install_framework "Pods-PocketDiary/RWDropdownMenu.framework"
   install_framework "Pods-PocketDiary/SZTextView.framework"
 fi

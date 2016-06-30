@@ -24,6 +24,7 @@
 		5AF571271D02582400DF004F /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */; };
 		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
 		5AF875B91D17D4DF00DF0669 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF875B81D17D4DF00DF0669 /* Threading.swift */; };
+		5AF8E5081D2502A100E2A547 /* RWDropdownMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8E5071D2502A100E2A547 /* RWDropdownMenu.framework */; };
 		5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9ACF21D124B1F00C8B856 /* Emoji.framework */; };
 		5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */; };
 		5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF81D12769300C8B856 /* UserSettings.swift */; };
@@ -91,6 +92,7 @@
 		5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SZTextView.framework; path = "Pods/../build/Debug-iphoneos/SZTextView.framework"; sourceTree = "<group>"; };
 		5AF875B81D17D4DF00DF0669 /* Threading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
+		5AF8E5071D2502A100E2A547 /* RWDropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RWDropdownMenu.framework; path = "Pods/../build/Debug-iphoneos/RWDropdownMenu.framework"; sourceTree = "<group>"; };
 		5AF9ACF21D124B1F00C8B856 /* Emoji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Emoji.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/Emoji.framework"; sourceTree = "<group>"; };
 		5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiarySearchController.swift; sourceTree = "<group>"; };
 		5AF9ACF81D12769300C8B856 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF8E5081D2502A100E2A547 /* RWDropdownMenu.framework in Frameworks */,
 				5AD6D7131D23B6870015BF0E /* Keyboardy.framework in Frameworks */,
 				5AFD86AC1D239C5700D80F8E /* ActionSheetPicker.framework in Frameworks */,
 				5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */,
@@ -225,6 +228,7 @@
 		CB021911B0AE96F7D484390D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AF8E5071D2502A100E2A547 /* RWDropdownMenu.framework */,
 				5AD6D7141D23BEDE0015BF0E /* FRDoneAccessory.framework */,
 				5AD6D7121D23B6870015BF0E /* Keyboardy.framework */,
 				5AFD86AB1D239C5700D80F8E /* ActionSheetPicker.framework */,
