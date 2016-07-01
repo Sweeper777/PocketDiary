@@ -4,6 +4,7 @@ import EZLoadingActivity
 import LLSwitch
 import Emoji
 import ActionSheetPicker
+import EZSwiftExtensions
 
 class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFieldDelegate {
     var cells: [[UITableViewCell]] = [[], []]
@@ -47,7 +48,10 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.timeRange.rawValue, doneBlock: { (picker, index, value) in
             if index == 4 {
-                self.performSegueWithIdentifier("showDateRangeSelector", sender: self)
+                //NSTimer.runThisAfterDelay(seconds: 0) { self.performSegueWithIdentifier("showDateRangeSelector", sender: self) }
+                dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("showDateRangeSelector", sender: self)
+                }
                 return
             }
             self.dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + (value! as! String)

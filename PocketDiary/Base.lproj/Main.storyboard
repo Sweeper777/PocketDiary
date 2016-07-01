@@ -355,7 +355,7 @@
                         <outlet property="searchText" destination="xYS-Wp-g1d" id="e0V-dg-6Ub"/>
                         <outlet property="sortModeLbl" destination="ab1-BL-KDb" id="WEx-ph-XIF"/>
                         <segue destination="T7z-i3-XFA" kind="show" identifier="showResults" id="gQ8-HB-yvG"/>
-                        <segue destination="9Js-lC-qyb" kind="presentation" identifier="showDateRangeSelector" modalPresentationStyle="currentContext" modalTransitionStyle="flipHorizontal" id="vgd-mf-Etb"/>
+                        <segue destination="Fc5-d7-uPY" kind="presentation" identifier="showDateRangeSelector" modalPresentationStyle="formSheet" id="woY-ox-9os"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VaB-Yd-ErI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -413,11 +413,31 @@
             </objects>
             <point key="canvasLocation" x="2443" y="306"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9ec-ue-BzP">
+            <objects>
+                <navigationController id="Fc5-d7-uPY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v2v-E2-nVs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fsr-xz-q45" kind="relationship" relationship="rootViewController" id="Pnm-g9-d5K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="liV-SU-WnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1755" y="1039"/>
+        </scene>
         <!--Select a Date Range-->
         <scene sceneID="1rn-Zz-8lh">
             <objects>
                 <tableViewController id="fsr-xz-q45" customClass="DateRangeSelectorController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="buq-Fg-2uE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="buq-Fg-2uE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -425,10 +445,10 @@
                             <tableViewSection headerTitle="start date" id="ONP-bB-lUM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="175" id="Xeh-7z-aQa">
-                                        <rect key="frame" x="0.0" y="94" width="600" height="175"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="600" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xeh-7z-aQa" id="Gbu-Um-g3I">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="175"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="174.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="oT1-GV-Zrp">
@@ -451,10 +471,10 @@
                             <tableViewSection headerTitle="end date" footerTitle="Start date and end date are both inclusive." id="qGa-kI-elQ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="175" id="jS0-sO-hKo">
-                                        <rect key="frame" x="0.0" y="319" width="600" height="175"/>
+                                        <rect key="frame" x="0.0" y="318.5" width="600" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jS0-sO-hKo" id="2WY-Zc-Z3L">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="175"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="174.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="83a-MM-XtR">
@@ -498,26 +518,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brt-I9-ZSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2575" y="1039"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="30f-az-sAD">
-            <objects>
-                <navigationController id="9Js-lC-qyb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="clX-R0-f5R">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="fsr-xz-q45" kind="relationship" relationship="rootViewController" id="vVD-zJ-lNU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="afi-nG-Kws" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1755" y="1039"/>
         </scene>
         <!--Diary Editor Controller-->
         <scene sceneID="aLT-te-CH6">
