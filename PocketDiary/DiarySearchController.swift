@@ -15,6 +15,8 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     @IBOutlet var sortModeLbl: UILabel!
     @IBOutlet var exactMatch: LLSwitch!
     
+    var customDateRange: ClosedInterval<NSDate>?
+    
     var resultsToPass: [Entry]!
     
     func valueDidChanged(llSwitch: LLSwitch!, on: Bool) {
@@ -48,7 +50,6 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.timeRange.rawValue, doneBlock: { (picker, index, value) in
             if index == 4 {
-                //NSTimer.runThisAfterDelay(seconds: 0) { self.performSegueWithIdentifier("showDateRangeSelector", sender: self) }
                 dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("showDateRangeSelector", sender: self)
                 }
@@ -109,7 +110,14 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     @IBAction func unwindDone(segue: UIStoryboardSegue) {
-        
+        if let vc = segue.sourceViewController as? DateRangeSelectorController {
+            self.customDateRange = vc.dateRange
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = .ShortStyle
+            dateFormatter.timeStyle = .NoStyle
+            dateRangeLbl.text = "\(NSLocalizedString("Date Range: ", comment: ""))\(dateFormatter.stringFromDate(customDateRange!.start)) - \(dateFormatter.stringFromDate(customDateRange!.end))"
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

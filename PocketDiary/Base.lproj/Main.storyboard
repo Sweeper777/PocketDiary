@@ -456,6 +456,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="488966703.63832802">
                                                         <!--2016-06-30 08:05:03 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="startChanged:" destination="fsr-xz-q45" eventType="valueChanged" id="aQO-xv-vFo"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -482,6 +485,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="488966703.63832802">
                                                         <!--2016-06-30 08:05:03 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="endChanged:" destination="fsr-xz-q45" eventType="valueChanged" id="Rp9-pw-7oe"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -509,9 +515,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Qmg-gf-Gze">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="done:" destination="fsr-xz-q45" id="cc6-sR-WEC"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="endPicker" destination="83a-MM-XtR" id="mAI-bu-tVN"/>
+                        <outlet property="startPicker" destination="oT1-GV-Zrp" id="Yi9-jy-hso"/>
                         <segue destination="kLd-hz-vMl" kind="unwind" identifier="unwindDone" unwindAction="unwindDone:" id="aLA-vX-uBm"/>
                     </connections>
                 </tableViewController>
