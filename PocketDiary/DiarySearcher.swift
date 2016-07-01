@@ -8,6 +8,7 @@ struct DiarySearcher {
     let searchRange: SearchRange
     let timeRange: TimeRange
     let sortMode: SortMode
+    let customDateRange: ClosedInterval<NSDate>?
     
     func search(dataContext: NSManagedObjectContext) -> [Entry]? {
         // get data
@@ -81,6 +82,8 @@ struct DiarySearcher {
         case .LastYear:
             let last365Days = today.fs_dateByAddingDays(-365)
             dateRange = last365Days...today
+        case .Custom:
+            dateRange = customDateRange!
         }
         
         return entries.filter { dateRange.contains($0.date!) }

@@ -31,7 +31,8 @@ class UserSettings {
         .Lifetime: "All",
         .LastYear: "Previous 365 days",
         .LastMonth: "Previous 30 days",
-        .LastWeek: "Previous 7 days"
+        .LastWeek: "Previous 7 days",
+        .Custom: "Custom"
     ]
     
     static let sortModeStrings: [SortMode: String] = [
@@ -59,7 +60,7 @@ enum SearchRange: Int {
 }
 
 enum TimeRange: Int {
-    case Lifetime, LastYear, LastMonth, LastWeek
+    case Lifetime, LastYear, LastMonth, LastWeek, Custom
 }
 
 enum SortMode: Int {

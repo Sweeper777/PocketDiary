@@ -86,8 +86,9 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         let searcher = DiarySearcher(searchText: text,
                                      exactMatch: UserSettings.exactMatch,
                                      searchRange: UserSettings.searchRange,
-                                     timeRange: UserSettings.timeRange,
-                                     sortMode: UserSettings.sortMode)
+                                     timeRange: customDateRange == nil ? UserSettings.timeRange : .Custom,
+                                     sortMode: UserSettings.sortMode,
+                                     customDateRange: self.customDateRange)
         
         let overlay: UIView = UIView(frame: ((UIApplication.sharedApplication().delegate as! AppDelegate).window?.frame)!)
         overlay.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
