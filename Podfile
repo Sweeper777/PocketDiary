@@ -14,6 +14,8 @@ target 'PocketDiary' do
     pod 'ActionSheetPicker'
     pod 'Keyboardy'
     pod 'RWDropdownMenu'
+    pod 'DTCollectionViewManager'
+    pod 'Base64nl'
 end
 
 target 'PocketDiaryTests' do

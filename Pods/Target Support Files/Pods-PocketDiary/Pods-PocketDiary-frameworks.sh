@@ -85,6 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PocketDiary/ActionSheetPicker.framework"
+  install_framework "Pods-PocketDiary/Base64nl.framework"
+  install_framework "Pods-PocketDiary/DTCollectionViewManager.framework"
+  install_framework "Pods-PocketDiary/DTModelStorage.framework"
   install_framework "Pods-PocketDiary/EZLoadingActivity.framework"
   install_framework "Pods-PocketDiary/EZSwiftExtensions.framework"
   install_framework "Pods-PocketDiary/Emoji.framework"
@@ -97,6 +100,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PocketDiary/ActionSheetPicker.framework"
+  install_framework "Pods-PocketDiary/Base64nl.framework"
+  install_framework "Pods-PocketDiary/DTCollectionViewManager.framework"
+  install_framework "Pods-PocketDiary/DTModelStorage.framework"
   install_framework "Pods-PocketDiary/EZLoadingActivity.framework"
   install_framework "Pods-PocketDiary/EZSwiftExtensions.framework"
   install_framework "Pods-PocketDiary/Emoji.framework"

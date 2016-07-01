@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Base64nl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DTCollectionViewManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DTModelStorage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,6 +77,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>267AAA29B82F2BD3B6B721B20922C078</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
@@ -72,12 +92,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60D3869B44C430AD0D02C9B705F5E6D3</key>
+		<key>62321611B0B493678EF34BEE5133215A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6550EBBAAB75229B9955CCA8BD6CCE5D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C1EAA912CBF3756D9D8AF021F535E05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7D84F5D31841E50B1093E671117EFC69</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EA7EB085A729BEBFA2E5C679A976D5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,17 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE5C4C6EDE9F8229D3C09ED98537F1CF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D2E30C6C3DF686C325691F5D8F214812</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EBC20632888DDF4D3D271E1A75FA10B6</key>
+		<key>D34DDB1EFC7510090184E2978CD3CF98</key>
 		<dict>
 			<key>primary</key>
 			<true/>

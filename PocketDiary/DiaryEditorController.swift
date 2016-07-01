@@ -123,7 +123,9 @@ class DiaryEditorController: UIViewController {
     @IBAction func showMore(sender: UIBarButtonItem) {
         let menuItems = [
             RWDropdownMenuItem(text: NSLocalizedString("Set Background Color", comment: ""), image: UIImage(named: "paint_brush")) {
-                
+                dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("showColorSelector", sender: self)
+                }
             },
             
             RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {

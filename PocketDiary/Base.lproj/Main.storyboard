@@ -431,7 +431,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="liV-SU-WnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="1039"/>
+            <point key="canvasLocation" x="1755" y="1079"/>
         </scene>
         <!--Select a Date Range-->
         <scene sceneID="1rn-Zz-8lh">
@@ -528,7 +528,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brt-I9-ZSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2575" y="1039"/>
+            <point key="canvasLocation" x="2443" y="1079"/>
         </scene>
         <!--Diary Editor Controller-->
         <scene sceneID="aLT-te-CH6">
@@ -648,11 +648,108 @@
                         <outlet property="txtContent" destination="gJf-nL-CvL" id="wmn-AW-B19"/>
                         <outlet property="txtTitle" destination="hVF-Dm-pSP" id="5ci-rR-M1C"/>
                         <segue destination="UYu-6k-pMV" kind="unwind" identifier="unwindFromEditor" unwindAction="unwindFromEditor:" id="gkL-hR-779"/>
+                        <segue destination="sih-vu-sbC" kind="presentation" identifier="showColorSelector" modalPresentationStyle="formSheet" id="Zal-xG-2t6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eja-ar-nC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063" y="1079"/>
+            <point key="canvasLocation" x="1043" y="1079"/>
+        </scene>
+        <!--Select a Color-->
+        <scene sceneID="4GH-gJ-tyJ">
+            <objects>
+                <tableViewController id="h6Z-t9-ooW" customClass="ColorSelectorController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="AfP-wG-Jnn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="rEz-qv-ZP3">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="58" id="3xe-nX-KTg">
+                                        <rect key="frame" x="0.0" y="79" width="600" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3xe-nX-KTg" id="5wT-rX-IEq">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hND-zL-Y4Y">
+                                                    <rect key="frame" x="8" y="8" width="584" height="42"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Lc-BJ-9rM">
+                                                        <size key="itemSize" width="34" height="34"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCell" id="mrL-9d-yQG" customClass="ColorCell" customModule="PocketDiary" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="4" width="34" height="34"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </view>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="h6Z-t9-ooW" id="rvu-1j-8Om"/>
+                                                        <outlet property="delegate" destination="h6Z-t9-ooW" id="rhv-vv-N9M"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hND-zL-Y4Y" firstAttribute="trailing" secondItem="5wT-rX-IEq" secondAttribute="trailingMargin" id="MBj-LN-GF0"/>
+                                                <constraint firstItem="hND-zL-Y4Y" firstAttribute="leading" secondItem="5wT-rX-IEq" secondAttribute="leadingMargin" id="hZB-Bf-iRS"/>
+                                                <constraint firstItem="hND-zL-Y4Y" firstAttribute="top" secondItem="5wT-rX-IEq" secondAttribute="topMargin" id="kSh-1o-eXJ"/>
+                                                <constraint firstItem="hND-zL-Y4Y" firstAttribute="centerY" secondItem="5wT-rX-IEq" secondAttribute="centerY" id="rZt-Ur-z8O"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="h6Z-t9-ooW" id="bd0-Kh-KW7"/>
+                            <outlet property="delegate" destination="h6Z-t9-ooW" id="m1H-Yr-6AA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select a Color" id="nIQ-bB-hm5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qUc-rc-bXX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel:" destination="h6Z-t9-ooW" id="Ubl-cP-C5N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="hND-zL-Y4Y" id="uzD-rv-qIg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uNi-Cf-aTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1755" y="1781"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TPf-TA-zkq">
+            <objects>
+                <navigationController id="sih-vu-sbC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="clw-HT-X7N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="h6Z-t9-ooW" kind="relationship" relationship="rootViewController" id="ZuJ-sn-Lat"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7s-uV-7bL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="1781"/>
         </scene>
     </scenes>
     <resources>
