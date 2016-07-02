@@ -11,6 +11,7 @@ class DiaryEditorController: UIViewController {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var date: NSDate!
+    var bgColor: UIColor?
     var entry: Entry!
     var userDeletedEntry = false
     @IBOutlet var txtTitle: UITextField!
@@ -30,6 +31,8 @@ class DiaryEditorController: UIViewController {
         if entry != nil {
             txtTitle.text = entry.title
             txtContent.text = entry.content
+            bgColor = entry.bgColor?.toColor()
+            txtContent.backgroundColor = bgColor ?? UIColor.whiteColor()
             tabs.selectedSegmentIndex = 1
             txtContent.hidden = true
             preview.hidden = false
@@ -75,9 +78,11 @@ class DiaryEditorController: UIViewController {
         if entry != nil {
             entry.title = txtTitle.text
             entry.content = txtContent.text
+            entry.bgColor = bgColor?.rgb()
             dataContext.saveData()
         } else {
             entry = Entry(entity: NSEntityDescription.entityForName("Entry", inManagedObjectContext: dataContext)!, insertIntoManagedObjectContext: dataContext, title: txtTitle.text!, content: txtContent.text, date: date)
+            entry.bgColor = bgColor?.rgb()
             dataContext.saveData()
         }
         
@@ -92,9 +97,8 @@ class DiaryEditorController: UIViewController {
         } else if sender.selectedSegmentIndex == 1 {
             txtContent.hidden = true
             preview.hidden = false
+            updatePreview()
         }
-        
-        updatePreview()
     }
     
     @IBAction func textChanged(sender: AnyObject) {
@@ -141,6 +145,10 @@ class DiaryEditorController: UIViewController {
     }
     
     func updatePreview() {
+        if preview.hidden {
+            return
+        }
+        
         let formatter = NSDateFormatter()
         formatter.dateStyle = .LongStyle
         formatter.timeStyle = .NoStyle
@@ -148,9 +156,27 @@ class DiaryEditorController: UIViewController {
         
         let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
         
-        let mdHtml = try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)\n<hr>\n# \(txtTitle.text!)\n\n\(txtContent.text!)", extensions: .GitHubFlavored) ?? "\(dateFormatted)\n\n\(txtTitle.text!)\n\n\(txtContent.text!)"
+        let mdHtml = try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)<hr>\n# \(txtTitle.text!)\n\n\(txtContent.text!)", extensions: .GitHubFlavored) ?? "\(dateFormatted)\n\n\(txtTitle.text!)\n\n\(txtContent.text!)"
         
-        preview.loadHTMLString("<style>\(stylesheet)</style> \(mdHtml!.emojiUnescapedString)", baseURL: nil)
+        var r: CGFloat = -1
+        var g: CGFloat = -1
+        var b: CGFloat = -1
+        bgColor?.getRed(&r, green: &g, blue: &b, alpha: nil)
+        let _r = Int(r * 255)
+        let _g = Int(g * 255)
+        let _b = Int(b * 255)
+        
+        let displayHtml = bgColor == nil ? mdHtml! : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(mdHtml!)</body>"
+        
+        preview.loadHTMLString("<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)", baseURL: nil)
+    }
+    
+    @IBAction func unwindFromColorSelector(segue: UIStoryboardSegue) {
+        if let vc = segue.sourceViewController as? ColorSelectorController {
+            txtContent.backgroundColor = vc.selectedColor
+            bgColor = vc.selectedColor
+            updatePreview()
+        }
     }
 }
 
@@ -173,5 +199,26 @@ extension DiaryEditorController: KeyboardStateDelegate {
     
     func keyboardDidTransition(state: KeyboardState) {
         // keyboard animation finished
+    }
+}
+
+extension UIColor {
+    
+    func rgb() -> Int? {
+        var fRed : CGFloat = 0
+        var fGreen : CGFloat = 0
+        var fBlue : CGFloat = 0
+        var fAlpha: CGFloat = 0
+        if self.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
+            let iRed = Int(fRed * 255.0)
+            let iGreen = Int(fGreen * 255.0)
+            let iBlue = Int(fBlue * 255.0)
+            
+            let rgb = (iRed << 16) + (iGreen << 8) + iBlue
+            return rgb
+        } else {
+            // Could not extract RGBA components:
+            return nil
+        }
     }
 }

@@ -40,7 +40,15 @@ class Entry: NSManagedObject {
         let displayTitleAndContent = mode == .TitleAndContent ? "<span id=\"searchtext\"><h1>\(displayTitle)</h1>\(displayContent)</span>" : "<h1>\(displayTitle)</h1>\(displayContent)"
         let displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
         
-        let displayHtmlWithColor = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(self.bgColor!.toColor().redComponent), \(self.bgColor!.toColor().greenComponent), \(self.bgColor!.toColor().blueComponent))\">\(displayHtml)</body>"
+        var r: CGFloat = -1
+        var g: CGFloat = -1
+        var b: CGFloat = -1
+        bgColor?.toColor().getRed(&r, green: &g, blue: &b, alpha: nil)
+        let _r = Int(r * 255)
+        let _g = Int(g * 255)
+        let _b = Int(b * 255)
+        
+        let displayHtmlWithColor = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(displayHtml)</body>"
         
         let ret = "<style>\(stylesheet)</style> \(displayHtmlWithColor.emojiUnescapedString)"
         return ret

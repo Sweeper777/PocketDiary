@@ -5,7 +5,7 @@ import DTCollectionViewManager
 class ColorCell: UICollectionViewCell, ModelTransfer {
     func updateWithModel(model: UIColor) {
         layer.cornerRadius = self.w / 2
-        layer.borderWidth = 3
+        layer.borderWidth = 1.5
         self.backgroundColor = model
     }
 }
