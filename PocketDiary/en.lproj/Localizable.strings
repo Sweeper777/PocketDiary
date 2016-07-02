@@ -27,3 +27,7 @@
 "Set Background Color" = "Set Background Color";
 "Set Image From Camera" = "Set Image From Camera";
 "Set Image From Photo Library" = "Set Image From Photo Library";
+
+"Move Image to Top" = "Move Image to Top";
+"Move Image to Bottom" = "Move Image to Bottom";
+"Remove Image" = "Remove Image";

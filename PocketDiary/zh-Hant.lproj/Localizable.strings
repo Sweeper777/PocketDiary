@@ -25,5 +25,9 @@
 "Write your diary here! (Markdown supported!)" = "在這裡寫日記（支持 Markdown）";
 
 "Set Background Color" = "設定背景顏色";
-"Set Image From Camera" = "設定圖片（相機）";
-"Set Image From Photo Library" = "設定圖片（相片圖庫）";
+"Set Image From Camera" = "設定相片（相機）";
+"Set Image From Photo Library" = "設定相片（相片圖庫）";
+
+"Move Image to Top" = "將相片移到頂部";
+"Move Image to Bottom" = "將相片移到底部";
+"Remove Image" = "移除相片";

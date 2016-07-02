@@ -27,3 +27,7 @@
 "Set Background Color" = "设置背景颜色";
 "Set Image From Camera" = "设置图片（相机）";
 "Set Image From Photo Library" = "设置图片（照片图库）";
+
+"Move Image to Top" = "将图片移到顶部";
+"Move Image to Bottom" = "将图片移到底部";
+"Remove Image" = "移除图片";
