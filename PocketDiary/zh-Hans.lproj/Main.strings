@@ -55,3 +55,9 @@
 
 /* Class = "UITextField"; placeholder = "Search"; ObjectID = "xYS-Wp-g1d"; */
 "xYS-Wp-g1d.placeholder" = "搜索";
+
+"a1U-fE-Vjq.title" = "选择一个日期范围";
+"ONP-bB-lUM.headerTitle" = "开始日期";
+"qGa-kI-elQ.headerTitle" = "结束日期";
+"qGa-kI-elQ.footerTitle" = "开始日期和结束日期包含在内";
+"nIQ-bB-hm5.title" = "选择一个颜色";

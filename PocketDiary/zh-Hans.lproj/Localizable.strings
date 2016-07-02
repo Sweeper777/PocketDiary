@@ -13,6 +13,7 @@
 "Previous 365 days" = "过去 365 天";
 "Previous 30 days" = "过去 30 天";
 "Previous 7 days" = "过去 7 天";
+"Custom" = "自定义";
 "Earlier → Later" = "较早 → 较晚";
 "Later → Earlier" = "较晚 → 较早";
 "Title A → Z" = "标题字母顺序";
@@ -22,3 +23,7 @@
 "Results - " = "结果 - ";
 
 "Write your diary here! (Markdown supported!)" = "在这里写日记（支持 Markdown）";
+
+"Set Background Color" = "设置背景颜色";
+"Set Image From Camera" = "设置图片（相机）";
+"Set Image From Photo Library" = "设置图片（照片图库）";
