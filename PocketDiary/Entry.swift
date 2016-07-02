@@ -2,6 +2,7 @@ import Foundation
 import CoreData
 import MMMarkdown
 import Emoji
+import Base64nl
 
 class Entry: NSManagedObject {
 
@@ -15,6 +16,7 @@ class Entry: NSManagedObject {
         self.content = content
         self.date = date
         self.title = title
+        self.imagePositionTop = true
     }
     
     func getDescription() -> String {
@@ -38,7 +40,16 @@ class Entry: NSManagedObject {
         let displayTitle = mode == .TitleOnly ? "<span id=\"searchtext\">\(title!)</span>" : title!
         let displayContent = mode == .ContentOnly ? "<span id=\"searchtext\">\(contentHtml)</span>" : contentHtml
         let displayTitleAndContent = mode == .TitleAndContent ? "<span id=\"searchtext\"><h1>\(displayTitle)</h1>\(displayContent)</span>" : "<h1>\(displayTitle)</h1>\(displayContent)"
-        let displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
+        var displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
+        
+        if image != nil {
+            let base64 = image!.base64EncodedString()!
+            if imagePositionTop!.boolValue {
+                displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(displayHtml)"
+            } else {
+                displayHtml += "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>"
+            }
+        }
         
         var r: CGFloat = -1
         var g: CGFloat = -1
@@ -48,9 +59,9 @@ class Entry: NSManagedObject {
         let _g = Int(g * 255)
         let _b = Int(b * 255)
         
-        let displayHtmlWithColor = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(displayHtml)</body>"
+        displayHtml = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(displayHtml)</body>"
         
-        let ret = "<style>\(stylesheet)</style> \(displayHtmlWithColor.emojiUnescapedString)"
+        let ret = "<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)"
         return ret
     }
     
@@ -64,11 +75,20 @@ class Entry: NSManagedObject {
         
         let contentHtml = (try? MMMarkdown.HTMLStringWithMarkdown(content!, extensions: .GitHubFlavored)) ?? content!
         let displayTitleAndContent = "<h1>\(title!)</h1>\(contentHtml)"
-        let displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
+        var displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
         
-        let displayHtmlWithColor = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(self.bgColor!.toColor().redComponent), \(self.bgColor!.toColor().greenComponent), \(self.bgColor!.toColor().blueComponent))\">\(displayHtml)</body>"
+        if image != nil {
+            let base64 = image!.base64EncodedString()!
+            if imagePositionTop!.boolValue {
+                displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(displayHtml)"
+            } else {
+                displayHtml += "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>"
+            }
+        }
         
-        let ret = "<style>\(stylesheet)</style> \(displayHtmlWithColor.emojiUnescapedString)"
+        displayHtml = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(self.bgColor!.toColor().redComponent), \(self.bgColor!.toColor().greenComponent), \(self.bgColor!.toColor().blueComponent))\">\(displayHtml)</body>"
+        
+        let ret = "<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)"
         return ret
     }
 }

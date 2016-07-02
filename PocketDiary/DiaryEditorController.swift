@@ -12,6 +12,8 @@ class DiaryEditorController: UIViewController {
     
     var date: NSDate!
     var bgColor: UIColor?
+    var image: NSData?
+    var imagePositionTop: Bool?
     var entry: Entry!
     var userDeletedEntry = false
     @IBOutlet var txtTitle: UITextField!
@@ -33,6 +35,8 @@ class DiaryEditorController: UIViewController {
             txtContent.text = entry.content
             bgColor = entry.bgColor?.toColor()
             txtContent.backgroundColor = bgColor ?? UIColor.whiteColor()
+            image = entry.image
+            imagePositionTop = entry.imagePositionTop?.boolValue
             tabs.selectedSegmentIndex = 1
             txtContent.hidden = true
             preview.hidden = false
@@ -156,7 +160,7 @@ class DiaryEditorController: UIViewController {
         
         let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
         
-        let mdHtml = try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)<hr>\n# \(txtTitle.text!)\n\n\(txtContent.text!)", extensions: .GitHubFlavored) ?? "\(dateFormatted)\n\n\(txtTitle.text!)\n\n\(txtContent.text!)"
+        var mdHtml = (try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)<hr>\n# \(txtTitle.text!)\n\n\(txtContent.text!)", extensions: .GitHubFlavored)) ?? "\(dateFormatted)\n\n\(txtTitle.text!)\n\n\(txtContent.text!)"
         
         var r: CGFloat = -1
         var g: CGFloat = -1
@@ -166,7 +170,16 @@ class DiaryEditorController: UIViewController {
         let _g = Int(g * 255)
         let _b = Int(b * 255)
         
-        let displayHtml = bgColor == nil ? mdHtml! : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(mdHtml!)</body>"
+        if image != nil {
+            let base64 = image!.base64EncodedString()!
+            if imagePositionTop! {
+                mdHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(mdHtml)"
+            } else {
+                mdHtml += "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>"
+            }
+        }
+        
+        let displayHtml = bgColor == nil ? mdHtml : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(mdHtml)</body>"
         
         preview.loadHTMLString("<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)", baseURL: nil)
     }

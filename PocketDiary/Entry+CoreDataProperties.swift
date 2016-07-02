@@ -8,5 +8,6 @@ extension Entry {
     @NSManaged var title: String?
     @NSManaged var bgColor: NSNumber?
     @NSManaged var image: NSData?
+    @NSManaged var imagePositionTop: NSNumber?
 
 }
