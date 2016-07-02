@@ -7,7 +7,7 @@ import Emoji
 import Keyboardy
 import RWDropdownMenu
 
-class DiaryEditorController: UIViewController {
+class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var date: NSDate!
@@ -83,10 +83,14 @@ class DiaryEditorController: UIViewController {
             entry.title = txtTitle.text
             entry.content = txtContent.text
             entry.bgColor = bgColor?.rgb()
+            entry.image = self.image
+            entry.imagePositionTop = self.imagePositionTop
             dataContext.saveData()
         } else {
             entry = Entry(entity: NSEntityDescription.entityForName("Entry", inManagedObjectContext: dataContext)!, insertIntoManagedObjectContext: dataContext, title: txtTitle.text!, content: txtContent.text, date: date)
             entry.bgColor = bgColor?.rgb()
+            entry.image = self.image
+            entry.imagePositionTop = self.imagePositionTop
             dataContext.saveData()
         }
         
@@ -129,23 +133,59 @@ class DiaryEditorController: UIViewController {
     }
     
     @IBAction func showMore(sender: UIBarButtonItem) {
-        let menuItems = [
+        var menuItems = [
             RWDropdownMenuItem(text: NSLocalizedString("Set Background Color", comment: ""), image: UIImage(named: "paint_brush")) {
                 dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("showColorSelector", sender: self)
                 }
-            },
-            
-            RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
-                
-            },
-            
-            RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
-                
             }
         ]
         
+        if image == nil {
+            menuItems.appendContentsOf([
+                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
+                    let picker = UIImagePickerController()
+                    picker.delegate = self
+                    picker.sourceType = .Camera
+                    self.presentVC(picker)
+                },
+                
+                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
+                    let picker = UIImagePickerController()
+                    picker.delegate = self
+                    picker.sourceType = .PhotoLibrary
+                    self.presentVC(picker)
+                }
+            ])
+        } else {
+            menuItems.appendContentsOf([
+                RWDropdownMenuItem(text: NSLocalizedString("Move Image to Top", comment: ""), image: UIImage(named: "up")) {
+                    self.imagePositionTop = true
+                    self.updatePreview()
+                },
+                
+                RWDropdownMenuItem(text: NSLocalizedString("Move Image to Bottom", comment: ""), image: UIImage(named: "down")) {
+                    self.imagePositionTop = false
+                    self.updatePreview()
+                },
+                
+                RWDropdownMenuItem(text: NSLocalizedString("Remove Image", comment: ""), image: UIImage(named: "remove")) {
+                    self.imagePositionTop = nil
+                    self.image = nil
+                    self.updatePreview()
+                }
+            ])
+        }
+        
         RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Right, style: .Translucent, navBarImage: nil, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        picker.dismissVC(completion: nil)
+        imagePositionTop = true
+        self.image = UIImageJPEGRepresentation(image, 0)
+        tabs.selectedSegmentIndex = 1
+        tabs.sendActionsForControlEvents(.ValueChanged)
     }
     
     func updatePreview() {
