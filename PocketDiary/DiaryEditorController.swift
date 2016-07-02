@@ -189,6 +189,9 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func updatePreview() {
+        view.backgroundColor = bgColor ?? UIColor.whiteColor()
+        preview.backgroundColor = bgColor ?? UIColor.whiteColor()
+        
         if preview.hidden {
             return
         }

@@ -43,6 +43,8 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
             resultView.loadHTMLString(htmls[nowDisplayingIndex], baseURL: nil)
+            view.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
+            resultView.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
         }
     }
     
@@ -58,6 +60,8 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
             resultView.loadHTMLString(htmls[nowDisplayingIndex], baseURL: nil)
+            view.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
+            resultView.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
         }
     }
     
