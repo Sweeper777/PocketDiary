@@ -93,7 +93,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendar" destination="nnA-gP-K6c" id="AgN-lW-76U"/>
-                        <segue destination="cWU-7j-YM0" kind="presentation" identifier="showEditor" modalPresentationStyle="pageSheet" id="AnO-NI-CJs"/>
+                        <segue destination="cWU-7j-YM0" kind="presentation" identifier="showEditor" id="AnO-NI-CJs"/>
                         <segue destination="Wlb-mo-OR5" kind="presentation" identifier="showSearch" modalPresentationStyle="formSheet" id="E55-IE-bKH"/>
                     </connections>
                 </viewController>
@@ -569,15 +569,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVF-Dm-pSP">
-                                <rect key="frame" x="100" y="52" width="480" height="30"/>
-                                <color key="backgroundColor" red="0.95547350009999998" green="0.9622861559" blue="0.98272412330000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="textChanged:" destination="raf-vE-H24" eventType="valueChanged" id="DqO-jS-89m"/>
-                                </connections>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gJf-nL-CvL" customClass="SZTextView">
                                 <rect key="frame" x="20" y="126" width="555" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -587,6 +578,15 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Write your diary here! (Markdown supported!)"/>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVF-Dm-pSP">
+                                <rect key="frame" x="100" y="52" width="480" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textChanged:" destination="raf-vE-H24" eventType="valueChanged" id="VZj-rQ-aGr"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

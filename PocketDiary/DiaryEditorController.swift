@@ -35,6 +35,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             txtContent.text = entry.content
             bgColor = entry.bgColor?.toColor()
             txtContent.backgroundColor = bgColor ?? UIColor.whiteColor()
+            txtTitle.backgroundColor = bgColor ?? UIColor.whiteColor()
             image = entry.image
             imagePositionTop = entry.imagePositionTop?.boolValue
             tabs.selectedSegmentIndex = 1
@@ -141,23 +142,22 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         ]
         
-        if image == nil {
-            menuItems.appendContentsOf([
-                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
-                    let picker = UIImagePickerController()
-                    picker.delegate = self
-                    picker.sourceType = .Camera
-                    self.presentVC(picker)
-                },
-                
-                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
-                    let picker = UIImagePickerController()
-                    picker.delegate = self
-                    picker.sourceType = .PhotoLibrary
-                    self.presentVC(picker)
-                }
+        menuItems.appendContentsOf([
+            RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.sourceType = .Camera
+                self.presentVC(picker)
+            },
+            
+            RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.sourceType = .PhotoLibrary
+                self.presentVC(picker)
+            }
             ])
-        } else {
+        if image != nil {
             menuItems.appendContentsOf([
                 RWDropdownMenuItem(text: NSLocalizedString("Move Image to Top", comment: ""), image: UIImage(named: "up")) {
                     self.imagePositionTop = true
@@ -182,7 +182,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         picker.dismissVC(completion: nil)
-        imagePositionTop = true
+        imagePositionTop = false
         self.image = UIImageJPEGRepresentation(image, 0)
         tabs.selectedSegmentIndex = 1
         tabs.sendActionsForControlEvents(.ValueChanged)
@@ -191,6 +191,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     func updatePreview() {
         view.backgroundColor = bgColor ?? UIColor.whiteColor()
         preview.backgroundColor = bgColor ?? UIColor.whiteColor()
+        txtTitle.backgroundColor = bgColor ?? UIColor.whiteColor()
         
         if preview.hidden {
             return
@@ -199,11 +200,22 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         let formatter = NSDateFormatter()
         formatter.dateStyle = .LongStyle
         formatter.timeStyle = .NoStyle
-        let dateFormatted = formatter.stringFromDate(date)
+        let dateFormatted = formatter.stringFromDate(date!)
         
         let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
         
-        var mdHtml = (try? MMMarkdown.HTMLStringWithMarkdown("\(dateFormatted)<hr>\n# \(txtTitle.text!)\n\n\(txtContent.text!)", extensions: .GitHubFlavored)) ?? "\(dateFormatted)\n\n\(txtTitle.text!)\n\n\(txtContent.text!)"
+        let contentHtml = (try? MMMarkdown.HTMLStringWithMarkdown(txtContent.text!, extensions: .GitHubFlavored)) ?? txtContent.text!
+        let displayTitleAndContent = "<h1>\(txtTitle.text!)</h1>\(contentHtml)"
+        var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
+        
+        if image != nil {
+            let base64 = image!.base64EncodedString()!
+            if imagePositionTop!.boolValue {
+                displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(displayHtml)"
+            } else {
+                displayHtml += "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>"
+            }
+        }
         
         var r: CGFloat = -1
         var g: CGFloat = -1
@@ -213,16 +225,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         let _g = Int(g * 255)
         let _b = Int(b * 255)
         
-        if image != nil {
-            let base64 = image!.base64EncodedString()!
-            if imagePositionTop! {
-                mdHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(mdHtml)"
-            } else {
-                mdHtml += "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>"
-            }
-        }
-        
-        let displayHtml = bgColor == nil ? mdHtml : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(mdHtml)</body>"
+        displayHtml = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(displayHtml)</body>"
         
         preview.loadHTMLString("<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)", baseURL: nil)
     }
@@ -230,6 +233,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func unwindFromColorSelector(segue: UIStoryboardSegue) {
         if let vc = segue.sourceViewController as? ColorSelectorController {
             txtContent.backgroundColor = vc.selectedColor
+            txtTitle.backgroundColor = vc.selectedColor
             bgColor = vc.selectedColor
             updatePreview()
         }

@@ -40,7 +40,7 @@ class Entry: NSManagedObject {
         let displayTitle = mode == .TitleOnly ? "<span id=\"searchtext\">\(title!)</span>" : title!
         let displayContent = mode == .ContentOnly ? "<span id=\"searchtext\">\(contentHtml)</span>" : contentHtml
         let displayTitleAndContent = mode == .TitleAndContent ? "<span id=\"searchtext\"><h1>\(displayTitle)</h1>\(displayContent)</span>" : "<h1>\(displayTitle)</h1>\(displayContent)"
-        var displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
+        var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
             let base64 = image!.base64EncodedString()!
@@ -75,7 +75,7 @@ class Entry: NSManagedObject {
         
         let contentHtml = (try? MMMarkdown.HTMLStringWithMarkdown(content!, extensions: .GitHubFlavored)) ?? content!
         let displayTitleAndContent = "<h1>\(title!)</h1>\(contentHtml)"
-        var displayHtml = "\(dateFormatted)<hr>\(displayTitleAndContent)"
+        var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
             let base64 = image!.base64EncodedString()!
