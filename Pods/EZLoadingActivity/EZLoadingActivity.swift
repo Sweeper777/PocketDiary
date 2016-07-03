@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EZSwiftExtensions
 
 public struct EZLoadingActivity {
     
@@ -270,3 +269,12 @@ private var topMostController: UIViewController? {
     return presentedVC
 }
 
+extension CGRect {
+    var midX: CGFloat {
+        return CGRectGetMidX(self)
+    }
+    
+    var midY: CGFloat {
+        return CGRectGetMidY(self)
+    }
+}
