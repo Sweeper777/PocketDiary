@@ -543,7 +543,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4ps-LB-78G">
-                                <rect key="frame" x="240" y="90" width="121" height="29"/>
+                                <rect key="frame" x="240" y="110" width="121" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="121" id="FM5-nR-BwH"/>
                                 </constraints>
@@ -557,11 +557,11 @@
                                 </connections>
                             </segmentedControl>
                             <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="je6-zK-B5x">
-                                <rect key="frame" x="20" y="126" width="555" height="422"/>
+                                <rect key="frame" x="20" y="146" width="555" height="402"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp5-ON-xng">
-                                <rect key="frame" x="20" y="56" width="72" height="21"/>
+                                <rect key="frame" x="20" y="76" width="72" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="82M-2M-DSd"/>
                                 </constraints>
@@ -570,7 +570,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gJf-nL-CvL" customClass="SZTextView">
-                                <rect key="frame" x="20" y="126" width="555" height="420"/>
+                                <rect key="frame" x="20" y="146" width="555" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -579,7 +579,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVF-Dm-pSP">
-                                <rect key="frame" x="100" y="52" width="480" height="30"/>
+                                <rect key="frame" x="100" y="72" width="480" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

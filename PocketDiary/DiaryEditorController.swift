@@ -66,7 +66,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func save(sender: UIBarButtonItem) {
-        if txtContent.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" && txtTitle.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
+        if txtContent.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" && txtTitle.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" && image == nil {
             
             if entry == nil {
                 dismissViewControllerAnimated(true, completion: nil)
