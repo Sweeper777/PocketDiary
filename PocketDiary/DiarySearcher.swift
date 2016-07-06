@@ -112,4 +112,16 @@ extension String {
             return false
         }
     }
+    
+    func numberOfOccurrencesOfSubstring(subString: String, exactMatch: Bool) -> Int {
+        if exactMatch {
+            return self.componentsSeparatedByString(subString).count - 1
+        } else {
+            var total = 0
+            for keyword in (subString.componentsSeparatedByString(" ").filter { $0 != "" }) {
+                total += self.componentsSeparatedByString(keyword).count - 1
+            }
+            return total
+        }
+    }
 }
