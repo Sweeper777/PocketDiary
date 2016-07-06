@@ -119,7 +119,7 @@ extension String {
         } else {
             let keywords = str.componentsSeparatedByString(" ").filter {$0 != ""}
             for keyword in keywords {
-                if self.rangeOfString(keyword) != nil {
+                if self.lowercaseString.rangeOfString(keyword.lowercaseString) != nil {
                     return true
                 }
             }
@@ -133,7 +133,7 @@ extension String {
         } else {
             var total = 0
             for keyword in (subString.componentsSeparatedByString(" ").filter { $0 != "" }) {
-                total += self.componentsSeparatedByString(keyword).count - 1
+                total += self.lowercaseString.componentsSeparatedByString(keyword.lowercaseString).count - 1
             }
             return total
         }

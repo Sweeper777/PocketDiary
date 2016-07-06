@@ -1,11 +1,16 @@
-function uiWebview_HighlightAllOccurencesOfStringForElement(element,keyword) {
+function uiWebview_HighlightAllOccurencesOfStringForElement(element,keyword, exactMatch) {
     
     if (element) {
         if (element.nodeType == 3) {        // Text node
             while (true) {
                 //if (counter < 1) {
                 var value = element.nodeValue;  // Search for keyword in text node
-                var idx = value.toLowerCase().indexOf(keyword);
+                var idx = -1;
+                if (!exactMatch) {
+                    idx = value.toLowerCase().indexOf(keyword.toLowerCase());
+                } else {
+                    idx = value.indexOf(keyword);
+                }
                 
                 if (idx < 0) break;             // not found, abort
                 
@@ -32,7 +37,7 @@ function uiWebview_HighlightAllOccurencesOfStringForElement(element,keyword) {
         } else if (element.nodeType == 1) { // Element node
             if (element.style.display != "none" && element.nodeName.toLowerCase() != 'select') {
                 for (var i=element.childNodes.length-1; i>=0; i--) {
-                    uiWebview_HighlightAllOccurencesOfStringForElement(element.childNodes[i],keyword);
+                    uiWebview_HighlightAllOccurencesOfStringForElement(element.childNodes[i],keyword, exactMatch);
                 }
             }
         }
@@ -40,9 +45,9 @@ function uiWebview_HighlightAllOccurencesOfStringForElement(element,keyword) {
 }
 
 // the main entry point to start the search
-function uiWebview_HighlightAllOccurencesOfString(keyword) {
+function uiWebview_HighlightAllOccurencesOfString(keyword, exactMatch) {
     var element = document.getElementById("searchtext");
-    uiWebview_HighlightAllOccurencesOfStringForElement(element, keyword.toLowerCase());
+    uiWebview_HighlightAllOccurencesOfStringForElement(element, keyword, exactMatch);
 }
 
 // helper function, recursively removes the highlights in elements and their childs
