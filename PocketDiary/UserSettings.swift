@@ -21,6 +21,11 @@ class UserSettings {
         set { NSUserDefaults.standardUserDefaults().setInteger(newValue.rawValue, forKey: "sortMode") }
     }
     
+    static var lastUsedBuild: Int {
+        get { return NSUserDefaults.standardUserDefaults().integerForKey("lastUsedBuild") }
+        set { NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "lastUsedBuild") }
+    }
+    
     static let searchRangeStrings: [SearchRange: String] = [
         .TitleAndContent: "Title and Content",
         .ContentOnly: "Content only",

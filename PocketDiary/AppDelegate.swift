@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EZLoadingActivity.Settings.ActivityColor = UIColor.whiteColor()
         EZLoadingActivity.Settings.TextColor = UIColor.whiteColor()
         
+        UserSettings.lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
+        
         return true
     }
 
