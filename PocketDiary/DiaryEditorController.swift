@@ -142,21 +142,28 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         ]
         
-        menuItems.appendContentsOf([
-            RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            menuItems.append(
+                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
                 let picker = UIImagePickerController()
                 picker.delegate = self
                 picker.sourceType = .Camera
                 self.presentVC(picker)
-            },
-            
-            RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
-                let picker = UIImagePickerController()
-                picker.delegate = self
-                picker.sourceType = .PhotoLibrary
-                self.presentVC(picker)
-            }
-            ])
+                }
+            )
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            menuItems.append(
+                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
+                    let picker = UIImagePickerController()
+                    picker.delegate = self
+                    picker.sourceType = .PhotoLibrary
+                    self.presentVC(picker)
+                }
+            )
+        }
+        
         if image != nil {
             menuItems.appendContentsOf([
                 RWDropdownMenuItem(text: NSLocalizedString("Move Image to Top", comment: ""), image: UIImage(named: "up")) {
