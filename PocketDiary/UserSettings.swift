@@ -36,6 +36,7 @@ class UserSettings {
     ]
     
     static let sortModeStrings: [SortMode: String] = [
+        .Relevance: "Relevance",
         .DateAscending: "Earlier → Later",
         .DateDescending: "Later → Earlier",
         .TitleAscending: "Title A → Z",
@@ -64,5 +65,5 @@ enum TimeRange: Int {
 }
 
 enum SortMode: Int {
-    case DateAscending, DateDescending, TitleAscending, TitleDescending
+    case Relevance, DateAscending, DateDescending, TitleAscending, TitleDescending
 }

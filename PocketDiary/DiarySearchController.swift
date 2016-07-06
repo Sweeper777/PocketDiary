@@ -64,7 +64,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     @IBAction func selectSortMode(sender: UIButton) {
-        let strs = ["Earlier → Later", "Later → Earlier", "Title A → Z", "Title Z → A"]
+        let strs = ["Relevance", "Earlier → Later", "Later → Earlier", "Title A → Z", "Title Z → A"]
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.sortMode.rawValue, doneBlock: { (picker, index, value) in

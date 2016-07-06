@@ -62,6 +62,20 @@ struct DiarySearcher {
                 (entry1, entry2) -> Bool in
                 return entry1.title!.lowercaseString > entry2.title!.lowercaseString
             }
+        case .Relevance:
+            entries.sortInPlace {
+                entry1, entry2 in
+                switch self.searchRange {
+                case .TitleOnly:
+                    return entry1.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) > entry2.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
+                case .ContentOnly:
+                    return entry1.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) > entry2.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
+                case .TitleAndContent:
+                    let occurrencesIn1 = entry1.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) + entry1.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
+                    let occurrencesIn2 = entry2.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) + entry2.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
+                    return occurrencesIn1 > occurrencesIn2
+                }
+            }
         }
         
         return entries
