@@ -32,6 +32,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     @IBAction func selectSearchRange(sender: UIButton) {
+        view.endEditing(true)
         let strs = ["Title and Content", "Content only", "Title only"]
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
@@ -45,6 +46,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     @IBAction func selectDateRange(sender: UIButton) {
+        view.endEditing(true)
         let strs = ["All", "Previous 365 days", "Previous 30 days", "Previous 7 days", "Custom"]
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
@@ -64,6 +66,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     @IBAction func selectSortMode(sender: UIButton) {
+        view.endEditing(true)
         let strs = ["Relevance", "Earlier → Later", "Later → Earlier", "Title A → Z", "Title Z → A"]
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
