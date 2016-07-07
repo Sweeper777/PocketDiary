@@ -14,8 +14,8 @@
 "Previous 30 days" = "过去 30 天";
 "Previous 7 days" = "过去 7 天";
 "Custom" = "自定义";
-"Earlier → Later" = "较早 → 较晚";
-"Later → Earlier" = "较晚 → 较早";
+"Earlier → Later" = "由旧到新";
+"Later → Earlier" = "由新到旧";
 "Title A → Z" = "标题字母顺序";
 "Title Z → A" = "标题字母倒序";
 "Searching..." = "搜索中...";
