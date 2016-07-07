@@ -1,36 +1,46 @@
-//
-//  PocketDiaryUITests.swift
-//  PocketDiaryUITests
-//
-//  Created by Mulang Su on 6/3/16.
-//  Copyright © 2016 Mulang Su. All rights reserved.
-//
-
 import XCTest
 
 class PocketDiaryUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+        setupSnapshot(XCUIApplication())
         XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        app.collectionViews.staticTexts["13"].swipeRight()
+        snapshot("1calendar")
+        
+        var num = ""
+        
+        if deviceLanguage.hasPrefix("en") {
+            num = "26"
+        } else if deviceLanguage.hasSuffix("Hans") {
+        
+        }
+        let staticText = app.collectionViews.staticTexts[num]
+        staticText.tap()
+        snapshot("2preview")
+        app.buttons["Editor"].tap()
+        snapshot("3editor")
+        app.navigationBars["6/26/16"].buttons["Cancel"].tap()
+        app.navigationBars["My Diaries"].buttons["search filled"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.textFields["Search"].tap()
+        tablesQuery.textFields["Search"].typeText("beach")
+        snapshot("4search")
+        app.navigationBars["Search"].buttons["search colored"].tap()
+        app.navigationBars["Results - 1 / 2"].buttons["right"].tap()
+        
+        snapshot("5result")
     }
     
 }

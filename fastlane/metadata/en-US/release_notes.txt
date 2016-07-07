@@ -1,0 +1,3 @@
+- Fixed potential crashes
+- Added a new 'Relevance' sort option
+- Changed some Chinese translations

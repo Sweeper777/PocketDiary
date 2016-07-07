@@ -1,0 +1,26 @@
+Tired of writing diaries in the same old style? Searching through all your diaries is a pain in the neck? You just can't find what you want to find? EZDiary is for YOU!
+
+EZDiary provides a simple, intuitive and elegant interface for dealing with your diaries! Just tap on a date, and write your diary with style: italic, bold, titles, block quotes, code blocks, emojis...
+
+In addition, EZDiary has a powerful search feature. You can fiddle around with search options: search in the last year? Last month? Or search in title only? Show earlier diaries first? You can adjust all these bits and bobs!
+
+Sounds interesting? Give it a try!
+
+Major features:
+- Intuitive design!
+- Formatting with Markdown!
+    - Italic!
+    - Bold!
+    - Headings!
+    - Block quotes!
+    - Code blocks!
+- Emojis!
+- Search options
+    - Exact match
+    - Date Range
+    - Sorting
+    - And more!
+- Cool fonts!
+- Images!
+- Background Colors!
+- Cool-looking diary styles!

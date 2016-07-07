@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A003C961D223C55001EA872 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A003C981D223C55001EA872 /* InfoPlist.strings */; };
+		5A007AB11D2E3C6600D903CC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A007AB01D2E3C6600D903CC /* SnapshotHelper.swift */; };
 		5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A04D0701D18FC8000868126 /* LLSwitch.framework */; };
 		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
 		5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA711D01B16000B36AA7 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		5A003C971D223C55001EA872 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5A003C991D223C57001EA872 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5A007AB01D2E3C6600D903CC /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		5A04D0701D18FC8000868126 /* LLSwitch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLSwitch.framework; path = "Pods/../build/Debug-iphoneos/LLSwitch.framework"; sourceTree = "<group>"; };
 		5A2193611D1E6E8800966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5A2193621D1E6E8900966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		5A21FA931D01B16000B36AA7 /* PocketDiaryUITests */ = {
 			isa = PBXGroup;
 			children = (
+				5A007AB01D2E3C6600D903CC /* SnapshotHelper.swift */,
 				5A21FA941D01B16000B36AA7 /* PocketDiaryUITests.swift */,
 				5A21FA961D01B16000B36AA7 /* Info.plist */,
 			);
@@ -491,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A21FA951D01B16000B36AA7 /* PocketDiaryUITests.swift in Sources */,
+				5A007AB11D2E3C6600D903CC /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
