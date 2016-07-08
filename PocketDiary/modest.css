@@ -209,8 +209,9 @@ h3 {
 }
 
 blockquote {
-  border-left: 8px solid #fafafa;
+    border-left: 8px solid #e8e8e8;
   padding: 1rem;
+  background: #f0f0f0;
 }
 
 pre,
