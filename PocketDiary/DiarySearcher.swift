@@ -83,18 +83,18 @@ struct DiarySearcher {
     
     private func filterByDate(entries: [Entry]) -> [Entry] {
         var dateRange: ClosedInterval<NSDate>
-        let today = NSDate().fs_dateByIgnoringTimeComponents
+        let today = NSDate()
         switch timeRange {
         case .Lifetime:
             fatalError()
         case .LastWeek:
-            let last7Days = today.fs_dateByAddingDays(-7)
+            let last7Days = FSCalendar().dateByAddingDays(-7, toDate: today)
             dateRange = last7Days...today
         case .LastMonth:
-            let last30Days = today.fs_dateByAddingDays(-30)
+            let last30Days = FSCalendar().dateByAddingDays(-30, toDate: today)
             dateRange = last30Days...today
         case .LastYear:
-            let last365Days = today.fs_dateByAddingDays(-365)
+            let last365Days = FSCalendar().dateByAddingDays(-365, toDate: today)
             dateRange = last365Days...today
         case .Custom:
             dateRange = customDateRange!

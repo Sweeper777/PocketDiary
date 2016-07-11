@@ -1,4 +1,5 @@
 import UIKit
+import FSCalendar
 
 class DateRangeSelectorController: UITableViewController {
     @IBOutlet var startPicker: UIDatePicker!
@@ -8,11 +9,11 @@ class DateRangeSelectorController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startPicker.date = endPicker.date.fs_dateByAddingDays(-30)
+        startPicker.date = FSCalendar().dateByAddingDays(-30, toDate: endPicker.date)
     }
     
     @IBAction func done(sender: UIBarButtonItem) {
-        dateRange = startPicker.date.fs_dateByIgnoringTimeComponents...endPicker.date.fs_dateByIgnoringTimeComponents
+        dateRange = FSCalendar().dateByIgnoringTimeComponentsOfDate(startPicker.date)...FSCalendar().dateByIgnoringTimeComponentsOfDate(endPicker.date)
         performSegueWithIdentifier("unwindDone", sender: self)
     }
     
