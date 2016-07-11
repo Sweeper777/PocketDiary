@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import EZSwiftExtensions
 import EZLoadingActivity
+import LTHPasscodeViewController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EZLoadingActivity.Settings.TextColor = UIColor.whiteColor()
         
         UserSettings.lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
+        
+        LTHPasscodeViewController.useKeychain(false)
+        if LTHPasscodeViewController.doesPasscodeExist() {
+            if LTHPasscodeViewController.didPasscodeTimerEnd() {
+                LTHPasscodeViewController.sharedUser().showLockScreenWithAnimation(true, withLogout: false, andLogoutTitle: nil)
+            }
+        }
         
         return true
     }
