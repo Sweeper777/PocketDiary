@@ -16,6 +16,7 @@ target 'PocketDiary' do
     pod 'RWDropdownMenu'
     pod 'DTCollectionViewManager'
     pod 'Base64nl'
+    pod 'LTHPasscodeViewController'
 end
 
 target 'PocketDiaryTests' do

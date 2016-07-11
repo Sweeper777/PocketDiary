@@ -44,6 +44,7 @@
 		5AFC26181D26376E007C38B4 /* DTCollectionViewManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFC26161D26376E007C38B4 /* DTCollectionViewManager.framework */; };
 		5AFC26191D26376E007C38B4 /* DTModelStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFC26171D26376E007C38B4 /* DTModelStorage.framework */; };
 		5AFC261B1D263797007C38B4 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC261A1D263797007C38B4 /* ColorCell.swift */; };
+		5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */; };
 		5AFD86AC1D239C5700D80F8E /* ActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD86AB1D239C5700D80F8E /* ActionSheetPicker.framework */; };
 		9CEE7BB01359CA45B52C2BA6 /* Pods_PocketDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		5AFC26161D26376E007C38B4 /* DTCollectionViewManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DTCollectionViewManager.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/DTCollectionViewManager.framework"; sourceTree = "<group>"; };
 		5AFC26171D26376E007C38B4 /* DTModelStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DTModelStorage.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/DTModelStorage.framework"; sourceTree = "<group>"; };
 		5AFC261A1D263797007C38B4 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHPasscodeViewController.framework; path = "Pods/../build/Debug-iphoneos/LTHPasscodeViewController.framework"; sourceTree = "<group>"; };
 		5AFD86AB1D239C5700D80F8E /* ActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActionSheetPicker.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/ActionSheetPicker.framework"; sourceTree = "<group>"; };
 		6289957AE47031AEF251179F /* Pods-PocketDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		64DC5DF19320A8A21F275BBF /* Pods-PocketDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */,
 				5AFC26181D26376E007C38B4 /* DTCollectionViewManager.framework in Frameworks */,
 				5AFC26191D26376E007C38B4 /* DTModelStorage.framework in Frameworks */,
 				5AFC26121D261395007C38B4 /* Base64nl.framework in Frameworks */,
@@ -251,6 +254,7 @@
 		CB021911B0AE96F7D484390D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */,
 				5AFC26161D26376E007C38B4 /* DTCollectionViewManager.framework */,
 				5AFC26171D26376E007C38B4 /* DTModelStorage.framework */,
 				5AFC26101D261395007C38B4 /* Base64nl.framework */,
