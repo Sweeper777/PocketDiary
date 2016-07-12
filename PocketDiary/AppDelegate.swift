@@ -19,13 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserSettings.lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
         
-        LTHPasscodeViewController.useKeychain(false)
-        if LTHPasscodeViewController.doesPasscodeExist() {
-            if LTHPasscodeViewController.didPasscodeTimerEnd() {
-                LTHPasscodeViewController.sharedUser().showLockScreenWithAnimation(true, withLogout: false, andLogoutTitle: nil)
-            }
-        }
-        
         return true
     }
 

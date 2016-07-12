@@ -12,12 +12,23 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     @IBOutlet var calendar: FSCalendar!
     
     override func viewDidLoad() {
+        LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hexString: "5abb5a")
+        LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.whiteColor()
+        LTHPasscodeViewController.sharedUser().hidesCancelButton = false
+        LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.whiteColor()
+        
         let entity = NSEntityDescription.entityForName("Entry", inManagedObjectContext: dataContext)
         let request = NSFetchRequest()
         request.entity = entity
         let anyObjs = try? dataContext.executeFetchRequest(request)
         if anyObjs != nil {
             anyObjs!.forEach { entries[($0 as! Entry).date!] = ($0 as! Entry) }
+        }
+        
+        if LTHPasscodeViewController.doesPasscodeExist() {
+            //if LTHPasscodeViewController.didPasscodeTimerEnd() {
+            LTHPasscodeViewController.sharedUser().showLockScreenWithAnimation(true, withLogout: true, andLogoutTitle: nil)
+            //}
         }
     }
     
@@ -77,21 +88,21 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         if LTHPasscodeViewController.doesPasscodeExist() {
             menuItems.appendContentsOf([
                 RWDropdownMenuItem(text: NSLocalizedString("Change Passocde", comment: ""), image: UIImage(named: "change")) {
-                    
+                        LTHPasscodeViewController.sharedUser().showForChangingPasscodeInViewController(self, asModal: true)
                     },
                     RWDropdownMenuItem(text: NSLocalizedString("Disable Passcode", comment: ""), image: UIImage(named: "remove")) {
-                        
+                        LTHPasscodeViewController.sharedUser().showForDisablingPasscodeInViewController(self, asModal: true)
                     }
             ])
         } else {
             menuItems.append(
-                RWDropdownMenuItem(text: NSLocalizedString("Set Passcode", comment: ""), image: nil) {
-                    
+                RWDropdownMenuItem(text: NSLocalizedString("Set Passcode", comment: ""), image: UIImage(named: "key_colored")) {
+                    LTHPasscodeViewController.sharedUser().showForEnablingPasscodeInViewController(self, asModal: true)
                 }
             )
         }
         
-        RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Left, style: .Translucent, navBarImage: UIImage(named: "key"), completion: nil)
+        RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Left, style: .Translucent, navBarImage: nil, completion: nil)
     }
 }
 
