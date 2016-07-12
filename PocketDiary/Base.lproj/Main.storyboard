@@ -87,7 +87,7 @@
                         <barButtonItem key="leftBarButtonItem" image="key" id="sxj-9x-g7J">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="fNq-zu-FI9" kind="presentation" id="hNl-eV-emw"/>
+                                <action selector="passcodeSettings:" destination="BYZ-38-t0r" id="UDx-Kg-4Sb"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="search_filled" id="H9L-5p-Beb">
@@ -147,65 +147,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ue-5r-aag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1043" y="306"/>
-        </scene>
-        <!--Passcode Settings-->
-        <scene sceneID="E6Z-Gg-T7s">
-            <objects>
-                <tableViewController id="rcC-UO-fNp" customClass="PasswordSettingsController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="08I-mC-3jl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection id="dMb-ah-7HP">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ty6-34-yka">
-                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ty6-34-yka" id="UYr-h2-uFD">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="rcC-UO-fNp" id="bY1-Nc-1Wd"/>
-                            <outlet property="delegate" destination="rcC-UO-fNp" id="HOS-Hf-XY2"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Passcode Settings" id="ym7-2S-qBd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="yfk-LW-XXr">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nas-2R-NvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1755" y="-397"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ctN-mD-i2q">
-            <objects>
-                <navigationController id="fNq-zu-FI9" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Xg-JY-2qZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="rcC-UO-fNp" kind="relationship" relationship="rootViewController" id="QJd-lg-Vjs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i9r-nm-ugl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1043" y="-397"/>
         </scene>
         <!--Delegate-->
         <scene sceneID="hf8-pj-qkc">

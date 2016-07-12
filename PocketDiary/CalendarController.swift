@@ -2,6 +2,8 @@ import UIKit
 import FSCalendar
 import CoreData
 import EZSwiftExtensions
+import RWDropdownMenu
+import LTHPasscodeViewController
 
 class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -68,6 +70,28 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     @IBAction func search(sender: UIBarButtonItem) {
         performSegueWithIdentifier("showSearch", sender: self)
+    }
+    
+    @IBAction func passcodeSettings(sender: UIBarButtonItem) {
+        var menuItems = [RWDropdownMenuItem]()
+        if LTHPasscodeViewController.doesPasscodeExist() {
+            menuItems.appendContentsOf([
+                RWDropdownMenuItem(text: NSLocalizedString("Change Passocde", comment: ""), image: UIImage(named: "change")) {
+                    
+                    },
+                    RWDropdownMenuItem(text: NSLocalizedString("Disable Passcode", comment: ""), image: UIImage(named: "remove")) {
+                        
+                    }
+            ])
+        } else {
+            menuItems.append(
+                RWDropdownMenuItem(text: NSLocalizedString("Set Passcode", comment: ""), image: nil) {
+                    
+                }
+            )
+        }
+        
+        RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Left, style: .Translucent, navBarImage: UIImage(named: "key"), completion: nil)
     }
 }
 

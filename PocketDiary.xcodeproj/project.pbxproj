@@ -45,7 +45,6 @@
 		5AFC26191D26376E007C38B4 /* DTModelStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFC26171D26376E007C38B4 /* DTModelStorage.framework */; };
 		5AFC261B1D263797007C38B4 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC261A1D263797007C38B4 /* ColorCell.swift */; };
 		5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */; };
-		5AFD37D61D33A5A5004901F1 /* PasswordSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD37D51D33A5A5004901F1 /* PasswordSettingsController.swift */; };
 		5AFD86AC1D239C5700D80F8E /* ActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD86AB1D239C5700D80F8E /* ActionSheetPicker.framework */; };
 		9CEE7BB01359CA45B52C2BA6 /* Pods_PocketDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D4E05FD7F3C3C5C7D4A36 /* Pods_PocketDiary.framework */; };
 /* End PBXBuildFile section */
@@ -126,7 +125,6 @@
 		5AFC26171D26376E007C38B4 /* DTModelStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DTModelStorage.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/DTModelStorage.framework"; sourceTree = "<group>"; };
 		5AFC261A1D263797007C38B4 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHPasscodeViewController.framework; path = "Pods/../build/Debug-iphoneos/LTHPasscodeViewController.framework"; sourceTree = "<group>"; };
-		5AFD37D51D33A5A5004901F1 /* PasswordSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordSettingsController.swift; sourceTree = "<group>"; };
 		5AFD86AB1D239C5700D80F8E /* ActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActionSheetPicker.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/ActionSheetPicker.framework"; sourceTree = "<group>"; };
 		6289957AE47031AEF251179F /* Pods-PocketDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		64DC5DF19320A8A21F275BBF /* Pods-PocketDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 				5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */,
 				5AF8E50A1D250DDA00E2A547 /* DateRangeSelectorController.swift */,
 				5AFB59E31D158D8A00BF4CAD /* SearchResultsController.swift */,
-				5AFD37D51D33A5A5004901F1 /* PasswordSettingsController.swift */,
 				5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */,
 				5A21FA751D01B16000B36AA7 /* Main.storyboard */,
 				5AF9ACF81D12769300C8B856 /* UserSettings.swift */,
@@ -476,7 +473,6 @@
 				5AF571261D02582400DF004F /* Entry.swift in Sources */,
 				5AF875B91D17D4DF00DF0669 /* Threading.swift in Sources */,
 				5A21FA7A1D01B16000B36AA7 /* PocketDiary.xcdatamodeld in Sources */,
-				5AFD37D61D33A5A5004901F1 /* PasswordSettingsController.swift in Sources */,
 				5AFC26151D2615A4007C38B4 /* ColorSelectorController.swift in Sources */,
 				5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */,
 				5AFC261B1D263797007C38B4 /* ColorCell.swift in Sources */,
