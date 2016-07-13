@@ -87,7 +87,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         var menuItems = [RWDropdownMenuItem]()
         if LTHPasscodeViewController.doesPasscodeExist() {
             menuItems.appendContentsOf([
-                RWDropdownMenuItem(text: NSLocalizedString("Change Passocde", comment: ""), image: UIImage(named: "change")) {
+                RWDropdownMenuItem(text: NSLocalizedString("Change Passcode", comment: ""), image: UIImage(named: "change")) {
                         LTHPasscodeViewController.sharedUser().showForChangingPasscodeInViewController(self, asModal: true)
                     },
                     RWDropdownMenuItem(text: NSLocalizedString("Disable Passcode", comment: ""), image: UIImage(named: "remove")) {
