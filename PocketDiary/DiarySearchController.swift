@@ -86,7 +86,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     @IBAction func search(sender: UIBarButtonItem) {
         let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let text = searchText.text!.emojiEscapedString
-        let searcher = DiarySearcher(searchText: text,
+        let searcher = DiarySearcher(searchText: text.emojiUnescapedString,
                                      exactMatch: UserSettings.exactMatch,
                                      searchRange: UserSettings.searchRange,
                                      timeRange: customDateRange == nil ? UserSettings.timeRange : .Custom,

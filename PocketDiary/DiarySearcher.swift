@@ -108,7 +108,7 @@ struct DiarySearcher {
     }
     
     private func filterByContent(entries: [Entry]) -> [Entry] {
-        return entries.filter { $0.content!.contains(searchText, exactMatch: exactMatch) }
+        return entries.filter { $0.content!.emojiUnescapedString.contains(searchText, exactMatch: exactMatch) }
     }
 }
 
