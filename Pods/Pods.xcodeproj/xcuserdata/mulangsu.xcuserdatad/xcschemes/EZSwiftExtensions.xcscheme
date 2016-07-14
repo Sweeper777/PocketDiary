@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4D49602641112FCBEF7C8EF7'
+               BlueprintIdentifier = 'FA49DEABBD8C7FA4AF7933A9'
                BlueprintName = 'EZSwiftExtensions'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'EZSwiftExtensions.framework'>

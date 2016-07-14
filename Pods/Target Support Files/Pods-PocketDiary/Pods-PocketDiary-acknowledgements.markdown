@@ -203,6 +203,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Firebase
+
+Copyright 2016 Google Inc.
+
+## FirebaseAnalytics
+
+Copyright 2016 Google
+
+## FirebaseInstanceID
+
+Copyright 2016 Google Inc.
+
+## Google-Mobile-Ads-SDK
+
+Copyright 2011 Google Inc. All Rights Reserved.
+
+## GoogleInterchangeUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleSymbolUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleUtilities
+
+Copyright 2015 Google Inc.
+
 ## Keyboardy
 
 Copyright (c) 2015 Andrew Podkovyrin <podkovyrin@gmail.com>

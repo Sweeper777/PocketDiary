@@ -17,6 +17,8 @@ target 'PocketDiary' do
     pod 'DTCollectionViewManager'
     pod 'Base64nl'
     pod 'LTHPasscodeViewController'
+    pod 'Firebase/Core'
+    pod 'Firebase/AdMob'
 end
 
 target 'PocketDiaryTests' do

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B0AB8E9F031BEDFFD244761C'
+               BlueprintIdentifier = 'CEF1EC39DE3DD474FC840167'
                BlueprintName = 'LLSwitch'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'LLSwitch.framework'>

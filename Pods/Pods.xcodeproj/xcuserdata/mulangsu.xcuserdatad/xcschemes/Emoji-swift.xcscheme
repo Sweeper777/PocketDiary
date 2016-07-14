@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '749450C41F1CECA671137022'
+               BlueprintIdentifier = '41AE2251312E4CAEF9523EBF'
                BlueprintName = 'Emoji-swift'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Emoji.framework'>
