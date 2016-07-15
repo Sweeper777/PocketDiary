@@ -258,7 +258,7 @@ extension DiaryEditorController: KeyboardStateDelegate {
         case .ActiveWithHeight(let height):
             bottomConstraint.constant = height + 10
         case .Hidden:
-            bottomConstraint.constant = 10
+            bottomConstraint.constant = 70
         }
         
         view.layoutIfNeeded()
