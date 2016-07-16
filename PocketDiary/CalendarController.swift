@@ -4,12 +4,14 @@ import CoreData
 import EZSwiftExtensions
 import RWDropdownMenu
 import LTHPasscodeViewController
+import GoogleMobileAds
 
 class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var entries: [NSDate: Entry] = [:]
     var dateToPass: NSDate!
     @IBOutlet var calendar: FSCalendar!
+    @IBOutlet var ad: GADBannerView!
     
     override func viewDidLoad() {
         LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hexString: "5abb5a")
@@ -30,6 +32,9 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
             LTHPasscodeViewController.sharedUser().showLockScreenWithAnimation(true, withLogout: true, andLogoutTitle: nil)
             //}
         }
+        
+        ad.adUnitID = AdUtility.ad1ID
+        ad.loadRequest(AdUtility.getRequest())
     }
     
     override func viewDidAppear(animated: Bool) {

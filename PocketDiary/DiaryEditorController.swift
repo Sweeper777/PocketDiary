@@ -6,6 +6,7 @@ import MMMarkdown
 import Emoji
 import Keyboardy
 import RWDropdownMenu
+import GoogleMobileAds
 
 class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -22,6 +23,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var tabs: UISegmentedControl!
     @IBOutlet var deleteBtn: UIBarButtonItem!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet var ad: GADBannerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +49,9 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
+        
+        ad.adUnitID = AdUtility.ad2ID
+        ad.loadRequest(AdUtility.getRequest())
     }
     
     override func viewDidAppear(animated: Bool) {

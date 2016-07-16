@@ -1,5 +1,6 @@
 import UIKit
 import Emoji
+import GoogleMobileAds
 
 class SearchResultsController: UIViewController, UIWebViewDelegate {
     var entries: [Entry] = []
@@ -13,6 +14,7 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
     }()
     
     @IBOutlet var resultView: UIWebView!
+    @IBOutlet var ad: GADBannerView!
     
     @IBAction func next(sender: UIBarButtonItem) {
         loadNextResult()
@@ -30,6 +32,9 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         
         resultView.delegate = self
         loadNextResult()
+        
+        ad.adUnitID = AdUtility.ad4ID
+        ad.loadRequest(AdUtility.getRequest())
     }
     
     private func loadNextResult() {

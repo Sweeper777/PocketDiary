@@ -106,6 +106,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ad" destination="74Y-Hm-Yqk" id="7dn-Ds-Tst"/>
                         <outlet property="calendar" destination="nnA-gP-K6c" id="AgN-lW-76U"/>
                         <segue destination="cWU-7j-YM0" kind="presentation" identifier="showEditor" id="AnO-NI-CJs"/>
                         <segue destination="Wlb-mo-OR5" kind="presentation" identifier="showSearch" modalPresentationStyle="formSheet" id="E55-IE-bKH"/>
@@ -343,7 +344,7 @@
                                         <rect key="frame" x="0.0" y="349" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uU3-1w-qvt" id="uIN-10-0Df">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEV-3C-uCB" customClass="GADBannerView">
@@ -383,6 +384,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ad" destination="mEV-3C-uCB" id="NyC-ra-NV6"/>
                         <outlet property="dateRangeLbl" destination="pN4-wN-2pu" id="Ozg-uZ-I1x"/>
                         <outlet property="exactMatch" destination="pvk-ny-Um4" id="c0W-a2-d2b"/>
                         <outlet property="searchRangeLbl" destination="aWD-ve-TiZ" id="9bH-on-Wm3"/>
@@ -449,6 +451,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="ad" destination="06R-sR-J4P" id="pgp-PK-Itu"/>
                         <outlet property="resultView" destination="iaM-gQ-ZnO" id="uXq-yb-bJ8"/>
                     </connections>
                 </viewController>
@@ -692,6 +695,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="ad" destination="gi6-0r-VJH" id="y2Q-13-xbx"/>
                         <outlet property="bottomConstraint" destination="dRE-Fx-cad" id="5E6-bc-gdY"/>
                         <outlet property="deleteBtn" destination="lUH-2t-6gv" id="ATM-fY-k4l"/>
                         <outlet property="preview" destination="je6-zK-B5x" id="GHV-q2-CGw"/>
