@@ -11,6 +11,7 @@
 		5A007AB11D2E3C6600D903CC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A007AB01D2E3C6600D903CC /* SnapshotHelper.swift */; };
 		5A0096061D386D8700C34650 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0096051D386D8700C34650 /* AdUtility.swift */; };
 		5A00F7A11D37A7D3006ACC63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */; };
+		5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */; };
 		5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A04D0701D18FC8000868126 /* LLSwitch.framework */; };
 		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
 		5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA711D01B16000B36AA7 /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 		5A007AB01D2E3C6600D903CC /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		5A0096051D386D8700C34650 /* AdUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUtility.swift; sourceTree = "<group>"; };
 		5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = PocketDiary/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		5A04D0701D18FC8000868126 /* LLSwitch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLSwitch.framework; path = "Pods/../build/Debug-iphoneos/LLSwitch.framework"; sourceTree = "<group>"; };
 		5A2193611D1E6E8800966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5A2193621D1E6E8900966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */,
 				5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */,
 				5AFC26181D26376E007C38B4 /* DTCollectionViewManager.framework in Frameworks */,
 				5AFC26191D26376E007C38B4 /* DTModelStorage.framework in Frameworks */,
@@ -260,6 +263,7 @@
 		CB021911B0AE96F7D484390D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */,
 				5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */,
 				5AFC26161D26376E007C38B4 /* DTCollectionViewManager.framework */,
 				5AFC26171D26376E007C38B4 /* DTModelStorage.framework */,
@@ -667,12 +671,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
+					"$(PROJECT_DIR)/PocketDiary",
 				);
 				INFOPLIST_FILE = PocketDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -687,12 +694,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
+					"$(PROJECT_DIR)/PocketDiary",
 				);
 				INFOPLIST_FILE = PocketDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '70C0084C43C50F809199FC10'
+               BlueprintIdentifier = 'A703A605D977607FEAC88747'
                BlueprintName = 'RWDropdownMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'RWDropdownMenu.framework'>
