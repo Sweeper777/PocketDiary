@@ -34,6 +34,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         }
         
         ad.adUnitID = AdUtility.ad1ID
+        ad.rootViewController = self
         ad.loadRequest(AdUtility.getRequest())
     }
     

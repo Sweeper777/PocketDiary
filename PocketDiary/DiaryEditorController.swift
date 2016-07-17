@@ -51,6 +51,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
         
         ad.adUnitID = AdUtility.ad2ID
+        ad.rootViewController = self
         ad.loadRequest(AdUtility.getRequest())
     }
     

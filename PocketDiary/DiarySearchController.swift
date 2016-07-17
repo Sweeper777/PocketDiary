@@ -33,6 +33,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         searchText.delegate = self
         
         ad.adUnitID = AdUtility.ad3ID
+        ad.rootViewController = self
         ad.loadRequest(AdUtility.getRequest())
     }
     
