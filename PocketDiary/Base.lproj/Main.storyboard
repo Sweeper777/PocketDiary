@@ -411,25 +411,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaM-gQ-ZnO">
-                                <rect key="frame" x="20" y="44" width="560" height="493"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06R-sR-J4P" customClass="GADBannerView">
-                                <rect key="frame" x="20" y="545" width="560" height="55"/>
+                                <rect key="frame" x="20" y="537" width="560" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaM-gQ-ZnO">
+                                <rect key="frame" x="20" y="44" width="560" height="485"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iaM-gQ-ZnO" firstAttribute="bottom" secondItem="v9n-nz-ld6" secondAttribute="top" constant="-63" id="EGf-sv-mCh"/>
+                            <constraint firstItem="iaM-gQ-ZnO" firstAttribute="bottom" secondItem="v9n-nz-ld6" secondAttribute="top" constant="-71" id="EGf-sv-mCh"/>
                             <constraint firstItem="06R-sR-J4P" firstAttribute="leading" secondItem="iaM-gQ-ZnO" secondAttribute="leading" id="KHI-wr-KlK"/>
                             <constraint firstItem="06R-sR-J4P" firstAttribute="trailing" secondItem="iaM-gQ-ZnO" secondAttribute="trailing" id="Olz-mv-Va0"/>
                             <constraint firstItem="06R-sR-J4P" firstAttribute="top" secondItem="iaM-gQ-ZnO" secondAttribute="bottom" constant="8" symbolic="YES" id="P1f-hO-5i6"/>
                             <constraint firstItem="iaM-gQ-ZnO" firstAttribute="leading" secondItem="vMA-4C-jEc" secondAttribute="leading" constant="20" id="PVi-DN-T1r"/>
                             <constraint firstAttribute="trailing" secondItem="iaM-gQ-ZnO" secondAttribute="trailing" constant="20" id="UVJ-aX-eGg"/>
-                            <constraint firstItem="06R-sR-J4P" firstAttribute="bottom" secondItem="v9n-nz-ld6" secondAttribute="top" id="ZOH-OQ-251"/>
-                            <constraint firstItem="06R-sR-J4P" firstAttribute="top" secondItem="vMA-4C-jEc" secondAttribute="top" constant="545" id="g7M-Kh-D1T"/>
+                            <constraint firstItem="06R-sR-J4P" firstAttribute="bottom" secondItem="v9n-nz-ld6" secondAttribute="top" constant="-8" id="ZOH-OQ-251"/>
                             <constraint firstItem="iaM-gQ-ZnO" firstAttribute="top" secondItem="UlX-Sg-f1H" secondAttribute="bottom" id="kLW-NZ-5j7"/>
                         </constraints>
                     </view>
