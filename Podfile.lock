@@ -9,6 +9,8 @@ PODS:
   - Emoji-swift (0.0.3)
   - EZLoadingActivity (0.8)
   - EZSwiftExtensions (1.5)
+  - Firebase (3.3.0):
+    - Firebase/Core (= 3.3.0)
   - Firebase/AdMob (3.3.0):
     - Firebase/Analytics (= 3.3.0)
     - Google-Mobile-Ads-SDK (= 7.8.1)
@@ -43,8 +45,8 @@ DEPENDENCIES:
   - Emoji-swift
   - EZLoadingActivity
   - EZSwiftExtensions
+  - Firebase
   - Firebase/AdMob
-  - Firebase/Core
   - FSCalendar
   - Keyboardy
   - LLSwitch
