@@ -33,7 +33,7 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         resultView.delegate = self
         loadNextResult()
         
-        ad.adUnitID = AdUtility.ad4ID
+        ad.adUnitID = AdUtility.ad3ID
         ad.rootViewController = self
         ad.loadRequest(AdUtility.getRequest())
     }

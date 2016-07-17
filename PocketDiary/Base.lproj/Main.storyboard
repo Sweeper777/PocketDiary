@@ -340,26 +340,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="advanced1" rowHeight="70" id="uU3-1w-qvt">
-                                        <rect key="frame" x="0.0" y="349" width="600" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uU3-1w-qvt" id="uIN-10-0Df">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEV-3C-uCB" customClass="GADBannerView">
-                                                    <rect key="frame" x="8" y="8" width="584" height="51"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="mEV-3C-uCB" firstAttribute="trailing" secondItem="uIN-10-0Df" secondAttribute="trailingMargin" id="PfE-4h-hqo"/>
-                                                <constraint firstItem="mEV-3C-uCB" firstAttribute="leading" secondItem="uIN-10-0Df" secondAttribute="leadingMargin" id="oh3-b0-2U2"/>
-                                                <constraint firstItem="mEV-3C-uCB" firstAttribute="top" secondItem="uIN-10-0Df" secondAttribute="topMargin" id="pkf-XW-pZ1"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="mEV-3C-uCB" secondAttribute="bottom" constant="2.5" id="vQf-lD-rQO"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -384,7 +364,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ad" destination="mEV-3C-uCB" id="NyC-ra-NV6"/>
                         <outlet property="dateRangeLbl" destination="pN4-wN-2pu" id="Ozg-uZ-I1x"/>
                         <outlet property="exactMatch" destination="pvk-ny-Um4" id="c0W-a2-d2b"/>
                         <outlet property="searchRangeLbl" destination="aWD-ve-TiZ" id="9bH-on-Wm3"/>

@@ -15,7 +15,6 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     @IBOutlet var dateRangeLbl: UILabel!
     @IBOutlet var sortModeLbl: UILabel!
     @IBOutlet var exactMatch: LLSwitch!
-    @IBOutlet var ad: GADBannerView!
     
     var customDateRange: ClosedInterval<NSDate>?
     
@@ -31,10 +30,6 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + UserSettings.timeRangeDesc
         sortModeLbl.text = NSLocalizedString("Sort: ", comment: "") + UserSettings.sortModeDesc
         searchText.delegate = self
-        
-        ad.adUnitID = AdUtility.ad3ID
-        ad.rootViewController = self
-        ad.loadRequest(AdUtility.getRequest())
     }
     
     @IBAction func selectSearchRange(sender: UIButton) {
