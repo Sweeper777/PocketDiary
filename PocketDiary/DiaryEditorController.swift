@@ -50,6 +50,10 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
         
+        preview.scrollView.showsVerticalScrollIndicator = false
+        preview.scrollView.showsHorizontalScrollIndicator = false
+        preview.scrollView.bounces = true
+        
         ad.adUnitID = AdUtility.ad2ID
         ad.rootViewController = self
         ad.loadRequest(AdUtility.getRequest())

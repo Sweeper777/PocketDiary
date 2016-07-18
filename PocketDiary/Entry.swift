@@ -45,9 +45,9 @@ class Entry: NSManagedObject {
         if image != nil {
             let base64 = image!.base64EncodedString()!
             if imagePositionTop!.boolValue {
-                displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(displayHtml)"
+                displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\"/> \(displayHtml)"
             } else {
-                displayHtml += "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>"
+                displayHtml += "<img src=\"data:image/jpg;base64,\(base64)\"/>"
             }
         }
         

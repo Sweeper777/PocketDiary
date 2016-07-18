@@ -33,6 +33,10 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         resultView.delegate = self
         loadNextResult()
         
+        resultView.scrollView.showsVerticalScrollIndicator = false
+        resultView.scrollView.showsHorizontalScrollIndicator = false
+        resultView.scrollView.bounces = true
+        
         ad.adUnitID = AdUtility.ad3ID
         ad.rootViewController = self
         ad.loadRequest(AdUtility.getRequest())
