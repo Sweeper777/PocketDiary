@@ -105,7 +105,7 @@ public struct EZLoadingActivity {
         
         convenience init(text: String, disableUI: Bool) {
             self.init(frame: CGRect(x: 0, y: 0, width: Settings.ActivityWidth, height: Settings.ActivityHeight))
-            center = CGPoint(x: topMostController!.view.bounds.midX, y: topMostController!.view.bounds.midY)
+            center = CGPoint(x: UIScreen.mainScreen().bounds.midX, y: UIScreen.mainScreen().bounds.midY)
             autoresizingMask = [.FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleBottomMargin, .FlexibleRightMargin]
             backgroundColor = Settings.BackgroundColor
             alpha = 1
@@ -269,12 +269,3 @@ private var topMostController: UIViewController? {
     return presentedVC
 }
 
-extension CGRect {
-    var midX: CGFloat {
-        return CGRectGetMidX(self)
-    }
-    
-    var midY: CGFloat {
-        return CGRectGetMidY(self)
-    }
-}

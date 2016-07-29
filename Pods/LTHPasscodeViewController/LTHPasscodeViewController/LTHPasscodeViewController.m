@@ -1449,21 +1449,21 @@ options:NSNumericSearch] != NSOrderedAscending)
         }
         // Without animation because otherwise it won't come down fast enough,
         // so inside iOS' multitasking view the app won't be covered by anything.
-//        if ([self _timerDuration] <= 0) {
-//            // This is here and the rest in willEnterForeground because when self is pushed
-//            // instead of presented as a modal,
-//            // the app would be visible from the multitasking view.
-//            if (_isCurrentlyOnScreen && !_displayedAsModal) return;
-//            
-//            [self showLockScreenWithAnimation:NO
-//                                   withLogout:NO
-//                               andLogoutTitle:nil];
-//        }
-//        else {
+        if ([self _timerDuration] <= 0) {
+            // This is here and the rest in willEnterForeground because when self is pushed
+            // instead of presented as a modal,
+            // the app would be visible from the multitasking view.
+            if (_isCurrentlyOnScreen && !_displayedAsModal) return;
+            
+            [self showLockScreenWithAnimation:NO
+                                   withLogout:NO
+                               andLogoutTitle:nil];
+        }
+        else {
             _coverView.hidden = NO;
             if (![[UIApplication sharedApplication].keyWindow viewWithTag: _coverViewTag])
                 [[UIApplication sharedApplication].keyWindow addSubview: _coverView];
-//        }
+        }
     }
 }
 

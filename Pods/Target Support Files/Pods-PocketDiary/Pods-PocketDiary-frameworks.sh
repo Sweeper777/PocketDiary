@@ -16,7 +16,7 @@ install_framework()
     local source="$1"
   fi
 
-  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -59,8 +59,8 @@ code_sign_if_enabled() {
   if [ -n "${EXPANDED_CODE_SIGN_IDENTITY}" -a "${CODE_SIGNING_REQUIRED}" != "NO" -a "${CODE_SIGNING_ALLOWED}" != "NO" ]; then
     # Use the current code_sign_identitiy
     echo "Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}"
-    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\""
-    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements "$1"
+    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements \"$1\""
+    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements "$1"
   fi
 }
 
@@ -84,34 +84,36 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-PocketDiary/ActionSheetPicker.framework"
-  install_framework "Pods-PocketDiary/Base64nl.framework"
-  install_framework "Pods-PocketDiary/DTCollectionViewManager.framework"
-  install_framework "Pods-PocketDiary/DTModelStorage.framework"
-  install_framework "Pods-PocketDiary/EZLoadingActivity.framework"
-  install_framework "Pods-PocketDiary/EZSwiftExtensions.framework"
-  install_framework "Pods-PocketDiary/Emoji.framework"
-  install_framework "Pods-PocketDiary/FSCalendar.framework"
-  install_framework "Pods-PocketDiary/Keyboardy.framework"
-  install_framework "Pods-PocketDiary/LLSwitch.framework"
-  install_framework "Pods-PocketDiary/LTHPasscodeViewController.framework"
-  install_framework "Pods-PocketDiary/MMMarkdown.framework"
-  install_framework "Pods-PocketDiary/RWDropdownMenu.framework"
-  install_framework "Pods-PocketDiary/SZTextView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ActionSheetPicker/ActionSheetPicker.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Base64nl/Base64nl.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DTCollectionViewManager/DTCollectionViewManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DTModelStorage/DTModelStorage.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EZLoadingActivity/EZLoadingActivity.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EZSwiftExtensions/EZSwiftExtensions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Emoji-swift/Emoji.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FSCalendar/FSCalendar.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FittableFontLabel/FittableFontLabel.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Keyboardy/Keyboardy.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LLSwitch/LLSwitch.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LTHPasscodeViewController/LTHPasscodeViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MMMarkdown/MMMarkdown.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RWDropdownMenu/RWDropdownMenu.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SZTextView/SZTextView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-PocketDiary/ActionSheetPicker.framework"
-  install_framework "Pods-PocketDiary/Base64nl.framework"
-  install_framework "Pods-PocketDiary/DTCollectionViewManager.framework"
-  install_framework "Pods-PocketDiary/DTModelStorage.framework"
-  install_framework "Pods-PocketDiary/EZLoadingActivity.framework"
-  install_framework "Pods-PocketDiary/EZSwiftExtensions.framework"
-  install_framework "Pods-PocketDiary/Emoji.framework"
-  install_framework "Pods-PocketDiary/FSCalendar.framework"
-  install_framework "Pods-PocketDiary/Keyboardy.framework"
-  install_framework "Pods-PocketDiary/LLSwitch.framework"
-  install_framework "Pods-PocketDiary/LTHPasscodeViewController.framework"
-  install_framework "Pods-PocketDiary/MMMarkdown.framework"
-  install_framework "Pods-PocketDiary/RWDropdownMenu.framework"
-  install_framework "Pods-PocketDiary/SZTextView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ActionSheetPicker/ActionSheetPicker.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Base64nl/Base64nl.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DTCollectionViewManager/DTCollectionViewManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DTModelStorage/DTModelStorage.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EZLoadingActivity/EZLoadingActivity.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EZSwiftExtensions/EZSwiftExtensions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Emoji-swift/Emoji.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FSCalendar/FSCalendar.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FittableFontLabel/FittableFontLabel.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Keyboardy/Keyboardy.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LLSwitch/LLSwitch.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LTHPasscodeViewController/LTHPasscodeViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MMMarkdown/MMMarkdown.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RWDropdownMenu/RWDropdownMenu.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SZTextView/SZTextView.framework"
 fi

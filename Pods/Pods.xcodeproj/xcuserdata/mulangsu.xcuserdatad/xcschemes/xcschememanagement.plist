@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FittableFontLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Keyboardy.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -69,6 +74,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PocketDiaryTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PocketDiaryUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RWDropdownMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,6 +97,26 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>035AB6FCFE2C209C252022A1A2D5B547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>041854FC60DEDF0455723DC199E8067B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>175806F7E276895119CEC7195D1F8D37</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>20425C4889C63ADDEAE93982F72C9848</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
@@ -92,7 +127,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4F90AC0C959F8D2079ADDADB91F043A2</key>
+		<key>40B0BF126308785D1027032FF80AB074</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43B0E9BBA560D466716BD38AC96D55E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +157,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>903A108934E1A089B76F443DC34C8E54</key>
+		<key>8EFB44D2DE7C5EB00C3EC386780F54FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7241A8607EC46AA22927AB680A3A538</key>
+		<key>903A108934E1A089B76F443DC34C8E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,17 +172,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCFDA6434E12F93FC532E11196294BD3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C7C06F1DE87DF470324E3D6858FADE9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
