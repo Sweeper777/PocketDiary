@@ -18,7 +18,6 @@ target 'PocketDiary' do
     pod 'Base64nl'
     pod 'LTHPasscodeViewController'
     pod 'Firebase'
-    pod 'FittableFontLabel'
 end
 
 target 'PocketDiaryTests' do

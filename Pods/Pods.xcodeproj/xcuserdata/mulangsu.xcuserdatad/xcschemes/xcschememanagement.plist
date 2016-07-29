@@ -44,11 +44,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FittableFontLabel.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Keyboardy.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,21 +92,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>035AB6FCFE2C209C252022A1A2D5B547</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>041854FC60DEDF0455723DC199E8067B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>175806F7E276895119CEC7195D1F8D37</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>20425C4889C63ADDEAE93982F72C9848</key>
 		<dict>
 			<key>primary</key>
@@ -137,6 +117,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4B4E5FAEA4AB3986310386C1D2AED769</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>504720744DF397E49BBC622495AD76F3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6550EBBAAB75229B9955CCA8BD6CCE5D</key>
 		<dict>
 			<key>primary</key>
@@ -157,11 +147,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EFB44D2DE7C5EB00C3EC386780F54FB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
 		<dict>
 			<key>primary</key>
@@ -173,6 +158,11 @@
 			<true/>
 		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C3BBAA9780BACF29FE70798F41103883</key>
 		<dict>
 			<key>primary</key>
 			<true/>

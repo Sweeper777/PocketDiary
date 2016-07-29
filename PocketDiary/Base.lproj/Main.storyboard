@@ -398,17 +398,27 @@
                                 <rect key="frame" x="20" y="44" width="560" height="485"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-qR-HBc">
+                                <rect key="frame" x="20" y="44" width="560" height="485"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.74978145539999996" green="0.75512749889999997" blue="0.77116562970000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="y3Z-qR-HBc" firstAttribute="leading" secondItem="vMA-4C-jEc" secondAttribute="leading" constant="20" id="CtI-UM-UJP"/>
                             <constraint firstItem="iaM-gQ-ZnO" firstAttribute="bottom" secondItem="v9n-nz-ld6" secondAttribute="top" constant="-71" id="EGf-sv-mCh"/>
                             <constraint firstItem="06R-sR-J4P" firstAttribute="leading" secondItem="iaM-gQ-ZnO" secondAttribute="leading" id="KHI-wr-KlK"/>
                             <constraint firstItem="06R-sR-J4P" firstAttribute="trailing" secondItem="iaM-gQ-ZnO" secondAttribute="trailing" id="Olz-mv-Va0"/>
                             <constraint firstItem="06R-sR-J4P" firstAttribute="top" secondItem="iaM-gQ-ZnO" secondAttribute="bottom" constant="8" symbolic="YES" id="P1f-hO-5i6"/>
                             <constraint firstItem="iaM-gQ-ZnO" firstAttribute="leading" secondItem="vMA-4C-jEc" secondAttribute="leading" constant="20" id="PVi-DN-T1r"/>
                             <constraint firstAttribute="trailing" secondItem="iaM-gQ-ZnO" secondAttribute="trailing" constant="20" id="UVJ-aX-eGg"/>
+                            <constraint firstItem="y3Z-qR-HBc" firstAttribute="centerX" secondItem="iaM-gQ-ZnO" secondAttribute="centerX" id="ZLh-Z9-Atk"/>
                             <constraint firstItem="06R-sR-J4P" firstAttribute="bottom" secondItem="v9n-nz-ld6" secondAttribute="top" constant="-8" id="ZOH-OQ-251"/>
+                            <constraint firstItem="y3Z-qR-HBc" firstAttribute="top" secondItem="iaM-gQ-ZnO" secondAttribute="top" id="ZbM-45-toz"/>
                             <constraint firstItem="iaM-gQ-ZnO" firstAttribute="top" secondItem="UlX-Sg-f1H" secondAttribute="bottom" id="kLW-NZ-5j7"/>
+                            <constraint firstItem="06R-sR-J4P" firstAttribute="top" secondItem="y3Z-qR-HBc" secondAttribute="bottom" constant="8" symbolic="YES" id="lLA-kX-rNW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="No Results" id="Qid-zh-dbY">
@@ -430,6 +440,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ad" destination="06R-sR-J4P" id="pgp-PK-Itu"/>
+                        <outlet property="noResultLabel" destination="y3Z-qR-HBc" id="EAS-72-FLW"/>
                         <outlet property="resultView" destination="iaM-gQ-ZnO" id="uXq-yb-bJ8"/>
                     </connections>
                 </viewController>

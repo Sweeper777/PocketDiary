@@ -1,6 +1,8 @@
 import UIKit
 import Emoji
 import GoogleMobileAds
+import FittableFontLabel
+import EZSwiftExtensions
 
 class SearchResultsController: UIViewController, UIWebViewDelegate {
     var entries: [Entry] = []
@@ -15,6 +17,7 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet var resultView: UIWebView!
     @IBOutlet var ad: GADBannerView!
+    @IBOutlet var noResultLabel: UILabel!
     
     @IBAction func next(sender: UIBarButtonItem) {
         loadNextResult()
@@ -55,6 +58,11 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             resultView.loadHTMLString(htmls[nowDisplayingIndex], baseURL: nil)
             view.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
             resultView.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
+        } else  {
+            navigationItem.rightBarButtonItems?.forEach { $0.enabled = false }
+            resultView.hidden = true
+            noResultLabel.text = String(format: NSLocalizedString("Oops! There are no entries that matches \"%@\"!", comment: ""), searchText)
+            noResultLabel.hidden = false
         }
     }
     
