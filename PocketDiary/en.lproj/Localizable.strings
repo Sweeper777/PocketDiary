@@ -39,3 +39,4 @@
 "Disable Passcode" = "Disable Passcode";
 
 "Oops! There are no entries that matches \"%@\"!" = "Oops! There are no entries that matches \"%@\"!";
+"Oops! There are no entries that exactly matches \"%@\"!" = "Oops! There are no entries that exactly matches \"%@\"!";
