@@ -37,3 +37,5 @@
 "Set Passcode" = "设置密码";
 "Change Passcode" = "改密码";
 "Disable Passcode" = "停用密码";
+
+"Oops! There are no entries that matches \"%@\"!" = "找不到符合“%@”的日记";
