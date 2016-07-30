@@ -60,7 +60,11 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         } else  {
             navigationItem.rightBarButtonItems?.forEach { $0.enabled = false }
             resultView.hidden = true
-            noResultLabel.text = String(format: NSLocalizedString("Oops! There are no entries that matches \"%@\"!", comment: ""), searchText)
+            if exactMatch! {
+                noResultLabel.text = String(format: NSLocalizedString("Oops! There are no entries that exactly matches \"%@\"!", comment: ""), searchText)
+            } else {
+                noResultLabel.text = String(format: NSLocalizedString("Oops! There are no entries that matches \"%@\"!", comment: ""), searchText)
+            }
             noResultLabel.hidden = false
         }
     }
