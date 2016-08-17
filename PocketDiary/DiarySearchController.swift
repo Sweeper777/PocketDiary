@@ -147,7 +147,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        view.endEditing(true)
+        search(self.navigationItem.rightBarButtonItem!)
         return true
     }
 }
