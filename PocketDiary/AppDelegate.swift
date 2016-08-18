@@ -20,6 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EZLoadingActivity.Settings.ActivityColor = UIColor.whiteColor()
         EZLoadingActivity.Settings.TextColor = UIColor.whiteColor()
         
+        if UserSettings.lastUsedBuild < 10 {
+            let entity = NSEntityDescription.entityForName("Entry", inManagedObjectContext: managedObjectContext)
+            let request = NSFetchRequest()
+            request.entity = entity
+            let entries = (try? managedObjectContext.executeFetchRequest(request))?.map { $0 as! Entry }
+            if entries != nil {
+                entries?.forEach {
+                    $0.date = $0.date?.ignoreTimeComponents()
+                    print($0.date!)
+                }
+                managedObjectContext.saveData()
+            }
+        }
+        
         UserSettings.lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
         
         return true
@@ -115,3 +129,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension NSDate {
+    func ignoreTimeComponents() -> NSDate {
+        let flags: NSCalendarUnit = [.Day, .Year, .Month, .Hour, .Minute, .Second]
+        let components = NSCalendar.currentCalendar().components(flags, fromDate: self)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        return NSCalendar.currentCalendar().dateFromComponents(components)!
+    }
+}

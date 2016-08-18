@@ -88,7 +88,7 @@
 
 - (NSDate *)beginingOfMonthOfDate:(NSDate *)date
 {
-    NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:date];
+    NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
     components.day = 1;
     return [self.calendar dateFromComponents:components];
 }

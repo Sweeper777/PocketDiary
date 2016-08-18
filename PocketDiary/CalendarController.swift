@@ -24,7 +24,10 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         request.entity = entity
         let anyObjs = try? dataContext.executeFetchRequest(request)
         if anyObjs != nil {
-            anyObjs!.forEach { entries[($0 as! Entry).date!] = ($0 as! Entry) }
+            anyObjs!.forEach {
+                entries[($0 as! Entry).date!] = ($0 as! Entry)
+//                print(($0 as! Entry).date!)
+            }
         }
         
         if LTHPasscodeViewController.doesPasscodeExist() {
@@ -47,12 +50,12 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     func calendar(calendar: FSCalendar, didSelectDate date: NSDate) {
-        dateToPass = date
+        dateToPass = date.ignoreTimeComponents()
         performSegueWithIdentifier("showEditor", sender: self)
     }
     
     func calendar(calendar: FSCalendar, hasEventForDate date: NSDate) -> Bool {
-        return entries[date] != nil
+        return entries[date.ignoreTimeComponents()] != nil
     }
     
     func calendar(calendar: FSCalendar, subtitleForDate date: NSDate) -> String? {
@@ -60,7 +63,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     func calendar(calendar: FSCalendar, numberOfEventsForDate date: NSDate) -> Int {
-        return entries[date] != nil ? 1 : 0
+        return entries[date.ignoreTimeComponents()] != nil ? 1 : 0
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
