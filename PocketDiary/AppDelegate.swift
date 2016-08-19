@@ -131,11 +131,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension NSDate {
     func ignoreTimeComponents() -> NSDate {
-        let flags: NSCalendarUnit = [.Day, .Year, .Month, .Hour, .Minute, .Second]
-        let components = NSCalendar.currentCalendar().components(flags, fromDate: self)
-        components.hour = 0
-        components.minute = 0
-        components.second = 0
+        let components = NSCalendar.currentCalendar().components([.Year, .Month, .Day], fromDate: self)
+        components.timeZone = NSTimeZone(name: "GMT")
         return NSCalendar.currentCalendar().dateFromComponents(components)!
     }
 }
