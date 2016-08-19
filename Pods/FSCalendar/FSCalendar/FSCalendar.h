@@ -45,12 +45,6 @@ typedef NS_ENUM(NSUInteger, FSCalendarUnit) {
     FSCalendarUnitDay = NSCalendarUnitDay
 };
 
-typedef NS_ENUM(NSUInteger, FSCalendarPlaceholderType) {
-    FSCalendarPlaceholderTypeNone          = 0,
-    FSCalendarPlaceholderTypeFillHeadTail  = 1,
-    FSCalendarPlaceholderTypeFillSixRows   = 2
-};
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class FSCalendar;
@@ -151,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- * FSCalendarDelegateAppearance determines the fonts and colors of components in the calendar, but more specificly. Basically, if you need to make a global customization of appearance of the calendar, use FSCalendarAppearance. But if you need different appearance for different days, use FSCalendarDelegateAppearance.
+ * FSCalendarDelegateAppearance determines the fonts and colors of components in the calendar, but more specificly. Basely, if you need to make a global customization of appearance of the calendar, use FSCalendarAppearance. But if you need different appearance for different day, use FSCalendarDelegateAppearance.
  *
  * @see FSCalendarAppearance
  */
@@ -190,14 +184,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable UIColor *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance subtitleSelectionColorForDate:(NSDate *)date;
 
 /**
- * Asks the delegate for event colors for the specific date.
+ * Asks the delegate for single event color for the specific date.
  */
-- (nullable NSArray<UIColor *> *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance eventDefaultColorsForDate:(NSDate *)date;
+- (nullable UIColor *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance eventColorForDate:(NSDate *)date;
 
 /**
- * Asks the delegate for multiple event colors in selected state for the specific date.
+ * Asks the delegate for multiple event colors for the specific date.
  */
-- (nullable NSArray<UIColor *> *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance eventSelectionColorsForDate:(NSDate *)date;
+- (nullable NSArray *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance eventColorsForDate:(NSDate *)date;
 
 /**
  * Asks the delegate for a border color in unselected state for the specific date.
@@ -210,26 +204,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable UIColor *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance borderSelectionColorForDate:(NSDate *)date;
 
 /**
- * Asks the delegate for an offset for day text for the specific date.
- */
-- (CGPoint)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance titleOffsetForDate:(NSDate *)date;
-
-/**
- * Asks the delegate for an offset for subtitle for the specific date.
- */
-- (CGPoint)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance subtitleOffsetForDate:(NSDate *)date;
-
-/**
- * Asks the delegate for an offset for image for the specific date.
- */
-- (CGPoint)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance imageOffsetForDate:(NSDate *)date;
-
-/**
- * Asks the delegate for an offset for event dots for the specific date.
- */
-- (CGPoint)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance eventOffsetForDate:(NSDate *)date;
-
-/**
  * Asks the delegate for a shape for the specific date.
  */
 - (FSCalendarCellShape)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance cellShapeForDate:(NSDate *)date;
@@ -240,8 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (FSCalendarCellStyle)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance cellStyleForDate:(NSDate *)date FSCalendarDeprecated(-calendar:appearance:cellShapeForDate:);
 - (nullable UIColor *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance fillColorForDate:(NSDate *)date FSCalendarDeprecated(-calendar:appearance:fillDefaultColorForDate:);
 - (nullable UIColor *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance selectionColorForDate:(NSDate *)date FSCalendarDeprecated(-calendar:appearance:fillSelectionColorForDate:);
-- (nullable UIColor *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance eventColorForDate:(NSDate *)date FSCalendarDeprecated(-calendar:appearance:eventDefaultColorsForDate:);
-- (nullable NSArray *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance eventColorsForDate:(NSDate *)date FSCalendarDeprecated(-calendar:appearance:eventDefaultColorsForDate:);
+
 @end
 
 #pragma mark - Primary
@@ -306,28 +279,6 @@ IB_DESIGNABLE
 @property (assign, nonatomic) FSCalendarScope scope;
 
 /**
- * A UIPanGestureRecognizer instance which enables the control of scope on the whole day-area. Not available if the scrollDirection is vertical
- *
- * e.g.
- *
- *    calendar.scopeGesture.enabled = YES;
- */
-@property (readonly, nonatomic) UIPanGestureRecognizer *scopeGesture;
-
-/**
- * The placeholder type of FSCalendar. Default is FSCalendarPlaceholderTypeFillSixRows;
- *
- * e.g. To hide all placeholder of the calendar
- *
- *    calendar.placeholderType = FSCalendarPlaceholderTypeNone;
- */
-#if TARGET_INTERFACE_BUILDER
-@property (assign, nonatomic) IBInspectable NSUInteger placeholderType;
-#else
-@property (assign, nonatomic) FSCalendarPlaceholderType placeholderType;
-#endif
-
-/**
  * The index of the first weekday of the calendar. Give a '2' to make Monday in the first column.
  */
 @property (assign, nonatomic) IBInspectable NSUInteger firstWeekday;
@@ -368,9 +319,15 @@ IB_DESIGNABLE
 @property (assign, nonatomic) IBInspectable BOOL focusOnSingleSelectedDate;
 
 /**
+ * A Boolean value that determines whether the calendar should show days out of month. Default is YES.
+ */
+@property (assign, nonatomic) IBInspectable BOOL showsPlaceholders;
+
+/**
  * A Boolean value that determines whether the calendar should show a handle for control the scope. Default is NO;
  */
 @property (assign, nonatomic) IBInspectable BOOL showsScopeHandle;
+
 
 /**
  * The multiplier of line height while paging enabled is NO. Default is 1.0;
@@ -542,11 +499,6 @@ IB_DESIGNABLE
 - (NSDate *)beginingOfWeekOfDate:(NSDate *)date;
 
 /**
- * Returns the last day of week of the given date
- */
-- (NSDate *)endOfWeekOfDate:(NSDate *)date;
-
-/**
  * Returns the middle day of week of the given date
  */
 - (NSDate *)middleOfWeekFromDate:(NSDate *)date;
@@ -672,7 +624,6 @@ IB_DESIGNABLE
  * These attributes and functions are deprecated.
  */
 @interface FSCalendar (Deprecated)
-@property (assign, nonatomic) IBInspectable BOOL showsPlaceholders FSCalendarDeprecated('placeholderType');
 @property (strong, nonatomic) NSDate *currentMonth FSCalendarDeprecated('currentPage');
 @property (assign, nonatomic) FSCalendarFlow flow FSCalendarDeprecated('scrollDirection');
 - (void)setSelectedDate:(NSDate *)selectedDate FSCalendarDeprecated(-selectDate:);

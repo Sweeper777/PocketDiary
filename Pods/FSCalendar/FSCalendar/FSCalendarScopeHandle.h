@@ -8,13 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class FSCalendar;
+@class FSCalendar, FSCalendarScopeHandle;
+
+@protocol FSCalendarScopeHandleDelegate <NSObject>
+
+@optional
+- (BOOL)scopeHandleShouldBegin:(FSCalendarScopeHandle *)scopeHandle;
+- (void)scopeHandleDidBegin:(FSCalendarScopeHandle *)scopeHandle;
+- (void)scopeHandleDidUpdate:(FSCalendarScopeHandle *)scopeHandle;;
+- (void)scopeHandleDidEnd:(FSCalendarScopeHandle *)scopeHandle;
+@end
 
 @interface FSCalendarScopeHandle : UIView <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) UIPanGestureRecognizer *panGesture;
-@property (weak, nonatomic) FSCalendar *calendar;
-
-- (void)handlePan:(id)sender;
+@property (weak, nonatomic) id<FSCalendarScopeHandleDelegate> delegate;
 
 @end

@@ -111,8 +111,7 @@
         _borderColors[@(FSCalendarCellStateNormal)] = [UIColor clearColor];
         
         _cellShape = FSCalendarCellShapeCircle;
-        _eventDefaultColor = FSCalendarStandardEventDotColor;
-        _eventSelectionColor = FSCalendarStandardEventDotColor;
+        _eventColor = FSCalendarStandardEventDotColor;
         
         _borderColors = [NSMutableDictionary dictionaryWithCapacity:2];
         
@@ -199,38 +198,18 @@
     }
 }
 
-- (void)setTitleOffset:(CGPoint)titleOffset
+- (void)setTitleVerticalOffset:(CGFloat)titleVerticalOffset
 {
-    if (!CGPointEqualToPoint(_titleOffset, titleOffset)) {
-        _titleOffset = titleOffset;
-        [_calendar.collectionView.visibleCells setValue:@YES forKey:@"needsAdjustingViewFrame"];
+    if (_titleVerticalOffset != titleVerticalOffset) {
+        _titleVerticalOffset = titleVerticalOffset;
         [_calendar.collectionView.visibleCells makeObjectsPerformSelector:@selector(setNeedsLayout)];
     }
 }
 
-- (void)setSubtitleOffset:(CGPoint)subtitleOffset
+- (void)setSubtitleVerticalOffset:(CGFloat)subtitleVerticalOffset
 {
-    if (!CGPointEqualToPoint(_subtitleOffset, subtitleOffset)) {
-        _subtitleOffset = subtitleOffset;
-        [_calendar.collectionView.visibleCells setValue:@YES forKey:@"needsAdjustingViewFrame"];
-        [_calendar.collectionView.visibleCells makeObjectsPerformSelector:@selector(setNeedsLayout)];
-    }
-}
-
-- (void)setImageOffset:(CGPoint)imageOffset
-{
-    if (!CGPointEqualToPoint(_imageOffset, imageOffset)) {
-        _imageOffset = imageOffset;
-        [_calendar.collectionView.visibleCells setValue:@YES forKey:@"needsAdjustingViewFrame"];
-        [_calendar.collectionView.visibleCells makeObjectsPerformSelector:@selector(setNeedsLayout)];
-    }
-}
-
-- (void)setEventOffset:(CGPoint)eventOffset
-{
-    if (!CGPointEqualToPoint(_eventOffset, eventOffset)) {
-        _eventOffset = eventOffset;
-        [_calendar.collectionView.visibleCells setValue:@YES forKey:@"needsAdjustingViewFrame"];
+    if (_subtitleVerticalOffset != subtitleVerticalOffset) {
+        _subtitleVerticalOffset = subtitleVerticalOffset;
         [_calendar.collectionView.visibleCells makeObjectsPerformSelector:@selector(setNeedsLayout)];
     }
 }
@@ -435,10 +414,10 @@
     return _backgroundColors[@(FSCalendarCellStateToday|FSCalendarCellStateSelected)];
 }
 
-- (void)setEventDefaultColor:(UIColor *)eventDefaultColor
+- (void)setEventColor:(UIColor *)eventColor
 {
-    if (![_eventDefaultColor isEqual:eventDefaultColor]) {
-        _eventDefaultColor = eventDefaultColor;
+    if (![_eventColor isEqual:eventColor]) {
+        _eventColor = eventColor;
         [self invalidateEventColors];
     }
 }
@@ -757,36 +736,6 @@
 - (BOOL)adjustsFontSizeToFitCellSize
 {
     return self.adjustsFontSizeToFitContentSize;
-}
-
-- (void)setTitleVerticalOffset:(CGFloat)titleVerticalOffset
-{
-    self.titleOffset = CGPointMake(0, titleVerticalOffset);
-}
-
-- (CGFloat)titleVerticalOffset
-{
-    return self.titleOffset.y;
-}
-
-- (void)setSubtitleVerticalOffset:(CGFloat)subtitleVerticalOffset
-{
-    self.subtitleOffset = CGPointMake(0, subtitleVerticalOffset);
-}
-
-- (CGFloat)subtitleVerticalOffset
-{
-    return self.subtitleOffset.y;
-}
-
-- (void)setEventColor:(UIColor *)eventColor
-{
-    self.eventDefaultColor = eventColor;
-}
-
-- (UIColor *)eventColor
-{
-    return self.eventDefaultColor;
 }
 
 @end

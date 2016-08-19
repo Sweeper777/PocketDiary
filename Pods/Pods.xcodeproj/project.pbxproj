@@ -348,7 +348,6 @@
 		0E567913351A7444A9B3F31E5DDAFD0D /* BlockSwipe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockSwipe.swift; path = Sources/BlockSwipe.swift; sourceTree = "<group>"; };
 		0FB4059A1C2AEC7E2FD50571CB0FF453 /* Emoji-swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Emoji-swift-prefix.pch"; sourceTree = "<group>"; };
 		108ABCEABF6CCBE8B605A661823976B3 /* NSTimerExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSTimerExtensions.swift; path = Sources/NSTimerExtensions.swift; sourceTree = "<group>"; };
-		11D3ACA575E6B433617BE3E979C3B279 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Analytics/Sources/Firebase.h; sourceTree = "<group>"; };
 		1240FABFAC0EF3599597DE36B828E732 /* UINib+Existance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINib+Existance.swift"; path = "Source/Core/UINib+Existance.swift"; sourceTree = "<group>"; };
 		124EAB40839D38A8724DBCD111527DF1 /* MMScanner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMScanner.m; path = Source/MMScanner.m; sourceTree = "<group>"; };
 		1541E17A50DF8D8C4241C2E02F62EFF9 /* FSCalendarConstance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarConstance.m; path = FSCalendar/FSCalendarConstance.m; sourceTree = "<group>"; };
@@ -432,7 +431,6 @@
 		5028395CDF94D974159EBEF42453D8AF /* MMParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMParser.m; path = Source/MMParser.m; sourceTree = "<group>"; };
 		5030C2CB771E0D18CFB630B9F7769FFC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50B756C6D498D90E7DC685A202BAA4CF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50FE785887A29A2D72C5B36E1B67F202 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
 		51A226C882C213028572109F8FEEF6BA /* Base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = Base64/Base64.h; sourceTree = "<group>"; };
 		5365769CCAB858739CA6410DDA105173 /* Emoji-swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Emoji-swift-dummy.m"; sourceTree = "<group>"; };
 		53BEF30926B7E97909F8B316E2A0A2DB /* DistancePickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DistancePickerView.h; path = Pickers/DistancePickerView.h; sourceTree = "<group>"; };
@@ -501,6 +499,7 @@
 		8E370792D49BB4FFADA2D3FAD912DC16 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F4247D61F35A5490C03C168F7104325 /* RWDropdownMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RWDropdownMenu.xcconfig; sourceTree = "<group>"; };
 		8FF6BDCA4B1649FEFC2C34B37380C6B3 /* CGRectExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGRectExtensions.swift; path = Sources/CGRectExtensions.swift; sourceTree = "<group>"; };
+		8FFCBDC11B1F1B9243BDA65592758A57 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		91792AFA94ACE8BBE00EBF2CFB855B80 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtensions.swift; path = Sources/UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96125DBF376DCC7F63C972C8879DAABE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -521,6 +520,7 @@
 		A58EBD2D9684C0C954D7C9E489803B70 /* MMDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDocument.m; path = Source/MMDocument.m; sourceTree = "<group>"; };
 		A602EA2869B495B38CC3BE4EF339ECD8 /* MMSpanParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMSpanParser.m; path = Source/MMSpanParser.m; sourceTree = "<group>"; };
 		A71C51AB4D627F03058AB5B5B925A112 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A967FC7ED3C0F83BD2B848EC65781AC1 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Headers/Firebase.h; sourceTree = "<group>"; };
 		AA90C1C4AAA731025667E4D4E962B347 /* SWActionSheet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWActionSheet.m; path = Pickers/SWActionSheet.m; sourceTree = "<group>"; };
 		ACA00C35058F3AF0C3BF5B72F481F6B0 /* EZLoadingActivity-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EZLoadingActivity-dummy.m"; sourceTree = "<group>"; };
 		ADECC977B030A11AAA60AC720E09DC61 /* UISliderExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UISliderExtensions.swift; path = Sources/UISliderExtensions.swift; sourceTree = "<group>"; };
@@ -535,7 +535,6 @@
 		B350918E42FD87F78D6EFD915DABF272 /* Pods-PocketDiaryTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PocketDiaryTests.modulemap"; sourceTree = "<group>"; };
 		B3D0A841ADF665B2CDCE2FD01D0430D5 /* FSCalendarFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarFlowLayout.m; path = FSCalendar/FSCalendarFlowLayout.m; sourceTree = "<group>"; };
 		B69AC1BB3AF26E3F217123DC4A7CDADD /* RuntimeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuntimeHelper.swift; path = Source/Core/RuntimeHelper.swift; sourceTree = "<group>"; };
-		B6ACA9644A273A14B45E39A6C60E6466 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		B7DE7C0ECDD148D4DF0762EBF124DCA6 /* FSCalendar+Deprecated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FSCalendar+Deprecated.m"; path = "FSCalendar/FSCalendar+Deprecated.m"; sourceTree = "<group>"; };
 		B9EE900069EC5EBBE8796A4EBC9DEF88 /* SZTextView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SZTextView-prefix.pch"; sourceTree = "<group>"; };
 		BA28776D4ACA6DDF1198275BDD4F7D95 /* Base64nl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Base64nl.modulemap; sourceTree = "<group>"; };
@@ -555,6 +554,7 @@
 		C19ECD2E6AAEA018276E2FA74877067F /* Keyboardy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Keyboardy-umbrella.h"; sourceTree = "<group>"; };
 		C24C0121BF0675CDD96DC39BE1FF9821 /* LTHPasscodeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTHPasscodeViewController.m; path = LTHPasscodeViewController/LTHPasscodeViewController.m; sourceTree = "<group>"; };
 		C292EA0DCB30F5150EA65E6F7A760F83 /* LLEyesLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LLEyesLayer.m; path = LLSwitch/LLEyesLayer.m; sourceTree = "<group>"; };
+		C34686E9022F70888218D9A158AE2702 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Headers/Public/FIRInstanceID.h; sourceTree = "<group>"; };
 		C42A811DD2AF858B720F8AF1626C4392 /* FSCalendarConstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarConstance.h; path = FSCalendar/FSCalendarConstance.h; sourceTree = "<group>"; };
 		C60C7CD24262DFABC50D27FEFE3F0176 /* BoolExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BoolExtensions.swift; path = Sources/BoolExtensions.swift; sourceTree = "<group>"; };
 		C768C56B47B50D2456235EB3858E79D2 /* RWDropdownMenuTransitionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RWDropdownMenuTransitionController.h; path = RWDropdownMenu/RWDropdownMenuTransitionController.h; sourceTree = "<group>"; };
@@ -789,14 +789,6 @@
 			path = "../Target Support Files/Base64nl";
 			sourceTree = "<group>";
 		};
-		0A2B40FABB936DE7737BC79C6A1B2CE2 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				11D3ACA575E6B433617BE3E979C3B279 /* Firebase.h */,
-			);
-			name = Analytics;
-			sourceTree = "<group>";
-		};
 		0B1DD938173977C7BC2444AE8D2E5709 /* Pods-PocketDiary */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,15 +943,6 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		3638D39E323667F939713EE5DFD92295 /* FirebaseInstanceID */ = {
-			isa = PBXGroup;
-			children = (
-				50FE785887A29A2D72C5B36E1B67F202 /* FIRInstanceID.h */,
-				993D775FC8BD2E5814900D73AF25C9A2 /* Frameworks */,
-			);
-			path = FirebaseInstanceID;
-			sourceTree = "<group>";
-		};
 		3A7F13F60A1AADBBCC000C99E8AB90A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,6 +1050,14 @@
 			path = "../Target Support Files/DTCollectionViewManager";
 			sourceTree = "<group>";
 		};
+		71E8957D633B2B4C32232C257B9CBF09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FFCBDC11B1F1B9243BDA65592758A57 /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		75ADDDE9908CAB29C5B930790212711D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1138,6 +1129,15 @@
 			path = GoogleSymbolUtilities;
 			sourceTree = "<group>";
 		};
+		94F724E583E3D1F18DC2075A403524D0 /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				C34686E9022F70888218D9A158AE2702 /* FIRInstanceID.h */,
+				71E8957D633B2B4C32232C257B9CBF09 /* Frameworks */,
+			);
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
 		963FF7936CAD9F4C2FBDFC6572889602 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1168,14 +1168,6 @@
 			);
 			name = "Pods-PocketDiaryTests";
 			path = "Target Support Files/Pods-PocketDiaryTests";
-			sourceTree = "<group>";
-		};
-		993D775FC8BD2E5814900D73AF25C9A2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B6ACA9644A273A14B45E39A6C60E6466 /* FirebaseInstanceID.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9E2DAA44257843E1A10E930372E46A30 /* Support Files */ = {
@@ -1251,6 +1243,14 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/EZLoadingActivity";
+			sourceTree = "<group>";
+		};
+		BD5819C5C02BF955039C642B8416F19B /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				A967FC7ED3C0F83BD2B848EC65781AC1 /* Firebase.h */,
+			);
+			name = Analytics;
 			sourceTree = "<group>";
 		};
 		C058E4591686AFAEBE596F9F3436904C /* Support Files */ = {
@@ -1420,7 +1420,7 @@
 		F71E7732D1DE44152A0097FE39C739BE /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				0A2B40FABB936DE7737BC79C6A1B2CE2 /* Analytics */,
+				BD5819C5C02BF955039C642B8416F19B /* Analytics */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -1476,7 +1476,7 @@
 				2BF9D95453412D290E67CC6B6263A784 /* EZSwiftExtensions */,
 				F71E7732D1DE44152A0097FE39C739BE /* Firebase */,
 				7AD0D844B5168C19BAC4B774DDC70FF5 /* FirebaseAnalytics */,
-				3638D39E323667F939713EE5DFD92295 /* FirebaseInstanceID */,
+				94F724E583E3D1F18DC2075A403524D0 /* FirebaseInstanceID */,
 				F73759E5251108EBFE97C6D7209902E0 /* FSCalendar */,
 				A406B69A1818B0FA32A44CCDFFBCC1D4 /* GoogleInterchangeUtilities */,
 				878F4A9E34A45C0838313D687E0ECFDB /* GoogleSymbolUtilities */,

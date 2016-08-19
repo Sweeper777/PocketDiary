@@ -9,6 +9,7 @@
 #import "FSCalendar.h"
 #import "FSCalendarCollectionView.h"
 #import "FSCalendarFlowLayout.h"
+#import "FSCalendarDynamicHeader.h"
 #import "FSCalendarScopeHandle.h"
 
 typedef NS_ENUM(NSUInteger, FSCalendarTransition) {
@@ -21,7 +22,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarTransitionState) {
     FSCalendarTransitionStateInProgress
 };
 
-@interface FSCalendarAnimator : NSObject <UIGestureRecognizerDelegate>
+@interface FSCalendarAnimator : NSObject <FSCalendarScopeHandleDelegate>
 
 @property (weak, nonatomic) FSCalendar *calendar;
 @property (weak, nonatomic) FSCalendarCollectionView *collectionView;
@@ -33,9 +34,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarTransitionState) {
 @property (assign, nonatomic) CGSize cachedMonthSize;
 
 - (void)performScopeTransitionFromScope:(FSCalendarScope)fromScope toScope:(FSCalendarScope)toScope animated:(BOOL)animated;
-- (void)performBoundingRectTransitionFromMonth:(NSDate *)fromMonth toMonth:(NSDate *)toMonth duration:(CGFloat)duration;
-
-- (void)handlePan:(id)sender;
+- (void)performBoudingRectTransitionFromMonth:(NSDate *)fromMonth toMonth:(NSDate *)toMonth duration:(CGFloat)duration;
 
 @end
 
@@ -44,6 +43,8 @@ typedef NS_ENUM(NSUInteger, FSCalendarTransitionState) {
 
 @property (assign, nonatomic) CGRect sourceBounds;
 @property (assign, nonatomic) CGRect targetBounds;
+@property (strong, nonatomic) UIBezierPath *sourceMask;
+@property (strong, nonatomic) UIBezierPath *targetMask;
 @property (strong, nonatomic) NSDate *sourcePage;
 @property (strong, nonatomic) NSDate *targetPage;
 @property (assign, nonatomic) NSInteger focusedRowNumber;

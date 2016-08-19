@@ -9,7 +9,6 @@
 #import "FSCalendarScopeHandle.h"
 #import "FSCalendar.h"
 #import "FSCalendarAnimator.h"
-#import "FSCalendarDynamicHeader.h"
 #import "UIView+FSExtension.h"
 
 @interface FSCalendarScopeHandle () <UIGestureRecognizerDelegate>
@@ -20,6 +19,8 @@
 @property (weak, nonatomic) FSCalendarAppearance *appearance;
 
 @property (assign, nonatomic) CGFloat lastTranslation;
+
+- (void)handlePan:(id)sender;
 
 @end
 
@@ -48,6 +49,7 @@
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
         panGesture.minimumNumberOfTouches = 1;
         panGesture.maximumNumberOfTouches = 2;
+        panGesture.delegate = self;
         [self addGestureRecognizer:panGesture];
         self.panGesture = panGesture;
                 
@@ -62,15 +64,55 @@
     self.handleIndicator.center = CGPointMake(self.fs_width/2, self.fs_height/2-0.5);
 }
 
+#pragma mark - Target actions
+
 - (void)handlePan:(id)sender
 {
-    [self.calendar.animator handlePan:sender];
+    switch (self.panGesture.state) {
+        case UIGestureRecognizerStateBegan: {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(scopeHandleDidBegin:)]) {
+                [self.delegate scopeHandleDidBegin:self];
+            }
+            break;
+        }
+        case UIGestureRecognizerStateChanged: {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(scopeHandleDidUpdate:)]) {
+                [self.delegate scopeHandleDidUpdate:self];
+            }
+            break;
+        }
+        case UIGestureRecognizerStateEnded: {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(scopeHandleDidEnd:)]) {
+                [self.delegate scopeHandleDidEnd:self];
+            }
+            break;
+        }
+        case UIGestureRecognizerStateCancelled: {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(scopeHandleDidEnd:)]) {
+                [self.delegate scopeHandleDidEnd:self];
+            }
+            break;
+        }
+        case UIGestureRecognizerStateFailed: {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(scopeHandleDidEnd:)]) {
+                [self.delegate scopeHandleDidEnd:self];
+            }
+            break;
+        }
+        default: {
+            break;
+        }
+    }
 }
 
-- (void)setCalendar:(FSCalendar *)calendar
+#pragma mark - <UIGestureRecognizerDelegate>
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    _calendar = calendar;
-    self.panGesture.delegate = self.calendar.animator;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scopeHandleShouldBegin:)]) {
+        return [self.delegate scopeHandleShouldBegin:self];
+    }
+    return NO;
 }
 
 @end

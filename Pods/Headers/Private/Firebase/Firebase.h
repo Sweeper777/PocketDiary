@@ -1,1 +1,1 @@
-../../../Firebase/Analytics/Sources/Firebase.h
+../../../Firebase/Headers/Firebase.h

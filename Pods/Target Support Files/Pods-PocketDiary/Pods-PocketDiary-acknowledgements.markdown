@@ -205,7 +205,7 @@ THE SOFTWARE.
 
 ## Firebase
 
-Copyright 2016 Google
+Copyright 2016 Google Inc.
 
 ## FirebaseAnalytics
 
@@ -213,7 +213,7 @@ Copyright 2016 Google
 
 ## FirebaseInstanceID
 
-Copyright 2016 Google
+Copyright 2016 Google Inc.
 
 ## GoogleInterchangeUtilities
 
