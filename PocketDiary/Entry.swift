@@ -6,12 +6,12 @@ import Base64nl
 
 class Entry: NSManagedObject {
 
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
-    convenience init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext, title: String, content: String, date: NSDate) {
-        self.init(entity: entity, insertIntoManagedObjectContext: context)
+    convenience init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext, title: String, content: String, date: Date) {
+        self.init(entity: entity, insertInto: context)
         
         self.content = content
         self.date = date
@@ -27,23 +27,23 @@ class Entry: NSManagedObject {
         return date!.hashValue
     }
     
-    func htmlDescriptionForSearchMode(mode: SearchRange) -> String {
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .LongStyle
-        formatter.timeStyle = .NoStyle
-        let dateFormatted = formatter.stringFromDate(date!)
+    func htmlDescriptionForSearchMode(_ mode: SearchRange) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        let dateFormatted = formatter.string(from: date! as Date)
         
-        let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
+        let stylesheet = try! String(contentsOfFile: Bundle.main.path(forResource: "modest", ofType: "css")!)
         
-        let contentHtml = (try? MMMarkdown.HTMLStringWithMarkdown(content!, extensions: .GitHubFlavored)) ?? content!
+        let contentHtml = (try? MMMarkdown.htmlString(withMarkdown: content!, extensions: .gitHubFlavored)) ?? content!
         
-        let displayTitle = mode == .TitleOnly ? "<span id=\"searchtext\">\(title!)</span>" : title!
-        let displayContent = mode == .ContentOnly ? "<span id=\"searchtext\">\(contentHtml)</span>" : contentHtml
-        let displayTitleAndContent = mode == .TitleAndContent ? "<span id=\"searchtext\"><h1>\(displayTitle)</h1>\(displayContent)</span>" : "<h1>\(displayTitle)</h1>\(displayContent)"
+        let displayTitle = mode == .titleOnly ? "<span id=\"searchtext\">\(title!)</span>" : title!
+        let displayContent = mode == .contentOnly ? "<span id=\"searchtext\">\(contentHtml)</span>" : contentHtml
+        let displayTitleAndContent = mode == .titleAndContent ? "<span id=\"searchtext\"><h1>\(displayTitle)</h1>\(displayContent)</span>" : "<h1>\(displayTitle)</h1>\(displayContent)"
         var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
-            let base64 = image!.base64EncodedString()!
+            let base64 = (image! as NSData).base64EncodedString()!
             if imagePositionTop!.boolValue {
                 displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\"/> \(displayHtml)"
             } else {
@@ -66,19 +66,19 @@ class Entry: NSManagedObject {
     }
     
     var htmlDescription: String {
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .LongStyle
-        formatter.timeStyle = .NoStyle
-        let dateFormatted = formatter.stringFromDate(date!)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        let dateFormatted = formatter.string(from: date! as Date)
         
-        let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
+        let stylesheet = try! String(contentsOfFile: Bundle.main.path(forResource: "modest", ofType: "css")!)
         
-        let contentHtml = (try? MMMarkdown.HTMLStringWithMarkdown(content!, extensions: .GitHubFlavored)) ?? content!
+        let contentHtml = (try? MMMarkdown.htmlString(withMarkdown: content!, extensions: .gitHubFlavored)) ?? content!
         let displayTitleAndContent = "<h1>\(title!)</h1>\(contentHtml)"
         var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
-            let base64 = image!.base64EncodedString()!
+            let base64 = (image! as NSData).base64EncodedString()!
             if imagePositionTop!.boolValue {
                 displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(displayHtml)"
             } else {
@@ -95,7 +95,7 @@ class Entry: NSManagedObject {
 
 extension NSNumber {
     func toColor() -> UIColor {
-        let rgbValue = self.intValue
+        let rgbValue = self.int32Value
         let red =   CGFloat((rgbValue & 0xFF0000) >> 16) / 0xFF
         let green = CGFloat((rgbValue & 0x00FF00) >> 8) / 0xFF
         let blue =  CGFloat(rgbValue & 0x0000FF) / 0xFF

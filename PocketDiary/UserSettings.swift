@@ -2,50 +2,50 @@ import Foundation
 
 class UserSettings {
     static var exactMatch: Bool {
-        get { return NSUserDefaults.standardUserDefaults().boolForKey("exactMatch") }
-        set { NSUserDefaults.standardUserDefaults().setBool(newValue, forKey: "exactMatch") }
+        get { return UserDefaults.standard.bool(forKey: "exactMatch") }
+        set { UserDefaults.standard.set(newValue, forKey: "exactMatch") }
     }
     
     static var searchRange: SearchRange {
-        get { return SearchRange(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("searchRange"))! }
-        set { NSUserDefaults.standardUserDefaults().setInteger(newValue.rawValue, forKey: "searchRange") }
+        get { return SearchRange(rawValue: UserDefaults.standard.integer(forKey: "searchRange"))! }
+        set { UserDefaults.standard.set(newValue.rawValue, forKey: "searchRange") }
     }
     
     static var timeRange: TimeRange {
-        get { return TimeRange(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("timeRange"))! }
-        set { NSUserDefaults.standardUserDefaults().setInteger(newValue.rawValue, forKey: "timeRange") }
+        get { return TimeRange(rawValue: UserDefaults.standard.integer(forKey: "timeRange"))! }
+        set { UserDefaults.standard.set(newValue.rawValue, forKey: "timeRange") }
     }
     
     static var sortMode: SortMode {
-        get { return SortMode(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("sortMode"))! }
-        set { NSUserDefaults.standardUserDefaults().setInteger(newValue.rawValue, forKey: "sortMode") }
+        get { return SortMode(rawValue: UserDefaults.standard.integer(forKey: "sortMode"))! }
+        set { UserDefaults.standard.set(newValue.rawValue, forKey: "sortMode") }
     }
     
     static var lastUsedBuild: Int {
-        get { return NSUserDefaults.standardUserDefaults().integerForKey("lastUsedBuild") }
-        set { NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "lastUsedBuild") }
+        get { return UserDefaults.standard.integer(forKey: "lastUsedBuild") }
+        set { UserDefaults.standard.set(newValue, forKey: "lastUsedBuild") }
     }
     
     static let searchRangeStrings: [SearchRange: String] = [
-        .TitleAndContent: "Title and Content",
-        .ContentOnly: "Content only",
-        .TitleOnly: "Title only"
+        .titleAndContent: "Title and Content",
+        .contentOnly: "Content only",
+        .titleOnly: "Title only"
     ]
     
     static let timeRangeStrings: [TimeRange: String] = [
-        .Lifetime: "All",
-        .LastYear: "Previous 365 days",
-        .LastMonth: "Previous 30 days",
-        .LastWeek: "Previous 7 days",
-        .Custom: "Custom"
+        .lifetime: "All",
+        .lastYear: "Previous 365 days",
+        .lastMonth: "Previous 30 days",
+        .lastWeek: "Previous 7 days",
+        .custom: "Custom"
     ]
     
     static let sortModeStrings: [SortMode: String] = [
-        .Relevance: "Relevance",
-        .DateAscending: "Earlier → Later",
-        .DateDescending: "Later → Earlier",
-        .TitleAscending: "Title A → Z",
-        .TitleDescending: "Title Z → A"
+        .relevance: "Relevance",
+        .dateAscending: "Earlier → Later",
+        .dateDescending: "Later → Earlier",
+        .titleAscending: "Title A → Z",
+        .titleDescending: "Title Z → A"
     ]
     
     static var searchRangeDesc: String {
@@ -62,13 +62,13 @@ class UserSettings {
 }
 
 enum SearchRange: Int {
-    case TitleAndContent, ContentOnly, TitleOnly
+    case titleAndContent, contentOnly, titleOnly
 }
 
 enum TimeRange: Int {
-    case Lifetime, LastYear, LastMonth, LastWeek, Custom
+    case lifetime, lastYear, lastMonth, lastWeek, custom
 }
 
 enum SortMode: Int {
-    case Relevance, DateAscending, DateDescending, TitleAscending, TitleDescending
+    case relevance, dateAscending, dateDescending, titleAscending, titleDescending
 }

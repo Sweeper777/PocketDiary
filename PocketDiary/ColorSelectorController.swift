@@ -19,22 +19,22 @@ class ColorSelectorController: UITableViewController, DTCollectionViewManageable
         manager.cellSelection(ColorSelectorController.selectedColor)
     }
     
-    @IBAction func cancel(sender: UIBarButtonItem) {
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismissVC(completion: nil)
     }
     
-    func selectedColor(cell: ColorCell, color: UIColor, indexPath: NSIndexPath) {
+    func selectedColor(_ cell: ColorCell, color: UIColor, indexPath: IndexPath) {
         let anim = CABasicAnimation(keyPath: "borderWidth")
         anim.fromValue = 1.5
         anim.toValue = 5
-        anim.removedOnCompletion = false
+        anim.isRemovedOnCompletion = false
         anim.duration = 0.1
-        cell.layer.addAnimation(anim, forKey: nil)
-        NSTimer.runThisAfterDelay(seconds: 0.1) {
+        cell.layer.add(anim, forKey: nil)
+        Timer.runThisAfterDelay(seconds: 0.1) {
             cell.layer.borderWidth = 5
         }
         
-        NSTimer.runThisAfterDelay(seconds: 0.3) {
+        Timer.runThisAfterDelay(seconds: 0.3) {
             self.selectedColor = color
             self.performSegueWithIdentifier("unwindFromColorSelector", sender: self)
         }

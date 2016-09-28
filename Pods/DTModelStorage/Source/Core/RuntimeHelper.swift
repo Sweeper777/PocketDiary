@@ -31,10 +31,10 @@ public final class RuntimeHelper
     /// Recursively unwrap optionals to a single level. This is helpful when dealing with double optionals.
     /// - Parameter any: optional to unwrap
     /// - Returns: unwrapped optional
-    public class func recursivelyUnwrapAnyValue(any: Any) -> Any?
+    public class func recursivelyUnwrapAnyValue(_ any: Any) -> Any?
     {
         let mirror = _reflect(any)
-        if mirror.disposition != .Optional
+        if mirror.disposition != .optional
         {
             return any
         }

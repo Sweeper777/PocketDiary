@@ -32,28 +32,28 @@ public let DTTableViewElementSectionHeader = "DTTableViewElementSectionHeader"
 public let DTTableViewElementSectionFooter = "DTTableViewElementSectionFooter"
 
 /// Base class for MemoryStorage and CoreDataStorage
-public class BaseStorage : NSObject, HeaderFooterStorageProtocol
+open class BaseStorage : NSObject, HeaderFooterStorageProtocol
 {
     /// Supplementary kind for header in current storage
-    public var supplementaryHeaderKind : String?
+    open var supplementaryHeaderKind : String?
     
     /// Supplementary kind for footer in current storage
-    public var supplementaryFooterKind : String?
+    open var supplementaryFooterKind : String?
     
     /// Current update
-    public var currentUpdate: StorageUpdate?
+    open var currentUpdate: StorageUpdate?
     
     /// Batch updates are in progress. If true, update will not be finished.
-    public var batchUpdatesInProgress = false
+    open var batchUpdatesInProgress = false
     
     /// Delegate for storage updates
-    public weak var delegate : StorageUpdating?
+    open weak var delegate : StorageUpdating?
     
     /// Perform update in storage. After update is finished, delegate will be notified.
     /// Parameter block: Block to execute
     /// - Note: This method allows to execute several updates in a single batch. It is similar to UICollectionView method `performBatchUpdates:`.
     /// - Warning: Performing mutual exclusive updates inside block can cause application crash.
-    public func performUpdates(@noescape block: () -> Void) {
+    open func performUpdates(_ block: () -> Void) {
         batchUpdatesInProgress = true
         startUpdate()
         block()
@@ -62,14 +62,14 @@ public class BaseStorage : NSObject, HeaderFooterStorageProtocol
     }
     
     /// Start update in storage. This creates StorageUpdate instance and stores it into `currentUpdate` property.
-    public func startUpdate(){
+    open func startUpdate(){
         if self.currentUpdate == nil {
             self.currentUpdate = StorageUpdate()
         }
     }
     
     /// Finished update. Method verifies, that update is not empty, and sends updates to the delegate. After this method finishes, `currentUpdate` property is nilled out.
-    public func finishUpdate()
+    open func finishUpdate()
     {
         guard batchUpdatesInProgress == false else { return }
         
@@ -85,14 +85,14 @@ public class BaseStorage : NSObject, HeaderFooterStorageProtocol
     }
     
     /// This method will configure storage for using with UITableView
-    public func configureForTableViewUsage()
+    open func configureForTableViewUsage()
     {
         self.supplementaryHeaderKind = DTTableViewElementSectionHeader
         self.supplementaryFooterKind = DTTableViewElementSectionFooter
     }
     
     /// This method will configure storage for using with UICollectionViewFlowLayout
-    public func configureForCollectionViewFlowLayoutUsage()
+    open func configureForCollectionViewFlowLayoutUsage()
     {
         self.supplementaryHeaderKind = UICollectionElementKindSectionHeader
         self.supplementaryFooterKind = UICollectionElementKindSectionFooter
@@ -104,7 +104,7 @@ public class BaseStorage : NSObject, HeaderFooterStorageProtocol
     /// - Requires: supplementaryHeaderKind to be set prior to calling this method
     /// - Parameter index: index of section
     /// - Returns: header model for section, or nil if there are no model
-    public func headerModelForSectionIndex(index: Int) -> Any? {
+    open func headerModelForSectionIndex(_ index: Int) -> Any? {
         assert(self.supplementaryHeaderKind != nil, "supplementaryHeaderKind property was not set before calling headerModelForSectionIndex: method")
         return (self as? SupplementaryStorageProtocol)?.supplementaryModelOfKind(self.supplementaryHeaderKind!, sectionIndex: index)
     }
@@ -113,7 +113,7 @@ public class BaseStorage : NSObject, HeaderFooterStorageProtocol
     /// - Requires: supplementaryFooterKind to be set prior to calling this method
     /// - Parameter index: index of section
     /// - Returns: footer model for section, or nil if there are no model
-    public func footerModelForSectionIndex(index: Int) -> Any? {
+    open func footerModelForSectionIndex(_ index: Int) -> Any? {
         assert(self.supplementaryFooterKind != nil, "supplementaryFooterKind property was not set before calling footerModelForSectionIndex: method")
         return (self as? SupplementaryStorageProtocol)?.supplementaryModelOfKind(self.supplementaryFooterKind!, sectionIndex: index)
     }

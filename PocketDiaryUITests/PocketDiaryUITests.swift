@@ -31,18 +31,18 @@ class PocketDiaryUITests: XCTestCase {
     
         app.collectionViews.staticTexts[num].tap()
         snapshot("2preview")
-        app.buttons.elementBoundByIndex(5).tap()
+        app.buttons.element(boundBy: 5).tap()
         snapshot("3editor")
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            app.navigationBars.elementBoundByIndex(0).buttons.elementBoundByIndex(1).tap()
-            app.navigationBars.elementBoundByIndex(0).buttons.elementBoundByIndex(1).tap()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            app.navigationBars.element(boundBy: 0).buttons.element(boundBy: 1).tap()
+            app.navigationBars.element(boundBy: 0).buttons.element(boundBy: 1).tap()
         } else {
-            app.navigationBars.elementBoundByIndex(0).buttons.elementBoundByIndex(0).tap()
-            app.navigationBars.elementBoundByIndex(0).buttons.elementBoundByIndex(1).tap()
+            app.navigationBars.element(boundBy: 0).buttons.element(boundBy: 0).tap()
+            app.navigationBars.element(boundBy: 0).buttons.element(boundBy: 1).tap()
         }
         
         let tablesQuery = app.tables
-        tablesQuery.textFields.elementBoundByIndex(0).tap()
+        tablesQuery.textFields.element(boundBy: 0).tap()
         
         var text = ""
         
@@ -52,20 +52,20 @@ class PocketDiaryUITests: XCTestCase {
             text = "我"
         }
         
-        tablesQuery.textFields.elementBoundByIndex(0).typeText(text)
+        tablesQuery.textFields.element(boundBy: 0).typeText(text)
         snapshot("4search")
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            app.navigationBars.elementBoundByIndex(1).buttons.elementBoundByIndex(2).tap()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            app.navigationBars.element(boundBy: 1).buttons.element(boundBy: 2).tap()
         } else {
-            app.navigationBars.elementBoundByIndex(0).buttons.elementBoundByIndex(2).tap()
+            app.navigationBars.element(boundBy: 0).buttons.element(boundBy: 2).tap()
         }
         if deviceLanguage.hasSuffix("Hans") {
             snapshot("5result")
         } else {
-            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-                app.navigationBars.elementBoundByIndex(1).buttons.elementBoundByIndex(2).tap()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                app.navigationBars.element(boundBy: 1).buttons.element(boundBy: 2).tap()
             } else {
-                app.navigationBars.elementBoundByIndex(0).buttons.elementBoundByIndex(2).tap()
+                app.navigationBars.element(boundBy: 0).buttons.element(boundBy: 2).tap()
             }
             
             snapshot("5result")

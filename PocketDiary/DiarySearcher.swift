@@ -8,21 +8,21 @@ struct DiarySearcher {
     let searchRange: SearchRange
     let timeRange: TimeRange
     let sortMode: SortMode
-    let customDateRange: ClosedInterval<NSDate>?
+    let customDateRange: ClosedRange<Date>?
     
-    func search(dataContext: NSManagedObjectContext) -> [Entry]? {
+    func search(_ dataContext: NSManagedObjectContext) -> [Entry]? {
         // get data
         let request = NSFetchRequest()
-        request.entity = NSEntityDescription.entityForName("Entry", inManagedObjectContext: dataContext)
-        guard let anyObjs = try? dataContext.executeFetchRequest(request) else { return nil }
+        request.entity = NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)
+        guard let anyObjs = try? dataContext.fetch(request) else { return nil }
         let entriesOp = anyObjs.map { $0 as? Entry }
         
-        guard !entriesOp.contains({$0 === nil }) else { return nil }
+        guard !entriesOp.contains(where: {$0 === nil }) else { return nil }
         var entries = entriesOp.map { $0! }
         
         // filter by date
         switch timeRange {
-        case .Lifetime:
+        case .lifetime:
             break
         default:
             entries = filterByDate(entries)
@@ -30,11 +30,11 @@ struct DiarySearcher {
         
         // filter by search range
         switch searchRange {
-        case .ContentOnly:
+        case .contentOnly:
             entries = filterByContent(entries)
-        case .TitleOnly:
+        case .titleOnly:
             entries = filterByTitle(entries)
-        case .TitleAndContent:
+        case .titleAndContent:
             let titleOnlySet = Set(filterByTitle(entries))
             let contentOnlySet = Set(filterByContent(entries))
             entries = Array(titleOnlySet.union(contentOnlySet))
@@ -42,35 +42,35 @@ struct DiarySearcher {
         
         // sort
         switch sortMode {
-        case .DateAscending:
-            entries.sortInPlace {
+        case .dateAscending:
+            entries.sort {
                 (entry1, entry2) -> Bool in
-                return entry1.date!.compare(entry2.date!) == NSComparisonResult.OrderedAscending
+                return entry1.date!.compare(entry2.date!) == ComparisonResult.orderedAscending
             }
-        case .DateDescending:
-            entries.sortInPlace {
+        case .dateDescending:
+            entries.sort {
                 (entry1, entry2) -> Bool in
-                return entry1.date!.compare(entry2.date!) == NSComparisonResult.OrderedDescending
+                return entry1.date!.compare(entry2.date!) == ComparisonResult.orderedDescending
             }
-        case .TitleAscending:
-            entries.sortInPlace {
+        case .titleAscending:
+            entries.sort {
                 (entry1, entry2) -> Bool in
-                return entry1.title!.lowercaseString < entry2.title!.lowercaseString
+                return entry1.title!.lowercased() < entry2.title!.lowercased()
             }
-        case .TitleDescending:
-            entries.sortInPlace {
+        case .titleDescending:
+            entries.sort {
                 (entry1, entry2) -> Bool in
-                return entry1.title!.lowercaseString > entry2.title!.lowercaseString
+                return entry1.title!.lowercased() > entry2.title!.lowercased()
             }
-        case .Relevance:
-            entries.sortInPlace {
+        case .relevance:
+            entries.sort {
                 entry1, entry2 in
                 switch self.searchRange {
-                case .TitleOnly:
+                case .titleOnly:
                     return entry1.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) > entry2.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
-                case .ContentOnly:
+                case .contentOnly:
                     return entry1.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) > entry2.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
-                case .TitleAndContent:
+                case .titleAndContent:
                     let occurrencesIn1 = entry1.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) + entry1.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
                     let occurrencesIn2 = entry2.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) + entry2.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
                     return occurrencesIn1 > occurrencesIn2
@@ -81,45 +81,45 @@ struct DiarySearcher {
         return entries
     }
     
-    private func filterByDate(entries: [Entry]) -> [Entry] {
-        var dateRange: ClosedInterval<NSDate>
-        let today = NSDate()
+    fileprivate func filterByDate(_ entries: [Entry]) -> [Entry] {
+        var dateRange: ClosedRange<Date>
+        let today = Date()
         switch timeRange {
-        case .Lifetime:
+        case .lifetime:
             fatalError()
-        case .LastWeek:
-            let last7Days = FSCalendar().dateByAddingDays(-7, toDate: today)
+        case .lastWeek:
+            let last7Days = FSCalendar().date(byAddingDays: -7, to: today)
             dateRange = last7Days...today
-        case .LastMonth:
-            let last30Days = FSCalendar().dateByAddingDays(-30, toDate: today)
+        case .lastMonth:
+            let last30Days = FSCalendar().date(byAddingDays: -30, to: today)
             dateRange = last30Days...today
-        case .LastYear:
-            let last365Days = FSCalendar().dateByAddingDays(-365, toDate: today)
+        case .lastYear:
+            let last365Days = FSCalendar().date(byAddingDays: -365, to: today)
             dateRange = last365Days...today
-        case .Custom:
+        case .custom:
             dateRange = customDateRange!
         }
         
-        return entries.filter { dateRange.contains($0.date!) }
+        return entries.filter { dateRange.contains($0.date! as Date) }
     }
     
-    private func filterByTitle(entries: [Entry]) -> [Entry] {
+    fileprivate func filterByTitle(_ entries: [Entry]) -> [Entry] {
         return entries.filter { $0.title!.contains(searchText, exactMatch: exactMatch) }
     }
     
-    private func filterByContent(entries: [Entry]) -> [Entry] {
+    fileprivate func filterByContent(_ entries: [Entry]) -> [Entry] {
         return entries.filter { $0.content!.emojiUnescapedString.contains(searchText, exactMatch: exactMatch) }
     }
 }
 
 extension String {
-    func contains(str: String, exactMatch: Bool) -> Bool {
+    func contains(_ str: String, exactMatch: Bool) -> Bool {
         if exactMatch {
-            return self.rangeOfString(str) != nil
+            return self.range(of: str) != nil
         } else {
-            let keywords = str.componentsSeparatedByString(" ").filter {$0 != ""}
+            let keywords = str.components(separatedBy: " ").filter {$0 != ""}
             for keyword in keywords {
-                if self.lowercaseString.rangeOfString(keyword.lowercaseString) != nil {
+                if self.lowercased().range(of: keyword.lowercased()) != nil {
                     return true
                 }
             }
@@ -127,13 +127,13 @@ extension String {
         }
     }
     
-    func numberOfOccurrencesOfSubstring(subString: String, exactMatch: Bool) -> Int {
+    func numberOfOccurrencesOfSubstring(_ subString: String, exactMatch: Bool) -> Int {
         if exactMatch {
-            return self.componentsSeparatedByString(subString).count - 1
+            return self.components(separatedBy: subString).count - 1
         } else {
             var total = 0
-            for keyword in (subString.componentsSeparatedByString(" ").filter { $0 != "" }) {
-                total += self.lowercaseString.componentsSeparatedByString(keyword.lowercaseString).count - 1
+            for keyword in (subString.components(separatedBy: " ").filter { $0 != "" }) {
+                total += self.lowercased().components(separatedBy: keyword.lowercased()).count - 1
             }
             return total
         }

@@ -9,11 +9,11 @@ import RWDropdownMenu
 import GoogleMobileAds
 
 class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
-    var date: NSDate!
+    var date: Date!
     var bgColor: UIColor?
-    var image: NSData?
+    var image: Data?
     var imagePositionTop: Bool?
     var entry: Entry!
     var userDeletedEntry = false
@@ -27,22 +27,22 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
-        formatter.timeStyle = .NoStyle
-        title = formatter.stringFromDate(date)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        title = formatter.string(from: date)
         
         if entry != nil {
             txtTitle.text = entry.title
             txtContent.text = entry.content
             bgColor = entry.bgColor?.toColor()
-            txtContent.backgroundColor = bgColor ?? UIColor.whiteColor()
-            txtTitle.backgroundColor = bgColor ?? UIColor.whiteColor()
-            image = entry.image
+            txtContent.backgroundColor = bgColor ?? UIColor.white
+            txtTitle.backgroundColor = bgColor ?? UIColor.white
+            image = entry.image as Data?
             imagePositionTop = entry.imagePositionTop?.boolValue
             tabs.selectedSegmentIndex = 1
-            txtContent.hidden = true
-            preview.hidden = false
+            txtContent.isHidden = true
+            preview.isHidden = false
             updatePreview()
         } else {
             self.navigationItem.leftBarButtonItems?.removeObject(deleteBtn)
@@ -56,35 +56,35 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         
         ad.adUnitID = AdUtility.ad2ID
         ad.rootViewController = self
-        ad.loadRequest(AdUtility.getRequest())
+        ad.load(AdUtility.getRequest())
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         registerForKeyboardNotifications(self)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         unregisterFromKeyboardNotifications()
     }
     
-    @IBAction func cancel(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func save(sender: UIBarButtonItem) {
-        if txtContent.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" && txtTitle.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" && image == nil {
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        if txtContent.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" && txtTitle.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" && image == nil {
             
             if entry == nil {
-                dismissViewControllerAnimated(true, completion: nil)
+                dismiss(animated: true, completion: nil)
             } else {
-                dataContext.deleteObject(entry)
+                dataContext.delete(entry)
                 dataContext.saveData()
                 userDeletedEntry = true
-                performSegueWithIdentifier("unwindFromEditor", sender: self)
+                performSegue(withIdentifier: "unwindFromEditor", sender: self)
             }
             
             return
@@ -93,89 +93,89 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         if entry != nil {
             entry.title = txtTitle.text
             entry.content = txtContent.text
-            entry.bgColor = bgColor?.rgb()
+            entry.bgColor = bgColor?.rgb() as NSNumber?
             entry.image = self.image
-            entry.imagePositionTop = self.imagePositionTop
+            entry.imagePositionTop = self.imagePositionTop as NSNumber?
             dataContext.saveData()
         } else {
-            entry = Entry(entity: NSEntityDescription.entityForName("Entry", inManagedObjectContext: dataContext)!, insertIntoManagedObjectContext: dataContext, title: txtTitle.text!, content: txtContent.text, date: date)
-            entry.bgColor = bgColor?.rgb()
+            entry = Entry(entity: NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)!, insertIntoManagedObjectContext: dataContext, title: txtTitle.text!, content: txtContent.text, date: date)
+            entry.bgColor = bgColor?.rgb() as NSNumber?
             entry.image = self.image
-            entry.imagePositionTop = self.imagePositionTop
+            entry.imagePositionTop = self.imagePositionTop as NSNumber?
             dataContext.saveData()
         }
         
-        performSegueWithIdentifier("unwindFromEditor", sender: self)
+        performSegue(withIdentifier: "unwindFromEditor", sender: self)
     }
     
-    @IBAction func changedTab(sender: UISegmentedControl) {
+    @IBAction func changedTab(_ sender: UISegmentedControl) {
         view.endEditing(true)
         if sender.selectedSegmentIndex == 0 {
-            txtContent.hidden = false
-            preview.hidden = true
+            txtContent.isHidden = false
+            preview.isHidden = true
         } else if sender.selectedSegmentIndex == 1 {
-            txtContent.hidden = true
-            preview.hidden = false
+            txtContent.isHidden = true
+            preview.isHidden = false
             updatePreview()
         }
     }
     
-    @IBAction func textChanged(sender: AnyObject) {
+    @IBAction func textChanged(_ sender: AnyObject) {
         updatePreview()
     }
     
-    @IBAction func deleteEntry(sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: NSLocalizedString("Delete this?", comment: ""), message: NSLocalizedString("Do you really want to delete this entry?", comment: ""), preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes, delete it!", comment: ""), style: .Destructive) {
+    @IBAction func deleteEntry(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: NSLocalizedString("Delete this?", comment: ""), message: NSLocalizedString("Do you really want to delete this entry?", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes, delete it!", comment: ""), style: .destructive) {
             _ in
             if self.entry != nil {
-                self.dataContext.deleteObject(self.entry)
+                self.dataContext.delete(self.entry)
                 self.dataContext.saveData()
                 self.userDeletedEntry = true
-                self.performSegueWithIdentifier("unwindFromEditor", sender: self)
+                self.performSegue(withIdentifier: "unwindFromEditor", sender: self)
             } else {
                 self.dismissVC(completion: nil)
             }
         })
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
         
         presentVC(alert)
     }
     
-    @IBAction func showMore(sender: UIBarButtonItem) {
+    @IBAction func showMore(_ sender: UIBarButtonItem) {
         var menuItems = [
             RWDropdownMenuItem(text: NSLocalizedString("Set Background Color", comment: ""), image: UIImage(named: "paint_brush")) {
-                dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue()) {
-                    self.performSegueWithIdentifier("showColorSelector", sender: self)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
                 }
             }
         ]
         
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             menuItems.append(
                 RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
                 let picker = UIImagePickerController()
                 picker.delegate = self
-                picker.sourceType = .Camera
+                picker.sourceType = .camera
                 self.presentVC(picker)
                 }
             )
         }
         
-        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             menuItems.append(
                 RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
                     let picker = UIImagePickerController()
                     picker.delegate = self
-                    picker.sourceType = .PhotoLibrary
+                    picker.sourceType = .photoLibrary
                     self.presentVC(picker)
                 }
             )
         }
         
         if image != nil {
-            menuItems.appendContentsOf([
+            menuItems.append(contentsOf: [
                 RWDropdownMenuItem(text: NSLocalizedString("Move Image to Top", comment: ""), image: UIImage(named: "up")) {
                     self.imagePositionTop = true
                     self.updatePreview()
@@ -194,40 +194,40 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             ])
         }
         
-        RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Right, style: .Translucent, navBarImage: nil, completion: nil)
+        RWDropdownMenu.present(from: self, withItems: menuItems, align: .right, style: .translucent, navBarImage: nil, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         picker.dismissVC(completion: nil)
         imagePositionTop = false
         self.image = UIImageJPEGRepresentation(image, 0)
         tabs.selectedSegmentIndex = 1
-        tabs.sendActionsForControlEvents(.ValueChanged)
+        tabs.sendActions(for: .valueChanged)
     }
     
     func updatePreview() {
-        view.backgroundColor = bgColor ?? UIColor.whiteColor()
-        preview.backgroundColor = bgColor ?? UIColor.whiteColor()
-        txtTitle.backgroundColor = bgColor ?? UIColor.whiteColor()
+        view.backgroundColor = bgColor ?? UIColor.white
+        preview.backgroundColor = bgColor ?? UIColor.white
+        txtTitle.backgroundColor = bgColor ?? UIColor.white
         
-        if preview.hidden {
+        if preview.isHidden {
             return
         }
         
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .LongStyle
-        formatter.timeStyle = .NoStyle
-        let dateFormatted = formatter.stringFromDate(date!)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        let dateFormatted = formatter.string(from: date!)
         
-        let stylesheet = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("modest", ofType: "css")!)
+        let stylesheet = try! String(contentsOfFile: Bundle.main.path(forResource: "modest", ofType: "css")!)
         
-        let contentHtml = (try? MMMarkdown.HTMLStringWithMarkdown(txtContent.text!, extensions: .GitHubFlavored)) ?? txtContent.text!
+        let contentHtml = (try? MMMarkdown.htmlString(withMarkdown: txtContent.text!, extensions: .gitHubFlavored)) ?? txtContent.text!
         let displayTitleAndContent = "<h1>\(txtTitle.text!)</h1>\(contentHtml)"
         var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
-            let base64 = image!.base64EncodedString()!
-            if imagePositionTop!.boolValue {
+            let base64 = (image! as NSData).base64EncodedString()!
+            if imagePositionTop! {
                 displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(displayHtml)"
             } else {
                 displayHtml += "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>"
@@ -247,8 +247,8 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         preview.loadHTMLString("<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)", baseURL: nil)
     }
     
-    @IBAction func unwindFromColorSelector(segue: UIStoryboardSegue) {
-        if let vc = segue.sourceViewController as? ColorSelectorController {
+    @IBAction func unwindFromColorSelector(_ segue: UIStoryboardSegue) {
+        if let vc = segue.source as? ColorSelectorController {
             txtContent.backgroundColor = vc.selectedColor
             txtTitle.backgroundColor = vc.selectedColor
             bgColor = vc.selectedColor
@@ -259,28 +259,28 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
 
 extension DiaryEditorController: KeyboardStateDelegate {
     
-    func keyboardWillTransition(state: KeyboardState) {
+    func keyboardWillTransition(_ state: KeyboardState) {
         // keyboard will show or hide
     }
     
-    func keyboardTransitionAnimation(state: KeyboardState) {
+    func keyboardTransitionAnimation(_ state: KeyboardState) {
         switch state {
-        case .ActiveWithHeight(let height):
+        case .activeWithHeight(let height):
             bottomConstraint.constant = height + 10
             if height > 60 {
-                ad.hidden = true
+                ad.isHidden = true
             } else {
-                ad.hidden = false
+                ad.isHidden = false
             }
-        case .Hidden:
+        case .hidden:
             bottomConstraint.constant = 70
-            ad.hidden = false
+            ad.isHidden = false
         }
         
         view.layoutIfNeeded()
     }
     
-    func keyboardDidTransition(state: KeyboardState) {
+    func keyboardDidTransition(_ state: KeyboardState) {
         // keyboard animation finished
     }
 }

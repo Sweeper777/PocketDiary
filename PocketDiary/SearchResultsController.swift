@@ -18,19 +18,19 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
     @IBOutlet var ad: GADBannerView!
     @IBOutlet var noResultLabel: UILabel!
     
-    @IBAction func next(sender: UIBarButtonItem) {
+    @IBAction func next(_ sender: UIBarButtonItem) {
         loadNextResult()
     }
     
-    @IBAction func previous(sender: UIBarButtonItem) {
+    @IBAction func previous(_ sender: UIBarButtonItem) {
         loadPreviousResult()
     }
     
     override func viewDidLoad() {
         automaticallyAdjustsScrollViewInsets = false
         
-        UINavigationBar.appearance().barStyle = .Black
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barStyle = .black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         resultView.delegate = self
         loadNextResult()
@@ -41,10 +41,10 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         
         ad.adUnitID = AdUtility.ad3ID
         ad.rootViewController = self
-        ad.loadRequest(AdUtility.getRequest())
+        ad.load(AdUtility.getRequest())
     }
     
-    private func loadNextResult() {
+    fileprivate func loadNextResult() {
         if entries.count > 0 {
             if nowDisplayingIndex == entries.count - 1 {
                 nowDisplayingIndex = 0
@@ -55,21 +55,21 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
             resultView.loadHTMLString(htmls[nowDisplayingIndex], baseURL: nil)
-            view.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
-            resultView.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
+            view.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.white
+            resultView.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.white
         } else  {
-            navigationItem.rightBarButtonItems?.forEach { $0.enabled = false }
-            resultView.hidden = true
+            navigationItem.rightBarButtonItems?.forEach { $0.isEnabled = false }
+            resultView.isHidden = true
             if exactMatch! {
                 noResultLabel.text = String(format: NSLocalizedString("Oops! There are no entries that exactly matches \"%@\"!", comment: ""), searchText)
             } else {
                 noResultLabel.text = String(format: NSLocalizedString("Oops! There are no entries that matches \"%@\"!", comment: ""), searchText)
             }
-            noResultLabel.hidden = false
+            noResultLabel.isHidden = false
         }
     }
     
-    private func loadPreviousResult() {
+    fileprivate func loadPreviousResult() {
         if entries.count > 0 {
             
             if nowDisplayingIndex == 0 {
@@ -81,20 +81,20 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
             title = NSLocalizedString("Results - ", comment: "") + "\(nowDisplayingIndex + 1) / \(entries.count)"
             
             resultView.loadHTMLString(htmls[nowDisplayingIndex], baseURL: nil)
-            view.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
-            resultView.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.whiteColor()
+            view.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.white
+            resultView.backgroundColor = entries[nowDisplayingIndex].bgColor?.toColor() ?? UIColor.white
         }
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         webView.initializeHighlighting()
         
         if exactMatch == true {
-            webView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(searchText.emojiUnescapedString)', \(exactMatch))")
+            webView.stringByEvaluatingJavaScript(from: "uiWebview_HighlightAllOccurencesOfString('\(searchText.emojiUnescapedString)', \(exactMatch))")
         } else {
-            let keywords = searchText.componentsSeparatedByString(" ").filter { $0 != "" }
+            let keywords = searchText.components(separatedBy: " ").filter { $0 != "" }
             for keyword in keywords {
-                webView.stringByEvaluatingJavaScriptFromString("uiWebview_HighlightAllOccurencesOfString('\(keyword.emojiUnescapedString)', \(exactMatch))")
+                webView.stringByEvaluatingJavaScript(from: "uiWebview_HighlightAllOccurencesOfString('\(keyword.emojiUnescapedString)', \(exactMatch))")
             }
         }
     }
@@ -102,8 +102,8 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
 
 extension UIWebView {
     func initializeHighlighting() {
-        let path = NSBundle.mainBundle().pathForResource("highlight", ofType: "js")
+        let path = Bundle.main.path(forResource: "highlight", ofType: "js")
         let jsCode = try! String(contentsOfFile: path!)
-        self.stringByEvaluatingJavaScriptFromString(jsCode)!
+        self.stringByEvaluatingJavaScript(from: jsCode)!
     }
 }

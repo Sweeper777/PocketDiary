@@ -16,11 +16,11 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     @IBOutlet var sortModeLbl: UILabel!
     @IBOutlet var exactMatch: LLSwitch!
     
-    var customDateRange: ClosedInterval<NSDate>?
+    var customDateRange: ClosedRange<Date>?
     
     var resultsToPass: [Entry]!
     
-    func valueDidChanged(llSwitch: LLSwitch!, on: Bool) {
+    func valueDidChanged(_ llSwitch: LLSwitch!, on: Bool) {
         UserSettings.exactMatch = on
     }
     
@@ -32,7 +32,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         searchText.delegate = self
     }
     
-    @IBAction func selectSearchRange(sender: UIButton) {
+    @IBAction func selectSearchRange(_ sender: UIButton) {
         view.endEditing(true)
         let strs = ["Title and Content", "Content only", "Title only"]
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
@@ -40,33 +40,33 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.searchRange.rawValue, doneBlock: { (picker, index, value) in
             self.searchRangeLbl.text = NSLocalizedString("Search in: ", comment: "") + (value! as! String)
             UserSettings.searchRange = SearchRange(rawValue: index)!
-            }, cancelBlock: nil, origin: sender)
-        picker.setDoneButton(getDoneBtn())
-        picker.setCancelButton(getCancelBtn())
-        picker.showActionSheetPicker()
+            }, cancel: nil, origin: sender)
+        picker?.setDoneButton(getDoneBtn())
+        picker?.setCancelButton(getCancelBtn())
+        picker?.show()
     }
     
-    @IBAction func selectDateRange(sender: UIButton) {
+    @IBAction func selectDateRange(_ sender: UIButton) {
         view.endEditing(true)
         let strs = ["All", "Previous 365 days", "Previous 30 days", "Previous 7 days", "Custom"]
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
         
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.timeRange.rawValue, doneBlock: { (picker, index, value) in
             if index == 4 {
-                dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue()) {
-                    self.performSegueWithIdentifier("showDateRangeSelector", sender: self)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+                    self.performSegue(withIdentifier: "showDateRangeSelector", sender: self)
                 }
                 return
             }
             self.dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + (value! as! String)
             UserSettings.timeRange = TimeRange(rawValue: index)!
-            }, cancelBlock: nil, origin: sender)
-        picker.setDoneButton(getDoneBtn())
-        picker.setCancelButton(getCancelBtn())
-        picker.showActionSheetPicker()
+            }, cancel: nil, origin: sender)
+        picker?.setDoneButton(getDoneBtn())
+        picker?.setCancelButton(getCancelBtn())
+        picker?.show()
     }
     
-    @IBAction func selectSortMode(sender: UIButton) {
+    @IBAction func selectSortMode(_ sender: UIButton) {
         view.endEditing(true)
         let strs = ["Relevance", "Earlier → Later", "Later → Earlier", "Title A → Z", "Title Z → A"]
         let localizedStrs = strs.map { NSLocalizedString($0, comment: "") }
@@ -74,18 +74,18 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         let picker = ActionSheetStringPicker(title: nil, rows: localizedStrs, initialSelection: UserSettings.sortMode.rawValue, doneBlock: { (picker, index, value) in
             self.sortModeLbl.text = NSLocalizedString("Sort: ", comment: "") + (value! as! String)
             UserSettings.sortMode = SortMode(rawValue: index)!
-            }, cancelBlock: nil, origin: sender)
-        picker.setDoneButton(getDoneBtn())
-        picker.setCancelButton(getCancelBtn())
-        picker.showActionSheetPicker()
+            }, cancel: nil, origin: sender)
+        picker?.setDoneButton(getDoneBtn())
+        picker?.setCancelButton(getCancelBtn())
+        picker?.show()
     }
     
-    @IBAction func done(sender: UIBarButtonItem) {
+    @IBAction func done(_ sender: UIBarButtonItem) {
         dismissVC(completion: nil)
     }
     
-    @IBAction func search(sender: UIBarButtonItem) {
-        let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    @IBAction func search(_ sender: UIBarButtonItem) {
+        let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         let text = searchText.text!.emojiEscapedString
         let searcher = DiarySearcher(searchText: text.emojiUnescapedString,
                                      exactMatch: UserSettings.exactMatch,
@@ -94,9 +94,9 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
                                      sortMode: UserSettings.sortMode,
                                      customDateRange: self.customDateRange)
         
-        let overlay: UIView = UIView(frame: ((UIApplication.sharedApplication().delegate as! AppDelegate).window?.frame)!)
-        overlay.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
-        self.parentViewController!.view.addSubview(overlay)
+        let overlay: UIView = UIView(frame: ((UIApplication.shared.delegate as! AppDelegate).window?.frame)!)
+        overlay.backgroundColor = UIColor.black.withAlphaComponent(0)
+        self.parent!.view.addSubview(overlay)
         overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.colorWithAlphaComponent(0.5)}, completion: nil)
         
         EZLoadingActivity.show(NSLocalizedString("Searching...", comment: ""), disableUI: true);
@@ -110,23 +110,23 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         };
     }
     
-    @IBAction func unwindCancel(segue: UIStoryboardSegue) {
+    @IBAction func unwindCancel(_ segue: UIStoryboardSegue) {
         
     }
     
-    @IBAction func unwindDone(segue: UIStoryboardSegue) {
-        if let vc = segue.sourceViewController as? DateRangeSelectorController {
+    @IBAction func unwindDone(_ segue: UIStoryboardSegue) {
+        if let vc = segue.source as? DateRangeSelectorController {
             self.customDateRange = vc.dateRange
             
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = .ShortStyle
-            dateFormatter.timeStyle = .NoStyle
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .none
             dateRangeLbl.text = "\(NSLocalizedString("Date Range: ", comment: ""))\(dateFormatter.stringFromDate(customDateRange!.start)) - \(dateFormatter.stringFromDate(customDateRange!.end))"
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? SearchResultsController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SearchResultsController {
             vc.entries = resultsToPass
             vc.searchText = searchText.text!
             vc.searchMode = UserSettings.searchRange
@@ -135,18 +135,18 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     func getCancelBtn() -> UIBarButtonItem {
-        let btn = UIBarButtonItem(barButtonSystemItem: .Cancel, target: nil, action: nil)
+        let btn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
         btn.tintColor = UIColor(hexString: "3b7b3b")
         return btn
     }
     
     func getDoneBtn() -> UIBarButtonItem{
-        let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: nil)
+        let btn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
         btn.tintColor = UIColor(hexString: "3b7b3b")
         return btn
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         search(self.navigationItem.rightBarButtonItem!)
         return true
     }

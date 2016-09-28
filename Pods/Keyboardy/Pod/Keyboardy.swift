@@ -34,8 +34,8 @@ import ObjectiveC
     - Hidden: Keyboard is hidden
 */
 public enum KeyboardState {
-    case ActiveWithHeight(CGFloat)
-    case Hidden
+    case activeWithHeight(CGFloat)
+    case hidden
 }
 
 
@@ -49,14 +49,14 @@ public protocol KeyboardStateDelegate: class {
     
         - parameter state: Keyboard state
     */
-    func keyboardWillTransition(state: KeyboardState)
+    func keyboardWillTransition(_ state: KeyboardState)
     
     /**
         Keyboard animation. This method is called inside `UIView` animation block with the same animation parameters as keyboard animation.
     
         - parameter state: Keyboard state
     */
-    func keyboardTransitionAnimation(state: KeyboardState)
+    func keyboardTransitionAnimation(_ state: KeyboardState)
     
     
     /**
@@ -64,7 +64,7 @@ public protocol KeyboardStateDelegate: class {
         
         - parameter state: Keyboard state
     */
-    func keyboardDidTransition(state: KeyboardState)
+    func keyboardDidTransition(_ state: KeyboardState)
 }
 
 
@@ -76,7 +76,7 @@ public extension UIViewController {
     
     /// Current keyboard state
     public var keyboardState: KeyboardState {
-        return keyboardHeight > 0 ? .ActiveWithHeight(keyboardHeight) : .Hidden
+        return keyboardHeight > 0 ? .activeWithHeight(keyboardHeight) : .hidden
     }
     
     /**
@@ -86,12 +86,12 @@ public extension UIViewController {
 
         :discussion: It is recommended to call this method in `viewWillAppear:`
     */
-    public func registerForKeyboardNotifications(keyboardStateDelegate: KeyboardStateDelegate) {
+    public func registerForKeyboardNotifications(_ keyboardStateDelegate: KeyboardStateDelegate) {
         self.keyboardStateDelegate = keyboardStateDelegate
         
-        let defaultCenter = NSNotificationCenter.defaultCenter()
-        defaultCenter.addObserver(self, selector:"keyboardWillShow:", name:UIKeyboardWillShowNotification, object:nil)
-        defaultCenter.addObserver(self, selector:"keyboardWillHide:", name:UIKeyboardWillHideNotification, object:nil)
+        let defaultCenter = NotificationCenter.default
+        defaultCenter.addObserver(self, selector:#selector(UIViewController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object:nil)
+        defaultCenter.addObserver(self, selector:#selector(UIViewController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object:nil)
     }
     
     /**
@@ -102,40 +102,40 @@ public extension UIViewController {
     public func unregisterFromKeyboardNotifications() {
         self.keyboardStateDelegate = nil
         
-        let defaultCenter = NSNotificationCenter.defaultCenter()
-        defaultCenter.removeObserver(self, name:UIKeyboardWillShowNotification, object:nil)
-        defaultCenter.removeObserver(self, name:UIKeyboardWillHideNotification, object:nil)
+        let defaultCenter = NotificationCenter.default
+        defaultCenter.removeObserver(self, name:NSNotification.Name.UIKeyboardWillShow, object:nil)
+        defaultCenter.removeObserver(self, name:NSNotification.Name.UIKeyboardWillHide, object:nil)
     }
     
     // MARK: Private
     
     /// Handler for `UIKeyboardWillShowNotification`
-    private dynamic func keyboardWillShow(n: NSNotification) {
-        if let userInfo = n.userInfo,
-            rect = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue,
-            duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue,
-            curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]?.integerValue {
-                let convertedRect = view.convertRect(rect, fromView: nil)
+    fileprivate dynamic func keyboardWillShow(_ n: Notification) {
+        if let userInfo = (n as NSNotification).userInfo,
+            let rect = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue,
+            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue,
+            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey]? as AnyObject).intValue {
+                let convertedRect = view.convert(rect, from: nil)
                 let height = convertedRect.height
                 
                 keyboardHeight = height
-                keyboardAnimationToState(.ActiveWithHeight(keyboardHeight), duration:duration, curve:UIViewAnimationCurve(rawValue: curve)!)
+                keyboardAnimationToState(.activeWithHeight(keyboardHeight), duration:duration, curve:UIViewAnimationCurve(rawValue: curve)!)
         }
     }
     
     /// Handler for `UIKeyboardWillHideNotification`
-    private dynamic func keyboardWillHide(n: NSNotification) {
-        if let userInfo = n.userInfo,
-            duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue,
-            curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]?.integerValue {
+    fileprivate dynamic func keyboardWillHide(_ n: Notification) {
+        if let userInfo = (n as NSNotification).userInfo,
+            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue,
+            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey]? as AnyObject).intValue {
                 
                 keyboardHeight = 0.0
-                keyboardAnimationToState(.Hidden, duration:duration, curve:UIViewAnimationCurve(rawValue: curve)!)
+                keyboardAnimationToState(.hidden, duration:duration, curve:UIViewAnimationCurve(rawValue: curve)!)
         }
     }
     
     /// Keyboard animation
-    private func keyboardAnimationToState(state: KeyboardState, duration: NSTimeInterval, curve: UIViewAnimationCurve) {
+    fileprivate func keyboardAnimationToState(_ state: KeyboardState, duration: TimeInterval, curve: UIViewAnimationCurve) {
         keyboardStateDelegate?.keyboardWillTransition(state)
         
         UIView.beginAnimations(nil, context:nil)
@@ -143,7 +143,7 @@ public extension UIViewController {
         UIView.setAnimationCurve(curve)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDelegate(self)
-        UIView.setAnimationDidStopSelector("keyboardAnimationDidStop:finished:context:")
+        UIView.setAnimationDidStop(#selector(UIViewController.keyboardAnimationDidStop(_:finished:context:)))
         
         keyboardStateDelegate?.keyboardTransitionAnimation(state)
         
@@ -151,7 +151,7 @@ public extension UIViewController {
     }
     
     /// Keyboard animation did stop selector
-    private dynamic func keyboardAnimationDidStop(animationID: String?, finished: Bool, context: UnsafeMutablePointer<Void>) {
+    fileprivate dynamic func keyboardAnimationDidStop(_ animationID: String?, finished: Bool, context: UnsafeMutableRawPointer) {
         keyboardStateDelegate?.keyboardDidTransition(keyboardState)
     }
     
@@ -160,13 +160,13 @@ public extension UIViewController {
     /**
     Associated keys for private properties
     */
-    private struct AssociatedKeys {
+    fileprivate struct AssociatedKeys {
         static var KeyboardHeight: UInt8 = 0
         static var KeyboardDelegate: UInt8 = 0
     }
     
     /// Class-container to provide weak semantics for associated properties
-    private class WeakObjectContainer {
+    fileprivate class WeakObjectContainer {
         weak var delegate: KeyboardStateDelegate?
         
         init(_ delegate: KeyboardStateDelegate?) {
@@ -175,7 +175,7 @@ public extension UIViewController {
     }
     
     /// Keyboard state delegate container
-    private var keyboardStateDelegate: KeyboardStateDelegate? {
+    fileprivate var keyboardStateDelegate: KeyboardStateDelegate? {
         get {
             if let delegateContainer = objc_getAssociatedObject(self, &AssociatedKeys.KeyboardDelegate) as? WeakObjectContainer {
                 return delegateContainer.delegate
@@ -195,7 +195,7 @@ public extension UIViewController {
     }
     
     /// Keyboard height container
-    private var keyboardHeight: CGFloat {
+    fileprivate var keyboardHeight: CGFloat {
         get {
             if let keyboardHeight = objc_getAssociatedObject(self, &AssociatedKeys.KeyboardHeight) as? NSNumber {
                 return CGFloat(keyboardHeight.floatValue)
@@ -205,7 +205,7 @@ public extension UIViewController {
         set {
             objc_setAssociatedObject(self,
                 &AssociatedKeys.KeyboardHeight,
-                NSNumber(float: Float(newValue)),
+                NSNumber(value: Float(newValue) as Float),
                 objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
             )
         }

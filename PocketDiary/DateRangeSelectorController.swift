@@ -5,23 +5,23 @@ class DateRangeSelectorController: UITableViewController {
     @IBOutlet var startPicker: UIDatePicker!
     @IBOutlet var endPicker: UIDatePicker!
     
-    var dateRange: ClosedInterval<NSDate>!
+    var dateRange: ClosedRange<Date>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startPicker.date = FSCalendar().dateByAddingDays(-30, toDate: endPicker.date)
+        startPicker.date = FSCalendar().date(byAddingDays: -30, to: endPicker.date)
     }
     
-    @IBAction func done(sender: UIBarButtonItem) {
-        dateRange = FSCalendar().dateByIgnoringTimeComponentsOfDate(startPicker.date)...FSCalendar().dateByIgnoringTimeComponentsOfDate(endPicker.date)
-        performSegueWithIdentifier("unwindDone", sender: self)
+    @IBAction func done(_ sender: UIBarButtonItem) {
+        dateRange = FSCalendar().date(byIgnoringTimeComponentsOf: startPicker.date)...FSCalendar().date(byIgnoringTimeComponentsOf: endPicker.date)
+        performSegue(withIdentifier: "unwindDone", sender: self)
     }
     
-    @IBAction func startChanged(sender: UIDatePicker) {
+    @IBAction func startChanged(_ sender: UIDatePicker) {
         endPicker.minimumDate = startPicker.date
     }
     
-    @IBAction func endChanged(sender: UIDatePicker) {
+    @IBAction func endChanged(_ sender: UIDatePicker) {
         startPicker.maximumDate = endPicker.date
     }
 }

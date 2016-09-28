@@ -7,22 +7,22 @@ import LTHPasscodeViewController
 import GoogleMobileAds
 
 class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
-    let dataContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var entries: [NSDate: Entry] = [:]
-    var dateToPass: NSDate!
+    let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+    var entries: [Date: Entry] = [:]
+    var dateToPass: Date!
     @IBOutlet var calendar: FSCalendar!
     @IBOutlet var ad: GADBannerView!
     
     override func viewDidLoad() {
         LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hexString: "5abb5a")
-        LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.whiteColor()
+        LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.white
         LTHPasscodeViewController.sharedUser().hidesCancelButton = false
-        LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.whiteColor()
+        LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.white
         
-        let entity = NSEntityDescription.entityForName("Entry", inManagedObjectContext: dataContext)
+        let entity = NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)
         let request = NSFetchRequest()
         request.entity = entity
-        let anyObjs = try? dataContext.executeFetchRequest(request)
+        let anyObjs = try? dataContext.fetch(request)
         if anyObjs != nil {
             anyObjs!.forEach {
                 self.entries[($0 as! Entry).date!] = ($0 as! Entry)
@@ -32,86 +32,86 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         
         if LTHPasscodeViewController.doesPasscodeExist() {
             //if LTHPasscodeViewController.didPasscodeTimerEnd() {
-            LTHPasscodeViewController.sharedUser().showLockScreenWithAnimation(true, withLogout: true, andLogoutTitle: nil)
+            LTHPasscodeViewController.sharedUser().showLockScreen(withAnimation: true, withLogout: true, andLogoutTitle: nil)
             //}
         }
         
         ad.adUnitID = AdUtility.ad1ID
         ad.rootViewController = self
-        ad.loadRequest(AdUtility.getRequest())
+        ad.load(AdUtility.getRequest())
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if calendar.selectedDates.count > 0 {
-            calendar.deselectDate(calendar.selectedDate)
+            calendar.deselect(calendar.selectedDate)
         }
     }
     
-    func calendar(calendar: FSCalendar, didSelectDate date: NSDate) {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date) {
         dateToPass = date.ignoreTimeComponents()
-        performSegueWithIdentifier("showEditor", sender: self)
+        performSegue(withIdentifier: "showEditor", sender: self)
     }
     
-    func calendar(calendar: FSCalendar, hasEventForDate date: NSDate) -> Bool {
+    func calendar(_ calendar: FSCalendar, hasEventFor date: Date) -> Bool {
         return entries[date.ignoreTimeComponents()] != nil
     }
     
-    func calendar(calendar: FSCalendar, subtitleForDate date: NSDate) -> String? {
+    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         return nil
     }
     
-    func calendar(calendar: FSCalendar, numberOfEventsForDate date: NSDate) -> Int {
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         return entries[date.ignoreTimeComponents()] != nil ? 1 : 0
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEditor" {
-            let vc = segue.destinationViewController as! DataPasserController
+            let vc = segue.destination as! DataPasserController
             vc.date = dateToPass
             vc.entry = entries[dateToPass]
         }
     }
     
-    @IBAction func unwindFromEditor(segue: UIStoryboardSegue) {
-        if let vc = segue.sourceViewController as? DiaryEditorController {
-            if !entries.keys.contains(vc.date) {
+    @IBAction func unwindFromEditor(_ segue: UIStoryboardSegue) {
+        if let vc = segue.source as? DiaryEditorController {
+            if !entries.keys.contains(vc.date) as (Date) as (Date) as (Date) as (Date) as (Date) as (Date) as (Date) {
                 entries[vc.date] = vc.entry
                 calendar.reloadData()
             }
             
             if vc.userDeletedEntry {
-                entries.removeValueForKey(vc.date)
+                entries.removeValue(forKey: vc.date as Date)
                 calendar.reloadData()
             }
         }
     }
     
-    @IBAction func search(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("showSearch", sender: self)
+    @IBAction func search(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showSearch", sender: self)
     }
     
-    @IBAction func passcodeSettings(sender: UIBarButtonItem) {
+    @IBAction func passcodeSettings(_ sender: UIBarButtonItem) {
         var menuItems = [RWDropdownMenuItem]()
         if LTHPasscodeViewController.doesPasscodeExist() {
-            menuItems.appendContentsOf([
+            menuItems.append(contentsOf: [
                 RWDropdownMenuItem(text: NSLocalizedString("Change Passcode", comment: ""), image: UIImage(named: "change")) {
-                        LTHPasscodeViewController.sharedUser().showForChangingPasscodeInViewController(self, asModal: true)
+                        LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: self, asModal: true)
                     },
                     RWDropdownMenuItem(text: NSLocalizedString("Disable Passcode", comment: ""), image: UIImage(named: "remove")) {
-                        LTHPasscodeViewController.sharedUser().showForDisablingPasscodeInViewController(self, asModal: true)
+                        LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: self, asModal: true)
                     }
             ])
         } else {
             menuItems.append(
                 RWDropdownMenuItem(text: NSLocalizedString("Set Passcode", comment: ""), image: UIImage(named: "key_colored")) {
-                    LTHPasscodeViewController.sharedUser().showForEnablingPasscodeInViewController(self, asModal: true)
+                    LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: self, asModal: true)
                 }
             )
         }
         
-        RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Left, style: .Translucent, navBarImage: nil, completion: nil)
+        RWDropdownMenu.present(from: self, withItems: menuItems, align: .left, style: .translucent, navBarImage: nil, completion: nil)
     }
 }
 
