@@ -25,7 +25,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         let anyObjs = try? dataContext.executeFetchRequest(request)
         if anyObjs != nil {
             anyObjs!.forEach {
-                entries[($0 as! Entry).date!] = ($0 as! Entry)
+                self.entries[($0 as! Entry).date!] = ($0 as! Entry)
 //                print(($0 as! Entry).date!)
             }
         }
@@ -117,12 +117,10 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
 
 extension NSManagedObjectContext {
     func saveData() -> Bool {
-        do {
-            try self.save()
+        if (try? self.save()) != nil {
             return true
-        } catch let error as NSError {
-            print(error)
-            return false;
+        } else {
+            return false
         }
     }
 }

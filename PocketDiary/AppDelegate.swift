@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let entries = (try? managedObjectContext.executeFetchRequest(request))?.map { $0 as! Entry }
             if entries != nil {
                 entries?.forEach {
-                    $0.date = $0.date?.ignoreTimeComponents()
-                    print($0.date!)
+                    $0.1.date = $0.1.date?.ignoreTimeComponents()
+                    print($0.1.date!)
                 }
                 managedObjectContext.saveData()
             }

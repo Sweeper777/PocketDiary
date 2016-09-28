@@ -1248,7 +1248,6 @@ options:NSNumericSearch] != NSOrderedAscending)
     _failedAttemptLabel.hidden = YES;
     
     CATransition *transition = [CATransition animation];
-    [transition setDelegate: self];
     [self performSelector: @selector(_resetUI) withObject: nil afterDelay: 0.1f];
     [transition setType: kCATransitionPush];
     [transition setSubtype: kCATransitionFromRight];
@@ -1265,7 +1264,6 @@ options:NSNumericSearch] != NSOrderedAscending)
     _tempPasscode = @"";
     
     CATransition *transition = [CATransition animation];
-    [transition setDelegate: self];
     [self performSelector: @selector(_resetUIForReEnteringNewPasscode)
                withObject: nil
                afterDelay: 0.1f];
@@ -1284,7 +1282,6 @@ options:NSNumericSearch] != NSOrderedAscending)
     _failedAttemptLabel.hidden = YES;
     
     CATransition *transition = [CATransition animation];
-    [transition setDelegate: self];
     [self performSelector: @selector(_resetUI) withObject: nil afterDelay: 0.1f];
     [transition setType: kCATransitionPush];
     [transition setSubtype: kCATransitionFromRight];
@@ -1343,8 +1340,16 @@ options:NSNumericSearch] != NSOrderedAscending)
 
 
 - (void)_resetTextFields {
-    if (![_passcodeTextField isFirstResponder] && (!_isUsingTouchID || _useFallbackPasscode)) {
-        [_passcodeTextField becomeFirstResponder];
+    // If _allowUnlockWithTouchID == true, but _isUsingTouchID == false,
+    // it means we're just launching, and we don't want the keyboard to show.
+    if (![_passcodeTextField isFirstResponder]
+        && (!(_allowUnlockWithTouchID || _isUsingTouchID) || _useFallbackPasscode)) {
+        // It seems like there's a glitch with how the alert gets removed when hitting
+        // cancel in the TouchID prompt. In some cases, the keyboard is present, but invisible
+        // after dismissing the alert unless we call becomeFirstResponder with a short delay
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [_passcodeTextField becomeFirstResponder];
+        });
     }
     _firstDigitTextField.secureTextEntry = NO;
     _secondDigitTextField.secureTextEntry = NO;
@@ -1447,22 +1452,12 @@ options:NSNumericSearch] != NSOrderedAscending)
             _useFallbackPasscode = NO;
             [_passcodeTextField resignFirstResponder];
         }
-        // Without animation because otherwise it won't come down fast enough,
-        // so inside iOS' multitasking view the app won't be covered by anything.
-        if ([self _timerDuration] <= 0) {
-            // This is here and the rest in willEnterForeground because when self is pushed
-            // instead of presented as a modal,
-            // the app would be visible from the multitasking view.
-            if (_isCurrentlyOnScreen && !_displayedAsModal) return;
-            
-            [self showLockScreenWithAnimation:NO
-                                   withLogout:NO
-                               andLogoutTitle:nil];
-        }
-        else {
-            _coverView.hidden = NO;
-            if (![[UIApplication sharedApplication].keyWindow viewWithTag: _coverViewTag])
-                [[UIApplication sharedApplication].keyWindow addSubview: _coverView];
+        
+        if (_isCurrentlyOnScreen && !_displayedAsModal) return;
+        
+        _coverView.hidden = NO;
+        if (![[UIApplication sharedApplication].keyWindow viewWithTag: _coverViewTag]) {
+            [[UIApplication sharedApplication].keyWindow addSubview: _coverView];
         }
     }
 }
@@ -1481,9 +1476,7 @@ options:NSNumericSearch] != NSOrderedAscending)
     if ([self _doesPasscodeExist] &&
         [self _didPasscodeTimerEnd]) {
         _useFallbackPasscode = NO;
-        // This is here instead of didEnterBackground because when self is pushed
-        // instead of presented as a modal,
-        // the app would be visible from the multitasking view.
+        
         if (!_displayedAsModal && !_displayedAsLockScreen && _isCurrentlyOnScreen) {
             [_passcodeTextField resignFirstResponder];
             [self.navigationController popViewControllerAnimated:NO];

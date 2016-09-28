@@ -1,7 +1,9 @@
 EZLoadingActivity
 ==========
 
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZLoadingActivity.svg)](https://img.shields.io/cocoapods/v/EZLoadingActivity.svg)  
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZLoadingActivity.svg)](https://img.shields.io/cocoapods/v/EZLoadingActivity.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 Lightweight Swift loading activity for iOS7+. Really simple to use, just add the class and write 1 line of code. 
 
 ![demo](http://i.imgur.com/xLHKvSB.gif)
@@ -92,15 +94,43 @@ EZLoadingActivity is a singleton object so you don't need to keep track of its i
 1. Download and drop 'EZLoadingActivity.swift' in your project.  
 2. Congratulations!  
 
+## Install via Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate EZLoadingActivity into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "goktugyil/EZLoadingActivity"
+```
+
+Run `carthage update` to build the framework and drag the built `EZLoadingActivity.framework` into your Xcode project.
+
+Then on the top of files where you are going to use this:
+
+```swift
+import EZLoadingActivity
+```
+
 ## Install via CocoaPods
 
-You can use [Cocoapods](http://cocoapods.org/) to install `EZLoadingActivity` by adding it to your `Podfile`:
+You can use [CocoaPods](http://cocoapods.org/) to install `EZLoadingActivity` by adding it to your `Podfile`:
 
 ```ruby
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'EZLoadingActivity'
+pod 'EZLoadingActivity' #Stable release for Swift 3.0
+
+pod 'EZLoadingActivity', :git => 'https://github.com/goktugyil/EZLoadingActivity.git' #Latest release for Swift 3.0
+pod 'EZLoadingActivity', '~> 0.8' #For Swift 2.2
 ```
 
 Then on the top of files where you are going to use this:
