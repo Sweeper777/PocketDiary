@@ -113,8 +113,8 @@ public extension UIViewController {
     fileprivate dynamic func keyboardWillShow(_ n: Notification) {
         if let userInfo = (n as NSNotification).userInfo,
             let rect = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue,
-            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue,
-            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey]? as AnyObject).intValue {
+            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
+            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue {
                 let convertedRect = view.convert(rect, from: nil)
                 let height = convertedRect.height
                 
@@ -127,7 +127,7 @@ public extension UIViewController {
     fileprivate dynamic func keyboardWillHide(_ n: Notification) {
         if let userInfo = (n as NSNotification).userInfo,
             let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue,
-            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey]? as AnyObject).intValue {
+            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue {
                 
                 keyboardHeight = 0.0
                 keyboardAnimationToState(.hidden, duration:duration, curve:UIViewAnimationCurve(rawValue: curve)!)

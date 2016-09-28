@@ -1,6 +1,6 @@
 //
 //  SectionModel.swift
-//  DTModelStorageTests
+//  DTModelStorage
 //
 //  Created by Denys Telezhkin on 10.07.15.
 //  Copyright (c) 2015 Denys Telezhkin. All rights reserved.
@@ -23,32 +23,39 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-/// Class represents data of the section used by `MemoryStorage`.
+import Foundation
+
+/// Data holder for single section in `MemoryStorage`.
 open class SectionModel : Section, SupplementaryAccessible
 {
     /// Items for current section
     /// - Warning: If you try to set new array to this property [T], the only way to do this without exception is to wrap it into items.map { $0 }. This is a workaround that exists because of Swift inability to cast [T] to [Any]. You can call `setItems` method instead of doing so.
     /// - SeeAlso: `setItems:`
     open var items = [Any]()
+    
+    /// delegate, that knows about current section index in storage.
+    open weak var sectionLocationDelegate: SectionLocationIdentifyable?
+    
+    /// section index of current section in `MemoryStorage`.
+    open var currentSectionIndex: Int? {
+        return sectionLocationDelegate?.sectionIndex(for: self)
+    }
 
     /// Supplementaries dictionary.
-    open var supplementaries = [String:Any]()
+    open var supplementaries = [String:[Int:Any]]()
     
-    // Create empty section model.
+    // Creates empty section model.
     public init() {}
     
     /// Set items of specific time to items property.
-    /// - Parameter items: items to set
-    /// - Note: This method exists because of inability of Swift to cast [T] to [Any].
+    /// - Note: This method exists because of inability of Swift to cast [T] to [Any]. It uses simple map underneath.
     open func setItems<T>(_ items: [T])
     {
         self.items = items.map { $0 }
     }
 
-    /// Returns items of specific type, if found in a section
-    /// Parameter type: Type of items to search for
-    /// Returns: Array of items
-    open func itemsOfType<T>(_ type: T.Type) -> [T]
+    /// Returns items of `type` in current section
+    open func items<T>(ofType type: T.Type) -> [T]
     {
         var foundItems = [T]()
         for item in items {
@@ -62,5 +69,14 @@ open class SectionModel : Section, SupplementaryAccessible
     /// Number of items in current section
     open var numberOfItems: Int {
         return self.items.count
+    }
+}
+
+// DEPRECATED
+extension SectionModel {
+    @available(*,unavailable,renamed: "items(ofType:)")
+    open func itemsOfType<T>(_ type: T.Type) -> [T]
+    {
+        fatalError("UNAVAILABLE")
     }
 }

@@ -16,7 +16,7 @@
             startingLineNumber = "45"
             endingLineNumber = "45"
             landmarkName = "viewDidAppear(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -102,7 +102,7 @@
             startingLineNumber = "15"
             endingLineNumber = "15"
             landmarkName = "search(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -118,7 +118,7 @@
             startingLineNumber = "85"
             endingLineNumber = "85"
             landmarkName = "done(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -149,7 +149,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "application(application:didFinishLaunchingWithOptions:)"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

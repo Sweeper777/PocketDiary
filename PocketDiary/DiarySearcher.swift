@@ -12,13 +12,9 @@ struct DiarySearcher {
     
     func search(_ dataContext: NSManagedObjectContext) -> [Entry]? {
         // get data
-        let request = NSFetchRequest()
+        let request = NSFetchRequest<Entry>()
         request.entity = NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)
-        guard let anyObjs = try? dataContext.fetch(request) else { return nil }
-        let entriesOp = anyObjs.map { $0 as? Entry }
-        
-        guard !entriesOp.contains(where: {$0 === nil }) else { return nil }
-        var entries = entriesOp.map { $0! }
+        guard var entries = try? dataContext.fetch(request) else { return nil }
         
         // filter by date
         switch timeRange {

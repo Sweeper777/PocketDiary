@@ -1,11 +1,11 @@
 PODS:
   - ActionSheetPicker (1.6.2)
   - Base64nl (1.2)
-  - DTCollectionViewManager (4.8.0):
-    - DTModelStorage (~> 2.6.0)
-  - DTModelStorage (2.6.2):
-    - DTModelStorage/Core (= 2.6.2)
-  - DTModelStorage/Core (2.6.2)
+  - DTCollectionViewManager (5.0.0-beta.2):
+    - DTModelStorage (~> 3.0.0-beta.2)
+  - DTModelStorage (3.0.0-beta.2):
+    - DTModelStorage/Core (= 3.0.0-beta.2)
+  - DTModelStorage/Core (3.0.0-beta.2)
   - Emoji-swift (0.0.3)
   - EZLoadingActivity (0.9)
   - EZSwiftExtensions (1.7)
@@ -37,7 +37,8 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker
   - Base64nl
-  - DTCollectionViewManager
+  - DTCollectionViewManager (~> 5.0.0-beta.2)
+  - DTModelStorage (~> 3.0.0-beta.2)
   - Emoji-swift
   - EZLoadingActivity
   - EZSwiftExtensions
@@ -53,8 +54,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
-  DTCollectionViewManager: d39fd94dd526e85ef95c18b044fa0d18c98ea5c2
-  DTModelStorage: afd736e5309f374c29dcd7e4364e7571e32e5db1
+  DTCollectionViewManager: 43735f25159eda0fa8531927ee784454aa84f4fa
+  DTModelStorage: d7f6e13c24713fb4a02e1b72f7cd628bb6fe5d85
   Emoji-swift: 1f9bbabce9aebace9fd9824b0dbb0d9eb31a746c
   EZLoadingActivity: 7ebb84c1f2510a62d2bc0a17cc9d75634f92606d
   EZSwiftExtensions: 4afef248066a036903d8496bf07bc355b22ce766
@@ -72,6 +73,6 @@ SPEC CHECKSUMS:
   RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
 
-PODFILE CHECKSUM: 3b835857cade4e1fe15d06294c00f0b1cc84df94
+PODFILE CHECKSUM: 2e29fdc77a3215718ad3400e762d2d35162446e6
 
 COCOAPODS: 1.1.0.beta.1

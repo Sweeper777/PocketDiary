@@ -1,6 +1,6 @@
 //
 //  RuntimeHelper.swift
-//  DTModelStorageTests
+//  DTModelStorage
 //
 //  Created by Denys Telezhkin on 15.07.15.
 //  Copyright (c) 2015 Denys Telezhkin. All rights reserved.
@@ -26,23 +26,23 @@
 import Foundation
 
 /// This class is used to introspect Swift and Objective-C types, providing necessary mapping information.
-public final class RuntimeHelper
+public enum RuntimeHelper
 {
-    /// Recursively unwrap optionals to a single level. This is helpful when dealing with double optionals.
-    /// - Parameter any: optional to unwrap
-    /// - Returns: unwrapped optional
-    public class func recursivelyUnwrapAnyValue(_ any: Any) -> Any?
+    /// Returns recursively unwrapped `any` optional. 
+    ///
+    /// This is helpful when dealing with double optionals.
+    public static func recursivelyUnwrapAnyValue(_ any: Any) -> Any?
     {
-        let mirror = _reflect(any)
-        if mirror.disposition != .optional
+        let mirror = Mirror(reflecting: any)
+        if mirror.displayStyle != .optional
         {
             return any
         }
-        if mirror.count == 0
+        if mirror.children.count == 0
         {
             return nil
         }
-        let (_,some) = mirror[0]
-        return recursivelyUnwrapAnyValue(some.value)
+        let (_,some) = mirror.children.first!
+        return recursivelyUnwrapAnyValue(some)
     }
 }

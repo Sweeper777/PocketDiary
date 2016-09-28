@@ -1,6 +1,6 @@
 //
 //  StorageUpdate.swift
-//  DTModelStorageTests
+//  DTModelStorage
 //
 //  Created by Denys Telezhkin on 06.07.15.
 //  Copyright (c) 2015 Denys Telezhkin. All rights reserved.
@@ -26,7 +26,7 @@
 import Foundation
 
 /// Object representing update in storage.
-public struct StorageUpdate : Equatable
+public struct StorageUpdate : Equatable, CustomStringConvertible
 {
     /// Indexes of section to be deleted in current update
     public var deletedSectionIndexes = Set<Int>()
@@ -55,8 +55,7 @@ public struct StorageUpdate : Equatable
     /// Create an empty update.
     public init(){}
     
-    /// Check whether update is empty.
-    /// Returns: Returns true, if update does not contain any data.
+    /// Returns true, if update is empty.
     public func isEmpty() -> Bool {
         return deletedSectionIndexes.count == 0 &&
             insertedSectionIndexes.count == 0 &&
@@ -67,24 +66,25 @@ public struct StorageUpdate : Equatable
             updatedRowIndexPaths.count == 0 &&
             movedRowIndexPaths.count == 0
     }
-}
-
-/// Compare StorageUpdates
-public func ==(left : StorageUpdate, right: StorageUpdate) -> Bool
-{
-    if !(left.deletedSectionIndexes == right.deletedSectionIndexes) { return false }
-    if !(left.insertedSectionIndexes == right.insertedSectionIndexes) { return false }
-    if !(left.updatedSectionIndexes == right.updatedSectionIndexes) { return false }
-    if !(left.movedSectionIndexes == right.movedSectionIndexes) { return false }
-    if !(left.deletedRowIndexPaths == right.deletedRowIndexPaths) { return false }
-    if !(left.insertedRowIndexPaths == right.insertedRowIndexPaths) { return false }
-    if !(left.updatedRowIndexPaths == right.updatedRowIndexPaths) { return false }
-    if !(left.movedRowIndexPaths == right.movedRowIndexPaths) { return false }
-    return true
-}
-
-extension StorageUpdate : CustomStringConvertible
-{
+    
+    /// Compare StorageUpdates
+    static public func ==(left : StorageUpdate, right: StorageUpdate) -> Bool
+    {
+        guard left.deletedSectionIndexes == right.deletedSectionIndexes else { return false }
+        guard left.insertedSectionIndexes == right.insertedSectionIndexes else { return false }
+        guard left.updatedSectionIndexes == right.updatedSectionIndexes else { return false }
+        guard left.movedSectionIndexes.elementsEqual(right.movedSectionIndexes, by: { $0 == $1 }) else {
+            return false
+        }
+        guard left.deletedRowIndexPaths == right.deletedRowIndexPaths else { return false }
+        guard left.insertedRowIndexPaths == right.insertedRowIndexPaths else { return false }
+        guard left.updatedRowIndexPaths == right.updatedRowIndexPaths else { return false }
+        guard left.movedRowIndexPaths.elementsEqual(right.movedRowIndexPaths, by: { $0 == $1 }) else {
+            return false
+        }
+        return true
+    }
+    
     public var description : String {
         return "Deleted section indexes: \(deletedSectionIndexes)\n" +
             "Inserted section indexes : \(insertedSectionIndexes)\n" +
@@ -95,19 +95,3 @@ extension StorageUpdate : CustomStringConvertible
     }
 }
 
-/// Workaround that allows Set<Int> to be converted to NSIndexSet
-public protocol NSIndexSetConvertible {}
-extension Int: NSIndexSetConvertible {}
-
-public extension Set where Element : NSIndexSetConvertible
-{
-    /// Make NSIndexSet instance out of Set<Int>
-    /// Returns: NSIndexSet with Ints inside
-    func makeNSIndexSet() -> IndexSet {
-        let indexSet = NSMutableIndexSet()
-        for element in self {
-            indexSet.add(element as! Int)
-        }
-        return IndexSet(indexSet)
-    }
-}

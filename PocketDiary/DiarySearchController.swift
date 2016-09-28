@@ -90,23 +90,23 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         let searcher = DiarySearcher(searchText: text.emojiUnescapedString,
                                      exactMatch: UserSettings.exactMatch,
                                      searchRange: UserSettings.searchRange,
-                                     timeRange: customDateRange == nil ? UserSettings.timeRange : .Custom,
+                                     timeRange: customDateRange == nil ? UserSettings.timeRange : .custom,
                                      sortMode: UserSettings.sortMode,
                                      customDateRange: self.customDateRange)
         
         let overlay: UIView = UIView(frame: ((UIApplication.shared.delegate as! AppDelegate).window?.frame)!)
         overlay.backgroundColor = UIColor.black.withAlphaComponent(0)
         self.parent!.view.addSubview(overlay)
-        overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.colorWithAlphaComponent(0.5)}, completion: nil)
+        overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.withAlphaComponent(0.5)}, completion: nil)
         
         EZLoadingActivity.show(NSLocalizedString("Searching...", comment: ""), disableUI: true);
         
         { searcher.search(dataContext) } ~> {
             EZLoadingActivity.hide()
             self.resultsToPass = $0
-            overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.colorWithAlphaComponent(0)}, completion: nil)
+            overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.withAlphaComponent(0)}, completion: nil)
             overlay.removeFromSuperview()
-            self.performSegueWithIdentifier("showResults", sender: self)
+            self.performSegue(withIdentifier: "showResults", sender: self)
         };
     }
     
@@ -121,7 +121,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .none
-            dateRangeLbl.text = "\(NSLocalizedString("Date Range: ", comment: ""))\(dateFormatter.stringFromDate(customDateRange!.start)) - \(dateFormatter.stringFromDate(customDateRange!.end))"
+            dateRangeLbl.text = "\(NSLocalizedString("Date Range: ", comment: ""))\(dateFormatter.string(from: customDateRange!.lowerBound)) - \(dateFormatter.string(from: customDateRange!.upperBound))"
         }
     }
     

@@ -17,14 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         EZLoadingActivity.Settings.BackgroundColor = UIColor(hexString: "5abb5a")!
-        EZLoadingActivity.Settings.ActivityColor = UIColor.whiteColor()
-        EZLoadingActivity.Settings.TextColor = UIColor.whiteColor()
+        EZLoadingActivity.Settings.ActivityColor = UIColor.white
+        EZLoadingActivity.Settings.TextColor = UIColor.white
         
         if UserSettings.lastUsedBuild < 10 {
             let entity = NSEntityDescription.entity(forEntityName: "Entry", in: managedObjectContext)
-            let request = NSFetchRequest()
+            let request = NSFetchRequest<Entry>()
             request.entity = entity
-            let entries = (try? managedObjectContext.fetch(request))?.map { $0 as! Entry }
+            let entries = try? managedObjectContext.fetch(request)
             if entries != nil {
                 entries?.forEach {
                     $0.1.date = $0.1.date?.ignoreTimeComponents()

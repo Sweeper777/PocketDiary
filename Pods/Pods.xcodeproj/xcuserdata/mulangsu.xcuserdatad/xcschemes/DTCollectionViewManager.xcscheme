@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D34DDB1EFC7510090184E2978CD3CF98'
+               BlueprintIdentifier = 'A4A0DA1E48AA57C4A9197410446B67F1'
                BlueprintName = 'DTCollectionViewManager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DTCollectionViewManager.framework'>

@@ -20,12 +20,12 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.white
         
         let entity = NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)
-        let request = NSFetchRequest()
+        let request = NSFetchRequest<Entry>()
         request.entity = entity
         let anyObjs = try? dataContext.fetch(request)
         if anyObjs != nil {
             anyObjs!.forEach {
-                self.entries[($0 as! Entry).date!] = ($0 as! Entry)
+                self.entries[$0.date!] = $0
 //                print(($0 as! Entry).date!)
             }
         }
@@ -76,7 +76,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     @IBAction func unwindFromEditor(_ segue: UIStoryboardSegue) {
         if let vc = segue.source as? DiaryEditorController {
-            if !entries.keys.contains(vc.date) as (Date) as (Date) as (Date) as (Date) as (Date) as (Date) as (Date) {
+            if !entries.keys.contains(vc.date) {
                 entries[vc.date] = vc.entry
                 calendar.reloadData()
             }

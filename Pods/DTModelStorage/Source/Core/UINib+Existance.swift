@@ -1,6 +1,6 @@
 //
 //  UINib+Existance.swift
-//  DTModelStorageTests
+//  DTModelStorage
 //
 //  Created by Denys Telezhkin on 15.07.15.
 //  Copyright (c) 2015 Denys Telezhkin. All rights reserved.
@@ -28,12 +28,20 @@ import UIKit
 
 public extension UINib {
     
-    /// Check whether nib with name exists in bundle
-    /// - Parameter nibName: Name of xib file
-    /// - Parameter inBundle: bundle to search in
-    /// - Returns: true, if nib exists, false - if not.
-    public class func nibExistsWithNibName(_ nibName :String,
-        inBundle bundle: Bundle = Bundle.main) -> Bool
+    /// Returns true, if nib file with `nibName` exists in `bundle`.
+    public class func nibExists(withNibName nibName :String,
+                                           inBundle bundle: Bundle = Bundle.main) -> Bool
+    {
+        if let _ = bundle.path(forResource: nibName, ofType: "nib")
+        {
+            return true
+        }
+        return false
+    }
+    
+    @available(*,unavailable,renamed:"nibExists(withNibName:inBundle:)")
+    @nonobjc public class func nibExistsWithNibName(_ nibName :String,
+                                           inBundle bundle: Bundle = Bundle.main) -> Bool
     {
         if let _ = bundle.path(forResource: nibName, ofType: "nib")
         {

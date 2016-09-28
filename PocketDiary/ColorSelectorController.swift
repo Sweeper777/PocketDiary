@@ -12,11 +12,11 @@ class ColorSelectorController: UITableViewController, DTCollectionViewManageable
         super.viewDidLoad()
         self.preferredContentSize = CGSize(width: 400, height: 150)
         
-        manager.startManagingWithDelegate(self)
-        manager.registerCellClass(ColorCell)
+        manager.startManaging(withDelegate: self)
+        manager.register(ColorCell.self)
         manager.memoryStorage.addItems(["f4f5fb", "ffebeb", "fed1d1", "fe9e9e", "e4bcbc", "cba7a7", "fbffeb", "fafed1", "f5fe9e", "e1e4bc", "c8cba7", "ebfff0", "d1fed3", "9efea3", "bce4be", "a7cba9", "ebf9ff", "d1fdfe", "9efdfe", "bce4e4", "a7cacb", "faebff", "ead1fe", "d49efe", "d2bce4", "bba7cb", "ffffff", "f3f3f3", "dadada", "c0c0c0"].map { UIColor(hexString: $0)! })
         
-        manager.cellSelection(ColorSelectorController.selectedColor)
+        manager.didSelect(ColorCell, ColorSelectorController.selectedColor)
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -36,7 +36,7 @@ class ColorSelectorController: UITableViewController, DTCollectionViewManageable
         
         Timer.runThisAfterDelay(seconds: 0.3) {
             self.selectedColor = color
-            self.performSegueWithIdentifier("unwindFromColorSelector", sender: self)
+            self.performSegue(withIdentifier: "unwindFromColorSelector", sender: self)
         }
     }
 }
