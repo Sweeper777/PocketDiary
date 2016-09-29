@@ -16,7 +16,9 @@ class ColorSelectorController: UITableViewController, DTCollectionViewManageable
         manager.register(ColorCell.self)
         manager.memoryStorage.addItems(["f4f5fb", "ffebeb", "fed1d1", "fe9e9e", "e4bcbc", "cba7a7", "fbffeb", "fafed1", "f5fe9e", "e1e4bc", "c8cba7", "ebfff0", "d1fed3", "9efea3", "bce4be", "a7cba9", "ebf9ff", "d1fdfe", "9efdfe", "bce4e4", "a7cacb", "faebff", "ead1fe", "d49efe", "d2bce4", "bba7cb", "ffffff", "f3f3f3", "dadada", "c0c0c0"].map { UIColor(hexString: $0)! })
         
-        manager.didSelect(ColorCell, ColorSelectorController.selectedColor)
+        manager.didSelect(ColorCell.self) { [weak self] cell, color, indexPath in
+            self?.selectedColor(cell, color: color, indexPath: indexPath)
+        }
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
