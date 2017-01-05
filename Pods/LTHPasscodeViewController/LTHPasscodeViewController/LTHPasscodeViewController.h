@@ -23,6 +23,10 @@
  */
 - (void)passcodeWasEnteredSuccessfully;
 /**
+ @brief Called when the passcode was enabled.
+ */
+- (void)passcodeWasEnabled;
+/**
  @brief Called when the logout button was pressed.
  */
 - (void)logoutButtonWasPressed;
@@ -87,126 +91,135 @@
 @end
 
 @interface LTHPasscodeViewController : UIViewController
+
 /**
  @brief   The delegate.
  */
 @property (nonatomic, weak) id<LTHPasscodeViewControllerDelegate> delegate;
 /**
- @brief The gap between the passcode digits.
+ @brief        The number of digits for the simple passcode. Default is @c 4, or the length of the passcode, if one exists.
+
+ @b Attention: If you increase the number of digits and they do not fit on screen anymore, please decrease the @c horizontalGap accordingly.
+
+ @b Warning:   If a passcode is present, changing this will not work, since it would not allow the user to enter his passcode anymore. Please disable the passcode first.
  */
-@property (nonatomic, assign) CGFloat   horizontalGap;
+@property (nonatomic, assign) NSInteger digitsCount;
+/**
+ @brief      The gap between the passcode digits. Default is @c 40 for iPhone, @c 60 for iPad.
+ */
+@property (nonatomic, assign) CGFloat horizontalGap;
 /**
  @brief The gap between the top label and the passcode digits/field.
  */
-@property (nonatomic, assign) CGFloat   verticalGap;
+@property (nonatomic, assign) CGFloat verticalGap;
 /**
  @brief The offset between the top label and middle position.
  */
-@property (nonatomic, assign) CGFloat   verticalOffset;
+@property (nonatomic, assign) CGFloat verticalOffset;
 /**
  @brief The gap between the passcode digits and the failed label.
  */
-@property (nonatomic, assign) CGFloat   failedAttemptLabelGap;
+@property (nonatomic, assign) CGFloat failedAttemptLabelGap;
 /**
  @brief The height for the complex passcode overlay.
  */
-@property (nonatomic, assign) CGFloat   passcodeOverlayHeight;
+@property (nonatomic, assign) CGFloat passcodeOverlayHeight;
 /**
  @brief The font size for the top label.
  */
-@property (nonatomic, assign) CGFloat   labelFontSize;
+@property (nonatomic, assign) CGFloat labelFontSize;
 /**
  @brief The font size for the passcode digits.
  */
-@property (nonatomic, assign) CGFloat   passcodeFontSize;
+@property (nonatomic, assign) CGFloat passcodeFontSize;
 /**
  @brief The font for the top label.
  */
-@property (nonatomic, strong) UIFont    *labelFont;
+@property (nonatomic, strong) UIFont *labelFont;
 /**
  @brief The font for the passcode digits.
  */
-@property (nonatomic, strong) UIFont    *passcodeFont;
+@property (nonatomic, strong) UIFont *passcodeFont;
 /**
  @brief The background color for the top label.
  */
-@property (nonatomic, strong) UIColor   *enterPasscodeLabelBackgroundColor;
+@property (nonatomic, strong) UIColor *enterPasscodeLabelBackgroundColor;
 /**
  @brief The background color for the view.
  */
-@property (nonatomic, strong) UIColor   *backgroundColor;
+@property (nonatomic, strong) UIColor *backgroundColor;
 /**
  @brief The background image for the coverview.
  */
-@property (nonatomic, strong) UIImage   *backgroundImage;
+@property (nonatomic, strong) UIImage *backgroundImage;
 /**
  @brief The background color for the cover view that appears on top of the app, visible in the multitasking.
  */
-@property (nonatomic, strong) UIColor   *coverViewBackgroundColor;
+@property (nonatomic, strong) UIColor *coverViewBackgroundColor;
 /**
  @brief The background color for the passcode digits.
  */
-@property (nonatomic, strong) UIColor   *passcodeBackgroundColor;
+@property (nonatomic, strong) UIColor *passcodeBackgroundColor;
 /**
  @brief The background color for the failed attempt label.
  */
-@property (nonatomic, strong) UIColor   *failedAttemptLabelBackgroundColor;
+@property (nonatomic, strong) UIColor *failedAttemptLabelBackgroundColor;
 /**
  @brief The text color for the top label.
  */
-@property (nonatomic, strong) UIColor   *labelTextColor;
+@property (nonatomic, strong) UIColor *labelTextColor;
 /**
  @brief The text color for the passcode digits.
  */
-@property (nonatomic, strong) UIColor   *passcodeTextColor;
+@property (nonatomic, strong) UIColor *passcodeTextColor;
 /**
  @brief The text color for the failed attempt label.
  */
-@property (nonatomic, strong) UIColor   *failedAttemptLabelTextColor;
+@property (nonatomic, strong) UIColor *failedAttemptLabelTextColor;
 /**
  @brief The tint color to apply to the navigation items and bar button items.
  */
-@property (nonatomic, strong) UIColor   *navigationBarTintColor;
+@property (nonatomic, strong) UIColor *navigationBarTintColor;
 /**
  @brief The tint color to apply to the navigation bar background.
  */
-@property (nonatomic, strong) UIColor   *navigationTintColor;
+@property (nonatomic, strong) UIColor *navigationTintColor;
 /**
  @brief The color for te navigation bar's title.
  */
-@property (nonatomic, strong) UIColor   *navigationTitleColor;
+@property (nonatomic, strong) UIColor *navigationTitleColor;
 /**
  @brief The string to be used as username for the passcode in the Keychain.
  */
-@property (nonatomic, strong) NSString  *keychainPasscodeUsername;
+@property (nonatomic, strong) NSString *keychainPasscodeUsername;
 /**
  @brief The string to be used as username for the timer start time in the Keychain.
  */
-@property (nonatomic, strong) NSString  *keychainTimerStartUsername;
+@property (nonatomic, strong) NSString *keychainTimerStartUsername;
 /**
  @brief The string to be used as username for the timer duration in the Keychain.
  */
-@property (nonatomic, strong) NSString  *keychainTimerDurationUsername;
+@property (nonatomic, strong) NSString *keychainTimerDurationUsername;
 /**
  @brief The string to be used as username for the "isSimple" in the Keychain.
  */
-@property (nonatomic, strong) NSString  *keychainPasscodeIsSimpleUsername;
+@property (nonatomic, strong) NSString *keychainPasscodeIsSimpleUsername;
 /**
  @brief The string to be used as service name for all the Keychain entries.
  */
-@property (nonatomic, strong) NSString  *keychainServiceName;
+@property (nonatomic, strong) NSString *keychainServiceName;
 /**
  @brief The string to be used as username for allow TouchID unlock in the Keychain.
  */
-@property (nonatomic, strong) NSString  *keychainAllowUnlockWithTouchID;
+@property (nonatomic, strong) NSString *keychainAllowUnlockWithTouchID;
 /**
  @brief The character for the passcode digit.
  */
-@property (nonatomic, strong) NSString  *passcodeCharacter;
+@property (nonatomic, strong) NSString *passcodeCharacter;
 /**
  @brief The table name for NSLocalizedStringFromTable.
  */
-@property (nonatomic, strong) NSString  *localizationTableName;
+@property (nonatomic, strong) NSString *localizationTableName;
 /**
  @brief The tag for the cover view.
  */
@@ -219,6 +232,15 @@
  @brief The string displayed when entering your passcode.
  */
 @property (nonatomic, strong) NSString *enterPasscodeString;
+/**
+ @brief The string used to explain the reason of setting passcode.
+ @details The given string is oprional and is displayed below passcode field.
+ */
+@property (nonatomic, strong) NSString *enterPasscodeInfoString;
+/**
+ @brief A Boolean value that indicates whether the @c enterPasscodeInfoString is displayed (@c YES) or not (@c NO). Default is @c YES.
+ */
+@property (nonatomic, assign) BOOL displayAdditionalInfoDuringSettingPasscode;
 /**
  @brief The string displayed when entering your new passcode (while changing).
  */
@@ -250,11 +272,11 @@
 /**
  @brief The duration of the lock animation.
  */
-@property (nonatomic, assign) CGFloat   lockAnimationDuration;
+@property (nonatomic, assign) CGFloat lockAnimationDuration;
 /**
  @brief The duration of the slide animation.
  */
-@property (nonatomic, assign) CGFloat   slideAnimationDuration;
+@property (nonatomic, assign) CGFloat slideAnimationDuration;
 /**
  @brief The maximum number of failed attempts allowed.
  */
@@ -281,6 +303,9 @@
  @brief A Boolean value that indicates whether TouchID can be used (@c YES) or not (@c NO). Default is @c YES.
  */
 @property (nonatomic, assign) BOOL allowUnlockWithTouchID;
+
+
+// MARK: - Methods
 
 /**
  @brief				Used for displaying the lock. The passcode view is added directly on the keyWindow.
@@ -310,12 +335,19 @@
  */
 - (void)showForDisablingPasscodeInViewController:(UIViewController *)viewController asModal:(BOOL)isModal;
 /**
- @brief  Returns a Boolean value that indicates whether a simple, 4 digit (@c YES) or a complex passcode will be used (@c NO).
+ @brief Closes the passcode view controller.
+ */
++ (void)close;
+
+// MARK: - Passcode related methods
+
+/**
+ @brief  Returns a Boolean value that indicates whether a simple, N digit (4 by default or digitsCount) (@c YES) or a complex passcode will be used (@c NO).
  @return @c YES if the passcode is simple, @c NO if the passcode is complex
  */
 - (BOOL)isSimple;
 /**
- @brief                 Sets if the passcode should be simple (4 digits) or complex.
+ @brief                 Sets if the passcode should be simple (@c 4 digits by default) or complex.
  @param isSimple        Set to @c YES for a simple passcode, and to @c NO for a complex passcode.
  @param viewController  The view controller where the passcode view controller will be displayed.
  @param isModal         Set to @c YES to present as a modal, or to @c NO to push on the current nav stack.
@@ -323,9 +355,13 @@
  */
 - (void)setIsSimple:(BOOL)isSimple inViewController:(UIViewController *)viewController asModal:(BOOL)isModal;
 /**
- @brief The passcode view will be shown by default when entering the app from background. This method disables this behavior by removing the observer for UIApplicationDidEnterBackgroundNotification and UIApplicationWillEnterForegroundNotification.
+ @brief The passcode view will be shown by default when entering the app from background. This method disables this behavior by removing the observers for UIApplicationDidEnterBackgroundNotification and UIApplicationWillEnterForegroundNotification.
  */
 - (void)disablePasscodeWhenApplicationEntersBackground;
+/**
+ @brief The passcode view will be shown by default when entering the app from background. `disablePasscodeWhenApplicationEntersBackground` can disable that behavior and this method enables it again, by adding back the observers for UIApplicationDidEnterBackgroundNotification and UIApplicationWillEnterForegroundNotification
+ */
+- (void)enablePasscodeWhenApplicationEntersBackground;
 /**
  @brief  Returns a Boolean value that indicates whether a passcode exists (@c YES) or not (@c NO).
  @return @c YES if a passcode is enabled. This also means it is enabled, unless custom logic was added to the library.
@@ -359,10 +395,6 @@
  @brief Removes the passcode from the keychain.
  */
 + (void)deletePasscode;
-/**
- @brief Closes the passcode view controller.
- */
-+ (void)close;
 /**
  @brief Removes the passcode from the keychain and closes the passcode view controller.
  */

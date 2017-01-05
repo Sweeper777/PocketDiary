@@ -13,7 +13,7 @@ target 'PocketDiary' do
     pod 'LLSwitch'
     pod 'ActionSheetPicker'
     pod 'Keyboardy'
-    pod 'RWDropdownMenu'
+    pod 'DropDown'
     pod 'DTModelStorage', '~> 3.0.0-beta.2'
     pod 'DTCollectionViewManager', '~> 5.0.0-beta.2'
     pod 'Base64nl'

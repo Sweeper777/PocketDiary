@@ -7,6 +7,8 @@
 
 "Enter your passcode" = "Enter your passcode";
 
+"Passcode info" = "You will be asked to enter this code\neverytime you open the application";
+
 "Enable Passcode" = "Enable Passcode";
 
 "Change Passcode" = "Change Passcode";
@@ -26,3 +28,5 @@
 "%i Passcode Failed Attempts" = "%i Passcode Failed Attempts";
 
 "Unlock using Touch ID" = "Unlock using Touch ID";
+
+"Cannot reuse the same passcode" = "Cannot reuse the same passcode";

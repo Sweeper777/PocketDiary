@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DropDown.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +45,11 @@
 			<false/>
 		</dict>
 		<key>FSCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -79,11 +89,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RWDropdownMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SZTextView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,7 +97,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1D30AE0726BFF4455917F99D607CB15B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>20425C4889C63ADDEAE93982F72C9848</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E0969819423050D65AD5990EE8895EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>369B39FB7DAA1969376D93AEACB5183D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,32 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4B4E5FAEA4AB3986310386C1D2AED769</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>504720744DF397E49BBC622495AD76F3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6D46ACCA4C3F2BE3B8F9A9E35B37F4A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>7353BA4B98D5DEA09493CEAF8F4B057F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7D84F5D31841E50B1093E671117EFC69</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>868010619D7E6CBA5C6E6E2874668C85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,17 +157,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>92BB131FA876445E027D20AE23EA7B5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97A83A304CBA7B6DA5B82376F87BBA9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F766ADB76A46AB732825D44C4BAAABF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A4A0DA1E48AA57C4A9197410446B67F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AFAD7C49D45F4A29EE885214FE72758F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C3BBAA9780BACF29FE70798F41103883</key>
 		<dict>
 			<key>primary</key>
 			<true/>
