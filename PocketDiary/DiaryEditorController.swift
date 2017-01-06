@@ -5,7 +5,7 @@ import CoreData
 import MMMarkdown
 import Emoji
 import Keyboardy
-import RWDropdownMenu
+import DropDown
 import GoogleMobileAds
 
 class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {

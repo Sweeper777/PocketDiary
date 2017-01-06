@@ -16,6 +16,7 @@
 		5A00F7A11D37A7D3006ACC63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */; };
 		5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */; };
 		5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A04D0701D18FC8000868126 /* LLSwitch.framework */; };
+		5A11F9C81E1FA29C0010C553 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A11F9C71E1FA29C0010C553 /* DropDown.framework */; };
 		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
 		5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA711D01B16000B36AA7 /* AppDelegate.swift */; };
 		5A21FA741D01B16000B36AA7 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA731D01B16000B36AA7 /* CalendarController.swift */; };
@@ -31,7 +32,6 @@
 		5AF571271D02582400DF004F /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */; };
 		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
 		5AF875B91D17D4DF00DF0669 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF875B81D17D4DF00DF0669 /* Threading.swift */; };
-		5AF8E5081D2502A100E2A547 /* RWDropdownMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8E5071D2502A100E2A547 /* RWDropdownMenu.framework */; };
 		5AF8E50B1D250DDA00E2A547 /* DateRangeSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8E50A1D250DDA00E2A547 /* DateRangeSelectorController.swift */; };
 		5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9ACF21D124B1F00C8B856 /* Emoji.framework */; };
 		5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */; };
@@ -81,6 +81,7 @@
 		5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = PocketDiary/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		5A04D0701D18FC8000868126 /* LLSwitch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLSwitch.framework; path = "Pods/../build/Debug-iphoneos/LLSwitch.framework"; sourceTree = "<group>"; };
+		5A11F9C71E1FA29C0010C553 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
 		5A2193611D1E6E8800966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5A2193621D1E6E8900966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5A2193631D1E6E9800966DD4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -151,12 +152,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A11F9C81E1FA29C0010C553 /* DropDown.framework in Frameworks */,
 				5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */,
 				5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */,
 				5AFC26181D26376E007C38B4 /* DTCollectionViewManager.framework in Frameworks */,
 				5AFC26191D26376E007C38B4 /* DTModelStorage.framework in Frameworks */,
 				5AFC26121D261395007C38B4 /* Base64nl.framework in Frameworks */,
-				5AF8E5081D2502A100E2A547 /* RWDropdownMenu.framework in Frameworks */,
 				5AD6D7131D23B6870015BF0E /* Keyboardy.framework in Frameworks */,
 				5AFD86AC1D239C5700D80F8E /* ActionSheetPicker.framework in Frameworks */,
 				5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */,
@@ -278,6 +279,7 @@
 		CB021911B0AE96F7D484390D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A11F9C71E1FA29C0010C553 /* DropDown.framework */,
 				5A3A43DF1D4B095400D9D5E2 /* FittableFontLabel.framework */,
 				5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */,
 				5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */,
@@ -379,7 +381,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Mulang Su";
 				TargetAttributes = {
 					5A21FA6D1D01B16000B36AA7 = {
@@ -694,6 +696,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -704,8 +707,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -742,6 +747,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -752,8 +758,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -773,6 +781,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -783,6 +792,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A15829CC71086EEC6B261DDF /* Pods-PocketDiary.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = YES;
@@ -807,6 +817,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 73487E1510D92AB00BD2D775 /* Pods-PocketDiary.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = YES;
