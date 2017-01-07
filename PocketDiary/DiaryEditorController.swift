@@ -144,57 +144,57 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func showMore(_ sender: UIBarButtonItem) {
-        var menuItems = [
-            RWDropdownMenuItem(text: NSLocalizedString("Set Background Color", comment: ""), image: UIImage(named: "paint_brush")) {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
-                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
-                }
-            }
-        ]
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            menuItems.append(
-                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
-                let picker = UIImagePickerController()
-                picker.delegate = self
-                picker.sourceType = .camera
-                self.presentVC(picker)
-                }
-            )
-        }
-        
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            menuItems.append(
-                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
-                    let picker = UIImagePickerController()
-                    picker.delegate = self
-                    picker.sourceType = .photoLibrary
-                    self.presentVC(picker)
-                }
-            )
-        }
-        
-        if image != nil {
-            menuItems.append(contentsOf: [
-                RWDropdownMenuItem(text: NSLocalizedString("Move Image to Top", comment: ""), image: UIImage(named: "up")) {
-                    self.imagePositionTop = true
-                    self.updatePreview()
-                },
-                
-                RWDropdownMenuItem(text: NSLocalizedString("Move Image to Bottom", comment: ""), image: UIImage(named: "down")) {
-                    self.imagePositionTop = false
-                    self.updatePreview()
-                },
-                
-                RWDropdownMenuItem(text: NSLocalizedString("Remove Image", comment: ""), image: UIImage(named: "remove")) {
-                    self.imagePositionTop = nil
-                    self.image = nil
-                    self.updatePreview()
-                }
-            ])
-        }
-        
-        RWDropdownMenu.present(from: self, withItems: menuItems, align: .right, style: .translucent, navBarImage: nil, completion: nil)
+//        var menuItems = [
+//            RWDropdownMenuItem(text: NSLocalizedString("Set Background Color", comment: ""), image: UIImage(named: "paint_brush")) {
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+//                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
+//                }
+//            }
+//        ]
+//        
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            menuItems.append(
+//                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Camera", comment: ""), image: UIImage(named: "camera")) {
+//                let picker = UIImagePickerController()
+//                picker.delegate = self
+//                picker.sourceType = .camera
+//                self.presentVC(picker)
+//                }
+//            )
+//        }
+//        
+//        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//            menuItems.append(
+//                RWDropdownMenuItem(text: NSLocalizedString("Set Image From Photo Library", comment: ""), image: UIImage(named: "photo_library")) {
+//                    let picker = UIImagePickerController()
+//                    picker.delegate = self
+//                    picker.sourceType = .photoLibrary
+//                    self.presentVC(picker)
+//                }
+//            )
+//        }
+//        
+//        if image != nil {
+//            menuItems.append(contentsOf: [
+//                RWDropdownMenuItem(text: NSLocalizedString("Move Image to Top", comment: ""), image: UIImage(named: "up")) {
+//                    self.imagePositionTop = true
+//                    self.updatePreview()
+//                },
+//                
+//                RWDropdownMenuItem(text: NSLocalizedString("Move Image to Bottom", comment: ""), image: UIImage(named: "down")) {
+//                    self.imagePositionTop = false
+//                    self.updatePreview()
+//                },
+//                
+//                RWDropdownMenuItem(text: NSLocalizedString("Remove Image", comment: ""), image: UIImage(named: "remove")) {
+//                    self.imagePositionTop = nil
+//                    self.image = nil
+//                    self.updatePreview()
+//                }
+//            ])
+//        }
+//        
+//        RWDropdownMenu.present(from: self, withItems: menuItems, align: .right, style: .translucent, navBarImage: nil, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
