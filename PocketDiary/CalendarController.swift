@@ -13,6 +13,8 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     @IBOutlet var calendar: FSCalendar!
     @IBOutlet var ad: GADBannerView!
     
+    let passcodeMenu = DropDown()
+    
     override func viewDidLoad() {
         LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hexString: "5abb5a")
         LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.white
@@ -119,6 +121,45 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         } else {
             menuItems.append("Set Passcode")
         }
+        
+        let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
+        let menuWidth = widths.max()! + 70
+        
+        passcodeMenu.anchorView = sender
+        passcodeMenu.dataSource = menuItems
+        passcodeMenu.width = menuWidth
+        passcodeMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
+        passcodeMenu.customCellConfiguration = {
+            _, item, cell in
+            guard let menuItemCell = cell as? MoreMenuItem else { return }
+            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
+            switch item {
+            case "Change Passcode":
+                menuItemCell.icon.image = UIImage(named: "change")
+            case "Disable Passcode":
+                menuItemCell.icon.image = UIImage(named: "remove")
+            case "Set Passcode":
+                menuItemCell.icon.image = UIImage(named: "key_colored")
+            default:
+                break
+            }
+        }
+        
+        passcodeMenu.selectionAction = {
+            [unowned self] index, item in
+            switch item {
+            case "Change Passcode":
+                LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: self, asModal: true)
+            case "Disable Passcode":
+                LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: self, asModal: true)
+            case "Set Passcode":
+                LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: self, asModal: true)
+            default:
+                break
+            }
+        }
+        
+        passcodeMenu.show()
     }
 }
 
