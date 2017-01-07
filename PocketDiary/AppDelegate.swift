@@ -26,11 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request.entity = entity
             let entries = try? managedObjectContext.fetch(request)
             if entries != nil {
-                entries?.forEach {
+                entries?.forEachEnumerated {
                     $0.1.date = $0.1.date?.ignoreTimeComponents()
                     print($0.1.date!)
                 }
-                managedObjectContext.saveData()
+                _ = managedObjectContext.saveData()
             }
         }
         

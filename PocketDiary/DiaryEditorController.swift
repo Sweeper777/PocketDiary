@@ -45,7 +45,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             preview.isHidden = false
             updatePreview()
         } else {
-            self.navigationItem.leftBarButtonItems?.removeObject(deleteBtn)
+            self.navigationItem.leftBarButtonItems?.removeFirst(deleteBtn)
         }
         
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
@@ -82,7 +82,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 dismiss(animated: true, completion: nil)
             } else {
                 dataContext.delete(entry)
-                dataContext.saveData()
+                _ = dataContext.saveData()
                 userDeletedEntry = true
                 performSegue(withIdentifier: "unwindFromEditor", sender: self)
             }
@@ -96,13 +96,13 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             entry.bgColor = bgColor?.rgb() as NSNumber?
             entry.image = self.image
             entry.imagePositionTop = self.imagePositionTop as NSNumber?
-            dataContext.saveData()
+            _ = dataContext.saveData()
         } else {
             entry = Entry(entity: NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)!, insertIntoManagedObjectContext: dataContext, title: txtTitle.text!, content: txtContent.text, date: date)
             entry.bgColor = bgColor?.rgb() as NSNumber?
             entry.image = self.image
             entry.imagePositionTop = self.imagePositionTop as NSNumber?
-            dataContext.saveData()
+            _ = dataContext.saveData()
         }
         
         performSegue(withIdentifier: "unwindFromEditor", sender: self)
@@ -130,7 +130,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             _ in
             if self.entry != nil {
                 self.dataContext.delete(self.entry)
-                self.dataContext.saveData()
+                _ = self.dataContext.saveData()
                 self.userDeletedEntry = true
                 self.performSegue(withIdentifier: "unwindFromEditor", sender: self)
             } else {
