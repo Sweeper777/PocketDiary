@@ -93,25 +93,32 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     @IBAction func passcodeSettings(_ sender: UIBarButtonItem) {
-        var menuItems = [RWDropdownMenuItem]()
-        if LTHPasscodeViewController.doesPasscodeExist() {
-            menuItems.append(contentsOf: [
-                RWDropdownMenuItem(text: NSLocalizedString("Change Passcode", comment: ""), image: UIImage(named: "change")) {
-                        LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: self, asModal: true)
-                    },
-                    RWDropdownMenuItem(text: NSLocalizedString("Disable Passcode", comment: ""), image: UIImage(named: "remove")) {
-                        LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: self, asModal: true)
-                    }
-            ])
-        } else {
-            menuItems.append(
-                RWDropdownMenuItem(text: NSLocalizedString("Set Passcode", comment: ""), image: UIImage(named: "key_colored")) {
-                    LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: self, asModal: true)
-                }
-            )
-        }
+//        var menuItems = [RWDropdownMenuItem]()
+//        if LTHPasscodeViewController.doesPasscodeExist() {
+//            menuItems.append(contentsOf: [
+//                RWDropdownMenuItem(text: NSLocalizedString("Change Passcode", comment: ""), image: UIImage(named: "change")) {
+//                        LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: self, asModal: true)
+//                    },
+//                    RWDropdownMenuItem(text: NSLocalizedString("Disable Passcode", comment: ""), image: UIImage(named: "remove")) {
+//                        LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: self, asModal: true)
+//                    }
+//            ])
+//        } else {
+//            menuItems.append(
+//                RWDropdownMenuItem(text: NSLocalizedString("Set Passcode", comment: ""), image: UIImage(named: "key_colored")) {
+//                    LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: self, asModal: true)
+//                }
+//            )
+//        }
+//        
+//        RWDropdownMenu.present(from: self, withItems: menuItems, align: .left, style: .translucent, navBarImage: nil, completion: nil)
         
-        RWDropdownMenu.present(from: self, withItems: menuItems, align: .left, style: .translucent, navBarImage: nil, completion: nil)
+        var menuItems = [String]()
+        if LTHPasscodeViewController.doesPasscodeExist() {
+            menuItems.append(contentsOf: ["Change Passcode", "Disable Passcode"])
+        } else {
+            menuItems.append("Set Passcode")
+        }
     }
 }
 
