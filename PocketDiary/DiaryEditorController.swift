@@ -218,6 +218,28 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         moreMenu.dataSource = menuItems
         moreMenu.width = menuWidth
         moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
+        moreMenu.customCellConfiguration = {
+            _, item, cell in
+            guard let menuItemCell = cell as? MoreMenuItem else { return }
+            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
+            switch item {
+            case "Set Background Color":
+                menuItemCell.icon.image = UIImage(named: "paint_brush")
+            case "Set Image From Camera":
+                menuItemCell.icon.image = UIImage(named: "camera")
+            case "Set Image From Photo Library":
+                menuItemCell.icon.image = UIImage(named: "photo_library")
+            case "Move Image to Top":
+                menuItemCell.icon.image = UIImage(named: "up")
+            case "Move Image to Bottom":
+                menuItemCell.icon.image = UIImage(named: "down")
+            case "Remove Image":
+                menuItemCell.icon.image = UIImage(named: "remove")
+            default:
+                break
+            }
+        }
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
