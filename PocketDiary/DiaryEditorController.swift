@@ -24,6 +24,8 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var deleteBtn: UIBarButtonItem!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var ad: GADBannerView!
+    
+    let moreMenu = DropDown()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -195,6 +197,27 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
 //        }
 //        
 //        RWDropdownMenu.present(from: self, withItems: menuItems, align: .right, style: .translucent, navBarImage: nil, completion: nil)
+        
+        var menuItems = ["Set Background Color"]
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            menuItems.append("Set Image From Camera")
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            menuItems.append("Set Image From Photo Library")
+        }
+        
+        if image != nil {
+            menuItems.append(contentsOf: ["Move Image to Top", "Move Image to Bottom", "Remove Image"])
+        }
+        
+        let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
+        let menuWidth = widths.max()! + 70
+        
+        moreMenu.anchorView = sender
+        moreMenu.dataSource = menuItems
+        moreMenu.width = menuWidth
+        moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
