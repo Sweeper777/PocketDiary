@@ -240,6 +240,39 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
         
+        moreMenu.selectionAction = {
+            [unowned self] index, item in
+            switch item {
+            case "Set Background Color":
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
+                }
+            case "Set Image From Camera":
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.sourceType = .camera
+                self.presentVC(picker)
+            case "Set Image From Photo Library":
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.sourceType = .photoLibrary
+                self.presentVC(picker)
+            case "Move Image to Top":
+                self.imagePositionTop = true
+                self.updatePreview()
+            case "Move Image to Bottom":
+                self.imagePositionTop = false
+                self.updatePreview()
+            case "Remove Image":
+                self.imagePositionTop = nil
+                self.image = nil
+                self.updatePreview()
+            default:
+                break
+            }
+        }
+        
+        moreMenu.show()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
