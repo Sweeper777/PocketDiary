@@ -90,11 +90,11 @@ class SearchResultsController: UIViewController, UIWebViewDelegate {
         webView.initializeHighlighting()
         
         if exactMatch == true {
-            webView.stringByEvaluatingJavaScript(from: "uiWebview_HighlightAllOccurencesOfString('\(searchText.emojiUnescapedString)', \(exactMatch))")
+            webView.stringByEvaluatingJavaScript(from: "uiWebview_HighlightAllOccurencesOfString(\"\(searchText.emojiUnescapedString)\", \(exactMatch!))")
         } else {
             let keywords = searchText.components(separatedBy: " ").filter { $0 != "" }
             for keyword in keywords {
-                webView.stringByEvaluatingJavaScript(from: "uiWebview_HighlightAllOccurencesOfString('\(keyword.emojiUnescapedString)', \(exactMatch))")
+                webView.stringByEvaluatingJavaScript(from: "uiWebview_HighlightAllOccurencesOfString(\"\(keyword.emojiUnescapedString)\", \(exactMatch!))")
             }
         }
     }
