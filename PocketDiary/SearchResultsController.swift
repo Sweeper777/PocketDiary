@@ -104,6 +104,6 @@ extension UIWebView {
     func initializeHighlighting() {
         let path = Bundle.main.path(forResource: "highlight", ofType: "js")
         let jsCode = try! String(contentsOfFile: path!)
-        self.stringByEvaluatingJavaScript(from: jsCode)!
+        _ = self.stringByEvaluatingJavaScript(from: jsCode)!
     }
 }
