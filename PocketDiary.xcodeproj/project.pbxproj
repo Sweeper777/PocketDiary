@@ -86,6 +86,10 @@
 		5A11F9C71E1FA29C0010C553 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
 		5A11F9C91E2035730010C553 /* MoreMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreMenuItem.swift; sourceTree = "<group>"; };
 		5A11F9CA1E2035730010C553 /* MoreMenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreMenuItem.xib; sourceTree = "<group>"; };
+		5A189E1E1E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		5A189E1F1E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5A189E201E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A189E211E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A2193611D1E6E8800966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5A2193621D1E6E8900966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5A2193631D1E6E9800966DD4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -416,6 +420,7 @@
 				Base,
 				"zh-Hans",
 				"zh-Hant",
+				ja,
 			);
 			mainGroup = 5A21FA651D01B16000B36AA7;
 			productRefGroup = 5A21FA6F1D01B16000B36AA7 /* Products */;
@@ -663,6 +668,7 @@
 			children = (
 				5A003C971D223C55001EA872 /* zh-Hans */,
 				5A003C991D223C57001EA872 /* zh-Hant */,
+				5A189E211E22811E007E66D7 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 				5A2193681D1E6EC500966DD4 /* en */,
 				5A21936A1D1E6ECD00966DD4 /* zh-Hans */,
 				5A21936B1D1E6ECE00966DD4 /* zh-Hant */,
+				5A189E201E22811E007E66D7 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -683,6 +690,7 @@
 				5A21FA761D01B16000B36AA7 /* Base */,
 				5A2193611D1E6E8800966DD4 /* zh-Hans */,
 				5A2193631D1E6E9800966DD4 /* zh-Hant */,
+				5A189E1E1E22811E007E66D7 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -693,6 +701,7 @@
 				5A21FA7E1D01B16000B36AA7 /* Base */,
 				5A2193621D1E6E8900966DD4 /* zh-Hans */,
 				5A2193641D1E6E9800966DD4 /* zh-Hant */,
+				5A189E1F1E22811E007E66D7 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

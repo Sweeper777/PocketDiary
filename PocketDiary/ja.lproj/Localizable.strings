@@ -1,0 +1,42 @@
+"Delete this?" = "Delete this?";
+"Do you really want to delete this entry?" = "Do you really want to delete this entry?";
+"Yes, delete it!" = "Yes, delete it!";
+"No" = "No";
+
+"Search in: " = "Search in: ";
+"Date Range: " = "Date Range: ";
+"Sort: " = "Sort: ";
+"Title and Content" = "Title and Content";
+"Content only" = "Content only";
+"Title only" = "Title only";
+"All" = "All";
+"Previous 365 days" = "Previous 365 days";
+"Previous 30 days" = "Previous 30 days";
+"Previous 7 days" = "Previous 7 days";
+"Custom" = "Custom";
+"Earlier → Later" = "Earlier → Later";
+"Later → Earlier" = "Later → Earlier";
+"Title A → Z" = "Title A → Z";
+"Title Z → A" = "Title Z → A";
+"Searching..." = "Searching...";
+
+"Results - " = "Results - ";
+
+"Write your diary here! (Markdown supported!)" = "Write your diary here! (Markdown supported!)";
+
+"Set Background Color" = "Set Background Color";
+"Set Image From Camera" = "Set Image From Camera";
+"Set Image From Photo Library" = "Set Image From Photo Library";
+
+"Move Image to Top" = "Move Image to Top";
+"Move Image to Bottom" = "Move Image to Bottom";
+"Remove Image" = "Remove Image";
+
+"Relevance" = "Relevance";
+
+"Set Passcode" = "Set Passcode";
+"Change Passcode" = "Change Passcode";
+"Disable Passcode" = "Disable Passcode";
+
+"Oops! There are no entries that matches \"%@\"!" = "Oops! There are no entries that matches \"%@\"!";
+"Oops! There are no entries that exactly matches \"%@\"!" = "Oops! There are no entries that exactly matches \"%@\"!";
