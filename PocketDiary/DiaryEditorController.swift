@@ -59,6 +59,8 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         ad.adUnitID = AdUtility.ad2ID
         ad.rootViewController = self
         ad.load(AdUtility.getRequest())
+        
+        tabs.apportionsSegmentWidthsByContent = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
