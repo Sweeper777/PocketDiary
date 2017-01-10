@@ -1,3 +1,3 @@
-"CFBundleDisplayName" = "EZ日记";
-"NSPhotoLibraryUsageDescription" = "设置日记的图片";
-"NSCameraUsageDescription" = "设置日记的图片";
+"CFBundleDisplayName" = "EZ日記";
+"NSPhotoLibraryUsageDescription" = "日記の写真をセットするため";
+"NSCameraUsageDescription" = "日記の写真をセットするため";
