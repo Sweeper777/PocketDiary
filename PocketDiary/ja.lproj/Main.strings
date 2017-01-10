@@ -1,75 +1,75 @@
 
 /* Class = "UIButton"; normalTitle = "Select"; ObjectID = "2TD-Ye-vaG"; */
-"2TD-Ye-vaG.normalTitle" = "Select";
+"2TD-Ye-vaG.normalTitle" = "選択";
 
 /* Class = "UISegmentedControl"; 4ps-LB-78G.segmentTitles[0] = "Editor"; ObjectID = "4ps-LB-78G"; */
-"4ps-LB-78G.segmentTitles[0]" = "Editor";
+"4ps-LB-78G.segmentTitles[0]" = "エディタ";
 
 /* Class = "UISegmentedControl"; 4ps-LB-78G.segmentTitles[1] = "Preview"; ObjectID = "4ps-LB-78G"; */
-"4ps-LB-78G.segmentTitles[1]" = "Preview";
+"4ps-LB-78G.segmentTitles[1]" = "プレビュー";
 
 /* Class = "UIButton"; normalTitle = "Select"; ObjectID = "Den-vz-rLO"; */
-"Den-vz-rLO.normalTitle" = "Select";
+"Den-vz-rLO.normalTitle" = "選択";
 
 /* Class = "UITableViewSection"; headerTitle = "start date"; ObjectID = "ONP-bB-lUM"; */
-"ONP-bB-lUM.headerTitle" = "start date";
+"ONP-bB-lUM.headerTitle" = "この日付から";
 
 /* Class = "UINavigationItem"; title = "No Results"; ObjectID = "Qid-zh-dbY"; */
-"Qid-zh-dbY.title" = "No Results";
+"Qid-zh-dbY.title" = "結果なし";
 
 /* Class = "UIButton"; normalTitle = "Select"; ObjectID = "RF8-R8-ycK"; */
-"RF8-R8-ycK.normalTitle" = "Select";
+"RF8-R8-ycK.normalTitle" = "選択";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "Ux2-0K-46S"; */
 "Ux2-0K-46S.title" = " ";
 
 /* Class = "UINavigationItem"; title = "Select a Date Range"; ObjectID = "a1U-fE-Vjq"; */
-"a1U-fE-Vjq.title" = "Select a Date Range";
+"a1U-fE-Vjq.title" = "日付範囲を選んで";
 
 /* Class = "UILabel"; text = "Search Range"; ObjectID = "aWD-ve-TiZ"; */
-"aWD-ve-TiZ.text" = "Search Range";
+"aWD-ve-TiZ.text" = "検索の範囲";
 
 /* Class = "UILabel"; text = "Sort"; ObjectID = "ab1-BL-KDb"; */
-"ab1-BL-KDb.text" = "Sort";
+"ab1-BL-KDb.text" = "ソート";
 
 /* Class = "UITextField"; placeholder = "Optional Title"; ObjectID = "hVF-Dm-pSP"; */
-"hVF-Dm-pSP.placeholder" = "Optional Title";
+"hVF-Dm-pSP.placeholder" = "タイトル";
 
 /* Class = "UINavigationItem"; title = "Select a Color"; ObjectID = "nIQ-bB-hm5"; */
-"nIQ-bB-hm5.title" = "Select a Color";
+"nIQ-bB-hm5.title" = "色を選んで";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "nOf-cH-tA8"; */
 "nOf-cH-tA8.title" = " ";
 
 /* Class = "UINavigationItem"; title = "Search"; ObjectID = "nZt-Tr-sw1"; */
-"nZt-Tr-sw1.title" = "Search";
+"nZt-Tr-sw1.title" = "検索";
 
 /* Class = "UINavigationItem"; prompt = "Select a date to view/edit an entry"; ObjectID = "neZ-ZS-p48"; */
-"neZ-ZS-p48.prompt" = "Select a date to view/edit an entry";
+"neZ-ZS-p48.prompt" = "日付を選んで、日記を表示または編集します";
 
 /* Class = "UINavigationItem"; title = "My Diaries"; ObjectID = "neZ-ZS-p48"; */
-"neZ-ZS-p48.title" = "My Diaries";
+"neZ-ZS-p48.title" = "自分の日記";
 
 /* Class = "UILabel"; text = "Exact Match"; ObjectID = "opR-0b-wgL"; */
-"opR-0b-wgL.text" = "Exact Match";
+"opR-0b-wgL.text" = "完全に一致";
 
 /* Class = "UILabel"; text = "Date Range"; ObjectID = "pN4-wN-2pu"; */
-"pN4-wN-2pu.text" = "Date Range";
+"pN4-wN-2pu.text" = "日付範囲";
 
 /* Class = "UITableViewSection"; footerTitle = "Start date and end date are both inclusive."; ObjectID = "qGa-kI-elQ"; */
-"qGa-kI-elQ.footerTitle" = "Start date and end date are both inclusive.";
+"qGa-kI-elQ.footerTitle" = "";
 
 /* Class = "UITableViewSection"; headerTitle = "end date"; ObjectID = "qGa-kI-elQ"; */
-"qGa-kI-elQ.headerTitle" = "end date";
+"qGa-kI-elQ.headerTitle" = "この日付まで";
 
 /* Class = "UILabel"; text = "Title:"; ObjectID = "qp5-ON-xng"; */
-"qp5-ON-xng.text" = "Title:";
+"qp5-ON-xng.text" = "タイトル：";
 
 /* Class = "UITableViewSection"; headerTitle = "advanced"; ObjectID = "tMF-kb-3Ja"; */
-"tMF-kb-3Ja.headerTitle" = "advanced";
+"tMF-kb-3Ja.headerTitle" = "高度な設定";
 
 /* Class = "UITextField"; placeholder = "Search"; ObjectID = "xYS-Wp-g1d"; */
-"xYS-Wp-g1d.placeholder" = "Search";
+"xYS-Wp-g1d.placeholder" = "検索";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "y3Z-qR-HBc"; */
 "y3Z-qR-HBc.text" = "Label";
