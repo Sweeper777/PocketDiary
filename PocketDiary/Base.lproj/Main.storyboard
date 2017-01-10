@@ -595,10 +595,10 @@
                                     <action selector="changedTab:" destination="raf-vE-H24" eventType="valueChanged" id="cP3-Vb-ZI9"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp5-ON-xng">
-                                <rect key="frame" x="20" y="76" width="72" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp5-ON-xng">
+                                <rect key="frame" x="20" y="76" width="89" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="a8L-Fd-Hz0"/>
+                                    <constraint firstAttribute="width" constant="89" id="a8L-Fd-Hz0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -614,7 +614,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVF-Dm-pSP">
-                                <rect key="frame" x="100" y="72" width="480" height="30"/>
+                                <rect key="frame" x="117" y="72" width="463" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -650,7 +650,7 @@
                             <constraint firstItem="4ps-LB-78G" firstAttribute="top" secondItem="hVF-Dm-pSP" secondAttribute="bottom" constant="8" symbolic="YES" id="hIu-Nb-L3q"/>
                             <constraint firstItem="vhr-9Y-RVv" firstAttribute="top" secondItem="gi6-0r-VJH" secondAttribute="bottom" constant="8" symbolic="YES" id="hyI-ud-fhb"/>
                             <constraint firstItem="hVF-Dm-pSP" firstAttribute="leading" secondItem="qp5-ON-xng" secondAttribute="trailing" constant="8" symbolic="YES" id="lgG-YW-W3o"/>
-                            <constraint firstItem="qp5-ON-xng" firstAttribute="leading" secondItem="Iof-w3-tnv" secondAttribute="leadingMargin" id="rTM-IP-zzV"/>
+                            <constraint firstItem="qp5-ON-xng" firstAttribute="leading" secondItem="Iof-w3-tnv" secondAttribute="leadingMargin" constant="4" id="rTM-IP-zzV"/>
                             <constraint firstItem="je6-zK-B5x" firstAttribute="leading" secondItem="gJf-nL-CvL" secondAttribute="leading" id="xsj-46-ymJ"/>
                             <constraint firstItem="je6-zK-B5x" firstAttribute="trailing" secondItem="gJf-nL-CvL" secondAttribute="trailing" id="yuC-wl-IgO"/>
                         </constraints>
@@ -702,7 +702,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eja-ar-nC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="U9e-fu-9tI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="1079"/>
+            <point key="canvasLocation" x="1042.5" y="1078.5211267605634"/>
         </scene>
         <!--Select a Color-->
         <scene sceneID="4GH-gJ-tyJ">
