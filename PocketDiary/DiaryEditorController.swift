@@ -165,7 +165,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
         
-        moreMenu.anchorView = sender
+        moreMenu.anchorView = self.navigationItem.rightBarButtonItems?.first!
         moreMenu.dataSource = menuItems
         moreMenu.width = menuWidth
         moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
