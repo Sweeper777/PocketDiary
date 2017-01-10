@@ -1,42 +1,42 @@
-"Delete this?" = "Delete this?";
-"Do you really want to delete this entry?" = "Do you really want to delete this entry?";
-"Yes, delete it!" = "Yes, delete it!";
-"No" = "No";
+"Delete this?" = "削除";
+"Do you really want to delete this entry?" = "これを削除しますか";
+"Yes, delete it!" = "はい";
+"No" = "いいえ";
 
-"Search in: " = "Search in: ";
-"Date Range: " = "Date Range: ";
-"Sort: " = "Sort: ";
-"Title and Content" = "Title and Content";
-"Content only" = "Content only";
-"Title only" = "Title only";
-"All" = "All";
-"Previous 365 days" = "Previous 365 days";
-"Previous 30 days" = "Previous 30 days";
-"Previous 7 days" = "Previous 7 days";
-"Custom" = "Custom";
-"Earlier → Later" = "Earlier → Later";
-"Later → Earlier" = "Later → Earlier";
-"Title A → Z" = "Title A → Z";
-"Title Z → A" = "Title Z → A";
-"Searching..." = "Searching...";
+"Search in: " = "検索の範囲：";
+"Date Range: " = "日付の範囲：";
+"Sort: " = "ソート：";
+"Title and Content" = "タイトルと内容";
+"Content only" = "内容のみ";
+"Title only" = "タイトルのみ";
+"All" = "全て";
+"Previous 365 days" = "最後の365日間";
+"Previous 30 days" = "最後の30日間";
+"Previous 7 days" = "最後の7日間";
+"Custom" = "カスタム";
+"Earlier → Later" = "最古 → 最新";
+"Later → Earlier" = "最新 → 最古";
+"Title A → Z" = "タイトル A → Z";
+"Title Z → A" = "タイオル Z → A";
+"Searching..." = "検索中...";
 
-"Results - " = "Results - ";
+"Results - " = "結果 - ";
 
-"Write your diary here! (Markdown supported!)" = "Write your diary here! (Markdown supported!)";
+"Write your diary here! (Markdown supported!)" = "ここに日記を書いてください（Markdown サポート!）";
 
-"Set Background Color" = "Set Background Color";
-"Set Image From Camera" = "Set Image From Camera";
-"Set Image From Photo Library" = "Set Image From Photo Library";
+"Set Background Color" = "背景色を設定";
+"Set Image From Camera" = "イメージを設定（カメラ）";
+"Set Image From Photo Library" = "イメージを設定（フォトライブラリー）";
 
-"Move Image to Top" = "Move Image to Top";
-"Move Image to Bottom" = "Move Image to Bottom";
-"Remove Image" = "Remove Image";
+"Move Image to Top" = "イメージを上に移動";
+"Move Image to Bottom" = "イメージを下に移動";
+"Remove Image" = "イメージを削除";
 
-"Relevance" = "Relevance";
+"Relevance" = "関連性";
 
-"Set Passcode" = "Set Passcode";
-"Change Passcode" = "Change Passcode";
-"Disable Passcode" = "Disable Passcode";
+"Set Passcode" = "パスコードを設定";
+"Change Passcode" = "パスコードを変更";
+"Disable Passcode" = "パスコードを無効にする";
 
-"Oops! There are no entries that matches \"%@\"!" = "Oops! There are no entries that matches \"%@\"!";
-"Oops! There are no entries that exactly matches \"%@\"!" = "Oops! There are no entries that exactly matches \"%@\"!";
+"Oops! There are no entries that matches \"%@\"!" = "「%@」と一致する日記はありません";
+"Oops! There are no entries that exactly matches \"%@\"!" = "「%@」と完全に一致する日記はありません";
