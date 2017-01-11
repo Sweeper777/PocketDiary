@@ -24,6 +24,10 @@
 	<string>12</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>This is a bug. Please ignore this.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This is a bug. Please ignore this.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To insert images in diary entries</string>
 	<key>NSPhotoLibraryUsageDescription</key>
