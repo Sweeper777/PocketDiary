@@ -1,3 +1,5 @@
 "CFBundleDisplayName" = "EZ日記";
 "NSPhotoLibraryUsageDescription" = "設定日記的相片";
 "NSCameraUsageDescription" = "設定日記的相片";
+"NSCalendarsUsageDescription" = "這是個漏洞，請無視。";
+"NSBluetoothPeripheralUsageDescription" = "這是個漏洞，請無視。";

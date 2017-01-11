@@ -1,3 +1,5 @@
 "CFBundleDisplayName" = "EZ日記";
 "NSPhotoLibraryUsageDescription" = "日記の写真をセットするため";
 "NSCameraUsageDescription" = "日記の写真をセットするため";
+"NSCalendarsUsageDescription" = "これはバグです、無視してください。";
+"NSBluetoothPeripheralUsageDescription" = "これはバグです、無視してください。";
