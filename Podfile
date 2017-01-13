@@ -6,7 +6,7 @@ use_frameworks!
 target 'PocketDiary' do
     pod 'FSCalendar'
     pod 'SZTextView'
-    pod 'EZSwiftExtensions'
+    pod 'SwiftyUtils'
     pod 'EZLoadingActivity'
     pod 'MMMarkdown'
     pod 'Emoji-swift'

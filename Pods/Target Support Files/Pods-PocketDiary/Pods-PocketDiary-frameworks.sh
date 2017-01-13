@@ -90,7 +90,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/DTModelStorage/DTModelStorage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DropDown/DropDown.framework"
   install_framework "$BUILT_PRODUCTS_DIR/EZLoadingActivity/EZLoadingActivity.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/EZSwiftExtensions/EZSwiftExtensions.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Emoji-swift/Emoji.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FSCalendar/FSCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
@@ -99,6 +98,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/LTHPasscodeViewController/LTHPasscodeViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MMMarkdown/MMMarkdown.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SZTextView/SZTextView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyUtils/SwiftyUtils.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ActionSheetPicker/ActionSheetPicker.framework"
@@ -107,7 +107,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/DTModelStorage/DTModelStorage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DropDown/DropDown.framework"
   install_framework "$BUILT_PRODUCTS_DIR/EZLoadingActivity/EZLoadingActivity.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/EZSwiftExtensions/EZSwiftExtensions.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Emoji-swift/Emoji.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FSCalendar/FSCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
@@ -116,4 +115,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/LTHPasscodeViewController/LTHPasscodeViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MMMarkdown/MMMarkdown.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SZTextView/SZTextView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyUtils/SwiftyUtils.framework"
 fi
