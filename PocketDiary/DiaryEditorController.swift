@@ -162,6 +162,8 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             menuItems.append(contentsOf: ["Move Image to Top", "Move Image to Bottom", "Remove Image"])
         }
         
+        menuItems.append("Print")
+        
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
         
@@ -186,6 +188,8 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 menuItemCell.icon.image = UIImage(named: "down")
             case "Remove Image":
                 menuItemCell.icon.image = UIImage(named: "remove")
+            case "Print":
+                menuItemCell.icon.image = UIImage(named: "print")
             default:
                 break
             }
@@ -218,6 +222,8 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 self.imagePositionTop = nil
                 self.image = nil
                 self.updatePreview()
+            case "Print":
+                self.printDiary()
             default:
                 break
             }
@@ -283,6 +289,25 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             bgColor = vc.selectedColor
             updatePreview()
         }
+    }
+    
+    func printDiary() {
+        let printController = UIPrintInteractionController.shared
+        printController.delegate = self
+        
+        let printInfo = UIPrintInfo(dictionary:nil)
+        printInfo.outputType = UIPrintInfoOutputType.general
+        printInfo.jobName = txtTitle.text! == "" ? NSLocalizedString("Untitled Diary", comment: "") : txtTitle.text!
+        printController.printInfo = printInfo
+        let formatter = preview.viewPrintFormatter()
+        printController.printFormatter = formatter
+        
+        (UIApplication.shared.delegate as! AppDelegate).window?.tintColor = UIColor(hex: "5abb5a")
+        printController.present(animated: true, completionHandler: nil)
+    }
+    
+    func printInteractionControllerDidDismissPrinterOptions(_ printInteractionController: UIPrintInteractionController) {
+        (UIApplication.shared.delegate as! AppDelegate).window?.tintColor = UIColor(hex: "3b7b3b")
     }
 }
 
