@@ -4,7 +4,6 @@ import EZLoadingActivity
 import LLSwitch
 import Emoji
 import ActionSheetPicker
-import EZSwiftExtensions
 import GoogleMobileAds
 
 class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFieldDelegate {
@@ -81,7 +80,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     @IBAction func done(_ sender: UIBarButtonItem) {
-        dismissVC(completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func search(_ sender: UIBarButtonItem) {
@@ -97,14 +96,14 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
         let overlay: UIView = UIView(frame: ((UIApplication.shared.delegate as! AppDelegate).window?.frame)!)
         overlay.backgroundColor = UIColor.black.withAlphaComponent(0)
         self.parent!.view.addSubview(overlay)
-        overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.withAlphaComponent(0.5)}, completion: nil)
+        UIView.animate(withDuration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.withAlphaComponent(0.5)}, completion: nil)
         
         EZLoadingActivity.show(NSLocalizedString("Searching...", comment: ""), disableUI: true);
         
         { searcher.search(dataContext) } ~> {
             EZLoadingActivity.hide()
             self.resultsToPass = $0
-            overlay.animate(duration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.withAlphaComponent(0)}, completion: nil)
+            UIView.animate(withDuration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.withAlphaComponent(0)}, completion: nil)
             overlay.removeFromSuperview()
             self.performSegue(withIdentifier: "showResults", sender: self)
         };
@@ -136,13 +135,13 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     
     func getCancelBtn() -> UIBarButtonItem {
         let btn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
-        btn.tintColor = UIColor(hexString: "3b7b3b")
+        btn.tintColor = UIColor(hex: "3b7b3b")
         return btn
     }
     
     func getDoneBtn() -> UIBarButtonItem{
         let btn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
-        btn.tintColor = UIColor(hexString: "3b7b3b")
+        btn.tintColor = UIColor(hex: "3b7b3b")
         return btn
     }
     

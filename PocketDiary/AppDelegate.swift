@@ -1,6 +1,5 @@
 import UIKit
 import CoreData
-import EZSwiftExtensions
 import EZLoadingActivity
 import LTHPasscodeViewController
 import Firebase
@@ -12,11 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        window?.tintColor = UIColor(hexString: "5abb5a")
+        window?.tintColor = UIColor(hex: "5abb5a")
         
         FIRApp.configure()
         
-        EZLoadingActivity.Settings.BackgroundColor = UIColor(hexString: "5abb5a")!
+        EZLoadingActivity.Settings.BackgroundColor = UIColor(hex: "5abb5a")
         EZLoadingActivity.Settings.ActivityColor = UIColor.white
         EZLoadingActivity.Settings.TextColor = UIColor.white
         
@@ -26,15 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request.entity = entity
             let entries = try? managedObjectContext.fetch(request)
             if entries != nil {
-                entries?.forEachEnumerated {
-                    $0.1.date = $0.1.date?.ignoreTimeComponents()
-                    print($0.1.date!)
+                entries?.forEach {
+                    $0.date = $0.date?.ignoreTimeComponents()
+                    print($0.date!)
                 }
                 _ = managedObjectContext.saveData()
             }
         }
         
-        UserSettings.lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
+        UserSettings.lastUsedBuild = Int(Bundle.main.appBuild) ?? 0
         
         return true
     }

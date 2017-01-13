@@ -84,13 +84,13 @@ struct DiarySearcher {
         case .lifetime:
             fatalError()
         case .lastWeek:
-            let last7Days = FSCalendar().date(byAddingDays: -7, to: today)
+            let last7Days = today.addingTimeInterval(60 * 60 * 24 * -7)
             dateRange = last7Days...today
         case .lastMonth:
-            let last30Days = FSCalendar().date(byAddingDays: -30, to: today)
+            let last30Days = today.addingTimeInterval(60 * 60 * 24 * -30)
             dateRange = last30Days...today
         case .lastYear:
-            let last365Days = FSCalendar().date(byAddingDays: -365, to: today)
+            let last365Days = today.addingTimeInterval(60 * 60 * 24 * -365)
             dateRange = last365Days...today
         case .custom:
             dateRange = customDateRange!

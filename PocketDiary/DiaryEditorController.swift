@@ -8,7 +8,7 @@ import Keyboardy
 import DropDown
 import GoogleMobileAds
 
-class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     var date: Date!
@@ -47,7 +47,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             preview.isHidden = false
             updatePreview()
         } else {
-            self.navigationItem.leftBarButtonItems?.removeFirst(deleteBtn)
+            _ = self.navigationItem.leftBarButtonItems?.remove(object: deleteBtn)
         }
         
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
@@ -138,13 +138,13 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 self.userDeletedEntry = true
                 self.performSegue(withIdentifier: "unwindFromEditor", sender: self)
             } else {
-                self.dismissVC(completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         })
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
         
-        presentVC(alert)
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func showMore(_ sender: UIBarButtonItem) {
@@ -202,12 +202,12 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 let picker = UIImagePickerController()
                 picker.delegate = self
                 picker.sourceType = .camera
-                self.presentVC(picker)
+                self.present(picker, animated: true, completion: nil)
             case "Set Image From Photo Library":
                 let picker = UIImagePickerController()
                 picker.delegate = self
                 picker.sourceType = .photoLibrary
-                self.presentVC(picker)
+                self.present(picker, animated: true, completion: nil)
             case "Move Image to Top":
                 self.imagePositionTop = true
                 self.updatePreview()
@@ -227,7 +227,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        picker.dismissVC(completion: nil)
+        picker.dismiss(animated: true, completion: nil)
         imagePositionTop = false
         self.image = UIImageJPEGRepresentation(image, 0)
         tabs.selectedSegmentIndex = 1

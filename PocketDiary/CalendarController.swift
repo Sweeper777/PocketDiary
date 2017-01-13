@@ -1,7 +1,6 @@
 import UIKit
 import FSCalendar
 import CoreData
-import EZSwiftExtensions
 import DropDown
 import LTHPasscodeViewController
 import GoogleMobileAds
@@ -16,7 +15,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     let passcodeMenu = DropDown()
     
     override func viewDidLoad() {
-        LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hexString: "5abb5a")
+        LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hex: "5abb5a")
         LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.white
         LTHPasscodeViewController.sharedUser().hidesCancelButton = false
         LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.white

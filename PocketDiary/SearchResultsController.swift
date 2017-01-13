@@ -1,7 +1,6 @@
 import UIKit
 import Emoji
 import GoogleMobileAds
-import EZSwiftExtensions
 
 class SearchResultsController: UIViewController, UIWebViewDelegate {
     var entries: [Entry] = []
