@@ -45,7 +45,6 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             tabs.selectedSegmentIndex = 1
             txtContent.isHidden = true
             preview.isHidden = false
-            updatePreview()
         } else {
             _ = self.navigationItem.leftBarButtonItems?.remove(object: deleteBtn)
         }
@@ -61,6 +60,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         ad.load(AdUtility.getRequest())
         
         tabs.apportionsSegmentWidthsByContent = true
+        updatePreview()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -245,10 +245,6 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         preview.backgroundColor = bgColor ?? UIColor.white
         txtTitle.backgroundColor = bgColor ?? UIColor.white
         
-        if preview.isHidden {
-            return
-        }
-        
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
@@ -299,6 +295,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         printInfo.outputType = UIPrintInfoOutputType.general
         printInfo.jobName = txtTitle.text! == "" ? NSLocalizedString("Untitled Diary", comment: "") : txtTitle.text!
         printController.printInfo = printInfo
+        updatePreview()
         let formatter = preview.viewPrintFormatter()
         printController.printFormatter = formatter
         
