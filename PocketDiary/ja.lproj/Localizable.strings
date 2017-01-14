@@ -40,3 +40,6 @@
 
 "Oops! There are no entries that matches \"%@\"!" = "「%@」と一致する日記はありません";
 "Oops! There are no entries that exactly matches \"%@\"!" = "「%@」と完全に一致する日記はありません";
+
+"Print" = "プリント";
+"Untitled Diary" = "無題の日記";

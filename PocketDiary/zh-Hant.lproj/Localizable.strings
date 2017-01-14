@@ -40,3 +40,6 @@
 
 "Oops! There are no entries that matches \"%@\"!" = "找不到符合「%@」的日記";
 "Oops! There are no entries that exactly matches \"%@\"!" = "找不到完全符合「%@」的日記";
+
+"Print" = "列印";
+"Untitled Diary" = "未命名日記";
