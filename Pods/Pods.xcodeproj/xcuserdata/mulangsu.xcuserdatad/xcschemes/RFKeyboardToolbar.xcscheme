@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "92BB131FA876445E027D20AE23EA7B5F"
-               BuildableName = "GoogleToolboxForMac.framework"
-               BlueprintName = "GoogleToolboxForMac"
+               BlueprintIdentifier = "28018B9FB1D246FF63F718B72E22B9AC"
+               BuildableName = "RFKeyboardToolbar.framework"
+               BlueprintName = "RFKeyboardToolbar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "92BB131FA876445E027D20AE23EA7B5F"
-            BuildableName = "GoogleToolboxForMac.framework"
-            BlueprintName = "GoogleToolboxForMac"
+            BlueprintIdentifier = "28018B9FB1D246FF63F718B72E22B9AC"
+            BuildableName = "RFKeyboardToolbar.framework"
+            BlueprintName = "RFKeyboardToolbar"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
