@@ -19,6 +19,7 @@ target 'PocketDiary' do
     pod 'Base64nl'
     pod 'LTHPasscodeViewController'
     pod 'Firebase'
+    pod 'RFKeyboardToolbar'
 end
 
 target 'PocketDiaryTests' do

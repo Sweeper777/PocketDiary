@@ -97,6 +97,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/LLSwitch/LLSwitch.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LTHPasscodeViewController/LTHPasscodeViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MMMarkdown/MMMarkdown.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RFKeyboardToolbar/RFKeyboardToolbar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SZTextView/SZTextView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyUtils/SwiftyUtils.framework"
 fi
@@ -114,6 +115,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/LLSwitch/LLSwitch.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LTHPasscodeViewController/LTHPasscodeViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MMMarkdown/MMMarkdown.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RFKeyboardToolbar/RFKeyboardToolbar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SZTextView/SZTextView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyUtils/SwiftyUtils.framework"
 fi
