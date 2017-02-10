@@ -7,6 +7,7 @@ import Emoji
 import Keyboardy
 import DropDown
 import GoogleMobileAds
+import RFKeyboardToolbar
 
 class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -51,6 +52,8 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
         
+        setUpInputAccessory()
+        
         preview.scrollView.showsVerticalScrollIndicator = false
         preview.scrollView.showsHorizontalScrollIndicator = false
         preview.scrollView.bounces = true
@@ -61,6 +64,15 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         
         tabs.apportionsSegmentWidthsByContent = true
         updatePreview()
+    }
+    
+    func setUpInputAccessory() {
+        let boldButton = RFToolbarButton(title: "bold", andEventHandler: { 
+            
+        }, for: .touchUpInside)!
+        boldButton.setImage(UIImage(named: "bold"), for: .normal)
+        boldButton.setImage(UIImage(named: "bold"), for: .highlighted)
+        txtContent.inputAccessoryView = RFKeyboardToolbar(buttons: [boldButton])
     }
     
     override func viewDidAppear(_ animated: Bool) {
