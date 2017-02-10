@@ -8,6 +8,17 @@ extension UITextInput {
         return NSRange(location: location, length: length)
     }
     
+    func moveCursor(by x: Int) {
+        selectedTextRange = NSRange(location: selectedRange!.location + x, length: 0).toTextRange(textInput: self)
+    }
+    
+    var cursorPosition: Int {
+        return selectedRange!.location
+    }
+    
+    func selectTextBehind(offset: Int) {
+        selectedTextRange = NSRange(location: cursorPosition - offset, length: offset).toTextRange(textInput: self)
+    }
 }
 
 extension NSRange {
