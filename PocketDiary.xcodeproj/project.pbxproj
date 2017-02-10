@@ -19,6 +19,7 @@
 		5A11F9C81E1FA29C0010C553 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A11F9C71E1FA29C0010C553 /* DropDown.framework */; };
 		5A11F9CB1E2035730010C553 /* MoreMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11F9C91E2035730010C553 /* MoreMenuItem.swift */; };
 		5A11F9CC1E2035730010C553 /* MoreMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A11F9CA1E2035730010C553 /* MoreMenuItem.xib */; };
+		5A16BBF81E4B935700A750BC /* TextViewRelatedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */; };
 		5A18718D1E266F65005D95AE /* SwiftyUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A18718C1E266F65005D95AE /* SwiftyUtils.framework */; };
 		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
 		5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA711D01B16000B36AA7 /* AppDelegate.swift */; };
@@ -86,6 +87,7 @@
 		5A11F9C71E1FA29C0010C553 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
 		5A11F9C91E2035730010C553 /* MoreMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreMenuItem.swift; sourceTree = "<group>"; };
 		5A11F9CA1E2035730010C553 /* MoreMenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreMenuItem.xib; sourceTree = "<group>"; };
+		5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewRelatedExtensions.swift; sourceTree = "<group>"; };
 		5A18718C1E266F65005D95AE /* SwiftyUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUtils.framework; path = "Pods/../build/Debug-iphoneos/SwiftyUtils/SwiftyUtils.framework"; sourceTree = "<group>"; };
 		5A189E1E1E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		5A189E1F1E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				5AFB20651D13BCB8007910E6 /* DiarySearcher.swift */,
 				5AFC261A1D263797007C38B4 /* ColorCell.swift */,
 				5A0096051D386D8700C34650 /* AdUtility.swift */,
+				5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */,
 				5A21FA7B1D01B16000B36AA7 /* Assets.xcassets */,
 				5A21FA7D1D01B16000B36AA7 /* LaunchScreen.storyboard */,
 				5A21FA801D01B16000B36AA7 /* Info.plist */,
@@ -621,6 +624,7 @@
 				5A21FA7A1D01B16000B36AA7 /* PocketDiary.xcdatamodeld in Sources */,
 				5AFC26151D2615A4007C38B4 /* ColorSelectorController.swift in Sources */,
 				5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */,
+				5A16BBF81E4B935700A750BC /* TextViewRelatedExtensions.swift in Sources */,
 				5AFC261B1D263797007C38B4 /* ColorCell.swift in Sources */,
 				5A21FA741D01B16000B36AA7 /* CalendarController.swift in Sources */,
 				5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */,
