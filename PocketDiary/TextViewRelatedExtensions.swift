@@ -31,3 +31,29 @@ extension NSRange {
     }
 }
 
+extension UITextView {
+    func moveCursorToStartOfLine() {
+        let range: UITextRange? = selectedTextRange
+        let rect: CGRect? = caretRect(for: (range?.start)!)
+        let halfLineHeight: CGFloat = font!.lineHeight / 2.0
+        let start: UITextPosition? = closestPosition(to: CGPoint(x: CGFloat(0), y: CGFloat(rect!.origin.y + halfLineHeight)))
+        selectedTextRange = textRange(from: start!, to: start!)
+    }
+    
+    var isCurrentLineEmpty: Bool {
+        if text.trimmingCharacters(in: CharacterSet.whitespaces) == "" {
+            return true
+        }
+        
+        var i = 1
+        while CharacterSet.whitespacesAndNewlines.contains(text.unicodeScalars[text.unicodeScalars.index(text.unicodeScalars.startIndex, offsetBy: cursorPosition - i)]) {
+            i -= 1
+        }
+        
+        if text[cursorPosition - i] == "\n" {
+            return true
+        }
+
+        return false
+    }
+}
