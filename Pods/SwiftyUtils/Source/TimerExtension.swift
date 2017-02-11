@@ -21,7 +21,8 @@ public extension Timer {
         return timer
     }
 
-    @nonobjc public class func every(_ interval: TimeInterval, _ block: @escaping (Timer) -> Void) -> Timer {
+    @nonobjc
+    public class func every(_ interval: TimeInterval, _ block: @escaping (Timer) -> Void) -> Timer {
         let timer = Timer.new(every: interval, block)
         timer.start()
         return timer
@@ -45,7 +46,8 @@ public extension Timer {
         }
     }
 
-    @nonobjc public class func new(every interval: TimeInterval, _ block: @escaping (Timer) -> Void) -> Timer {
+    @nonobjc
+    public class func new(every interval: TimeInterval, _ block: @escaping (Timer) -> Void) -> Timer {
         var timer: Timer!
         timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, CFAbsoluteTimeGetCurrent() + interval, interval, 0, 0) { _ in
             block(timer)
@@ -53,7 +55,7 @@ public extension Timer {
         return timer
     }
 
-    public func start(runLoop: RunLoop = RunLoop.current, modes: RunLoopMode...) {
+    public func start(onRunLoop runLoop: RunLoop = RunLoop.current, modes: RunLoopMode...) {
         let modes = modes.isEmpty ? [RunLoopMode.defaultRunLoopMode] : modes
         modes.forEach {
             runLoop.add(self, forMode: $0)

@@ -7,36 +7,37 @@ PODS:
   - DTModelStorage (3.0.0):
     - DTModelStorage/Core (= 3.0.0)
   - DTModelStorage/Core (3.0.0)
-  - Emoji-swift (0.0.4)
+  - Emoji-swift (0.0.6)
   - EZLoadingActivity (1.01)
-  - Firebase (3.11.0):
-    - Firebase/Core (= 3.11.0)
-  - Firebase/Core (3.11.0):
+  - Firebase (3.12.0):
+    - Firebase/Core (= 3.12.0)
+  - Firebase/Core (3.12.0):
     - FirebaseAnalytics (= 3.6.0)
-    - FirebaseCore (= 3.4.6)
+    - FirebaseCore (= 3.4.7)
   - FirebaseAnalytics (3.6.0):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.4.6):
+  - FirebaseCore (3.4.7):
     - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.8)
-  - FSCalendar (2.6.0)
+  - FSCalendar (2.7.1)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
-  - GoogleToolboxForMac/Defines (2.1.0)
-  - GoogleToolboxForMac/NSData+zlib (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
-  - Keyboardy (0.1.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - Keyboardy (0.2.0)
   - LLSwitch (1.0.4)
-  - LTHPasscodeViewController (3.8.4)
+  - LTHPasscodeViewController (3.8.5)
   - MMMarkdown (0.5.5)
   - RFKeyboardToolbar (1.3)
-  - SwiftyUtils (0.6.0)
+  - SwiftyUtils (0.7.0)
   - SZTextView (1.2.2)
 
 DEPENDENCIES:
@@ -63,22 +64,22 @@ SPEC CHECKSUMS:
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   DTCollectionViewManager: a0b4d4a248c3f1d3a93f997e8d08aca330f87f28
   DTModelStorage: ebae17aed693e1c3f1ac80e604f0645bbb2b6a97
-  Emoji-swift: cb7b0fdbd5c95906615172181921167af64175b0
+  Emoji-swift: dd719961cdaab20adb5b61a78f67662da244643d
   EZLoadingActivity: edd7e387e5197b116ce2cccb3fd747ababc2a510
-  Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
+  Firebase: 8e99eb1ff553ad5bcc6072cc3d925bb89c1244d6
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
-  FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
+  FirebaseCore: 46afaf2c2e0419ea7d3acfb08cf26a461a75fe85
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
-  FSCalendar: c00fa5f4c3ec343ee6f7b804ae19322e9898bb84
+  FSCalendar: cfc95384cb0d648ad7c1957649ea74d6c26bb0de
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
-  Keyboardy: 73ce93cedc45f60ef21a463bc713893772034ea3
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  Keyboardy: 10dcdc632df75f8b478f5700ce913cac4e684a90
   LLSwitch: b5f0e574b4c53f46806df015cd21285464d4b440
-  LTHPasscodeViewController: ec87d143fa2f5fa691b449159c1f2ca91e329647
+  LTHPasscodeViewController: 81ca26069c77393180ccf208f3a3d39e04a9cb31
   MMMarkdown: 1af97166ce0f6d6e0cb05695665492195d27c3f1
   RFKeyboardToolbar: c96a7d9458564d1fedc8ef6844b6c467934aade2
-  SwiftyUtils: dbfeedd5e01bbf13f23e64ea9fd4c77ffd494688
+  SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
 
 PODFILE CHECKSUM: 96632df4b1b904f33d7e5685565234c00f35a331
