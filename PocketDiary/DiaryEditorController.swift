@@ -67,12 +67,10 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func setUpInputAccessory() {
-        let boldButton = RFToolbarButton(title: "bold", andEventHandler: { 
+        let boldButton = RFToolbarButton(title: "B", andEventHandler: {
             
         }, for: .touchUpInside)!
-        boldButton.setImage(UIImage(named: "bold"), for: .normal)
-        boldButton.setImage(UIImage(named: "bold"), for: .highlighted)
-        txtContent.inputAccessoryView = RFKeyboardToolbar(buttons: [boldButton])
+        boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
     }
     
     override func viewDidAppear(_ animated: Bool) {
