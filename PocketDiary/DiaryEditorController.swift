@@ -71,6 +71,11 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             
         }, for: .touchUpInside)!
         boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
+        let italicButton = RFToolbarButton(title: "I", andEventHandler: {
+            
+        }, for: .touchUpInside)!
+        italicButton.titleLabel!.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 14)
+        txtContent.inputAccessoryView = RFKeyboardToolbar(buttons: [boldButton, italicButton])
     }
     
     override func viewDidAppear(_ animated: Bool) {
