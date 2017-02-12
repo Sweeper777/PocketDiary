@@ -106,7 +106,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         
         passcodeMenu.anchorView = sender
         passcodeMenu.dataSource = menuItems
-        passcodeMenu.width = menuWidth
+        passcodeMenu.width = menuWidth as CGFloat?
         passcodeMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
         passcodeMenu.customCellConfiguration = {
             _, item, cell in

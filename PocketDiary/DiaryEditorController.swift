@@ -8,6 +8,7 @@ import Keyboardy
 import DropDown
 import GoogleMobileAds
 import RFKeyboardToolbar
+import SwiftyUtils
 
 class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -185,7 +186,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         
         moreMenu.anchorView = self.navigationItem.rightBarButtonItems?.first!
         moreMenu.dataSource = menuItems
-        moreMenu.width = menuWidth
+        moreMenu.width = menuWidth as CGFloat?
         moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
         moreMenu.customCellConfiguration = {
             _, item, cell in
@@ -329,6 +330,8 @@ extension DiaryEditorController: KeyboardStateDelegate {
     func keyboardWillTransition(_ state: KeyboardState) {
         // keyboard will show or hide
     }
+    
+    
     
     func keyboardTransitionAnimation(_ state: KeyboardState) {
         switch state {
