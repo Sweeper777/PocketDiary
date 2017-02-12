@@ -50,7 +50,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         }
     }
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date) {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         dateToPass = date.ignoreTimeComponents()
         performSegue(withIdentifier: "showEditor", sender: self)
     }
