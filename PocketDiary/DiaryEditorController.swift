@@ -104,7 +104,17 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         italicButton.frame = italicButton.frame.with(width: boldButton.width)
         
         let quoteButton = RFToolbarButton(title: "“", andEventHandler: {
-            
+            if self.txtContent.isCurrentLineEmpty {
+                self.txtContent.moveCursorToStartOfLine()
+                let placeholder = NSLocalizedString("Enter quote", comment: "")
+                self.txtContent.insertText("> \(placeholder)")
+                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+            } else {
+                let cursorPosition = self.txtContent.cursorPosition
+                self.txtContent.moveCursorToStartOfLine()
+                self.txtContent.insertText("> ")
+                self.txtContent.selectedTextRange = NSRange(location: cursorPosition, length: 0).toTextRange(textInput: self.txtContent)
+            }
         }, for: .touchUpInside)!
         quoteButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
         quoteButton.frame = quoteButton.frame.with(width: boldButton.width)
