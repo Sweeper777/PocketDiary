@@ -84,6 +84,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }, for: .touchUpInside)!
         boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
+        
         let italicButton = RFToolbarButton(title: "I", andEventHandler: {
             if self.txtContent.selectedTextRange!.isEmpty {
                 let placeholder = NSLocalizedString("Enter italic text", comment: "")
@@ -100,8 +101,14 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }, for: .touchUpInside)!
         italicButton.titleLabel!.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 14)
-        txtContent.inputAccessoryView = RFKeyboardToolbar(buttons: [boldButton, italicButton])
         italicButton.frame = italicButton.frame.with(width: boldButton.width)
+        
+        let quoteButton = RFToolbarButton(title: "“", andEventHandler: {
+            
+        }, for: .touchUpInside)!
+        quoteButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
+        quoteButton.frame = quoteButton.frame.with(width: boldButton.width)
+        txtContent.inputAccessoryView = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton])
     }
     
     override func viewDidAppear(_ animated: Bool) {
