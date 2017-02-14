@@ -41,13 +41,13 @@ extension UITextView {
     }
     
     var isCurrentLineEmpty: Bool {
-        if text.trimmingCharacters(in: CharacterSet.whitespaces) == "" {
+        if text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
             return true
         }
         
         var i = 1
-        while CharacterSet.whitespacesAndNewlines.contains(text.unicodeScalars[text.unicodeScalars.index(text.unicodeScalars.startIndex, offsetBy: cursorPosition - i)]) {
-            i -= 1
+        while CharacterSet.whitespaces.contains(text.unicodeScalars[text.unicodeScalars.index(text.unicodeScalars.startIndex, offsetBy: cursorPosition - i)]) {
+            i += 1
         }
         
         if text[cursorPosition - i] == "\n" {
