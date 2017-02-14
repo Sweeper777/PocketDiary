@@ -80,6 +80,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 self.txtContent.insertText("**")
                 self.txtContent.moveCursor(by: -2 - range.length)
                 self.txtContent.insertText("**")
+                self.txtContent.moveCursor(by: range.length + 2)
             }
         }, for: .touchUpInside)!
         boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
@@ -95,6 +96,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 self.txtContent.insertText("*")
                 self.txtContent.moveCursor(by: -1 - range.length)
                 self.txtContent.insertText("*")
+                self.txtContent.moveCursor(by: range.length + 1)
             }
         }, for: .touchUpInside)!
         italicButton.titleLabel!.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 14)
