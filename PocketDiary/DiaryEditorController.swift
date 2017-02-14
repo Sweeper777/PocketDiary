@@ -69,7 +69,18 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     
     func setUpInputAccessory() {
         let boldButton = RFToolbarButton(title: "B", andEventHandler: {
-            
+            if self.txtContent.selectedTextRange!.isEmpty {
+                let placeholder = NSLocalizedString("Enter bold text", comment: "")
+                self.txtContent.insertText("**\(placeholder)**")
+                self.txtContent.moveCursor(by: -2)
+                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+            } else {
+                let range = self.txtContent.selectedRange
+                self.txtContent.moveCursor(by: range.length)
+                self.txtContent.insertText("**")
+                self.txtContent.moveCursor(by: -2 - range.length)
+                self.txtContent.insertText("**")
+            }
         }, for: .touchUpInside)!
         boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
         let italicButton = RFToolbarButton(title: "I", andEventHandler: {
