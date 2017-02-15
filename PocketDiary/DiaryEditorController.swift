@@ -110,10 +110,14 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 self.txtContent.insertText("> \(placeholder)")
                 self.txtContent.selectTextBehind(offset: placeholder.characters.count)
             } else {
-                let cursorPosition = self.txtContent.cursorPosition
-                self.txtContent.moveCursorToStartOfLine()
-                self.txtContent.insertText("> ")
-                self.txtContent.selectedTextRange = NSRange(location: cursorPosition, length: 0).toTextRange(textInput: self.txtContent)
+                if !self.txtContent.isSelectingWholeLines {
+                    let cursorPosition = self.txtContent.cursorPosition
+                    self.txtContent.moveCursorToStartOfLine()
+                    self.txtContent.insertText("> ")
+                    self.txtContent.selectedTextRange = NSRange(location: cursorPosition, length: 0).toTextRange(textInput: self.txtContent)
+                } else {
+                    self.txtContent.insertText(self.txtContent.selectedText.insertLinePrefixes([">", " "]))
+                }
             }
         }, for: .touchUpInside)!
         quoteButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
