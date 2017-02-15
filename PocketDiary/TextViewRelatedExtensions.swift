@@ -88,4 +88,40 @@ extension String {
         }
         return str
     }
+    
+    func line(at position: Int) -> String {
+        if characters.count == 0 {
+            return ""
+        }
+        
+        if position == 0 {
+            return String(characters.split(separator: "\n").first!)
+        }
+        
+        if position == characters.count {
+            return line(at: position - 1)
+        }
+        
+        if self.characters[self.characters.index(self.characters.startIndex, offsetBy: position)] == "\n" {
+            if self.characters[self.characters.index(self.characters.startIndex, offsetBy: position - 1)] == "\n" {
+                return ""
+            }
+            return line(at: position - 1)
+        }
+        
+        let lines = self.characters.split(separator: "\n")
+        var i = 0
+        for line in lines {
+            for _ in line {
+                if i == position {
+                    return String(line)
+                }
+                
+                i += 1
+            }
+            i += 1
+        }
+        
+        fatalError()
+    }
 }
