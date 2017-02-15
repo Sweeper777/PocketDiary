@@ -23,6 +23,18 @@ extension UITextInput {
     var selectedText: String {
         return text(in: selectedTextRange!)!
     }
+    
+    var isSelectingWholeLines: Bool {
+        if selectedRange!.location == 0 {
+            return true
+        }
+        
+        var pos = position(from: selectedTextRange!.start, offset: -1)!
+        while CharacterSet.whitespaces.contains(text(in: textRange(from: pos, to: position(from: pos, offset: 1)!)!)!.unicodeScalars.first!) {
+            pos = position(from: pos, offset: -1)!
+        }
+        return text(in: textRange(from: pos, to: position(from: pos, offset: 1)!)!)! == "\n"
+    }
 }
 
 extension NSRange {
