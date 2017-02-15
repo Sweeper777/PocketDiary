@@ -19,6 +19,10 @@ extension UITextInput {
     func selectTextBehind(offset: Int) {
         selectedTextRange = NSRange(location: cursorPosition - offset, length: offset).toTextRange(textInput: self)
     }
+    
+    var selectedText: String {
+        return text(in: selectedTextRange!)!
+    }
 }
 
 extension NSRange {
@@ -55,5 +59,21 @@ extension UITextView {
         }
 
         return false
+    }
+}
+
+extension String {
+    func insertLinePrefixes(_ prefix: [Character]) -> String {
+        var str = self
+        str.insert(contentsOf: prefix, at: str.startIndex)
+        
+        var index = str.startIndex
+        while index != str.endIndex {
+            if str.characters[index] == "\n" {
+                str.insert(contentsOf: prefix, at: str.index(after: index))
+            }
+            index = str.index(after: index)
+        }
+        return str
     }
 }
