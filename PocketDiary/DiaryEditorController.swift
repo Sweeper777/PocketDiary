@@ -114,7 +114,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                     let cursorPosition = self.txtContent.cursorPosition
                     self.txtContent.moveCursorToStartOfLine()
                     self.txtContent.insertText("> ")
-                    self.txtContent.selectedTextRange = NSRange(location: cursorPosition, length: 0).toTextRange(textInput: self.txtContent)
+                    self.txtContent.selectedTextRange = NSRange(location: cursorPosition + 2, length: 0).toTextRange(textInput: self.txtContent)
                 } else {
                     self.txtContent.insertText(self.txtContent.selectedText.insertLinePrefixes([">", " "]))
                 }
