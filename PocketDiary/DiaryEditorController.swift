@@ -131,7 +131,19 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 self.txtContent.selectTextBehind(offset: placeholder.characters.count)
             } else {
                 if !self.txtContent.isSelectingWholeLines {
-                    
+                    if !self.txtContent.selectedTextRange!.isEmpty {
+                        let range = self.txtContent.selectedRange
+                        self.txtContent.moveCursor(by: range.length)
+                        self.txtContent.insertText("`")
+                        self.txtContent.moveCursor(by: -1 - range.length)
+                        self.txtContent.insertText("`")
+                        self.txtContent.moveCursor(by: range.length + 1)
+                    } else {
+                        let placeholder = NSLocalizedString("Enter code", comment: "")
+                        self.txtContent.insertText("`\(placeholder)`")
+                        self.txtContent.moveCursor(by: -1)
+                        self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+                    }
                 } else {
                     self.txtContent.insertText(self.txtContent.selectedText.insertLinePrefixes([" ", " ", " ", " "]))
                 }
