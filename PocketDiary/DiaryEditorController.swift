@@ -122,7 +122,24 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         }, for: .touchUpInside)!
         quoteButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
         quoteButton.frame = quoteButton.frame.with(width: boldButton.width)
-        txtContent.inputAccessoryView = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton])
+        
+        let codeButton = RFToolbarButton(title: "</>", andEventHandler: {
+            if self.txtContent.isCurrentLineEmpty {
+                self.txtContent.moveCursorToStartOfLine()
+                let placeholder = NSLocalizedString("Enter code", comment: "")
+                self.txtContent.insertText("    \(placeholder)")
+                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+            } else {
+                if !self.txtContent.isSelectingWholeLines {
+                    
+                } else {
+                    self.txtContent.insertText(self.txtContent.selectedText.insertLinePrefixes([" ", " ", " ", " "]))
+                }
+            }
+        }, for: .touchUpInside)!
+        codeButton.titleLabel!.font = UIFont(name: "Courier-Bold", size: 10)
+        codeButton.frame = codeButton.frame.with(width: boldButton.width)
+        txtContent.inputAccessoryView = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton])
     }
     
     override func viewDidAppear(_ animated: Bool) {
