@@ -152,7 +152,13 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         quoteButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
         quoteButton.frame = quoteButton.frame.with(width: codeButton.width)
         
-        let toolbar = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton])
+        let linkButton = RFToolbarButton(title: "🔗", andEventHandler: {
+            
+        }, for: .touchUpInside)!
+        linkButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
+        linkButton.frame = linkButton.frame.with(width: codeButton.width)
+        
+        let toolbar = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton, linkButton])
         txtContent.inputAccessoryView = toolbar
     }
     
