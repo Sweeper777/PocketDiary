@@ -68,61 +68,6 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func setUpInputAccessory() {
-        let boldButton = RFToolbarButton(title: "B", andEventHandler: {
-            if self.txtContent.selectedTextRange!.isEmpty {
-                let placeholder = NSLocalizedString("Enter bold text", comment: "")
-                self.txtContent.insertText("**\(placeholder)**")
-                self.txtContent.moveCursor(by: -2)
-                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
-            } else {
-                let range = self.txtContent.selectedRange
-                self.txtContent.moveCursor(by: range.length)
-                self.txtContent.insertText("**")
-                self.txtContent.moveCursor(by: -2 - range.length)
-                self.txtContent.insertText("**")
-                self.txtContent.moveCursor(by: range.length + 2)
-            }
-        }, for: .touchUpInside)!
-        boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
-        
-        let italicButton = RFToolbarButton(title: "I", andEventHandler: {
-            if self.txtContent.selectedTextRange!.isEmpty {
-                let placeholder = NSLocalizedString("Enter italic text", comment: "")
-                self.txtContent.insertText("*\(placeholder)*")
-                self.txtContent.moveCursor(by: -1)
-                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
-            } else {
-                let range = self.txtContent.selectedRange
-                self.txtContent.moveCursor(by: range.length)
-                self.txtContent.insertText("*")
-                self.txtContent.moveCursor(by: -1 - range.length)
-                self.txtContent.insertText("*")
-                self.txtContent.moveCursor(by: range.length + 1)
-            }
-        }, for: .touchUpInside)!
-        italicButton.titleLabel!.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 14)
-        italicButton.frame = italicButton.frame.with(width: boldButton.width)
-        
-        let quoteButton = RFToolbarButton(title: "“", andEventHandler: {
-            if self.txtContent.isCurrentLineEmpty {
-                self.txtContent.moveCursorToStartOfLine()
-                let placeholder = NSLocalizedString("Enter quote", comment: "")
-                self.txtContent.insertText("> \(placeholder)")
-                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
-            } else {
-                if !self.txtContent.isSelectingWholeLines {
-                    let cursorPosition = self.txtContent.cursorPosition
-                    self.txtContent.moveCursorToStartOfLine()
-                    self.txtContent.insertText("> ")
-                    self.txtContent.selectedTextRange = NSRange(location: cursorPosition + 2, length: 0).toTextRange(textInput: self.txtContent)
-                } else {
-                    self.txtContent.insertText(self.txtContent.selectedText.insertLinePrefixes([">", " "]))
-                }
-            }
-        }, for: .touchUpInside)!
-        quoteButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
-        quoteButton.frame = quoteButton.frame.with(width: boldButton.width)
-        
         let codeButton = RFToolbarButton(title: "</>", andEventHandler: {
             if self.txtContent.isCurrentLineEmpty {
                 self.txtContent.moveCursorToStartOfLine()
@@ -150,8 +95,65 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }, for: .touchUpInside)!
         codeButton.titleLabel!.font = UIFont(name: "Courier-Bold", size: 10)
-        codeButton.frame = codeButton.frame.with(width: boldButton.width)
-        txtContent.inputAccessoryView = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton])
+        
+        let boldButton = RFToolbarButton(title: "B", andEventHandler: {
+            if self.txtContent.selectedTextRange!.isEmpty {
+                let placeholder = NSLocalizedString("Enter bold text", comment: "")
+                self.txtContent.insertText("**\(placeholder)**")
+                self.txtContent.moveCursor(by: -2)
+                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+            } else {
+                let range = self.txtContent.selectedRange
+                self.txtContent.moveCursor(by: range.length)
+                self.txtContent.insertText("**")
+                self.txtContent.moveCursor(by: -2 - range.length)
+                self.txtContent.insertText("**")
+                self.txtContent.moveCursor(by: range.length + 2)
+            }
+        }, for: .touchUpInside)!
+        boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
+        boldButton.frame = boldButton.frame.with(width: codeButton.width)
+        
+        let italicButton = RFToolbarButton(title: "I", andEventHandler: {
+            if self.txtContent.selectedTextRange!.isEmpty {
+                let placeholder = NSLocalizedString("Enter italic text", comment: "")
+                self.txtContent.insertText("*\(placeholder)*")
+                self.txtContent.moveCursor(by: -1)
+                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+            } else {
+                let range = self.txtContent.selectedRange
+                self.txtContent.moveCursor(by: range.length)
+                self.txtContent.insertText("*")
+                self.txtContent.moveCursor(by: -1 - range.length)
+                self.txtContent.insertText("*")
+                self.txtContent.moveCursor(by: range.length + 1)
+            }
+        }, for: .touchUpInside)!
+        italicButton.titleLabel!.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 14)
+        italicButton.frame = italicButton.frame.with(width: codeButton.width)
+        
+        let quoteButton = RFToolbarButton(title: "“", andEventHandler: {
+            if self.txtContent.isCurrentLineEmpty {
+                self.txtContent.moveCursorToStartOfLine()
+                let placeholder = NSLocalizedString("Enter quote", comment: "")
+                self.txtContent.insertText("> \(placeholder)")
+                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+            } else {
+                if !self.txtContent.isSelectingWholeLines {
+                    let cursorPosition = self.txtContent.cursorPosition
+                    self.txtContent.moveCursorToStartOfLine()
+                    self.txtContent.insertText("> ")
+                    self.txtContent.selectedTextRange = NSRange(location: cursorPosition + 2, length: 0).toTextRange(textInput: self.txtContent)
+                } else {
+                    self.txtContent.insertText(self.txtContent.selectedText.insertLinePrefixes([">", " "]))
+                }
+            }
+        }, for: .touchUpInside)!
+        quoteButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
+        quoteButton.frame = quoteButton.frame.with(width: codeButton.width)
+        
+        let toolbar = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton])
+        txtContent.inputAccessoryView = toolbar
     }
     
     override func viewDidAppear(_ animated: Bool) {
