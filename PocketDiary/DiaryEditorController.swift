@@ -9,6 +9,7 @@ import DropDown
 import GoogleMobileAds
 import RFKeyboardToolbar
 import SwiftyUtils
+import SCLAlertView
 
 class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -228,9 +229,8 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func deleteEntry(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: NSLocalizedString("Delete this?", comment: ""), message: NSLocalizedString("Do you really want to delete this entry?", comment: ""), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes, delete it!", comment: ""), style: .destructive) {
-            _ in
+        let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+        alert.addButton(NSLocalizedString("Yes, delete it!", comment: "")) {
             if self.entry != nil {
                 self.dataContext.delete(self.entry)
                 _ = self.dataContext.saveData()
@@ -239,11 +239,10 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
-        })
+        }
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
-        
-        present(alert, animated: true, completion: nil)
+        alert.addButton(NSLocalizedString("No", comment: ""), action: {})
+        _ = alert.showCustom(NSLocalizedString("Delete this?", comment: ""), subTitle: NSLocalizedString("Do you really want to delete this entry?", comment: ""), color: UIColor.red, icon: #imageLiteral(resourceName: "delete"))
     }
     
     @IBAction func showMore(_ sender: UIBarButtonItem) {
