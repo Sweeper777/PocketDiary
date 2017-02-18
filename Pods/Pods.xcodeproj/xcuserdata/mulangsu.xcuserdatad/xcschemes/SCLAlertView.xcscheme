@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C9DAD260594D77B7CB13B7C02A8CBD9C'
-               BlueprintName = 'RFKeyboardToolbar'
+               BlueprintIdentifier = '88638EAF42898C4593176749BD88DF5E'
+               BlueprintName = 'SCLAlertView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RFKeyboardToolbar.framework'>
+               BuildableName = 'SCLAlertView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

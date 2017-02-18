@@ -20,6 +20,7 @@ target 'PocketDiary' do
     pod 'LTHPasscodeViewController'
     pod 'Firebase'
     pod 'RFKeyboardToolbar'
+    pod 'SCLAlertView'
 end
 
 target 'PocketDiaryTests' do
