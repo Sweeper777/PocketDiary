@@ -68,6 +68,23 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func setUpInputAccessory() {
+        let boldButton = RFToolbarButton(title: "B", andEventHandler: {
+            if self.txtContent.selectedTextRange!.isEmpty {
+                let placeholder = NSLocalizedString("Enter bold text", comment: "")
+                self.txtContent.insertText("**\(placeholder)**")
+                self.txtContent.moveCursor(by: -2)
+                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+            } else {
+                let range = self.txtContent.selectedRange
+                self.txtContent.moveCursor(by: range.length)
+                self.txtContent.insertText("**")
+                self.txtContent.moveCursor(by: -2 - range.length)
+                self.txtContent.insertText("**")
+                self.txtContent.moveCursor(by: range.length + 2)
+            }
+        }, for: .touchUpInside)!
+        boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
+        
         let codeButton = RFToolbarButton(title: "</>", andEventHandler: {
             if self.txtContent.isCurrentLineEmpty {
                 self.txtContent.moveCursorToStartOfLine()
@@ -95,24 +112,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }, for: .touchUpInside)!
         codeButton.titleLabel!.font = UIFont(name: "Courier-Bold", size: 10)
-        
-        let boldButton = RFToolbarButton(title: "B", andEventHandler: {
-            if self.txtContent.selectedTextRange!.isEmpty {
-                let placeholder = NSLocalizedString("Enter bold text", comment: "")
-                self.txtContent.insertText("**\(placeholder)**")
-                self.txtContent.moveCursor(by: -2)
-                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
-            } else {
-                let range = self.txtContent.selectedRange
-                self.txtContent.moveCursor(by: range.length)
-                self.txtContent.insertText("**")
-                self.txtContent.moveCursor(by: -2 - range.length)
-                self.txtContent.insertText("**")
-                self.txtContent.moveCursor(by: range.length + 2)
-            }
-        }, for: .touchUpInside)!
-        boldButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
-        boldButton.frame = boldButton.frame.with(width: codeButton.width)
+        codeButton.frame = codeButton.frame.with(width: boldButton.width)
         
         let italicButton = RFToolbarButton(title: "I", andEventHandler: {
             if self.txtContent.selectedTextRange!.isEmpty {
@@ -130,7 +130,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }, for: .touchUpInside)!
         italicButton.titleLabel!.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 14)
-        italicButton.frame = italicButton.frame.with(width: codeButton.width)
+        italicButton.frame = italicButton.frame.with(width: boldButton.width)
         
         let quoteButton = RFToolbarButton(title: "“", andEventHandler: {
             if self.txtContent.isCurrentLineEmpty {
@@ -150,13 +150,13 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }, for: .touchUpInside)!
         quoteButton.titleLabel!.font = UIFont(name: "Baskerville-Bold", size: 14)
-        quoteButton.frame = quoteButton.frame.with(width: codeButton.width)
+        quoteButton.frame = quoteButton.frame.with(width: boldButton.width)
         
         let linkButton = RFToolbarButton(title: "🔗", andEventHandler: {
             
         }, for: .touchUpInside)!
         linkButton.titleLabel!.font = UIFont(name: "Symbola", size: 14)
-        linkButton.frame = linkButton.frame.with(width: codeButton.width)
+        linkButton.frame = linkButton.frame.with(width: boldButton.width)
         
         let toolbar = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton, linkButton])
         txtContent.inputAccessoryView = toolbar
