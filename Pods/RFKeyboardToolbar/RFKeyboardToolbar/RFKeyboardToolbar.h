@@ -17,6 +17,8 @@
  */
 @property (nonatomic, strong) NSArray *buttons;
 
+@property (nonatomic,strong) UIScrollView *scrollView;
+
 /**
  *  Creates a new toolbar.
  *
@@ -42,5 +44,7 @@
  *  @param animated Whether or not it should be animated.
  */
 - (void)setButtons:(NSArray *)buttons animated:(BOOL)animated;
+
+- (void)addButtons;
 
 @end
