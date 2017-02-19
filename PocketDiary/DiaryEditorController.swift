@@ -160,6 +160,13 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
                 let displayText = alert.addTextField(NSLocalizedString("Display Text", comment: ""))
                 let link = alert.addTextField("https://")
+                link.text = "https://"
+                link.autocapitalizationType = .none
+                link.keyboardType = .URL
+                link.returnKeyType = .done
+                if #available(iOS 10.0, *) {
+                    link.textContentType = .URL
+                }
                 alert.addButton(NSLocalizedString("OK", comment: "")) {
                     self.txtContent.insertText("[\(displayText.text!)](\(link.text!))")
                 }
