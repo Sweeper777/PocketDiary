@@ -155,7 +155,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         quoteButton.frame = quoteButton.frame.with(width: boldButton.width)
         
         let linkButton = RFToolbarButton(title: "🔗", andEventHandler: {
-            self.view.endEditing(true)
+            let selectedRange = self.txtContent.selectedTextRange
             if self.txtContent.selectedTextRange!.isEmpty {
                 let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
                 let displayText = alert.addTextField(NSLocalizedString("Display Text", comment: ""))
@@ -168,11 +168,28 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                     link.textContentType = .URL
                 }
                 alert.addButton(NSLocalizedString("OK", comment: "")) {
+                    self.txtContent.becomeFirstResponder()
+                    self.txtContent.selectedTextRange = selectedRange
                     self.txtContent.insertText("[\(displayText.text!)](\(link.text!))")
                 }
                 alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
                 _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
+            } else {
+                if self.txtContent.selectedText.extractedURLs.count == 1 {
+                    let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+                    let displayText = alert.addTextField(NSLocalizedString("Display Text", comment: ""))
+                    alert.addButton(NSLocalizedString("OK", comment: "")) {
+                        self.txtContent.becomeFirstResponder()
+                        self.txtContent.selectedTextRange = selectedRange
+                        self.txtContent.insertText("[\(displayText.text!)](\(self.txtContent.selectedText))")
+                    }
+                    alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
+                    _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
+                } else {
+                    
+                }
             }
+            self.view.endEditing(true)
         }, for: .touchUpInside)!
         linkButton.titleLabel!.font = UIFont(name: "Symbola", size: 14)
         linkButton.frame = linkButton.frame.with(width: boldButton.width)
