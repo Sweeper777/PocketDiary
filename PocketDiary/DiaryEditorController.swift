@@ -11,7 +11,7 @@ import RFKeyboardToolbar
 import SwiftyUtils
 import SCLAlertView
 
-class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate {
+class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     var date: Date!
@@ -59,6 +59,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         preview.scrollView.showsVerticalScrollIndicator = false
         preview.scrollView.showsHorizontalScrollIndicator = false
         preview.scrollView.bounces = true
+        preview.delegate = self
         
         ad.adUnitID = AdUtility.ad2ID
         ad.rootViewController = self
@@ -160,7 +161,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 let displayText = alert.addTextField(NSLocalizedString("Display Text", comment: ""))
                 let link = alert.addTextField("https://")
                 alert.addButton(NSLocalizedString("OK", comment: "")) {
-                    
+                    self.txtContent.insertText("[\(displayText.text!)](\(link.text!))")
                 }
                 alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
                 _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
@@ -413,6 +414,14 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     
     func printInteractionControllerDidDismissPrinterOptions(_ printInteractionController: UIPrintInteractionController) {
         (UIApplication.shared.delegate as! AppDelegate).window?.tintColor = UIColor(hex: "3b7b3b")
+    }
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.linkClicked {
+            UIApplication.shared.openURL(request.url!)
+            return false
+        }
+        return true
     }
 }
 
