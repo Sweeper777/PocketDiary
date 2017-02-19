@@ -154,7 +154,17 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         quoteButton.frame = quoteButton.frame.with(width: boldButton.width)
         
         let linkButton = RFToolbarButton(title: "🔗", andEventHandler: {
-            
+            self.view.endEditing(true)
+            if self.txtContent.selectedTextRange!.isEmpty {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+                let displayText = alert.addTextField(NSLocalizedString("Display Text", comment: ""))
+                let link = alert.addTextField("https://")
+                alert.addButton(NSLocalizedString("OK", comment: "")) {
+                    
+                }
+                alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
+                _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
+            }
         }, for: .touchUpInside)!
         linkButton.titleLabel!.font = UIFont(name: "Symbola", size: 14)
         linkButton.frame = linkButton.frame.with(width: boldButton.width)
