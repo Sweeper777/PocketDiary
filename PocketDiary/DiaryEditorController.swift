@@ -169,7 +169,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         linkButton.titleLabel!.font = UIFont(name: "Symbola", size: 14)
         linkButton.frame = linkButton.frame.with(width: boldButton.width)
         
-        let toolbar = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton, linkButton])
+        let toolbar = CenterItemsToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton, linkButton])
         txtContent.inputAccessoryView = toolbar
     }
     
