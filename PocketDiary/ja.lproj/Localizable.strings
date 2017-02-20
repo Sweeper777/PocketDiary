@@ -43,3 +43,12 @@
 
 "Print" = "プリント";
 "Untitled Diary" = "無題の日記";
+
+"Enter bold text" = "強調太字テキスト";
+"Enter code" = "コードをここに入力";
+"Enter italic text" = "強調斜体テキスト";
+"Enter quote" = "ブロック引用";
+"OK" = "OK";
+"Cancel" = "キャンセル";
+"Display Text" = "表示のテキスト";
+"Add Link" = "リンクを追加";

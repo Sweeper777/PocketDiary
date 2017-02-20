@@ -43,3 +43,12 @@
 
 "Print" = "打印";
 "Untitled Diary" = "未命名日记";
+
+"Enter bold text" = "输入粗体文字";
+"Enter code" = "输入等宽字";
+"Enter italic text" = "输入斜体文字";
+"Enter quote" = "输入引用";
+"OK" = "确定";
+"Cancel" = "取消";
+"Display Text" = "显示的文字";
+"Add Link" = "添加链接";
