@@ -186,7 +186,22 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                     alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
                     _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
                 } else {
-                    
+                    let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+                    let link = alert.addTextField("https://")
+                    link.text = "https://"
+                    link.autocapitalizationType = .none
+                    link.keyboardType = .URL
+                    link.returnKeyType = .done
+                    if #available(iOS 10.0, *) {
+                        link.textContentType = .URL
+                    }
+                    alert.addButton(NSLocalizedString("OK", comment: "")) {
+                        self.txtContent.becomeFirstResponder()
+                        self.txtContent.selectedTextRange = selectedRange
+                        self.txtContent.insertText("[\(self.txtContent.selectedText)](\(link.text!))")
+                    }
+                    alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
+                    _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
                 }
             }
             self.view.endEditing(true)
