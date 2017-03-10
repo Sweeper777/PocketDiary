@@ -285,7 +285,7 @@
                     }
                     endColumn;
                 });
-                
+
                 NSInteger numberOfRows = self.calendar.transitionCoordinator.representingScope == FSCalendarScopeMonth ? 6 : 1;
                 
                 for (NSInteger column = startColumn; column <= endColumn; column++) {
@@ -551,4 +551,5 @@
 
 #undef kFSCalendarSeparatorInterColumns
 #undef kFSCalendarSeparatorInterRows
+
 

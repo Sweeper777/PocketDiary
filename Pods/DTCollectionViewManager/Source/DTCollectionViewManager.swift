@@ -133,6 +133,7 @@ open class DTCollectionViewManager : NSObject {
     open var collectionViewUpdater : StorageUpdating? {
         didSet {
             storage.delegate = collectionViewUpdater
+            (collectionViewUpdater as? CollectionViewUpdater)?.didUpdateContent?(nil)
         }
     }
     
@@ -165,10 +166,9 @@ open class DTCollectionViewManager : NSObject {
     /// Returns closure, that updates cell at provided indexPath.
     ///
     /// This is used by `coreDataUpdater` method and can be used to silently update a cell without animation.
-    open func updateCellClosure() -> (IndexPath) -> Void {
-        return { [weak self] in
-            guard let model = self?.storage.item(at: $0) else { return }
-            self?.viewFactory.updateCellAt($0, with: model)
+    open func updateCellClosure() -> (IndexPath,Any) -> Void {
+        return { [weak self] indexPath, model in
+            self?.viewFactory.updateCellAt(indexPath, with: model)
         }
     }
     
@@ -604,7 +604,7 @@ extension DTCollectionViewManager : UICollectionViewDataSource
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let model = RuntimeHelper.recursivelyUnwrapAnyValue(storage.item(at: indexPath)) else {
+        guard let item = storage.item(at: indexPath), let model = RuntimeHelper.recursivelyUnwrapAnyValue(item) else {
             handleCollectionViewFactoryError(DTCollectionViewFactoryError.nilCellModel(indexPath))
             return UICollectionViewCell()
         }
@@ -788,22 +788,22 @@ extension DTCollectionViewManager : UICollectionViewDelegateFlowLayout
     }
     
     open func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        guard let model = RuntimeHelper.recursivelyUnwrapAnyValue(storage.item(at: indexPath)),
+        guard let item = storage.item(at: indexPath), let model = RuntimeHelper.recursivelyUnwrapAnyValue(item),
             let cell = collectionView.cellForItem(at: indexPath)
             else { return false }
         if let reaction = collectionViewReactions.reaction(of: .cell, signature: EventMethodSignature.canPerformActionForItemAtIndexPath.rawValue, forModel: model) as? FiveArgumentsEventReaction {
-            return reaction.performWithArguments((action,sender,cell,model,indexPath)) as? Bool ?? false
+            return reaction.performWithArguments((action,sender as Any,cell,model,indexPath)) as? Bool ?? false
         }
         return (delegate as? UICollectionViewDelegate)?.collectionView?(collectionView, canPerformAction: action, forItemAt: indexPath, withSender: sender) ?? false
     }
     
     open func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         defer { (delegate as? UICollectionViewDelegate)?.collectionView?(collectionView, performAction: action, forItemAt: indexPath, withSender: sender) }
-        guard let model = RuntimeHelper.recursivelyUnwrapAnyValue(storage.item(at: indexPath)),
+        guard let item = storage.item(at: indexPath), let model = RuntimeHelper.recursivelyUnwrapAnyValue(item),
             let cell = collectionView.cellForItem(at: indexPath)
             else { return }
         if let reaction = collectionViewReactions.reaction(of: .cell, signature: EventMethodSignature.performActionForItemAtIndexPath.rawValue, forModel: model) as? FiveArgumentsEventReaction {
-            _ = reaction.performWithArguments((action,sender,cell,model,indexPath))
+            _ = reaction.performWithArguments((action,sender as Any,cell,model,indexPath))
         }
     }
     
