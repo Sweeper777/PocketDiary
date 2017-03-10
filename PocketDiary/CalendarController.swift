@@ -46,7 +46,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         super.viewDidAppear(animated)
         
         if calendar.selectedDates.count > 0 {
-            calendar.deselect(calendar.selectedDate)
+            calendar.deselect(calendar.selectedDate!)
         }
     }
     
