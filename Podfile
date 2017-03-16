@@ -19,6 +19,7 @@ target 'PocketDiary' do
     pod 'Base64nl'
     pod 'LTHPasscodeViewController'
     pod 'Firebase'
+    pod 'Firebase/Crash'
     pod 'RFKeyboardToolbar'
     pod 'SCLAlertView'
 end
