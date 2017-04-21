@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EA8B6EA59C798E456A63133CF19658CD'
-               BlueprintName = 'SZTextView'
+               BlueprintIdentifier = '571E1429DDE8684D428BAB9D2F35B5D0'
+               BlueprintName = 'FTPopOverMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SZTextView.framework'>
+               BuildableName = 'FTPopOverMenu.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
