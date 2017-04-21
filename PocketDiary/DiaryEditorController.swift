@@ -175,7 +175,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
                 alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
                 _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
             } else {
-                if self.txtContent.selectedText.extractedURLs.count == 1 {
+                if URL(string: self.txtContent.selectedText) != nil {
                     let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
                     let displayText = alert.addTextField(NSLocalizedString("Display Text", comment: ""))
                     alert.addButton(NSLocalizedString("OK", comment: "")) {
