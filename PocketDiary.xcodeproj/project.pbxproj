@@ -14,9 +14,13 @@
 		5A007AB11D2E3C6600D903CC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A007AB01D2E3C6600D903CC /* SnapshotHelper.swift */; };
 		5A0096061D386D8700C34650 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0096051D386D8700C34650 /* AdUtility.swift */; };
 		5A00F7A11D37A7D3006ACC63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */; };
+		5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */; };
+		5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A04D0701D18FC8000868126 /* LLSwitch.framework */; };
+		5A11F9C81E1FA29C0010C553 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A11F9C71E1FA29C0010C553 /* DropDown.framework */; };
 		5A11F9CB1E2035730010C553 /* MoreMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11F9C91E2035730010C553 /* MoreMenuItem.swift */; };
 		5A11F9CC1E2035730010C553 /* MoreMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A11F9CA1E2035730010C553 /* MoreMenuItem.xib */; };
 		5A16BBF81E4B935700A750BC /* TextViewRelatedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */; };
+		5A18718D1E266F65005D95AE /* SwiftyUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A18718C1E266F65005D95AE /* SwiftyUtils.framework */; };
 		5A1FDA281E5834E600E90B28 /* CenterItemsToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FDA271E5834E600E90B28 /* CenterItemsToolbar.swift */; };
 		5A1FDA2A1E58386900E90B28 /* Symbola.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FDA291E58386900E90B28 /* Symbola.ttf */; };
 		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
@@ -28,20 +32,31 @@
 		5A21FA7F1D01B16000B36AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A21FA7D1D01B16000B36AA7 /* LaunchScreen.storyboard */; };
 		5A21FA8A1D01B16000B36AA7 /* PocketDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA891D01B16000B36AA7 /* PocketDiaryTests.swift */; };
 		5A21FA951D01B16000B36AA7 /* PocketDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA941D01B16000B36AA7 /* PocketDiaryUITests.swift */; };
+		5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A21FAA21D01B78400B36AA7 /* FSCalendar.framework */; };
+		5AD6D7131D23B6870015BF0E /* Keyboardy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD6D7121D23B6870015BF0E /* Keyboardy.framework */; };
 		5AF571261D02582400DF004F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571241D02582400DF004F /* Entry.swift */; };
 		5AF571271D02582400DF004F /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */; };
+		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
 		5AF875B91D17D4DF00DF0669 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF875B81D17D4DF00DF0669 /* Threading.swift */; };
 		5AF8E50B1D250DDA00E2A547 /* DateRangeSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8E50A1D250DDA00E2A547 /* DateRangeSelectorController.swift */; };
+		5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9ACF21D124B1F00C8B856 /* Emoji.framework */; };
 		5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */; };
 		5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF81D12769300C8B856 /* UserSettings.swift */; };
 		5AFB0E741D0E751000EEEA1F /* DiaryEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E731D0E751000EEEA1F /* DiaryEditorController.swift */; };
 		5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */; };
+		5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */; };
 		5AFB20661D13BCB8007910E6 /* DiarySearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB20651D13BCB8007910E6 /* DiarySearcher.swift */; };
 		5AFB59DA1D14CA2500BF4CAD /* highlight.js in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB59D91D14CA2500BF4CAD /* highlight.js */; };
 		5AFB59E41D158D8A00BF4CAD /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB59E31D158D8A00BF4CAD /* SearchResultsController.swift */; };
+		5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBEAC01D111D4800F8A8D2 /* MMMarkdown.framework */; };
 		5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBEAC21D111E1D00F8A8D2 /* modest.css */; };
+		5AFC26121D261395007C38B4 /* Base64nl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFC26101D261395007C38B4 /* Base64nl.framework */; };
 		5AFC26151D2615A4007C38B4 /* ColorSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC26141D2615A4007C38B4 /* ColorSelectorController.swift */; };
+		5AFC26181D26376E007C38B4 /* DTCollectionViewManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFC26161D26376E007C38B4 /* DTCollectionViewManager.framework */; };
+		5AFC26191D26376E007C38B4 /* DTModelStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFC26171D26376E007C38B4 /* DTModelStorage.framework */; };
 		5AFC261B1D263797007C38B4 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC261A1D263797007C38B4 /* ColorCell.swift */; };
+		5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */; };
+		5AFD86AC1D239C5700D80F8E /* ActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD86AB1D239C5700D80F8E /* ActionSheetPicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +167,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A18718D1E266F65005D95AE /* SwiftyUtils.framework in Frameworks */,
+				5A11F9C81E1FA29C0010C553 /* DropDown.framework in Frameworks */,
+				5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */,
+				5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */,
+				5AFC26181D26376E007C38B4 /* DTCollectionViewManager.framework in Frameworks */,
+				5AFC26191D26376E007C38B4 /* DTModelStorage.framework in Frameworks */,
+				5AFC26121D261395007C38B4 /* Base64nl.framework in Frameworks */,
+				5AD6D7131D23B6870015BF0E /* Keyboardy.framework in Frameworks */,
+				5AFD86AC1D239C5700D80F8E /* ActionSheetPicker.framework in Frameworks */,
+				5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */,
+				5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */,
+				5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */,
+				5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */,
+				5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */,
+				5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */,
 				1EA93B3834DE21BA29F70C3F /* Pods_PocketDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
