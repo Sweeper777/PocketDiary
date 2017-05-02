@@ -44,11 +44,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FTPopOverMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -117,17 +112,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>016ECD9EC006424829A5BE063595A52D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>20425C4889C63ADDEAE93982F72C9848</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>27296B5947D30433297EF67460933CE9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>37D00D04C7A0063E01A91A799DBF1AE8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,7 +142,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>571E1429DDE8684D428BAB9D2F35B5D0</key>
+		<key>49317B9A707B2CC45F0B0C9D2EDB1422</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,12 +157,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7445D9FAF941530802A58572F34BE947</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>749BEFB1B0592F5A64E2A79987B4166C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7D84F5D31841E50B1093E671117EFC69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85A3926C78E02AF3D3B5D0ED88DF26B6</key>
+		<key>7F1280D4766E75440DBA116A2DF99AA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,12 +182,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>903A108934E1A089B76F443DC34C8E54</key>
+		<key>8F8DD5D8FE9B720F45EF7AA171726FC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9840DD5B21248522BF17E63E3FA1E609</key>
+		<key>903A108934E1A089B76F443DC34C8E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -207,22 +207,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AEDB21BAEC032188CDD49BABDF8A4DD9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>AFAD7C49D45F4A29EE885214FE72758F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D2E30C6C3DF686C325691F5D8F214812</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA8B6EA59C798E456A63133CF19658CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

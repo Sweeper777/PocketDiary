@@ -14,7 +14,6 @@ target 'PocketDiary' do
     pod 'ActionSheetPicker'
     pod 'Keyboardy'
     pod 'DropDown'
-    pod 'FTPopOverMenu'
     pod 'DTModelStorage'
     pod 'DTCollectionViewManager'
     pod 'Base64nl'
