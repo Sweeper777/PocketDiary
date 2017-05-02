@@ -14,7 +14,7 @@ class DateRangeSelectorController: UITableViewController {
     }
     
     @IBAction func done(_ sender: UIBarButtonItem) {
-        dateRange = startPicker.date.ignoreTimeComponents()...endPicker.date.ignoreTimeComponents()
+        dateRange = startPicker.date.date...endPicker.date.date
         performSegue(withIdentifier: "unwindDone", sender: self)
     }
     
