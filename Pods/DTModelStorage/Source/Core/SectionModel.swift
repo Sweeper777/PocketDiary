@@ -57,7 +57,13 @@ open class SectionModel : Section, SupplementaryAccessible
     /// Returns items of `type` in current section
     open func items<T>(ofType type: T.Type) -> [T]
     {
-        return items.flatMap { $0 as? T }
+        var foundItems = [T]()
+        for item in items {
+            if let item = item as? T {
+                foundItems.append(item)
+            }
+        }
+        return foundItems
     }
     
     /// Number of items in current section

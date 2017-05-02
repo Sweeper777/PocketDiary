@@ -70,25 +70,6 @@ public struct ViewModelMapping
     
     /// Type-erased update block, that will be called when `ModelTransfer` `update(with:)` method needs to be executed.
     public let updateBlock : (Any, Any) -> Void
-    
-    public init<T:ModelTransfer>(viewType: ViewType, viewClass: T.Type, xibName: String? = nil) {
-        self.viewType = viewType
-        self.viewClass = viewClass
-        self.xibName = xibName
-        modelTypeCheckingBlock = { $0 is T.ModelType }
-        updateBlock = { view, model in
-            guard let view = view as? T, let model = model as? T.ModelType else { return }
-            view.update(with: model)
-        }
-    }
-    
-    public init<T>(viewType: ViewType, modelClass: T.Type, xibName: String? = nil) {
-        self.viewType = viewType
-        self.viewClass = NSObject.self
-        self.xibName = xibName
-        modelTypeCheckingBlock = { $0 is T }
-        updateBlock = { _,_ in }
-    }
 }
 
 /// Adopt this protocol on your `DTTableViewManageable` or `DTCollectionViewManageable` instance to be able to select mapping from available candidates.
@@ -119,6 +100,12 @@ public extension RangeReplaceableCollection where Self.Iterator.Element == ViewM
     mutating func addMapping<T:ModelTransfer>(for viewType: ViewType, viewClass: T.Type, xibName: String? = nil) {
         append(ViewModelMapping(viewType: viewType,
             viewClass: T.self,
-              xibName: xibName))
+              xibName: xibName,
+            modelTypeCheckingBlock: { model -> Bool in
+                return model is T.ModelType
+            }, updateBlock: { (view, model) in
+                guard let view = view  as? T, let model = model as? T.ModelType else { return }
+                view.update(with: model)
+        }))
     }
 }
