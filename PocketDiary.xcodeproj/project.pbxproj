@@ -16,9 +16,6 @@
 		5A00F7A11D37A7D3006ACC63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */; };
 		5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */; };
 		5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A04D0701D18FC8000868126 /* LLSwitch.framework */; };
-		5A11F9C81E1FA29C0010C553 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A11F9C71E1FA29C0010C553 /* DropDown.framework */; };
-		5A11F9CB1E2035730010C553 /* MoreMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11F9C91E2035730010C553 /* MoreMenuItem.swift */; };
-		5A11F9CC1E2035730010C553 /* MoreMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A11F9CA1E2035730010C553 /* MoreMenuItem.xib */; };
 		5A16BBF81E4B935700A750BC /* TextViewRelatedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */; };
 		5A18718D1E266F65005D95AE /* SwiftyUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A18718C1E266F65005D95AE /* SwiftyUtils.framework */; };
 		5A1FDA281E5834E600E90B28 /* CenterItemsToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FDA271E5834E600E90B28 /* CenterItemsToolbar.swift */; };
@@ -87,8 +84,6 @@
 		5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = PocketDiary/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		5A04D0701D18FC8000868126 /* LLSwitch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLSwitch.framework; path = "Pods/../build/Debug-iphoneos/LLSwitch.framework"; sourceTree = "<group>"; };
 		5A11F9C71E1FA29C0010C553 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
-		5A11F9C91E2035730010C553 /* MoreMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreMenuItem.swift; sourceTree = "<group>"; };
-		5A11F9CA1E2035730010C553 /* MoreMenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreMenuItem.xib; sourceTree = "<group>"; };
 		5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewRelatedExtensions.swift; sourceTree = "<group>"; };
 		5A18718C1E266F65005D95AE /* SwiftyUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUtils.framework; path = "Pods/../build/Debug-iphoneos/SwiftyUtils/SwiftyUtils.framework"; sourceTree = "<group>"; };
 		5A189E1E1E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -168,7 +163,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A18718D1E266F65005D95AE /* SwiftyUtils.framework in Frameworks */,
-				5A11F9C81E1FA29C0010C553 /* DropDown.framework in Frameworks */,
 				5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */,
 				5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */,
 				5AFC26181D26376E007C38B4 /* DTCollectionViewManager.framework in Frameworks */,
@@ -260,9 +254,7 @@
 				5AF8E50A1D250DDA00E2A547 /* DateRangeSelectorController.swift */,
 				5AFB59E31D158D8A00BF4CAD /* SearchResultsController.swift */,
 				5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */,
-				5A11F9C91E2035730010C553 /* MoreMenuItem.swift */,
 				5A1FDA271E5834E600E90B28 /* CenterItemsToolbar.swift */,
-				5A11F9CA1E2035730010C553 /* MoreMenuItem.xib */,
 				5A21FA751D01B16000B36AA7 /* Main.storyboard */,
 				5AF9ACF81D12769300C8B856 /* UserSettings.swift */,
 				5AFB20651D13BCB8007910E6 /* DiarySearcher.swift */,
@@ -455,7 +447,6 @@
 				5A00F7A11D37A7D3006ACC63 /* GoogleService-Info.plist in Resources */,
 				5A003C961D223C55001EA872 /* InfoPlist.strings in Resources */,
 				5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */,
-				5A11F9CC1E2035730010C553 /* MoreMenuItem.xib in Resources */,
 				5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */,
 				5A21FA7C1D01B16000B36AA7 /* Assets.xcassets in Resources */,
 				5A21FA771D01B16000B36AA7 /* Main.storyboard in Resources */,
@@ -627,7 +618,6 @@
 				5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */,
 				5A1FDA281E5834E600E90B28 /* CenterItemsToolbar.swift in Sources */,
 				5AF571261D02582400DF004F /* Entry.swift in Sources */,
-				5A11F9CB1E2035730010C553 /* MoreMenuItem.swift in Sources */,
 				5AF875B91D17D4DF00DF0669 /* Threading.swift in Sources */,
 				5A21FA7A1D01B16000B36AA7 /* PocketDiary.xcdatamodeld in Sources */,
 				5AFC26151D2615A4007C38B4 /* ColorSelectorController.swift in Sources */,
