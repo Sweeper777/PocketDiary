@@ -5,7 +5,6 @@ import CoreData
 import MMMarkdown
 import Emoji
 import Keyboardy
-import DropDown
 import GoogleMobileAds
 import RFKeyboardToolbar
 import SwiftyUtils
@@ -28,7 +27,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var ad: GADBannerView!
     
-    let moreMenu = DropDown()
+//    let moreMenu = DropDown()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -315,69 +314,69 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
         
-        moreMenu.anchorView = self.navigationItem.rightBarButtonItems?.first!
-        moreMenu.dataSource = menuItems
-        moreMenu.width = menuWidth as CGFloat?
-        moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
-        moreMenu.customCellConfiguration = {
-            _, item, cell in
-            guard let menuItemCell = cell as? MoreMenuItem else { return }
-            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
-            switch item {
-            case "Set Background Color":
-                menuItemCell.icon.image = UIImage(named: "paint_brush")
-            case "Set Image From Camera":
-                menuItemCell.icon.image = UIImage(named: "camera")
-            case "Set Image From Photo Library":
-                menuItemCell.icon.image = UIImage(named: "photo_library")
-            case "Move Image to Top":
-                menuItemCell.icon.image = UIImage(named: "up")
-            case "Move Image to Bottom":
-                menuItemCell.icon.image = UIImage(named: "down")
-            case "Remove Image":
-                menuItemCell.icon.image = UIImage(named: "remove")
-            case "Print":
-                menuItemCell.icon.image = UIImage(named: "print")
-            default:
-                break
-            }
-        }
-        
-        moreMenu.selectionAction = {
-            [unowned self] index, item in
-            switch item {
-            case "Set Background Color":
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
-                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
-                }
-            case "Set Image From Camera":
-                let picker = UIImagePickerController()
-                picker.delegate = self
-                picker.sourceType = .camera
-                self.present(picker, animated: true, completion: nil)
-            case "Set Image From Photo Library":
-                let picker = UIImagePickerController()
-                picker.delegate = self
-                picker.sourceType = .photoLibrary
-                self.present(picker, animated: true, completion: nil)
-            case "Move Image to Top":
-                self.imagePositionTop = true
-                self.updatePreview()
-            case "Move Image to Bottom":
-                self.imagePositionTop = false
-                self.updatePreview()
-            case "Remove Image":
-                self.imagePositionTop = nil
-                self.image = nil
-                self.updatePreview()
-            case "Print":
-                self.printDiary()
-            default:
-                break
-            }
-        }
-        
-        moreMenu.show()
+//        moreMenu.anchorView = self.navigationItem.rightBarButtonItems?.first!
+//        moreMenu.dataSource = menuItems
+//        moreMenu.width = menuWidth as CGFloat?
+//        moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
+//        moreMenu.customCellConfiguration = {
+//            _, item, cell in
+//            guard let menuItemCell = cell as? MoreMenuItem else { return }
+//            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
+//            switch item {
+//            case "Set Background Color":
+//                menuItemCell.icon.image = UIImage(named: "paint_brush")
+//            case "Set Image From Camera":
+//                menuItemCell.icon.image = UIImage(named: "camera")
+//            case "Set Image From Photo Library":
+//                menuItemCell.icon.image = UIImage(named: "photo_library")
+//            case "Move Image to Top":
+//                menuItemCell.icon.image = UIImage(named: "up")
+//            case "Move Image to Bottom":
+//                menuItemCell.icon.image = UIImage(named: "down")
+//            case "Remove Image":
+//                menuItemCell.icon.image = UIImage(named: "remove")
+//            case "Print":
+//                menuItemCell.icon.image = UIImage(named: "print")
+//            default:
+//                break
+//            }
+//        }
+//        
+//        moreMenu.selectionAction = {
+//            [unowned self] index, item in
+//            switch item {
+//            case "Set Background Color":
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+//                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
+//                }
+//            case "Set Image From Camera":
+//                let picker = UIImagePickerController()
+//                picker.delegate = self
+//                picker.sourceType = .camera
+//                self.present(picker, animated: true, completion: nil)
+//            case "Set Image From Photo Library":
+//                let picker = UIImagePickerController()
+//                picker.delegate = self
+//                picker.sourceType = .photoLibrary
+//                self.present(picker, animated: true, completion: nil)
+//            case "Move Image to Top":
+//                self.imagePositionTop = true
+//                self.updatePreview()
+//            case "Move Image to Bottom":
+//                self.imagePositionTop = false
+//                self.updatePreview()
+//            case "Remove Image":
+//                self.imagePositionTop = nil
+//                self.image = nil
+//                self.updatePreview()
+//            case "Print":
+//                self.printDiary()
+//            default:
+//                break
+//            }
+//        }
+//        
+//        moreMenu.show()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {

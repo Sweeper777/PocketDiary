@@ -1,7 +1,6 @@
 import UIKit
 import FSCalendar
 import CoreData
-import DropDown
 import LTHPasscodeViewController
 import GoogleMobileAds
 
@@ -12,7 +11,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     @IBOutlet var calendar: FSCalendar!
     @IBOutlet var ad: GADBannerView!
     
-    let passcodeMenu = DropDown()
+//    let passcodeMenu = DropDown()
     
     override func viewDidLoad() {
         LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hex: "5abb5a")
@@ -104,41 +103,41 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
         
-        passcodeMenu.anchorView = sender
-        passcodeMenu.dataSource = menuItems
-        passcodeMenu.width = menuWidth as CGFloat?
-        passcodeMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
-        passcodeMenu.customCellConfiguration = {
-            _, item, cell in
-            guard let menuItemCell = cell as? MoreMenuItem else { return }
-            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
-            switch item {
-            case "Change Passcode":
-                menuItemCell.icon.image = UIImage(named: "change")
-            case "Disable Passcode":
-                menuItemCell.icon.image = UIImage(named: "remove")
-            case "Set Passcode":
-                menuItemCell.icon.image = UIImage(named: "key_colored")
-            default:
-                break
-            }
-        }
-        
-        passcodeMenu.selectionAction = {
-            [unowned self] index, item in
-            switch item {
-            case "Change Passcode":
-                LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: self, asModal: true)
-            case "Disable Passcode":
-                LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: self, asModal: true)
-            case "Set Passcode":
-                LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: self, asModal: true)
-            default:
-                break
-            }
-        }
-        
-        passcodeMenu.show()
+//        passcodeMenu.anchorView = sender
+//        passcodeMenu.dataSource = menuItems
+//        passcodeMenu.width = menuWidth as CGFloat?
+//        passcodeMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
+//        passcodeMenu.customCellConfiguration = {
+//            _, item, cell in
+//            guard let menuItemCell = cell as? MoreMenuItem else { return }
+//            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
+//            switch item {
+//            case "Change Passcode":
+//                menuItemCell.icon.image = UIImage(named: "change")
+//            case "Disable Passcode":
+//                menuItemCell.icon.image = UIImage(named: "remove")
+//            case "Set Passcode":
+//                menuItemCell.icon.image = UIImage(named: "key_colored")
+//            default:
+//                break
+//            }
+//        }
+//        
+//        passcodeMenu.selectionAction = {
+//            [unowned self] index, item in
+//            switch item {
+//            case "Change Passcode":
+//                LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: self, asModal: true)
+//            case "Disable Passcode":
+//                LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: self, asModal: true)
+//            case "Set Passcode":
+//                LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: self, asModal: true)
+//            default:
+//                break
+//            }
+//        }
+//        
+//        passcodeMenu.show()
     }
 }
 
