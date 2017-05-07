@@ -13,7 +13,6 @@ target 'PocketDiary' do
     pod 'LLSwitch'
     pod 'ActionSheetPicker'
     pod 'Keyboardy'
-    pod 'DropDown'
     pod 'DTModelStorage'
     pod 'DTCollectionViewManager'
     pod 'Base64nl'
@@ -21,6 +20,7 @@ target 'PocketDiary' do
     pod 'Firebase'
     pod 'RFKeyboardToolbar'
     pod 'SCLAlertView'
+    pod 'FTPopOverMenu_Swift'
 end
 
 target 'PocketDiaryTests' do

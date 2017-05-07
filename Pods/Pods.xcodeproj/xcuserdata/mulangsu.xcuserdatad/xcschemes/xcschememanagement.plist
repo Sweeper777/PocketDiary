@@ -24,11 +24,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DropDown.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +35,11 @@
 			<false/>
 		</dict>
 		<key>FSCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FTPopOverMenu_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -107,11 +107,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1D2CC76F3BD274B0F3837C771C97EF71</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>20425C4889C63ADDEAE93982F72C9848</key>
 		<dict>
 			<key>primary</key>
@@ -137,6 +132,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>45EE2261CD8D644131FB813E0A1AF0FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4AB7CD11EE20B305746816DF9065A1EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>58F8527E74F83232A1EF0C9675CF627E</key>
 		<dict>
 			<key>primary</key>
@@ -147,7 +152,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74E44C8B3816167001E5CB9A8EC65095</key>
+		<key>7A8F45EACF5BE1FFB9B621D5A0506FF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,12 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88638EAF42898C4593176749BD88DF5E</key>
+		<key>85131672C352E1C58F9F5CEE8E5B4CBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>8EA7EB085A729BEBFA2E5C679A976D5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EF1013331DE5AED52543DC2959207D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,17 +187,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F766ADB76A46AB732825D44C4BAAABF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A4A0DA1E48AA57C4A9197410446B67F1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A594D1DAD0A4985CEF356EB478914DE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -197,7 +197,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9DAD260594D77B7CB13B7C02A8CBD9C</key>
+		<key>C16C4DE130B14E83C7F847A6D15954EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

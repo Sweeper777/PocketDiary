@@ -1,7 +1,6 @@
 PODS:
   - ActionSheetPicker (1.6.2)
   - Base64nl (1.2)
-  - DropDown (2)
   - DTCollectionViewManager (5.2.0):
     - DTModelStorage (~> 4.1)
   - DTModelStorage (4.1.0):
@@ -22,6 +21,7 @@ PODS:
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.9)
   - FSCalendar (2.7.3)
+  - FTPopOverMenu_Swift (0.0.7)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -37,13 +37,13 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker
   - Base64nl
-  - DropDown
   - DTCollectionViewManager
   - DTModelStorage
   - Emoji-swift
   - EZLoadingActivity
   - Firebase
   - FSCalendar
+  - FTPopOverMenu_Swift
   - Keyboardy
   - LLSwitch
   - LTHPasscodeViewController
@@ -56,7 +56,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
-  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   DTCollectionViewManager: 45890b1b6f0fb39896b1de243a03d6d6db3cebc2
   DTModelStorage: 5f8148be3704fc432a9f9c37d64c2cca8fc94668
   Emoji-swift: 20010383183f4d85e6e5a2b9642b96ebdb4f06ae
@@ -66,6 +65,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 225d40532489835a034b8f4e2c9c87fbf4f615a2
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FSCalendar: 574388d70778c22719eed9341653e1743b345573
+  FTPopOverMenu_Swift: 8939e3c98a72217c761e806c915101227ed7c8fc
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Keyboardy: 10dcdc632df75f8b478f5700ce913cac4e684a90
   LLSwitch: b5f0e574b4c53f46806df015cd21285464d4b440
@@ -76,6 +76,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
 
-PODFILE CHECKSUM: 6c835b5034c442f3d72ffcf45a85c7fd51a94315
+PODFILE CHECKSUM: 7502b0419c97b41b1dfd88d32a7fb1eafc91f596
 
 COCOAPODS: 1.1.0.beta.1
