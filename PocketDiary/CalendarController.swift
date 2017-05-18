@@ -142,6 +142,10 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
 //        }
 //        
 //        passcodeMenu.show()
+        let config = FTConfiguration.shared
+        config.menuWidth = menuWidth
+        config.backgoundTintColor = #colorLiteral(red: 0.8242458767, green: 0.8242458767, blue: 0.8242458767, alpha: 1)
+        config.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
 }
 
