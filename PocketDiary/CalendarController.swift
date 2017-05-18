@@ -3,6 +3,7 @@ import FSCalendar
 import CoreData
 import LTHPasscodeViewController
 import GoogleMobileAds
+import FTPopOverMenu_Swift
 
 class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -94,10 +95,13 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     @IBAction func passcodeSettings(_ sender: UIBarButtonItem) {        
         var menuItems = [String]()
+        var images = [String]()
         if LTHPasscodeViewController.doesPasscodeExist() {
             menuItems.append(contentsOf: ["Change Passcode", "Disable Passcode"])
+            images.append(contentsOf: ["change", "remove"])
         } else {
             menuItems.append("Set Passcode")
+            images.append("key_colored")
         }
         
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
