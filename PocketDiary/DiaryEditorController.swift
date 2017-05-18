@@ -9,6 +9,7 @@ import GoogleMobileAds
 import RFKeyboardToolbar
 import SwiftyUtils
 import SCLAlertView
+import FTPopOverMenu_Swift
 
 class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -295,21 +296,25 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func showMore(_ sender: UIBarButtonItem) {
-        
+        var images = ["paint_brush"]
         var menuItems = ["Set Background Color"]
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             menuItems.append("Set Image From Camera")
+            images.append("camera")
         }
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             menuItems.append("Set Image From Photo Library")
+            images.append("photo_library")
         }
         
         if image != nil {
             menuItems.append(contentsOf: ["Move Image to Top", "Move Image to Bottom", "Remove Image"])
+            images.append(contentsOf: ["up", "down", "remove"])
         }
         
         menuItems.append("Print")
+        images.append("print")
         
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
