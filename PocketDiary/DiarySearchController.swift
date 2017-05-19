@@ -13,6 +13,7 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     @IBOutlet var searchRangeLbl: UILabel!
     @IBOutlet var dateRangeLbl: UILabel!
     @IBOutlet var sortModeLbl: UILabel!
+    @IBOutlet var exactMatchLbl: UILabel!
     @IBOutlet var exactMatch: LLSwitch!
     
     var customDateRange: ClosedRange<Date>?
@@ -24,6 +25,11 @@ class DiarySearchController: UITableViewController, LLSwitchDelegate, UITextFiel
     }
     
     override func viewDidLoad() {
+        exactMatchLbl.font = UIFont.preferredFont(forTextStyle: .body)
+        searchRangeLbl.font = UIFont.preferredFont(forTextStyle: .body)
+        dateRangeLbl.font = UIFont.preferredFont(forTextStyle: .body)
+        sortModeLbl.font = UIFont.preferredFont(forTextStyle: .body)
+        searchText.font = UIFont.preferredFont(forTextStyle: .body)
         exactMatch.on = UserSettings.exactMatch
         searchRangeLbl.text = NSLocalizedString("Search in: ", comment: "") + UserSettings.searchRangeDesc
         dateRangeLbl.text = NSLocalizedString("Date Range: ", comment: "") + UserSettings.timeRangeDesc
