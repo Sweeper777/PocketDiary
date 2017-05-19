@@ -36,6 +36,9 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
             LTHPasscodeViewController.sharedUser().showLockScreen(withAnimation: true, withLogout: true, andLogoutTitle: nil)
             //}
         }
+        calendar.appearance.titleFont = UIFont.preferredFont(forTextStyle: .body)
+        calendar.appearance.headerTitleFont = UIFont.preferredFont(forTextStyle: .headline)
+        calendar.appearance.weekdayFont = UIFont.preferredFont(forTextStyle: .caption1)
         
         ad.adUnitID = AdUtility.ad1ID
         ad.rootViewController = self
