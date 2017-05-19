@@ -438,7 +438,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == UIWebViewNavigationType.linkClicked {
+        if navigationType == .linkClicked {
             UIApplication.shared.openURL(request.url!)
             return false
         }
