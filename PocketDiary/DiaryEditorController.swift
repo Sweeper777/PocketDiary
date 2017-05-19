@@ -386,6 +386,39 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         config.menuWidth = menuWidth
         config.backgoundTintColor = #colorLiteral(red: 0.8242458767, green: 0.8242458767, blue: 0.8242458767, alpha: 1)
         config.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        FTPopOverMenu.showForSender(sender: sender.value(forKey: "view") as! UIView, with: menuItems.map { NSLocalizedString($0, comment: "") }, menuImageArray: images, done: { index in
+            let item = menuItems[index]
+            switch item {
+            case "Set Background Color":
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
+                }
+            case "Set Image From Camera":
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.sourceType = .camera
+                self.present(picker, animated: true, completion: nil)
+            case "Set Image From Photo Library":
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.sourceType = .photoLibrary
+                self.present(picker, animated: true, completion: nil)
+            case "Move Image to Top":
+                self.imagePositionTop = true
+                self.updatePreview()
+            case "Move Image to Bottom":
+                self.imagePositionTop = false
+                self.updatePreview()
+            case "Remove Image":
+                self.imagePositionTop = nil
+                self.image = nil
+                self.updatePreview()
+            case "Print":
+                self.printDiary()
+            default:
+                break
+            }
+        }, cancel: {})
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
