@@ -53,6 +53,11 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
+//        if #available(iOS 10.0, *) {
+//            txtContent.adjustsFontForContentSizeCategory = true
+//        } else {
+            txtContent.font = UIFont.preferredFont(forTextStyle: .body)
+//        }
         
         setUpInputAccessory()
         
