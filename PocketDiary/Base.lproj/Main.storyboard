@@ -370,6 +370,7 @@
                     <connections>
                         <outlet property="dateRangeLbl" destination="pN4-wN-2pu" id="Ozg-uZ-I1x"/>
                         <outlet property="exactMatch" destination="pvk-ny-Um4" id="c0W-a2-d2b"/>
+                        <outlet property="exactMatchLbl" destination="opR-0b-wgL" id="ROp-OU-a3g"/>
                         <outlet property="searchRangeLbl" destination="aWD-ve-TiZ" id="9bH-on-Wm3"/>
                         <outlet property="searchText" destination="xYS-Wp-g1d" id="e0V-dg-6Ub"/>
                         <outlet property="sortModeLbl" destination="ab1-BL-KDb" id="WEx-ph-XIF"/>
