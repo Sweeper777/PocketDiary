@@ -167,6 +167,38 @@
             endingLineNumber = "6"
             landmarkName = "addButtons()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketDiary.CenterItemsToolbar.addButtons () -&gt; ()"
+                  moduleName = "PocketDiary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mulangsu/Documents/PocketDiary/PocketDiary/CenterItemsToolbar.swift"
+                  timestampString = "517693247.352679"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketDiary.CenterItemsToolbar.(addButtons () -&gt; ()).(closure #1)"
+                  moduleName = "PocketDiary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mulangsu/Documents/PocketDiary/PocketDiary/CenterItemsToolbar.swift"
+                  timestampString = "517693247.382362"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

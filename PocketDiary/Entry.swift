@@ -19,10 +19,6 @@ class Entry: NSManagedObject {
         self.imagePositionTop = true
     }
     
-    func getDescription() -> String {
-        return "\(date)\n\(title)\n\(content)"
-    }
-    
     override var hashValue: Int {
         return date!.hashValue
     }
