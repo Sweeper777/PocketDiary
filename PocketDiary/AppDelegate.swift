@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.tintColor = UIColor(hex: "5abb5a")
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         EZLoadingActivity.Settings.BackgroundColor = UIColor(hex: "5abb5a")
         EZLoadingActivity.Settings.ActivityColor = UIColor.white
