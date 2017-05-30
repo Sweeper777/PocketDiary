@@ -496,3 +496,26 @@ extension UIColor {
         }
     }
 }
+
+public extension String {
+    
+    public var extractedURLs: [URL] {
+        var urls: [URL] = []
+        let detector: NSDataDetector?
+        do {
+            detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        } catch _ as NSError {
+            detector = nil
+        }
+        let text = self
+        if let detector = detector {
+            detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.characters.count), using: { result, _, _ in
+                if let result = result,
+                    let url = result.url {
+                    urls.append(url as URL)
+                }
+            })
+        }
+        return urls
+    }
+}
