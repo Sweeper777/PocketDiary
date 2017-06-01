@@ -3,9 +3,9 @@ PODS:
   - Base64nl (1.2)
   - DTCollectionViewManager (5.3.0):
     - DTModelStorage (~> 5.0)
-  - DTModelStorage (5.0.0):
-    - DTModelStorage/Core (= 5.0.0)
-  - DTModelStorage/Core (5.0.0)
+  - DTModelStorage (5.0.1):
+    - DTModelStorage/Core (= 5.0.1)
+  - DTModelStorage/Core (5.0.1)
   - Emoji-swift (0.1.0)
   - EZLoadingActivity (1.01)
   - Firebase (4.0.0):
@@ -58,7 +58,7 @@ SPEC CHECKSUMS:
   ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
   DTCollectionViewManager: 63cc466a0037b48809ce855a2751af29c99d70e3
-  DTModelStorage: e8219f190adf305bf6f0bc3e7e64b7d54cf70f2e
+  DTModelStorage: c1987e14397499d504938e73a2041f4857926349
   Emoji-swift: 20010383183f4d85e6e5a2b9642b96ebdb4f06ae
   EZLoadingActivity: edd7e387e5197b116ce2cccb3fd747ababc2a510
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
