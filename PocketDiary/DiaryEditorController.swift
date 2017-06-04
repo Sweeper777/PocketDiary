@@ -36,6 +36,7 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         formatter.dateStyle = .short
         formatter.timeStyle = .none
         title = formatter.string(from: date)
+        self.navigationController?.navigationBar.titleTextAttributes?[NSFontAttributeName] = UIFont.systemFont(ofSize: 12)
         
         if entry != nil {
             txtTitle.text = entry.title
