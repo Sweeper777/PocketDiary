@@ -8,3 +8,12 @@ struct DiaryOptions {
     let imagePositionTop: Bool?
 }
 
+class DiaryOptionsController: FormViewController {
+    var options: DiaryOptions!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+}
