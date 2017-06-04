@@ -7,6 +7,7 @@ PODS:
     - DTModelStorage/Core (= 5.0.1)
   - DTModelStorage/Core (5.0.1)
   - Emoji-swift (0.1.0)
+  - Eureka (3.0.0)
   - EZLoadingActivity (1.01)
   - Firebase (4.0.0):
     - Firebase/Core (= 4.0.0)
@@ -26,6 +27,8 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - ImageRow (2.0.0):
+    - Eureka (= 3.0)
   - Keyboardy (0.2.0)
   - LLSwitch (1.0.4)
   - LTHPasscodeViewController (3.8.8)
@@ -34,6 +37,7 @@ PODS:
   - SCLAlertView (0.7.0)
   - SwiftyUtils (1.0.0)
   - SZTextView (1.3.0)
+  - UIColor_Hex_Swift (3.0.2)
 
 DEPENDENCIES:
   - ActionSheetPicker
@@ -41,10 +45,12 @@ DEPENDENCIES:
   - DTCollectionViewManager
   - DTModelStorage
   - Emoji-swift
+  - Eureka
   - EZLoadingActivity
   - Firebase
   - FSCalendar
   - FTPopOverMenu_Swift
+  - ImageRow
   - Keyboardy
   - LLSwitch
   - LTHPasscodeViewController
@@ -53,6 +59,7 @@ DEPENDENCIES:
   - SCLAlertView
   - SwiftyUtils
   - SZTextView
+  - UIColor_Hex_Swift
 
 SPEC CHECKSUMS:
   ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
@@ -60,6 +67,7 @@ SPEC CHECKSUMS:
   DTCollectionViewManager: 63cc466a0037b48809ce855a2751af29c99d70e3
   DTModelStorage: c1987e14397499d504938e73a2041f4857926349
   Emoji-swift: 20010383183f4d85e6e5a2b9642b96ebdb4f06ae
+  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   EZLoadingActivity: edd7e387e5197b116ce2cccb3fd747ababc2a510
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
   FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
@@ -68,6 +76,7 @@ SPEC CHECKSUMS:
   FSCalendar: 8bda3534e8590b87124af9a236887314e0359a27
   FTPopOverMenu_Swift: 8939e3c98a72217c761e806c915101227ed7c8fc
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  ImageRow: 9dfbfa38c1e62c25d638bc40e97a48c1809443c4
   Keyboardy: 10dcdc632df75f8b478f5700ce913cac4e684a90
   LLSwitch: b5f0e574b4c53f46806df015cd21285464d4b440
   LTHPasscodeViewController: 16275e64de508a4852c59ef90390331e2e4ec074
@@ -76,7 +85,8 @@ SPEC CHECKSUMS:
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
   SZTextView: 094dc6acc9beec537685c545d6e3e0d4975174e1
+  UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: 7502b0419c97b41b1dfd88d32a7fb1eafc91f596
+PODFILE CHECKSUM: c40e5f9fad0460855c92db1bc41cdc0b6c3ffee9
 
 COCOAPODS: 1.1.0.beta.1

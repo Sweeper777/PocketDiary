@@ -90,9 +90,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/DTModelStorage/DTModelStorage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/EZLoadingActivity/EZLoadingActivity.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Emoji-swift/Emoji.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FSCalendar/FSCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FTPopOverMenu_Swift/FTPopOverMenu_Swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ImageRow/ImageRow.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Keyboardy/Keyboardy.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LLSwitch/LLSwitch.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LTHPasscodeViewController/LTHPasscodeViewController.framework"
@@ -101,6 +103,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SCLAlertView/SCLAlertView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SZTextView/SZTextView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyUtils/SwiftyUtils.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIColor_Hex_Swift/UIColor_Hex_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ActionSheetPicker/ActionSheetPicker.framework"
@@ -109,9 +112,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/DTModelStorage/DTModelStorage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/EZLoadingActivity/EZLoadingActivity.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Emoji-swift/Emoji.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FSCalendar/FSCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FTPopOverMenu_Swift/FTPopOverMenu_Swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ImageRow/ImageRow.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Keyboardy/Keyboardy.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LLSwitch/LLSwitch.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LTHPasscodeViewController/LTHPasscodeViewController.framework"
@@ -120,4 +125,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SCLAlertView/SCLAlertView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SZTextView/SZTextView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyUtils/SwiftyUtils.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIColor_Hex_Swift/UIColor_Hex_Swift.framework"
 fi

@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FSCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -45,6 +50,11 @@
 			<false/>
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImageRow.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -104,10 +114,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIColor_Hex_Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>20425C4889C63ADDEAE93982F72C9848</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>367775726ABA7003552CA455107C1627</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A8291EEE9CE483ED516DC3484FC1174</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,6 +152,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>41C53119378575838EE69C31836BABCC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>43B0E9BBA560D466716BD38AC96D55E0</key>
 		<dict>
 			<key>primary</key>
@@ -137,7 +167,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4AB7CD11EE20B305746816DF9065A1EC</key>
+		<key>57C32452CB05CAF36636370925B8281D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,12 +177,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7353BA4B98D5DEA09493CEAF8F4B057F</key>
+		<key>62A2494629F268CC2D9060742EA1C46C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A8F45EACF5BE1FFB9B621D5A0506FF7</key>
+		<key>7353BA4B98D5DEA09493CEAF8F4B057F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,7 +192,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85131672C352E1C58F9F5CEE8E5B4CBF</key>
+		<key>7F14D6DB69218CEC770366CF0757DFBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,12 +202,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EF1013331DE5AED52543DC2959207D6</key>
+		<key>9019D090861961D65A50B0C1F353402C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9056A491E085CB2F6412732A244E3D7F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -193,11 +228,6 @@
 			<true/>
 		</dict>
 		<key>AFAD7C49D45F4A29EE885214FE72758F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C16C4DE130B14E83C7F847A6D15954EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

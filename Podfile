@@ -21,6 +21,9 @@ target 'PocketDiary' do
     pod 'RFKeyboardToolbar'
     pod 'SCLAlertView'
     pod 'FTPopOverMenu_Swift'
+    pod 'Eureka'
+    pod 'ImageRow'
+    pod 'UIColor_Hex_Swift'
 end
 
 target 'PocketDiaryTests' do
