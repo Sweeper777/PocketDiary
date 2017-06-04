@@ -673,6 +673,12 @@
                                     <action selector="deleteEntry:" destination="raf-vE-H24" id="gLA-NJ-syC"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem image="print" id="263-wE-hHz">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="printDiary" destination="raf-vE-H24" id="kio-Jz-lVu"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="save" id="M47-bZ-pzj">
@@ -681,7 +687,7 @@
                                     <action selector="save:" destination="raf-vE-H24" id="st9-Uw-pl4"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="more_filled" id="Iys-fP-mWd">
+                            <barButtonItem image="settings" id="Iys-fP-mWd">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="showMore:" destination="raf-vE-H24" id="eWl-d6-Eq2"/>
@@ -699,7 +705,7 @@
                         <outlet property="txtContent" destination="gJf-nL-CvL" id="wmn-AW-B19"/>
                         <outlet property="txtTitle" destination="hVF-Dm-pSP" id="5ci-rR-M1C"/>
                         <segue destination="UYu-6k-pMV" kind="unwind" identifier="unwindFromEditor" unwindAction="unwindFromEditor:" id="gkL-hR-779"/>
-                        <segue destination="sih-vu-sbC" kind="presentation" identifier="showColorSelector" modalPresentationStyle="formSheet" id="Zal-xG-2t6"/>
+                        <segue destination="sih-vu-sbC" kind="presentation" identifier="showOptions" modalPresentationStyle="formSheet" id="Zal-xG-2t6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eja-ar-nC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -807,9 +813,10 @@
     <resources>
         <image name="key" width="25" height="25"/>
         <image name="left" width="25" height="25"/>
-        <image name="more_filled" width="25" height="25"/>
+        <image name="print" width="25" height="25"/>
         <image name="right" width="25" height="25"/>
         <image name="search_colored" width="25" height="25"/>
         <image name="search_filled" width="25" height="25"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>
