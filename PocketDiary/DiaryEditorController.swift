@@ -302,74 +302,75 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func showMore(_ sender: UIBarButtonItem) {
-        var images = ["paint_brush"]
-        var menuItems = ["Set Background Color"]
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            menuItems.append("Set Image From Camera")
-            images.append("camera")
-        }
         
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            menuItems.append("Set Image From Photo Library")
-            images.append("photo_library")
-        }
-        
-        if image != nil {
-            menuItems.append(contentsOf: ["Move Image to Top", "Move Image to Bottom", "Remove Image"])
-            images.append(contentsOf: ["up", "down", "remove"])
-        }
-        
-        menuItems.append("Print")
-        images.append("print")
-        
-        let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
-        let menuWidth = widths.max()! + 70
-        let config = FTConfiguration.shared
-        config.menuWidth = menuWidth
-        config.backgoundTintColor = #colorLiteral(red: 0.8242458767, green: 0.8242458767, blue: 0.8242458767, alpha: 1)
-        config.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        FTPopOverMenu.showForSender(sender: sender.value(forKey: "view") as! UIView, with: menuItems.map { NSLocalizedString($0, comment: "") }, menuImageArray: images, done: { index in
-            let item = menuItems[index]
-            switch item {
-            case "Set Background Color":
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
-                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
-                }
-            case "Set Image From Camera":
-                let picker = UIImagePickerController()
-                picker.delegate = self
-                picker.sourceType = .camera
-                self.present(picker, animated: true, completion: nil)
-            case "Set Image From Photo Library":
-                let picker = UIImagePickerController()
-                picker.delegate = self
-                picker.sourceType = .photoLibrary
-                self.present(picker, animated: true, completion: nil)
-            case "Move Image to Top":
-                self.imagePositionTop = true
-                self.updatePreview()
-            case "Move Image to Bottom":
-                self.imagePositionTop = false
-                self.updatePreview()
-            case "Remove Image":
-                self.imagePositionTop = nil
-                self.image = nil
-                self.updatePreview()
-            case "Print":
-                self.printDiary()
-            default:
-                break
-            }
-        }, cancel: {})
+//        var images = ["paint_brush"]
+//        var menuItems = ["Set Background Color"]
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            menuItems.append("Set Image From Camera")
+//            images.append("camera")
+//        }
+//        
+//        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//            menuItems.append("Set Image From Photo Library")
+//            images.append("photo_library")
+//        }
+//        
+//        if image != nil {
+//            menuItems.append(contentsOf: ["Move Image to Top", "Move Image to Bottom", "Remove Image"])
+//            images.append(contentsOf: ["up", "down", "remove"])
+//        }
+//        
+//        menuItems.append("Print")
+//        images.append("print")
+//        
+//        let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
+//        let menuWidth = widths.max()! + 70
+//        let config = FTConfiguration.shared
+//        config.menuWidth = menuWidth
+//        config.backgoundTintColor = #colorLiteral(red: 0.8242458767, green: 0.8242458767, blue: 0.8242458767, alpha: 1)
+//        config.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        FTPopOverMenu.showForSender(sender: sender.value(forKey: "view") as! UIView, with: menuItems.map { NSLocalizedString($0, comment: "") }, menuImageArray: images, done: { index in
+//            let item = menuItems[index]
+//            switch item {
+//            case "Set Background Color":
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+//                    self.performSegue(withIdentifier: "showColorSelector", sender: self)
+//                }
+//            case "Set Image From Camera":
+//                let picker = UIImagePickerController()
+//                picker.delegate = self
+//                picker.sourceType = .camera
+//                self.present(picker, animated: true, completion: nil)
+//            case "Set Image From Photo Library":
+//                let picker = UIImagePickerController()
+//                picker.delegate = self
+//                picker.sourceType = .photoLibrary
+//                self.present(picker, animated: true, completion: nil)
+//            case "Move Image to Top":
+//                self.imagePositionTop = true
+//                self.updatePreview()
+//            case "Move Image to Bottom":
+//                self.imagePositionTop = false
+//                self.updatePreview()
+//            case "Remove Image":
+//                self.imagePositionTop = nil
+//                self.image = nil
+//                self.updatePreview()
+//            case "Print":
+//                self.printDiary()
+//            default:
+//                break
+//            }
+//        }, cancel: {})
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        picker.dismiss(animated: true, completion: nil)
-        imagePositionTop = false
-        self.image = UIImageJPEGRepresentation(image, 0)
-        tabs.selectedSegmentIndex = 1
-        tabs.sendActions(for: .valueChanged)
-    }
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+//        picker.dismiss(animated: true, completion: nil)
+//        imagePositionTop = false
+//        self.image = UIImageJPEGRepresentation(image, 0)
+//        tabs.selectedSegmentIndex = 1
+//        tabs.sendActions(for: .valueChanged)
+//    }
     
     func updatePreview() {
         view.backgroundColor = bgColor ?? UIColor.white
@@ -409,14 +410,14 @@ class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, 
         preview.loadHTMLString("<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)", baseURL: nil)
     }
     
-    @IBAction func unwindFromColorSelector(_ segue: UIStoryboardSegue) {
-        if let vc = segue.source as? ColorSelectorController {
-            txtContent.backgroundColor = vc.selectedColor
-            txtTitle.backgroundColor = vc.selectedColor
-            bgColor = vc.selectedColor
-            updatePreview()
-        }
-    }
+//    @IBAction func unwindFromColorSelector(_ segue: UIStoryboardSegue) {
+//        if let vc = segue.source as? ColorSelectorController {
+//            txtContent.backgroundColor = vc.selectedColor
+//            txtTitle.backgroundColor = vc.selectedColor
+//            bgColor = vc.selectedColor
+//            updatePreview()
+//        }
+//    }
     
     func printDiary() {
         let printController = UIPrintInteractionController.shared
