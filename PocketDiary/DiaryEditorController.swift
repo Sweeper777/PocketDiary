@@ -302,6 +302,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
     }
     
     @IBAction func showMore(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showOptions", sender: nil)
         
 //        var images = ["paint_brush"]
 //        var menuItems = ["Set Background Color"]
