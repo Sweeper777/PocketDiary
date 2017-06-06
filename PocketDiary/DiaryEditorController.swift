@@ -11,7 +11,7 @@ import SwiftyUtils
 import SCLAlertView
 import FTPopOverMenu_Swift
 
-class DiaryEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate {
+class DiaryEditorController: UIViewController, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     var date: Date!
