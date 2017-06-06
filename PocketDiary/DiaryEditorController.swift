@@ -419,7 +419,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
 //        }
 //    }
     
-    func printDiary() {
+    @IBAction func printDiary() {
         let printController = UIPrintInteractionController.shared
         printController.delegate = self
         
