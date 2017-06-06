@@ -447,6 +447,12 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         }
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = (segue.destination as? UINavigationController)?.topViewController as? DiaryOptionsController {
+            vc.options = DiaryOptions(backgroundColor: bgColor ?? .white, image: image == nil ? nil : UIImage(data: image!), imagePositionTop: imagePositionTop)
+        }
+    }
 }
 
 extension DiaryEditorController: KeyboardStateDelegate {
