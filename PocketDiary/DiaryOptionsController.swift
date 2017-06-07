@@ -84,6 +84,9 @@ class DiaryOptionsController: FormViewController {
                 } else {
                     row.value = NSLocalizedString("Bottom", comment: "")
                 }
+                row.hidden = Condition.function([tagImage], { (form) -> Bool in
+                    return (form.rowBy(tag: tagImage) as! ImageRow).value == nil
+                })
         }
     }
     
