@@ -75,6 +75,16 @@ class DiaryOptionsController: FormViewController {
             row.value = options.image
         }
         
+            <<< SegmentedRow<String>(tagImagePositionTop) {
+                row in
+                row.title = NSLocalizedString("Image Position", comment: "")
+                row.options = ["Top", "Bottom"].map { NSLocalizedString($0, comment: "") }
+                if let imagePositionTop = options.imagePositionTop {
+                    row.value = imagePositionTop ? NSLocalizedString("Top", comment: "") : NSLocalizedString("Bottom", comment: "")
+                } else {
+                    row.value = NSLocalizedString("Bottom", comment: "")
+                }
+        }
     }
     
 }
