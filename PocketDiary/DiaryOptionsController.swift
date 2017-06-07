@@ -69,6 +69,12 @@ class DiaryOptionsController: FormViewController {
                 cell.palettes = [palette1, palette2, palette3, palette4, palette5, palette6, palette7]
         }
         
+        form +++ ImageRow(tagImage) {
+            row in
+            row.title = NSLocalizedString("Image (Tap to select)", comment: "")
+            row.value = options.image
+        }
+        
     }
     
 }
