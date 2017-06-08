@@ -453,6 +453,9 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
             vc.options = DiaryOptions(backgroundColor: bgColor ?? .white, image: image == nil ? nil : UIImage(data: image!), imagePositionTop: imagePositionTop)
         }
     }
+    
+    @IBAction func unwindFromOptions(segue: UIStoryboardSegue) {
+    }
 }
 
 extension DiaryEditorController: KeyboardStateDelegate {
