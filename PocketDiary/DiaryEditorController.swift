@@ -455,6 +455,12 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
     }
     
     @IBAction func unwindFromOptions(segue: UIStoryboardSegue) {
+        let values = (segue.source as! DiaryOptionsController).form.values()
+        if let color = values[tagBackgroundColor] as? UIColor {
+            txtContent.backgroundColor = color
+            txtTitle.backgroundColor = color
+            bgColor = color
+        }
     }
 }
 
