@@ -463,6 +463,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         }
         
         if let image = values[tagImage] as? UIImage {
+            imagePositionTop = (values[tagImagePositionTop] as? String) == NSLocalizedString("Top", comment: "") ? true : false
             self.image = UIImageJPEGRepresentation(image, 0)
         } else {
             self.image = nil
