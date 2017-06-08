@@ -461,6 +461,13 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
             txtTitle.backgroundColor = color
             bgColor = color
         }
+        
+        if let image = values[tagImage] as? UIImage {
+            self.image = UIImageJPEGRepresentation(image, 0)
+        } else {
+            self.image = nil
+        }
+        
     }
 }
 
