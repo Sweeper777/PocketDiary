@@ -90,4 +90,7 @@ class DiaryOptionsController: FormViewController {
         }
     }
     
+    @IBAction func cancel() {
+        dismiss(animated: true, completion: nil)
+    }
 }
