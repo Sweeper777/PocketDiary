@@ -52,3 +52,20 @@
 "Cancel" = "Cancel";
 "Display Text" = "Display Text";
 "Add Link" = "Add Link";
+
+"Options" = "Options";
+"Background Color" = "Background Color";
+"Recommended" = "Recommended";
+"Reds" = "Reds";
+"Yellows" = "Yellows";
+"Greens" = "Greens";
+"Blues" = "Blues";
+"Purples" = "Purples";
+"Grayscale" = "Grayscale";
+"Image (Tap to select)" = "Image (Tap to select)";
+"Image Position" = "Image Position";
+"Top" = "Top";
+"Bottom" = "Bottom";
+"Take photo" = "Take photo";
+"Photo Library" = "Photo Library";
+"Saved Photos" = "Saved Photos";
