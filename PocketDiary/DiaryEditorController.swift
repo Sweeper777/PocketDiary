@@ -469,6 +469,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
             self.image = nil
         }
         
+        updatePreview()
     }
 }
 
