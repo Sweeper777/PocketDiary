@@ -14,16 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DTCollectionViewManager.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>DTModelStorage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -132,11 +122,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3A8291EEE9CE483ED516DC3484FC1174</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3EBB97988EA73CAED65A10806B0BB121</key>
 		<dict>
 			<key>primary</key>
@@ -152,11 +137,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41C53119378575838EE69C31836BABCC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>43B0E9BBA560D466716BD38AC96D55E0</key>
 		<dict>
 			<key>primary</key>
@@ -167,22 +147,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57C32452CB05CAF36636370925B8281D</key>
+		<key>58A88D07562AB2B1537D480BBF840A7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>58F8527E74F83232A1EF0C9675CF627E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>62A2494629F268CC2D9060742EA1C46C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7353BA4B98D5DEA09493CEAF8F4B057F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,17 +172,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9019D090861961D65A50B0C1F353402C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>903A108934E1A089B76F443DC34C8E54</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9056A491E085CB2F6412732A244E3D7F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -222,7 +182,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4A0DA1E48AA57C4A9197410446B67F1</key>
+		<key>9BACC8DF145569E4538D9120F2E364C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -232,7 +192,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B2146357FFDC5316F50BCF30B4ADC18C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CA8074A2B2C9F7D9C106DBCF5E6F9BF4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D2E30C6C3DF686C325691F5D8F214812</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F138C9DA5FE6536CE4F8A4286180ABE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF1B1A79F865A9E488611982F59BE282</key>
 		<dict>
 			<key>primary</key>
 			<true/>

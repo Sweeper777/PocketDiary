@@ -13,8 +13,6 @@ target 'PocketDiary' do
     pod 'LLSwitch'
     pod 'ActionSheetPicker'
     pod 'Keyboardy'
-    pod 'DTModelStorage'
-    pod 'DTCollectionViewManager'
     pod 'Base64nl'
     pod 'LTHPasscodeViewController'
     pod 'Firebase'

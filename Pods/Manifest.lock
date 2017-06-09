@@ -1,11 +1,6 @@
 PODS:
   - ActionSheetPicker (1.6.2)
   - Base64nl (1.2)
-  - DTCollectionViewManager (5.3.0):
-    - DTModelStorage (~> 5.0)
-  - DTModelStorage (5.0.1):
-    - DTModelStorage/Core (= 5.0.1)
-  - DTModelStorage/Core (5.0.1)
   - Emoji-swift (0.1.0)
   - Eureka (3.0.0)
   - EZLoadingActivity (1.01)
@@ -42,8 +37,6 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker
   - Base64nl
-  - DTCollectionViewManager
-  - DTModelStorage
   - Emoji-swift
   - Eureka
   - EZLoadingActivity
@@ -64,8 +57,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
-  DTCollectionViewManager: 63cc466a0037b48809ce855a2751af29c99d70e3
-  DTModelStorage: c1987e14397499d504938e73a2041f4857926349
   Emoji-swift: 20010383183f4d85e6e5a2b9642b96ebdb4f06ae
   Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   EZLoadingActivity: edd7e387e5197b116ce2cccb3fd747ababc2a510
@@ -87,6 +78,6 @@ SPEC CHECKSUMS:
   SZTextView: 094dc6acc9beec537685c545d6e3e0d4975174e1
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: c40e5f9fad0460855c92db1bc41cdc0b6c3ffee9
+PODFILE CHECKSUM: 3a12133cded0d142349f21f8521262f0012f389a
 
 COCOAPODS: 1.1.0.beta.1
