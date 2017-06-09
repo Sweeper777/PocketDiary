@@ -14,6 +14,8 @@ class DiaryOptionsController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = NSLocalizedString("Options", comment: "")
+        
         form +++ ColorPickerRow(tagBackgroundColor) {
             row in
             row.title = NSLocalizedString("Background Color", comment: "")
