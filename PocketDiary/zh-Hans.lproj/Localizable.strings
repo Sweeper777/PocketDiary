@@ -52,3 +52,20 @@
 "Cancel" = "取消";
 "Display Text" = "显示的文字";
 "Add Link" = "添加链接";
+
+"Options" = "选项";
+"Background Color" = "背景色";
+"Recommended" = "推荐";
+"Reds" = "红";
+"Yellows" = "黄";
+"Greens" = "绿";
+"Blues" = "蓝";
+"Purples" = "紫";
+"Grayscale" = "黑白";
+"Image (Tap to select)" = "图片（轻触以选择）";
+"Image Position" = "图片位置";
+"Top" = "顶部";
+"Bottom" = "底部";
+"Take photo" = "相机";
+"Photo Library" = "照片图库";
+"Saved Photos" = "已保存的照片";
