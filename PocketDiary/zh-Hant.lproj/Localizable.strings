@@ -52,3 +52,20 @@
 "Cancel" = "取消";
 "Display Text" = "顯示的文字";
 "Add Link" = "添加鏈接";
+
+"Options" = "設定";
+"Background Color" = "背景色";
+"Recommended" = "推薦";
+"Reds" = "紅";
+"Yellows" = "黃";
+"Greens" = "綠";
+"Blues" = "藍";
+"Purples" = "紫";
+"Grayscale" = "黑白";
+"Image (Tap to select)" = "相片（輕觸以選擇）";
+"Image Position" = "相片位置";
+"Top" = "頂部";
+"Bottom" = "底部";
+"Take photo" = "相機";
+"Photo Library" = "照片圖庫";
+"Saved Photos" = "已保存的相片";
