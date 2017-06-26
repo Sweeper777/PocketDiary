@@ -26,6 +26,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet var tabs: UISegmentedControl!
     @IBOutlet var deleteBtn: UIBarButtonItem!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet var dateLabel: UILabel!
     @IBOutlet var ad: GADBannerView!
 
     override func viewDidLoad() {

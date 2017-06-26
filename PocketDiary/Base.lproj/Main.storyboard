@@ -711,6 +711,7 @@
                     <connections>
                         <outlet property="ad" destination="gi6-0r-VJH" id="y2Q-13-xbx"/>
                         <outlet property="bottomConstraint" destination="dRE-Fx-cad" id="5E6-bc-gdY"/>
+                        <outlet property="dateLabel" destination="Jza-IJ-mMS" id="GMI-MT-qVn"/>
                         <outlet property="deleteBtn" destination="lUH-2t-6gv" id="ATM-fY-k4l"/>
                         <outlet property="preview" destination="je6-zK-B5x" id="GHV-q2-CGw"/>
                         <outlet property="tabs" destination="4ps-LB-78G" id="qYR-fw-07X"/>
