@@ -34,6 +34,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .none
+        dateLabel.text = formatter.string(from: date)
         
         if entry != nil {
             txtTitle.text = entry.title
