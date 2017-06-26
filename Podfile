@@ -22,6 +22,7 @@ target 'PocketDiary' do
     pod 'Eureka'
     pod 'ImageRow'
     pod 'UIColor_Hex_Swift'
+    pod 'SkyFloatingLabelTextField'
 end
 
 target 'PocketDiaryTests' do
