@@ -47,6 +47,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
             tabs.selectedSegmentIndex = 1
             txtContent.isHidden = true
             preview.isHidden = false
+            dateLabel.isHidden = true
         } else {
             _ = self.navigationItem.leftBarButtonItems?.remove(object: deleteBtn)
         }
@@ -271,9 +272,11 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         if sender.selectedSegmentIndex == 0 {
             txtContent.isHidden = false
             preview.isHidden = true
+            dateLabel.isHidden = false
         } else if sender.selectedSegmentIndex == 1 {
             txtContent.isHidden = true
             preview.isHidden = false
+            dateLabel.isHidden = true
             updatePreview()
         }
     }
