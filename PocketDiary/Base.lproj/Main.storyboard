@@ -583,8 +583,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4ps-LB-78G">
-                                <rect key="frame" x="240" y="110" width="121" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4ps-LB-78G">
+                                <rect key="frame" x="183" y="110" width="121" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="121" id="O3N-ub-0RH"/>
                                 </constraints>
@@ -606,8 +606,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gJf-nL-CvL" customClass="SZTextView">
-                                <rect key="frame" x="20" y="146" width="555" height="340"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gJf-nL-CvL" customClass="SZTextView">
+                                <rect key="frame" x="20" y="146" width="279" height="308"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -615,8 +615,8 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Write your diary here! (Markdown supported!)"/>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVF-Dm-pSP">
-                                <rect key="frame" x="117" y="72" width="463" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVF-Dm-pSP">
+                                <rect key="frame" x="117" y="72" width="187" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -624,25 +624,36 @@
                                     <action selector="textChanged:" destination="raf-vE-H24" eventType="valueChanged" id="VZj-rQ-aGr"/>
                                 </connections>
                             </textField>
-                            <webView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="je6-zK-B5x">
-                                <rect key="frame" x="20" y="144" width="555" height="342"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-0r-VJH" customClass="GADBannerView">
+                                <rect key="frame" x="20" y="462" width="279" height="54"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jza-IJ-mMS">
+                                <rect key="frame" x="20" y="115" width="155" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Tfq-Bv-pvx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="je6-zK-B5x">
+                                <rect key="frame" x="20" y="144" width="279" height="310"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                             </webView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-0r-VJH" customClass="GADBannerView">
-                                <rect key="frame" x="20" y="494" width="555" height="54"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qp5-ON-xng" firstAttribute="top" secondItem="Cm7-9X-4w6" secondAttribute="bottom" constant="12" id="0bJ-LP-kpS"/>
-                            <constraint firstItem="4ps-LB-78G" firstAttribute="centerX" secondItem="Iof-w3-tnv" secondAttribute="centerX" id="1mK-7z-09M"/>
                             <constraint firstItem="gJf-nL-CvL" firstAttribute="top" secondItem="4ps-LB-78G" secondAttribute="bottom" constant="8" symbolic="YES" id="2I5-NJ-gCx"/>
                             <constraint firstItem="gi6-0r-VJH" firstAttribute="leading" secondItem="gJf-nL-CvL" secondAttribute="leading" id="3S2-ri-buL"/>
                             <constraint firstItem="vhr-9Y-RVv" firstAttribute="top" secondItem="je6-zK-B5x" secondAttribute="bottom" constant="70" id="92Z-4K-jWF"/>
                             <constraint firstItem="hVF-Dm-pSP" firstAttribute="trailing" secondItem="Iof-w3-tnv" secondAttribute="trailingMargin" id="Iai-GT-Qft"/>
+                            <constraint firstItem="Jza-IJ-mMS" firstAttribute="top" secondItem="hVF-Dm-pSP" secondAttribute="bottom" constant="13" id="JBX-dn-e1R"/>
                             <constraint firstItem="gi6-0r-VJH" firstAttribute="top" secondItem="je6-zK-B5x" secondAttribute="bottom" constant="8" symbolic="YES" id="NCO-eF-gjH"/>
+                            <constraint firstItem="Jza-IJ-mMS" firstAttribute="leading" secondItem="Iof-w3-tnv" secondAttribute="leadingMargin" constant="4" id="OG2-lr-YH5"/>
+                            <constraint firstItem="4ps-LB-78G" firstAttribute="leading" secondItem="Jza-IJ-mMS" secondAttribute="trailing" constant="8" id="PxF-Uz-QCE"/>
                             <constraint firstItem="qp5-ON-xng" firstAttribute="centerY" secondItem="hVF-Dm-pSP" secondAttribute="centerY" id="Qng-WG-vvG"/>
                             <constraint firstItem="gi6-0r-VJH" firstAttribute="trailing" secondItem="gJf-nL-CvL" secondAttribute="trailing" id="Qpa-e5-kiA"/>
                             <constraint firstItem="hVF-Dm-pSP" firstAttribute="top" secondItem="Cm7-9X-4w6" secondAttribute="bottom" constant="8" symbolic="YES" id="TEO-fZ-StX"/>
@@ -656,6 +667,7 @@
                             <constraint firstItem="qp5-ON-xng" firstAttribute="leading" secondItem="Iof-w3-tnv" secondAttribute="leadingMargin" constant="4" id="rTM-IP-zzV"/>
                             <constraint firstItem="je6-zK-B5x" firstAttribute="leading" secondItem="gJf-nL-CvL" secondAttribute="leading" id="xsj-46-ymJ"/>
                             <constraint firstItem="je6-zK-B5x" firstAttribute="trailing" secondItem="gJf-nL-CvL" secondAttribute="trailing" id="yuC-wl-IgO"/>
+                            <constraint firstItem="4ps-LB-78G" firstAttribute="trailing" secondItem="Iof-w3-tnv" secondAttribute="trailingMargin" id="zTB-va-ahj"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
