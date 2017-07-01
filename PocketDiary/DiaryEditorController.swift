@@ -10,6 +10,7 @@ import RFKeyboardToolbar
 import SwiftyUtils
 import SCLAlertView
 import FTPopOverMenu_Swift
+import SkyFloatingLabelTextField
 
 class DiaryEditorController: UIViewController, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -20,7 +21,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
     var imagePositionTop: Bool?
     var entry: Entry!
     var userDeletedEntry = false
-    @IBOutlet var txtTitle: UITextField!
+    @IBOutlet var txtTitle: SkyFloatingLabelTextField!
     @IBOutlet var txtContent: SZTextView!
     @IBOutlet var preview: UIWebView!
     @IBOutlet var tabs: UISegmentedControl!
@@ -35,6 +36,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         formatter.dateStyle = .short
         formatter.timeStyle = .none
         dateLabel.text = formatter.string(from: date)
+        txtTitle.title = NSLocalizedString("Title", comment: "")
         
         if entry != nil {
             txtTitle.text = entry.title
