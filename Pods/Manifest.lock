@@ -39,7 +39,7 @@ DEPENDENCIES:
   - ActionSheetPicker
   - Base64nl
   - Emoji-swift
-  - Eureka
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `Swift-3.3`)
   - EZLoadingActivity
   - Firebase
   - FSCalendar
@@ -56,11 +56,21 @@ DEPENDENCIES:
   - SZTextView
   - UIColor_Hex_Swift
 
+EXTERNAL SOURCES:
+  Eureka:
+    :branch: Swift-3.3
+    :git: https://github.com/xmartlabs/Eureka.git
+
+CHECKOUT OPTIONS:
+  Eureka:
+    :commit: 8fcc11477411b1ac96339d3d9d0973956ed05151
+    :git: https://github.com/xmartlabs/Eureka.git
+
 SPEC CHECKSUMS:
   ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
   Emoji-swift: 20010383183f4d85e6e5a2b9642b96ebdb4f06ae
-  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
+  Eureka: 5b9418d7bfdc21ca977d69d124a6409f3e9af2c7
   EZLoadingActivity: edd7e387e5197b116ce2cccb3fd747ababc2a510
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
   FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
@@ -81,6 +91,6 @@ SPEC CHECKSUMS:
   SZTextView: 094dc6acc9beec537685c545d6e3e0d4975174e1
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: 5e5946a3b458bed247201638c0dc1aa5e2cdc710
+PODFILE CHECKSUM: 7a9e2eab6dbb09678c5c483f1210a73ba9be0e4f
 
-COCOAPODS: 1.1.0.beta.1
+COCOAPODS: 1.3.1

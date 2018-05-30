@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40B0BF126308785D1027032FF80AB074"
+               BlueprintIdentifier = "A110C19F74AAA2B8904BE7913A0BC4D9"
                BuildableName = "Emoji.framework"
                BlueprintName = "Emoji-swift"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40B0BF126308785D1027032FF80AB074"
+            BlueprintIdentifier = "A110C19F74AAA2B8904BE7913A0BC4D9"
             BuildableName = "Emoji.framework"
             BlueprintName = "Emoji-swift"
             ReferencedContainer = "container:Pods.xcodeproj">

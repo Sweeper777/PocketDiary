@@ -172,31 +172,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PocketDiary.CenterItemsToolbar.addButtons () -&gt; ()"
+                  symbolName = "PocketDiary.CenterItemsToolbar.addButtons() -&gt; ()"
                   moduleName = "PocketDiary"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mulangsu/Documents/PocketDiary/PocketDiary/CenterItemsToolbar.swift"
-                  timestampString = "520590875.024233"
+                  timestampString = "548536329.374804"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "6"
                   endingLineNumber = "6"
-                  offsetFromSymbolStart = "23">
+                  offsetFromSymbolStart = "28">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PocketDiary.CenterItemsToolbar.(addButtons () -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (Any) -&gt; __ObjC.RFToolbarButton in PocketDiary.CenterItemsToolbar.addButtons() -&gt; ()"
                   moduleName = "PocketDiary"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mulangsu/Documents/PocketDiary/PocketDiary/CenterItemsToolbar.swift"
-                  timestampString = "520590875.026713"
+                  timestampString = "548536329.378708"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "6"
                   endingLineNumber = "6"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>

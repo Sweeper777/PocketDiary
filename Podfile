@@ -19,7 +19,7 @@ target 'PocketDiary' do
     pod 'RFKeyboardToolbar'
     pod 'SCLAlertView'
     pod 'FTPopOverMenu_Swift'
-    pod 'Eureka'
+    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'Swift-3.3'
     pod 'ImageRow'
     pod 'UIColor_Hex_Swift'
     pod 'SkyFloatingLabelTextField'
