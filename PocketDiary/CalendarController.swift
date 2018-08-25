@@ -107,12 +107,11 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
             images.append("key_colored")
         }
         
-        let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
+        let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
         let config = FTConfiguration.shared
         config.menuWidth = menuWidth
         config.backgoundTintColor = #colorLiteral(red: 0.8242458767, green: 0.8242458767, blue: 0.8242458767, alpha: 1)
-        config.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         FTPopOverMenu.showForSender(sender: sender.value(forKey: "view") as! UIView, with: menuItems.map { NSLocalizedString($0, comment: "") }, menuImageArray: images, done: { index in
             let item = menuItems[index]
             switch item {
