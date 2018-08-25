@@ -1,45 +1,77 @@
 PODS:
   - ActionSheetPicker (1.6.2)
   - Base64nl (1.2)
-  - Emoji-swift (0.1.0)
-  - Eureka (3.0.0)
+  - Emoji-swift (0.2.2)
+  - Eureka (4.2.0)
   - EZLoadingActivity (1.01)
-  - Firebase (4.0.0):
-    - Firebase/Core (= 4.0.0)
-  - Firebase/Core (4.0.0):
-    - FirebaseAnalytics (= 4.0.0)
-    - FirebaseCore (= 4.0.0)
-  - FirebaseAnalytics (4.0.0):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (4.0.0):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (2.0.0):
-    - FirebaseCore (~> 4.0)
-  - FSCalendar (2.7.7)
-  - FTPopOverMenu_Swift (0.0.7)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - ImageRow (2.0.0):
-    - Eureka (= 3.0)
-  - Keyboardy (0.2.0)
-  - LLSwitch (1.0.4)
-  - LTHPasscodeViewController (3.8.8)
+  - Firebase (5.6.0):
+    - Firebase/Core (= 5.6.0)
+  - Firebase/Core (5.6.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.1.1)
+  - Firebase/CoreOnly (5.6.0):
+    - FirebaseCore (= 5.1.1)
+  - FirebaseAnalytics (5.1.1):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.2)
+    - GoogleAppMeasurement (~> 5.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
+    - GoogleUtilities/MethodSwizzler (~> 5.2.0)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.1.1):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.2.1):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.2)
+  - FSCalendar (2.7.9)
+  - FTPopOverMenu_Swift (0.1.2)
+  - GoogleAppMeasurement (5.1.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
+    - GoogleUtilities/MethodSwizzler (~> 5.2.0)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.2.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.2.2)
+  - GoogleUtilities/Logger (5.2.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.2.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.2.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.2.2)"
+  - GoogleUtilities/Reachability (5.2.2):
+    - GoogleUtilities/Logger
+  - ImageRow (3.1.0):
+    - Eureka (~> 4.0)
+  - Keyboardy (0.2.4)
+  - LLSwitch (1.0.5)
+  - LTHPasscodeViewController (3.9.1)
   - MMMarkdown (0.5.5)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - RFKeyboardToolbar (1.3)
-  - SCLAlertView (0.7.0)
-  - SkyFloatingLabelTextField (3.1.0)
-  - SwiftyUtils (1.0.0)
+  - SCLAlertView (0.8)
+  - SkyFloatingLabelTextField (3.5.1)
+  - SwiftyUtils (2.0.0)
   - SZTextView (1.3.0)
-  - UIColor_Hex_Swift (3.0.2)
+  - UIColor_Hex_Swift (4.0.2)
 
 DEPENDENCIES:
   - ActionSheetPicker
   - Base64nl
   - Emoji-swift
-  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `Swift-3.3`)
+  - Eureka (= 4.2.0)
   - EZLoadingActivity
   - Firebase
   - FSCalendar
@@ -56,41 +88,61 @@ DEPENDENCIES:
   - SZTextView
   - UIColor_Hex_Swift
 
-EXTERNAL SOURCES:
-  Eureka:
-    :branch: Swift-3.3
-    :git: https://github.com/xmartlabs/Eureka.git
-
-CHECKOUT OPTIONS:
-  Eureka:
-    :commit: 8fcc11477411b1ac96339d3d9d0973956ed05151
-    :git: https://github.com/xmartlabs/Eureka.git
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ActionSheetPicker
+    - Base64nl
+    - Emoji-swift
+    - Eureka
+    - EZLoadingActivity
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FSCalendar
+    - FTPopOverMenu_Swift
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - ImageRow
+    - Keyboardy
+    - LLSwitch
+    - LTHPasscodeViewController
+    - MMMarkdown
+    - nanopb
+    - RFKeyboardToolbar
+    - SCLAlertView
+    - SkyFloatingLabelTextField
+    - SwiftyUtils
+    - SZTextView
+    - UIColor_Hex_Swift
 
 SPEC CHECKSUMS:
   ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
-  Emoji-swift: 20010383183f4d85e6e5a2b9642b96ebdb4f06ae
-  Eureka: 5b9418d7bfdc21ca977d69d124a6409f3e9af2c7
+  Emoji-swift: d118ef9be36f02b4bfa702ffde08a4b07a9e1d3d
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   EZLoadingActivity: edd7e387e5197b116ce2cccb3fd747ababc2a510
-  Firebase: 284eea779b73fdff309791817da7c68bff8dd572
-  FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
-  FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
-  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
-  FSCalendar: 8bda3534e8590b87124af9a236887314e0359a27
-  FTPopOverMenu_Swift: 8939e3c98a72217c761e806c915101227ed7c8fc
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  ImageRow: 9dfbfa38c1e62c25d638bc40e97a48c1809443c4
-  Keyboardy: 10dcdc632df75f8b478f5700ce913cac4e684a90
-  LLSwitch: b5f0e574b4c53f46806df015cd21285464d4b440
-  LTHPasscodeViewController: 16275e64de508a4852c59ef90390331e2e4ec074
+  Firebase: 75ea9e232eefa158c1049028030b8f661a2ccb62
+  FirebaseAnalytics: 993577e91157feb40945abedd6ab346d8a4b6ac8
+  FirebaseCore: cb9ee75e0894def766167c95a4d5a14b1c138269
+  FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
+  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  FTPopOverMenu_Swift: c3795cb7a8b5dcf11468d8a2887ac75c4ff21dde
+  GoogleAppMeasurement: f7507b39b70ad0bd80b3d81518b2f43868974307
+  GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
+  ImageRow: 1ea483078bfa3d880a7fc76fdfcddfd5f29a9e6b
+  Keyboardy: 3c5f5d2870fd75ba3b7af4e3c9c494801a6e18e1
+  LLSwitch: d8b7098fd15f70099b989aa70d15aff8176578d5
+  LTHPasscodeViewController: f468d93fed2ffdc8843ac78c270c60d058e3affb
   MMMarkdown: 1af97166ce0f6d6e0cb05695665492195d27c3f1
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   RFKeyboardToolbar: c96a7d9458564d1fedc8ef6844b6c467934aade2
-  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
-  SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SkyFloatingLabelTextField: 4cbeece9c3aae97c6019d8fae511cb5b755874f7
+  SwiftyUtils: ae914aa96b5672e9282904771e5e5b44d2e307d6
   SZTextView: 094dc6acc9beec537685c545d6e3e0d4975174e1
-  UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
+  UIColor_Hex_Swift: 2fb123c7d864994a5137ef57c4dc55e17a657d29
 
-PODFILE CHECKSUM: 7a9e2eab6dbb09678c5c483f1210a73ba9be0e4f
+PODFILE CHECKSUM: ece5d6f4ca376b179abb782bbcabd5a75d5d23b0
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

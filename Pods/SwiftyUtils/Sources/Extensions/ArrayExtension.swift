@@ -9,7 +9,7 @@ import Foundation
 
 extension Array {
 
-    subscript(safe index: Int) -> Element? {
+    public subscript(safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 
@@ -168,7 +168,7 @@ extension Array {
             guard idx != next else {
                 continue
             }
-            swap(&self[idx], &self[next])
+            self.swapAt(idx, next)
         }
     }
 

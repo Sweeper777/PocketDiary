@@ -6,10 +6,11 @@
 import Foundation
 import UIKit
 
-// MARK - Localizables
+// MARK: - Localizables
 
 extension UIView {
 
+    @objc
     public func translateSubviews() {
         if subviews.isEmpty {
             return
@@ -37,7 +38,10 @@ extension UIView {
         } else if let textView = subview as? UITextView {
             textView.text = NSLocalizedString(textView.text, comment: "")
         } else if let button = subview as? UIButton {
-            button.setTitle(NSLocalizedString(button.title(for: .normal) ?? "", comment: ""), for: .normal)
+            let states: [UIControlState] = [.normal, .selected, .highlighted, .disabled, .application, .reserved]
+            for state in states where button.title(for: state) != nil {
+                button.setTitle(NSLocalizedString(button.title(for: state) ?? "", comment: ""), for: state)
+            }
         }
     }
 

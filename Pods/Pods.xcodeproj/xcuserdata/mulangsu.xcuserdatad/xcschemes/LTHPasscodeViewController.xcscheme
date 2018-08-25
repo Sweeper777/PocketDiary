@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F70FE54FC6689BA0FFC5616D47F9FC4F'
-               BlueprintName = 'LTHPasscodeViewController'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'LTHPasscodeViewController.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F9469C7822DDAB82563B07C8ED15B56D"
+               BlueprintName = "LTHPasscodeViewController"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "LTHPasscodeViewController.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

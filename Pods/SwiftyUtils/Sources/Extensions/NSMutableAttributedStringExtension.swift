@@ -10,7 +10,7 @@ import Foundation
     import UIKit
 #endif
 
-// MARK - Color
+// MARK: - Color
 
 extension NSMutableAttributedString {
 
@@ -39,7 +39,7 @@ extension NSMutableAttributedString {
 
 }
 
-// MARK - Strike
+// MARK: - Strike
 
 extension NSMutableAttributedString {
 
@@ -68,7 +68,7 @@ extension NSMutableAttributedString {
 
 }
 
-// MARK - Underline
+// MARK: - Underline
 
 extension NSMutableAttributedString {
 
@@ -97,27 +97,60 @@ extension NSMutableAttributedString {
 
 }
 
-// MARK - Private
+// MARK: - Font
+
+extension NSMutableAttributedString {
+
+    public static func font(inText text: String, font: SwiftyFont, afterOcurrence occurence: String) -> NSMutableAttributedString {
+        let attrStr = NSMutableAttributedString(string: text)
+        attrStr.font(font, afterOcurrence: occurence)
+        return attrStr
+    }
+
+    public static func font(inText text: String, font: SwiftyFont, occurences searchString: String) -> NSMutableAttributedString {
+        let attrStr = NSMutableAttributedString(string: text)
+        attrStr.font(font, occurences: searchString)
+        return attrStr
+    }
+
+    public func font(_ font: SwiftyFont, afterOcurrence occurence: String) {
+        let range = NSRange(text: string, afterOccurence: occurence)
+        if range.location != NSNotFound {
+            addFontAttribute(value: font, range: range)
+        }
+    }
+
+    public func font(_ font: SwiftyFont, occurences searchString: String) {
+        addAttribute(forOccurence: searchString, value: font, addAttributeMethod: addFontAttribute)
+    }
+
+}
+
+// MARK: - Private
 
 fileprivate extension NSMutableAttributedString {
 
     func addColorAttribute(value: Any, range: NSRange) {
-        addAttribute(NSForegroundColorAttributeName, value: value, range: range)
+        addAttribute(NSAttributedStringKey.foregroundColor, value: value, range: range)
     }
 
     func addStrikeAttribute(value: Any = 1, range: NSRange) {
-        addAttribute(NSStrikethroughStyleAttributeName, value: value, range: range)
+        addAttribute(NSAttributedStringKey.strikethroughStyle, value: value, range: range)
     }
 
     func addUnderlineAttribute(value: Any = 1, range: NSRange) {
-        addAttribute(NSUnderlineStyleAttributeName, value: value, range: range)
+        addAttribute(NSAttributedStringKey.underlineStyle, value: value, range: range)
+    }
+
+    func addFontAttribute(value: Any = 1, range: NSRange) {
+        addAttribute(NSAttributedStringKey.font, value: value, range: range)
     }
 
     func addAttribute(forOccurence searchString: String,
                       value: Any = 1,
                       addAttributeMethod: ((_ value: Any, _ range: NSRange) -> Void)) {
-        let inputLength = string.length
-        let searchLength = searchString.length
+        let inputLength = string.count
+        let searchLength = searchString.count
         var range = NSRange(location: 0, length: length)
         while range.location != NSNotFound {
             range = (string as NSString).range(of: searchString, options: [], range: range)

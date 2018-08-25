@@ -1,7 +1,7 @@
 # SwiftyUtils
 
 [![CI Status](https://travis-ci.org/tbaranes/SwiftyUtils.svg)](https://travis-ci.org/tbaranes/SwiftyUtils)
-![Language](https://img.shields.io/badge/language-Swift%203.1-orange.svg)
+![Language](https://img.shields.io/badge/language-Swift%204.0-orange.svg)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyUtils.svg)](https://img.shields.io/cocoapods/v/SwiftyUtils.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyUtils.svg?style=flat)](http://cocoadocs.org/docsets/SwiftyUtils)
@@ -666,6 +666,30 @@ let attrStr = NSMutableAttributedString(string: "Hello world")
 attrStr.underline(afterOcurrence: "llo")
 ```
 
+Use custom font for each occurence:
+
+```swift
+let font = UIFont.boldSystemFont(ofSize: 15)
+let attrStr: NSMutableAttributedString = NSMutableAttributedString.font(inText: "hello world", font: font, occurences: "llo")
+
+// OR
+
+let attrStr: NSMutableAttributedString = NSMutableAttributedString(string: "Hello world")
+attrStr.font(font, occurences: "llo")
+```
+
+Custom font for everything after an occurence:
+
+```swift
+let font = UIFont.boldSystemFont(ofSize: 15)
+let attrStr = NSMutableAttributedString.colored(inText: "Hello world", font: font, afterOcurrence: "llo")
+
+// OR
+
+let attrStr = NSMutableAttributedString(string: "Hello world")
+attrStr.font(font, afterOcurrence: "llo")
+```
+
 ### NSObject extension
 
 Get the class name of a `NSObject`:
@@ -723,13 +747,6 @@ var string = "hello world"
 print(string[0]) // h
 print(string[2]) // l
 print(string[1...3]) // ell
-```
-
-Get the length of a string:
-
-```swift
-var string = "hello world"
-print(string.length) // 11
 ```
 
 Check if it contains a string:
@@ -1075,6 +1092,12 @@ Get the current view controller display:
 ```swift
 UIApplication.shared.topViewController() // Using UIWindow's rootViewController as baseVC
 UIApplication.shared.topViewController(from: baseVC) // topVC from the base view controller
+```
+
+Get the app delegate:
+
+```swift
+UIApplication.delegate(AppDelegate.self)
 ```
 
 ### UIDevice extension

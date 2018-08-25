@@ -8,9 +8,7 @@
 
 #import "LTHPasscodeViewController.h"
 #import "LTHKeychainUtils.h"
-#if !(TARGET_IPHONE_SIMULATOR)
 #import <LocalAuthentication/LocalAuthentication.h>
-#endif
 
 #define LTHiOS8 ([[[UIDevice currentDevice] systemVersion] compare:@"8.0" \
 options:NSNumericSearch] != NSOrderedAscending)
@@ -49,7 +47,11 @@ options:NSNumericSearch] != NSOrderedAscending)
  Any help would be greatly appreciated.
  */
 
+#ifdef LTH_IS_APP_EXTENSION
+#define LTHMainWindow [UIApplication sharedApplication].keyWindow
+#else
 #define LTHMainWindow [UIApplication sharedApplication].windows[0]
+#endif
 
 @interface LTHPasscodeViewController () <UITextFieldDelegate>
 @property (nonatomic, strong) UIView      *coverView;
@@ -88,13 +90,11 @@ options:NSNumericSearch] != NSOrderedAscending)
 @property (nonatomic, assign) BOOL        isUserEnablingPasscode;
 @property (nonatomic, assign) BOOL        isUserSwitchingBetweenPasscodeModes; // simple/complex
 @property (nonatomic, assign) BOOL        timerStartInSeconds;
-@property (nonatomic, assign) BOOL        isUsingTouchID;
+@property (nonatomic, assign) BOOL        isUsingBiometrics;
 @property (nonatomic, assign) BOOL        useFallbackPasscode;
 @property (nonatomic, assign) BOOL        isAppNotificationsObserved;
+@property (nonatomic, strong) LAContext   *biometricsContext;
 
-#if !(TARGET_IPHONE_SIMULATOR)
-@property (nonatomic, strong) LAContext   *touchIDContext;
-#endif
 @end
 
 @implementation LTHPasscodeViewController
@@ -316,12 +316,20 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
                                               error:nil];
 }
 
-#if !(TARGET_IPHONE_SIMULATOR)
-- (void)_handleTouchIDFailureAndDisableTouchID:(BOOL)disableTouchID {
+
+- (void)resetPasscode {
+    if ([self _doesPasscodeExist]) {
+        NSString *passcode = [self _passcode];
+        [self _deletePasscode];
+        [self _savePasscode:passcode];
+    }
+}
+
+- (void)_handleBiometricsFailureAndDisableIt:(BOOL)disableBiometrics {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (disableTouchID) {
-            _isUsingTouchID = NO;
-            _allowUnlockWithTouchID = NO;
+        if (disableBiometrics) {
+            _isUsingBiometrics = NO;
+            _allowUnlockWithBiometrics = NO;
         }
         
         _useFallbackPasscode = YES;
@@ -338,70 +346,71 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
         }
     });
     
-    self.touchIDContext = nil;
+    self.biometricsContext = nil;
 }
 
 - (void)_setupFingerPrint {
-    if (!self.touchIDContext && _allowUnlockWithTouchID && !_useFallbackPasscode) {
-        self.touchIDContext = [[LAContext alloc] init];
+    if (!self.biometricsContext && _allowUnlockWithBiometrics && !_useFallbackPasscode) {
+        self.biometricsContext = [[LAContext alloc] init];
         
         NSError *error = nil;
-        if ([self.touchIDContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        if ([self.biometricsContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
             if (error) {
                 return;
             }
             
-            _isUsingTouchID = YES;
+            if (@available(iOS 11.0, *)) {
+                if (self.biometricsContext.biometryType == LABiometryTypeFaceID) {
+                    self.biometricsDetailsString = @"Unlock using Face ID";
+                }
+            }
+            
+            _isUsingBiometrics = YES;
             [_passcodeTextField resignFirstResponder];
             _animatingView.hidden = YES;
             
             // Authenticate User
-            [self.touchIDContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                                localizedReason:LTHPasscodeViewControllerStrings(self.touchIDString)
+            [self.biometricsContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                                localizedReason:LTHPasscodeViewControllerStrings(self.biometricsDetailsString)
                                           reply:^(BOOL success, NSError *error) {
                                               
-                                              if (error) {
-                                                  [self _handleTouchIDFailureAndDisableTouchID:false];
+                                              if (error || !success) {
+                                                  [self _handleBiometricsFailureAndDisableIt:false];
                                                   return;
                                               }
                                               
-                                              if (success) {
-                                                  dispatch_async(dispatch_get_main_queue(), ^{
-                                                      [self _dismissMe];
-                                                      
-                                                      if ([self.delegate respondsToSelector: @selector(passcodeWasEnteredSuccessfully)]) {
-                                                          [self.delegate performSelector: @selector(passcodeWasEnteredSuccessfully)];
-                                                      }
-                                                  });
+                                              dispatch_async(dispatch_get_main_queue(), ^{
+                                                  [self _dismissMe];
                                                   
-                                                  self.touchIDContext = nil;
-                                              }
-                                              else {
-                                                  [self _handleTouchIDFailureAndDisableTouchID:false];
-                                              }
+                                                  if ([self.delegate respondsToSelector: @selector(passcodeWasEnteredSuccessfully)]) {
+                                                      [self.delegate performSelector: @selector(passcodeWasEnteredSuccessfully)];
+                                                  }
+                                              });
+                                              
+                                              self.biometricsContext = nil;
                                           }];
         }
         else {
-            [self _handleTouchIDFailureAndDisableTouchID:true];
+            [self _handleBiometricsFailureAndDisableIt:true];
         }
     }
     else {
-        [self _handleTouchIDFailureAndDisableTouchID:true];
+        [self _handleBiometricsFailureAndDisableIt:true];
     }
 }
 
 
-- (void)_saveAllowUnlockWithTouchID {
+- (void)_saveAllowUnlockWithBiometrics {
     if (!_usesKeychain &&
-        [self.delegate respondsToSelector:@selector(saveAllowUnlockWithTouchID:)]) {
-        [self.delegate saveAllowUnlockWithTouchID:_allowUnlockWithTouchID];
+        [self.delegate respondsToSelector:@selector(saveAllowUnlockWithBiometrics:)]) {
+        [self.delegate saveAllowUnlockWithBiometrics:_allowUnlockWithBiometrics];
         
         return;
     }
     
-    [LTHKeychainUtils storeUsername:_keychainAllowUnlockWithTouchID
+    [LTHKeychainUtils storeUsername:_keychainAllowUnlockWithBiometrics
                         andPassword:[NSString stringWithFormat: @"%d",
-                                     _allowUnlockWithTouchID]
+                                     _allowUnlockWithBiometrics]
                      forServiceName:_keychainServiceName
                      updateExisting:YES
                               error:nil];
@@ -409,13 +418,13 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
 
 
 
-- (BOOL)_allowUnlockWithTouchID {
+- (BOOL)_allowUnlockWithBiometrics {
     if (!_usesKeychain &&
-        [self.delegate respondsToSelector:@selector(allowUnlockWithTouchID)]) {
-        return [self.delegate allowUnlockWithTouchID];
+        [self.delegate respondsToSelector:@selector(allowUnlockWithBiometrics)]) {
+        return [self.delegate allowUnlockWithBiometrics];
     }
     
-    NSString *keychainValue = [LTHKeychainUtils getPasswordForUsername:_keychainAllowUnlockWithTouchID
+    NSString *keychainValue = [LTHKeychainUtils getPasswordForUsername:_keychainAllowUnlockWithBiometrics
                                                         andServiceName:_keychainServiceName
                                                                  error:nil];
     if (!keychainValue) return YES;
@@ -423,11 +432,10 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
 }
 
 
-- (void)setAllowUnlockWithTouchID:(BOOL)setAllowUnlockWithTouchID {
-    _allowUnlockWithTouchID = setAllowUnlockWithTouchID;
-    [self _saveAllowUnlockWithTouchID];
+- (void)setAllowUnlockWithBiometrics:(BOOL)setAllowUnlockWithBiometrics {
+    _allowUnlockWithBiometrics = setAllowUnlockWithBiometrics;
+    [self _saveAllowUnlockWithBiometrics];
 }
-#endif
 
 
 - (void)setDigitsCount:(NSInteger)digitsCount {
@@ -492,14 +500,20 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
     _animatingView.hidden = NO;
     _backgroundImageView.image = _backgroundImage;
     
-    if (!_passcodeTextField.isFirstResponder && (!_isUsingTouchID || _isUserChangingPasscode || _isUserBeingAskedForNewPasscode || _isUserConfirmingPasscode || _isUserEnablingPasscode || _isUserSwitchingBetweenPasscodeModes || _isUserTurningPasscodeOff)) {
+    if (!_passcodeTextField.isFirstResponder && (!_isUsingBiometrics || _isUserChangingPasscode || _isUserBeingAskedForNewPasscode || _isUserConfirmingPasscode || _isUserEnablingPasscode || _isUserSwitchingBetweenPasscodeModes || _isUserTurningPasscodeOff)) {
         [_passcodeTextField becomeFirstResponder];
         _animatingView.hidden = NO;
     }
-    if (_isUsingTouchID && !_isUserChangingPasscode && !_isUserBeingAskedForNewPasscode && !_isUserConfirmingPasscode && !_isUserEnablingPasscode && !_isUserSwitchingBetweenPasscodeModes && !_isUserTurningPasscodeOff) {
+    if (_isUsingBiometrics && !_isUserChangingPasscode && !_isUserBeingAskedForNewPasscode && !_isUserConfirmingPasscode && !_isUserEnablingPasscode && !_isUserSwitchingBetweenPasscodeModes && !_isUserTurningPasscodeOff) {
         [_passcodeTextField resignFirstResponder];
-        _animatingView.hidden = _isUsingTouchID;
+        _animatingView.hidden = _isUsingBiometrics;
     }
+}
+
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _animatingView.frame = self.view.bounds;
 }
 
 
@@ -604,9 +618,15 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
 #pragma mark - UI setup
 - (void)_setupNavBarWithLogoutTitle:(NSString *)logoutTitle {
     // Navigation Bar with custom UI
+    UIView *patchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LTHMainWindow.frame.size.width, [LTHPasscodeViewController getStatusBarHeight])];
+    patchView.backgroundColor = [UIColor whiteColor];
+    patchView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:patchView];
+    
     self.navBar =
-    [[UINavigationBar alloc] initWithFrame:CGRectMake(0, LTHMainWindow.frame.origin.y,
-                                                      LTHMainWindow.frame.size.width, 64)];
+    [[UINavigationBar alloc] initWithFrame:CGRectMake(0, patchView.frame.size.height,
+                                                          LTHMainWindow.frame.size.width, 44)];
+    self.navBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.navBar.tintColor = self.navigationTintColor;
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.navBar.barTintColor = self.navigationBarTintColor;
@@ -631,7 +651,7 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
     item.hidesBackButton = YES;
     
     [self.navBar pushNavigationItem:item animated:NO];
-    [LTHMainWindow addSubview:self.navBar];
+    [self.view addSubview:self.navBar];
 }
 
 - (void)_setupViews {
@@ -1005,47 +1025,51 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
     [self showLockScreenWithAnimation:NO withLogout:NO andLogoutTitle:nil];
 }
 
-
 - (void)showLockScreenWithAnimation:(BOOL)animated withLogout:(BOOL)hasLogout andLogoutTitle:(NSString*)logoutTitle {
+    [self showLockScreenOver:LTHMainWindow withAnimation:animated withLogout:hasLogout andLogoutTitle:logoutTitle];
+}
+
+- (void)showLockScreenOver:(UIView *)superview withAnimation:(BOOL)animated withLogout:(BOOL)hasLogout andLogoutTitle:(NSString*)logoutTitle {
     [self _prepareAsLockScreen];
     
     // In case the user leaves the app while the lockscreen is already active.
     if (_isCurrentlyOnScreen) { return; }
     _isCurrentlyOnScreen = YES;
     
-    [LTHMainWindow addSubview: self.view];
+    [superview addSubview: self.view];
     
     // All this hassle because a view added to UIWindow does not rotate automatically
     // and if we would have added the view anywhere else, it wouldn't display properly
     // (having a modal on screen when the user leaves the app, for example).
     [self rotateAccordingToStatusBarOrientationAndSupportedOrientations];
+    CGPoint superviewCenter = CGPointMake(superview.center.x, superview.center.y);
     CGPoint newCenter;
     [self statusBarFrameOrOrientationChanged:nil];
     if (LTHiOS8) {
         self.view.center = CGPointMake(self.view.center.x, self.view.center.y * -1.f);
-        newCenter = CGPointMake(LTHMainWindow.center.x,
-                                LTHMainWindow.center.y + self.navigationController.navigationBar.frame.size.height / 2);
+        newCenter = CGPointMake(superviewCenter.x,
+                                superviewCenter.y + self.navigationController.navigationBar.frame.size.height / 2);
     }
     else {
         if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft) {
             self.view.center = CGPointMake(self.view.center.x * -1.f, self.view.center.y);
-            newCenter = CGPointMake(LTHMainWindow.center.x - self.navigationController.navigationBar.frame.size.height / 2,
-                                    LTHMainWindow.center.y);
+            newCenter = CGPointMake(superviewCenter.x - self.navigationController.navigationBar.frame.size.height / 2,
+                                    superviewCenter.y);
         }
         else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
             self.view.center = CGPointMake(self.view.center.x * 2.f, self.view.center.y);
-            newCenter = CGPointMake(LTHMainWindow.center.x + self.navigationController.navigationBar.frame.size.height / 2,
-                                    LTHMainWindow.center.y);
+            newCenter = CGPointMake(superviewCenter.x + self.navigationController.navigationBar.frame.size.height / 2,
+                                    superviewCenter.y);
         }
         else if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) {
             self.view.center = CGPointMake(self.view.center.x, self.view.center.y * -1.f);
-            newCenter = CGPointMake(LTHMainWindow.center.x,
-                                    LTHMainWindow.center.y - self.navigationController.navigationBar.frame.size.height / 2);
+            newCenter = CGPointMake(superviewCenter.x,
+                                    superviewCenter.y - self.navigationController.navigationBar.frame.size.height / 2);
         }
         else {
             self.view.center = CGPointMake(self.view.center.x, self.view.center.y * 2.f);
-            newCenter = CGPointMake(LTHMainWindow.center.x,
-                                    LTHMainWindow.center.y + self.navigationController.navigationBar.frame.size.height / 2);
+            newCenter = CGPointMake(superviewCenter.x,
+                                    superviewCenter.y + self.navigationController.navigationBar.frame.size.height / 2);
         }
     }
     
@@ -1147,9 +1171,7 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
     
     self.title = @"";
     [self _resetUI];
-#if !(TARGET_IPHONE_SIMULATOR)
     [self _setupFingerPrint];
-#endif
 }
 
 
@@ -1206,7 +1228,7 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    if ((!_displayedAsLockScreen && !_displayedAsModal) || (_isUsingTouchID || !_useFallbackPasscode)) {
+    if ((!_displayedAsLockScreen && !_displayedAsModal) || (_isUsingBiometrics || !_useFallbackPasscode)) {
         return YES;
     }
     return !_isCurrentlyOnScreen;
@@ -1418,12 +1440,12 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
 
 
 - (void)_resetTextFields {
-    // If _allowUnlockWithTouchID == true, but _isUsingTouchID == false,
+    // If _allowUnlockWithBiometrics == true, but _isUsingBiometrics == false,
     // it means we're just launching, and we don't want the keyboard to show.
     if (![_passcodeTextField isFirstResponder]
-        && (!(_allowUnlockWithTouchID || _isUsingTouchID) || _useFallbackPasscode)) {
+        && (!(_allowUnlockWithBiometrics || _isUsingBiometrics) || _useFallbackPasscode)) {
         // It seems like there's a glitch with how the alert gets removed when hitting
-        // cancel in the TouchID prompt. In some cases, the keyboard is present, but invisible
+        // cancel in the Touch ID prompt. In some cases, the keyboard is present, but invisible
         // after dismissing the alert unless we call becomeFirstResponder with a short delay
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [_passcodeTextField becomeFirstResponder];
@@ -1550,11 +1572,11 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
 
 
 - (void)_applicationDidBecomeActive {
-    // If we are not being displayed as lockscreen, it means the TouchID alert
+    // If we are not being displayed as lockscreen, it means the biometrics alert
     // just closed - it also calls UIApplicationDidBecomeActiveNotification
     // and if we open for changing / turning off really fast, it will call this
     // after viewWillAppear, and it will hide the UI.
-    if (_isUsingTouchID && !_useFallbackPasscode && _displayedAsLockScreen) {
+    if (_isUsingBiometrics && !_useFallbackPasscode && _displayedAsLockScreen) {
         _animatingView.hidden = YES;
         [_passcodeTextField resignFirstResponder];
     }
@@ -1662,11 +1684,7 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
     _hidesCancelButton = YES;
     _passcodeAlreadyExists = YES;
     _newPasscodeEqualsOldPasscode = NO;
-#if !(TARGET_IPHONE_SIMULATOR)
-    _allowUnlockWithTouchID = [self _allowUnlockWithTouchID];
-#else
-    _allowUnlockWithTouchID = NO;
-#endif
+    _allowUnlockWithBiometrics = [self _allowUnlockWithBiometrics];
     _passcodeCharacter = @"\u2014"; // A longer "-";
     _localizationTableName = @"LTHPasscodeViewController";
     _displayAdditionalInfoDuringSettingPasscode = NO;
@@ -1683,7 +1701,7 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
     self.reenterPasscodeString = @"Re-enter your passcode";
     self.reenterNewPasscodeString = @"Re-enter your new passcode";
     self.enterNewPasscodeString = @"Enter your new passcode";
-    self.touchIDString = @"Unlock using Touch ID";
+    self.biometricsDetailsString = @"Unlock using Touch ID";
 }
 
 
@@ -1728,7 +1746,7 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
     _keychainServiceName = @"demoServiceName";
     _keychainTimerDurationUsername = @"passcodeTimerDuration";
     _keychainPasscodeIsSimpleUsername = @"passcodeIsSimple";
-    _keychainAllowUnlockWithTouchID = @"allowUnlockWithTouchID";
+    _keychainAllowUnlockWithBiometrics = @"allowUnlockWithTouchID";
 }
 
 
@@ -1788,7 +1806,7 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
      */
     [self rotateAccordingToStatusBarOrientationAndSupportedOrientations];
     if (LTHiOS8) {
-        _animatingView.frame = self.view.frame;
+        _animatingView.frame = self.view.bounds;
     }
     else {
         if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
@@ -1834,12 +1852,12 @@ static const NSInteger LTHMaxPasscodeDigits = 10;
     CGFloat angle = UIInterfaceOrientationAngleOfOrientation(orientation);
     CGAffineTransform transform = CGAffineTransformMakeRotation(angle);
     
-    [self setIfNotEqualTransform: transform
-                           frame: self.view.window.bounds];
+    [self setIfNotEqualTransform: transform];
 }
 
 
-- (void)setIfNotEqualTransform:(CGAffineTransform)transform frame:(CGRect)frame {
+- (void)setIfNotEqualTransform:(CGAffineTransform)transform {
+    CGRect frame = self.view.superview.frame;
     if(!CGAffineTransformEqualToTransform(self.view.transform, transform)) {
         self.view.transform = transform;
     }

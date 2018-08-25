@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '95A587A99D81F08D8274655FD07D9832'
-               BlueprintName = 'LLSwitch'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'LLSwitch.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DE2B2B4E89A9D92F6FB7B8F5FDF4CC88"
+               BlueprintName = "LLSwitch"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "LLSwitch.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

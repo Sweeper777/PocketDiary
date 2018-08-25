@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EC29203F40B57AD079497C67CED76BB1'
-               BlueprintName = 'Base64nl'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Base64nl.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D59DB71A2A5A88DF74C3C855867ADB3E"
+               BlueprintName = "Base64nl"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "Base64nl.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

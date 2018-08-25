@@ -26,27 +26,29 @@ import Eureka
 import Foundation
 
 /// Selector Controller used to pick an image
-open class ImagePickerController : UIImagePickerController, TypedRowControllerType, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+open class ImagePickerController: UIImagePickerController, TypedRowControllerType, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     /// The row that pushed or presented this controller
     public var row: RowOf<UIImage>!
     
     /// A closure to be called when the controller disappears.
-    public var onDismissCallback : ((UIViewController) -> ())?
+    public var onDismissCallback: ((UIViewController) -> ())?
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        allowsEditing = (row as? ImageRow)?.allowEditor ?? false
         delegate = self
     }
     
     open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         (row as? ImageRow)?.imageURL = info[UIImagePickerControllerReferenceURL] as? URL
-        row.value = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        row.value = info[ (row as? ImageRow)?.useEditedImage ?? false ? UIImagePickerControllerEditedImage : UIImagePickerControllerOriginalImage] as? UIImage
+        (row as? ImageRow)?.userPickerInfo = info
         onDismissCallback?(self)
     }
     
     open func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         onDismissCallback?(self)
     }
-    
 }

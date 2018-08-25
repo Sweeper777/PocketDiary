@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E313CEB3EB21E6E79555A9B59898C1D6'
-               BlueprintName = 'MMMarkdown'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'MMMarkdown.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8F8FA7F69F2D6385EFCCB9EA01928067"
+               BlueprintName = "MMMarkdown"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "MMMarkdown.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

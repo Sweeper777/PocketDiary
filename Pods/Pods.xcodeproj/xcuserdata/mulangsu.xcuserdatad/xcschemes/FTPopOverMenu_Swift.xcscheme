@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A4EC9035DEC9ACAE2EC8ADAAC0B00FFA'
-               BlueprintName = 'FTPopOverMenu_Swift'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'FTPopOverMenu_Swift.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D2C3332DB04BF97463A5FC0F9513F0D2"
+               BlueprintName = "FTPopOverMenu_Swift"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "FTPopOverMenu_Swift.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

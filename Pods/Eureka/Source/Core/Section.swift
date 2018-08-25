@@ -44,7 +44,7 @@ extension Section : Hidable, SectionDelegate {}
 extension Section {
 
     public func reload(with rowAnimation: UITableViewRowAnimation = .none) {
-        guard let tableView = (form?.delegate as? FormViewController)?.tableView, let index = index else { return }
+        guard let tableView = (form?.delegate as? FormViewController)?.tableView, let index = index, index < tableView.numberOfSections else { return }
         tableView.reloadSections(IndexSet(integer: index), with: rowAnimation)
     }
 }
@@ -53,7 +53,7 @@ extension Section {
 
     internal class KVOWrapper: NSObject {
 
-        dynamic private var _rows = NSMutableArray()
+        @objc dynamic private var _rows = NSMutableArray()
         var rows: NSMutableArray {
             return mutableArrayValue(forKey: "_rows")
         }
@@ -154,15 +154,17 @@ open class Section {
 
     public required init() {}
 
+    #if swift(>=4.1)
     public required init<S>(_ elements: S) where S: Sequence, S.Element == BaseRow {
         self.append(contentsOf: elements)
     }
+    #endif
 
-    public init(_ initializer: (Section) -> Void) {
+    public init(_ initializer: @escaping (Section) -> Void) {
         initializer(self)
     }
 
-    public init(_ header: String, _ initializer: (Section) -> Void = { _ in }) {
+    public init(_ header: String, _ initializer: @escaping (Section) -> Void = { _ in }) {
         self.header = HeaderFooterView(stringLiteral: header)
         initializer(self)
     }
@@ -197,13 +199,13 @@ open class Section {
 
     // MARK: Private
     lazy var kvoWrapper: KVOWrapper = { [unowned self] in return KVOWrapper(section: self) }()
-    
+
     var headerView: UIView?
     var footerView: UIView?
     var hiddenCache = false
 }
 
-extension Section : MutableCollection, BidirectionalCollection {
+extension Section: MutableCollection, BidirectionalCollection {
 
     // MARK: MutableCollectionType
 
@@ -237,26 +239,16 @@ extension Section : MutableCollection, BidirectionalCollection {
     }
 
     public subscript (range: Range<Int>) -> ArraySlice<BaseRow> {
-        get { return kvoWrapper.rows.map({ $0 as! BaseRow })[range.lowerBound...range.upperBound] }
-        set {
-            replaceSubrange(range, with: newValue)
-        }
+        get { return kvoWrapper.rows.map { $0 as! BaseRow }[range] }
+        set { replaceSubrange(range, with: newValue) }
     }
 
-    public func index(after i: Int) -> Int {return i + 1}
-    public func index(before i: Int) -> Int {return i - 1}
+    public func index(after i: Int) -> Int { return i + 1 }
+    public func index(before i: Int) -> Int { return i - 1 }
 
 }
 
-/// To add `RangeReplaceableCollection` conformance to your custom collection,
-/// add an empty initializer and the `replaceSubrange(_:with:)` method to your
-/// custom type. `RangeReplaceableCollection` provides default implementations
-/// of all its other methods using this initializer and method. For example,
-/// the `removeSubrange(_:)` method is implemented by calling
-/// `replaceSubrange(_:with:)` with an empty collection for the `newElements`
-/// parameter. You can override any of the protocol's required methods to
-/// provide your own custom implementation.
-extension Section : RangeReplaceableCollection {
+extension Section: RangeReplaceableCollection {
 
     // MARK: RangeReplaceableCollectionType
 
@@ -274,7 +266,6 @@ extension Section : RangeReplaceableCollection {
         }
     }
 
-    #if swift(>=3.2)
     public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Element == BaseRow {
         for i in subrange.lowerBound..<subrange.upperBound {
             if let row = kvoWrapper.rows.object(at: i) as? BaseRow {
@@ -283,32 +274,14 @@ extension Section : RangeReplaceableCollection {
             }
         }
 
-        let range = NSRange(location: subrange.lowerBound, length: subrange.upperBound - subrange.lowerBound)
-        kvoWrapper.rows.replaceObjects(in: range, withObjectsFrom: newElements.map { $0 })
+        kvoWrapper.rows.replaceObjects(in: NSRange(location: subrange.lowerBound, length: subrange.upperBound - subrange.lowerBound),
+                                       withObjectsFrom: newElements.map { $0 })
 
         kvoWrapper._allRows.insert(contentsOf: newElements, at: indexForInsertion(at: subrange.lowerBound))
         for row in newElements {
             row.wasAddedTo(section: self)
         }
     }
-    #else
-    public func replaceSubrange<C>(_ subrange: Range<Index>, with newElements: C) where C : Collection, C.Iterator.Element == Iterator.Element {
-        for i in subrange.lowerBound..<subrange.upperBound {
-            if let row = kvoWrapper.rows.object(at: i) as? BaseRow {
-                row.willBeRemovedFromSection()
-                kvoWrapper._allRows.remove(at: kvoWrapper._allRows.index(of: row)!)
-            }
-        }
-        
-        let range = NSRange(location: subrange.lowerBound, length: subrange.upperBound - subrange.lowerBound)
-        kvoWrapper.rows.replaceObjects(in: range, withObjectsFrom: newElements.map { $0 })
-        
-        kvoWrapper._allRows.insert(contentsOf: newElements, at: indexForInsertion(at: subrange.lowerBound))
-        for row in newElements {
-            row.wasAddedTo(section: self)
-        }
-    }
-    #endif
 
     public func removeAll(keepingCapacity keepCapacity: Bool = false) {
         // not doing anything with capacity
@@ -492,11 +465,13 @@ open class MultivaluedSection: Section {
         initialize()
     }
 
+    #if swift(>=4.1)
     public required init<S>(_ elements: S) where S : Sequence, S.Element == BaseRow {
         self.multivaluedOptions = MultivaluedOptions.Insert.union(.Delete)
         super.init(elements)
         initialize()
     }
+    #endif
 
     func initialize() {
         let addRow = addButtonProvider(self)
@@ -505,5 +480,13 @@ open class MultivaluedSection: Section {
             cell.formViewController()?.tableView(tableView, commit: .insert, forRowAt: indexPath)
         }
         self <<< addRow
+    }
+    /**
+     Method used to get all the values of the section.
+
+     - returns: An Array mapping the row values. [value]
+     */
+    public func values() -> [Any?] {
+        return kvoWrapper._allRows.filter({ $0.baseValue != nil }).map({ $0.baseValue })
     }
 }
