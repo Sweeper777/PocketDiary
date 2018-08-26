@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05607474562E2F87845E258F /* Pods_PocketDiaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABA27C81E12465BC5A52C18 /* Pods_PocketDiaryUITests.framework */; };
 		1EA93B3834DE21BA29F70C3F /* Pods_PocketDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D2B1E2DBBB4EF213916D05 /* Pods_PocketDiary.framework */; };
-		599BCC9FCF1645BD5585B338 /* Pods_PocketDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2589B925E4D98986E587F423 /* Pods_PocketDiaryTests.framework */; };
 		5A003C961D223C55001EA872 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A003C981D223C55001EA872 /* InfoPlist.strings */; };
 		5A0096061D386D8700C34650 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0096051D386D8700C34650 /* AdUtility.swift */; };
 		5A00F7A11D37A7D3006ACC63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */; };
@@ -34,9 +32,9 @@
 		5A26E9EB1EE2B3630010BA70 /* ColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26E9E61EE2B3630010BA70 /* ColorRow.swift */; };
 		5A26E9EC1EE2B3630010BA70 /* ColorSwatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26E9E71EE2B3630010BA70 /* ColorSwatchCell.swift */; };
 		5A26E9ED1EE2B3630010BA70 /* ColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26E9E81EE2B3630010BA70 /* ColorSwatchView.swift */; };
+		5AA34950213149A80034CAA7 /* LocalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3494F213149A80034CAA7 /* LocalDate.swift */; };
 		5AD6D7131D23B6870015BF0E /* Keyboardy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD6D7121D23B6870015BF0E /* Keyboardy.framework */; };
 		5AF571261D02582400DF004F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571241D02582400DF004F /* Entry.swift */; };
-		5AF571271D02582400DF004F /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */; };
 		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
 		5AF875B91D17D4DF00DF0669 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF875B81D17D4DF00DF0669 /* Threading.swift */; };
 		5AF8E50B1D250DDA00E2A547 /* DateRangeSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8E50A1D250DDA00E2A547 /* DateRangeSelectorController.swift */; };
@@ -75,7 +73,6 @@
 
 /* Begin PBXFileReference section */
 		2589B925E4D98986E587F423 /* Pods_PocketDiaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketDiaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3121E1568E64DC03A2F62B00 /* Pods-PocketDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiaryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiaryUITests/Pods-PocketDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5A003C971D223C55001EA872 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5A003C991D223C57001EA872 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5A0096051D386D8700C34650 /* AdUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUtility.swift; sourceTree = "<group>"; };
@@ -119,10 +116,10 @@
 		5A3A43DF1D4B095400D9D5E2 /* FittableFontLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FittableFontLabel.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/FittableFontLabel/FittableFontLabel.framework"; sourceTree = "<group>"; };
 		5A8F55001D13DAA700EBE196 /* CHTCollectionViewWaterfallLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHTCollectionViewWaterfallLayout.framework; path = "Pods/../build/Debug-iphoneos/CHTCollectionViewWaterfallLayout.framework"; sourceTree = "<group>"; };
 		5A8F55041D13E76700EBE196 /* SelfSizingWaterfallCollectionViewLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SelfSizingWaterfallCollectionViewLayout.framework; path = "Pods/../build/Debug-iphoneos/SelfSizingWaterfallCollectionViewLayout.framework"; sourceTree = "<group>"; };
+		5AA3494F213149A80034CAA7 /* LocalDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDate.swift; sourceTree = "<group>"; };
 		5AD6D7121D23B6870015BF0E /* Keyboardy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keyboardy.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/Keyboardy.framework"; sourceTree = "<group>"; };
 		5AD6D7141D23BEDE0015BF0E /* FRDoneAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FRDoneAccessory.framework; path = "Pods/../build/Debug-iphoneos/FRDoneAccessory.framework"; sourceTree = "<group>"; };
 		5AF571241D02582400DF004F /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SZTextView.framework; path = "Pods/../build/Debug-iphoneos/SZTextView.framework"; sourceTree = "<group>"; };
 		5AF875B81D17D4DF00DF0669 /* Threading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
 		5AF8E5071D2502A100E2A547 /* RWDropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RWDropdownMenu.framework; path = "Pods/../build/Debug-iphoneos/RWDropdownMenu.framework"; sourceTree = "<group>"; };
@@ -150,11 +147,8 @@
 		5AFD86AB1D239C5700D80F8E /* ActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActionSheetPicker.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/ActionSheetPicker.framework"; sourceTree = "<group>"; };
 		69D2B1E2DBBB4EF213916D05 /* Pods_PocketDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73487E1510D92AB00BD2D775 /* Pods-PocketDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.release.xcconfig"; sourceTree = "<group>"; };
-		753AA93DA7B3028ECE5D0B54 /* Pods-PocketDiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiaryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiaryTests/Pods-PocketDiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		76A481160A2FFAFC028B2069 /* Pods-PocketDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiaryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiaryTests/Pods-PocketDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
 		8ABA27C81E12465BC5A52C18 /* Pods_PocketDiaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketDiaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15829CC71086EEC6B261DDF /* Pods-PocketDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary.debug.xcconfig"; sourceTree = "<group>"; };
-		DA154A8B64FEB1AD6BEC822B /* Pods-PocketDiaryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketDiaryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketDiaryUITests/Pods-PocketDiaryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +176,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				599BCC9FCF1645BD5585B338 /* Pods_PocketDiaryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +183,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05607474562E2F87845E258F /* Pods_PocketDiaryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,10 +194,6 @@
 			children = (
 				A15829CC71086EEC6B261DDF /* Pods-PocketDiary.debug.xcconfig */,
 				73487E1510D92AB00BD2D775 /* Pods-PocketDiary.release.xcconfig */,
-				753AA93DA7B3028ECE5D0B54 /* Pods-PocketDiaryTests.debug.xcconfig */,
-				76A481160A2FFAFC028B2069 /* Pods-PocketDiaryTests.release.xcconfig */,
-				DA154A8B64FEB1AD6BEC822B /* Pods-PocketDiaryUITests.debug.xcconfig */,
-				3121E1568E64DC03A2F62B00 /* Pods-PocketDiaryUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -242,7 +230,7 @@
 				5AFBEAC21D111E1D00F8A8D2 /* modest.css */,
 				5AFB59D91D14CA2500BF4CAD /* highlight.js */,
 				5AF571241D02582400DF004F /* Entry.swift */,
-				5AF571251D02582400DF004F /* Entry+CoreDataProperties.swift */,
+				5AA3494F213149A80034CAA7 /* LocalDate.swift */,
 				5A21FA711D01B16000B36AA7 /* AppDelegate.swift */,
 				5A21FA731D01B16000B36AA7 /* CalendarController.swift */,
 				5AFB0E731D0E751000EEEA1F /* DiaryEditorController.swift */,
@@ -338,7 +326,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A21FA9C1D01B16000B36AA7 /* Build configuration list for PBXNativeTarget "PocketDiaryTests" */;
 			buildPhases = (
-				D0452DDD9A0A6A75303F93AD /* [CP] Check Pods Manifest.lock */,
 				5A21FA811D01B16000B36AA7 /* Sources */,
 				5A21FA821D01B16000B36AA7 /* Frameworks */,
 				5A21FA831D01B16000B36AA7 /* Resources */,
@@ -357,7 +344,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A21FA9F1D01B16000B36AA7 /* Build configuration list for PBXNativeTarget "PocketDiaryUITests" */;
 			buildPhases = (
-				74A02396DA90DB488253AD22 /* [CP] Check Pods Manifest.lock */,
 				5A21FA8C1D01B16000B36AA7 /* Sources */,
 				5A21FA8D1D01B16000B36AA7 /* Frameworks */,
 				5A21FA8E1D01B16000B36AA7 /* Resources */,
@@ -474,24 +460,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74A02396DA90DB488253AD22 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PocketDiaryUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		75569C7B0F830E6667A9DF40 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,7 +467,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker/ActionSheetPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Base64nl/Base64nl.framework",
 				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Emoji-swift/Emoji.framework",
@@ -509,10 +476,11 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/Keyboardy/Keyboardy.framework",
-				"${BUILT_PRODUCTS_DIR}/LLSwitch/LLSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/LTHPasscodeViewController/LTHPasscodeViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/MMMarkdown/MMMarkdown.framework",
 				"${BUILT_PRODUCTS_DIR}/RFKeyboardToolbar/RFKeyboardToolbar.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SZTextView/SZTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
@@ -522,7 +490,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64nl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Emoji.framework",
@@ -532,10 +499,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keyboardy.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LLSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTHPasscodeViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMMarkdown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RFKeyboardToolbar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SZTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
@@ -546,24 +514,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0452DDD9A0A6A75303F93AD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PocketDiaryTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -588,11 +538,11 @@
 				5A26E9EA1EE2B3630010BA70 /* ColorPickerRow.swift in Sources */,
 				5A21FA741D01B16000B36AA7 /* CalendarController.swift in Sources */,
 				5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */,
+				5AA34950213149A80034CAA7 /* LocalDate.swift in Sources */,
 				5A26E9ED1EE2B3630010BA70 /* ColorSwatchView.swift in Sources */,
 				5A26E9EC1EE2B3630010BA70 /* ColorSwatchCell.swift in Sources */,
 				5AFB0E741D0E751000EEEA1F /* DiaryEditorController.swift in Sources */,
 				5AF8E50B1D250DDA00E2A547 /* DateRangeSelectorController.swift in Sources */,
-				5AF571271D02582400DF004F /* Entry+CoreDataProperties.swift in Sources */,
 				5AFB59E41D158D8A00BF4CAD /* SearchResultsController.swift in Sources */,
 				5A0096061D386D8700C34650 /* AdUtility.swift in Sources */,
 				5A26E9E91EE2B3630010BA70 /* ColorPalettes.swift in Sources */,
@@ -843,7 +793,6 @@
 		};
 		5A21FA9D1D01B16000B36AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 753AA93DA7B3028ECE5D0B54 /* Pods-PocketDiaryTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PocketDiaryTests/Info.plist;
@@ -858,7 +807,6 @@
 		};
 		5A21FA9E1D01B16000B36AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76A481160A2FFAFC028B2069 /* Pods-PocketDiaryTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PocketDiaryTests/Info.plist;
@@ -873,7 +821,6 @@
 		};
 		5A21FAA01D01B16000B36AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA154A8B64FEB1AD6BEC822B /* Pods-PocketDiaryUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PocketDiaryUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -887,7 +834,6 @@
 		};
 		5A21FAA11D01B16000B36AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3121E1568E64DC03A2F62B00 /* Pods-PocketDiaryUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PocketDiaryUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
