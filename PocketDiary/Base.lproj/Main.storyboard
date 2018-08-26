@@ -161,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="1043" y="306"/>
         </scene>
-        <!--Delegate-->
+        <!--Search-->
         <scene sceneID="hf8-pj-qkc">
             <objects>
                 <tableViewController id="CNA-yY-MHI" customClass="DiarySearchController" customModule="PocketDiary" customModuleProvider="target" sceneMemberID="viewController">
@@ -204,25 +204,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view tag="1" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pvk-ny-Um4" customClass="LLSwitch">
-                                                    <rect key="frame" x="541" y="8" width="51" height="28"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="51" id="i7Y-QO-K3E"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
-                                                            <real key="value" value="0.40000000000000002"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="onColor">
-                                                            <color key="value" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="CNA-yY-MHI" id="Qcb-mv-Qvb"/>
-                                                    </connections>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exact Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opR-0b-wgL">
                                                     <rect key="frame" x="23" y="11" width="95" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -231,11 +212,8 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="pvk-ny-Um4" firstAttribute="centerY" secondItem="opR-0b-wgL" secondAttribute="centerY" id="Cfa-qm-T42"/>
                                                 <constraint firstItem="opR-0b-wgL" firstAttribute="centerY" secondItem="ztt-Dz-Lrq" secondAttribute="centerY" id="Lin-wC-YTJ"/>
-                                                <constraint firstItem="pvk-ny-Um4" firstAttribute="trailing" secondItem="ztt-Dz-Lrq" secondAttribute="trailingMargin" id="V3O-fo-uYi"/>
                                                 <constraint firstItem="opR-0b-wgL" firstAttribute="leading" secondItem="ztt-Dz-Lrq" secondAttribute="leadingMargin" constant="7" id="os9-dK-hli"/>
-                                                <constraint firstItem="pvk-ny-Um4" firstAttribute="top" secondItem="ztt-Dz-Lrq" secondAttribute="topMargin" id="rgQ-uC-9Sd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -369,7 +347,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateRangeLbl" destination="pN4-wN-2pu" id="Ozg-uZ-I1x"/>
-                        <outlet property="exactMatch" destination="pvk-ny-Um4" id="c0W-a2-d2b"/>
                         <outlet property="exactMatchLbl" destination="opR-0b-wgL" id="ROp-OU-a3g"/>
                         <outlet property="searchRangeLbl" destination="aWD-ve-TiZ" id="9bH-on-Wm3"/>
                         <outlet property="searchText" destination="xYS-Wp-g1d" id="e0V-dg-6Ub"/>
