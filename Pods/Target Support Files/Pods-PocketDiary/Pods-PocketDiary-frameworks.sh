@@ -143,7 +143,6 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ActionSheetPicker/ActionSheetPicker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Base64nl/Base64nl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Emoji-swift/Emoji.framework"
@@ -153,10 +152,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Keyboardy/Keyboardy.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/LLSwitch/LLSwitch.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LTHPasscodeViewController/LTHPasscodeViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MMMarkdown/MMMarkdown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RFKeyboardToolbar/RFKeyboardToolbar.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SZTextView/SZTextView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
@@ -165,7 +165,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ActionSheetPicker/ActionSheetPicker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Base64nl/Base64nl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Emoji-swift/Emoji.framework"
@@ -175,10 +174,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Keyboardy/Keyboardy.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/LLSwitch/LLSwitch.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LTHPasscodeViewController/LTHPasscodeViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MMMarkdown/MMMarkdown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RFKeyboardToolbar/RFKeyboardToolbar.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SZTextView/SZTextView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"

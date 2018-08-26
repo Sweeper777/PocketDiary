@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ActionSheetPicker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Base64nl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -59,11 +54,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>LLSwitch.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>LTHPasscodeViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -79,17 +69,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PocketDiaryTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-PocketDiaryUITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>RFKeyboardToolbar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

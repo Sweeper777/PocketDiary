@@ -10,8 +10,6 @@ target 'PocketDiary' do
     pod 'EZLoadingActivity'
     pod 'MMMarkdown'
     pod 'Emoji-swift'
-    pod 'LLSwitch'
-    pod 'ActionSheetPicker'
     pod 'Keyboardy'
     pod 'Base64nl'
     pod 'LTHPasscodeViewController'
@@ -23,13 +21,6 @@ target 'PocketDiary' do
     pod 'ImageRow'
     pod 'UIColor_Hex_Swift'
     pod 'SkyFloatingLabelTextField'
-end
-
-target 'PocketDiaryTests' do
-
-end
-
-target 'PocketDiaryUITests' do
-
+    pod 'RealmSwift'
 end
 
