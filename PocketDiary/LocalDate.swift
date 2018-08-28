@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 
 class LocalDate: Object {
-    let year: Int
-    let month: Int
-    let day: Int
+    @objc dynamic var year = 0
+    @objc dynamic var month = 0
+    @objc dynamic var day = 0
 }
