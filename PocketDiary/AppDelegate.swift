@@ -20,17 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EZLoadingActivity.Settings.TextColor = UIColor.white
         
         if UserSettings.lastUsedBuild < 10 {
-            let entity = NSEntityDescription.entity(forEntityName: "Entry", in: managedObjectContext)
-            let request = NSFetchRequest<Entry>()
-            request.entity = entity
-            let entries = try? managedObjectContext.fetch(request)
-            if entries != nil {
-                entries?.forEach {
-                    $0.date = $0.date?.ignoreTimeComponents()
-                    print($0.date!)
-                }
-                _ = managedObjectContext.saveData()
-            }
+            // TODO: Migrate to Realm
         }
         
         UserSettings.lastUsedBuild = Int(Bundle.main.appBuild) ?? 0
