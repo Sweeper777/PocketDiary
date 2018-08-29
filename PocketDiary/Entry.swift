@@ -17,6 +17,10 @@ class Entry: Object {
     @objc dynamic var image: Data? = nil
     @objc dynamic var imagePositionTop = false
     
+    @objc dynamic var id = 0
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
     override var hashValue: Int {
