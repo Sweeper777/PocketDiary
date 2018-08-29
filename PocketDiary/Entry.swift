@@ -24,27 +24,27 @@ class Entry: Object {
     }
     
     override var hashValue: Int {
-        return date!.hashValue
+        return id
     }
     
     func htmlDescriptionForSearchMode(_ mode: SearchRange) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
-        let dateFormatted = formatter.string(from: date! as Date)
+        let dateFormatted = formatter.string(from: date!.toDate())
         
         let stylesheet = try! String(contentsOfFile: Bundle.main.path(forResource: "modest", ofType: "css")!)
         
-        let contentHtml = (try? MMMarkdown.htmlString(withMarkdown: content!, extensions: .gitHubFlavored)) ?? content!
+        let contentHtml = (try? MMMarkdown.htmlString(withMarkdown: content, extensions: .gitHubFlavored)) ?? content
         
-        let displayTitle = mode == .titleOnly ? "<span id=\"searchtext\">\(title!)</span>" : title!
+        let displayTitle = mode == .titleOnly ? "<span id=\"searchtext\">\(title)</span>" : title
         let displayContent = mode == .contentOnly ? "<span id=\"searchtext\">\(contentHtml)</span>" : contentHtml
         let displayTitleAndContent = mode == .titleAndContent ? "<span id=\"searchtext\"><h1>\(displayTitle)</h1>\(displayContent)</span>" : "<h1>\(displayTitle)</h1>\(displayContent)"
         var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
             let base64 = (image! as NSData).base64EncodedString()!
-            if imagePositionTop!.boolValue {
+            if imagePositionTop {
                 displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\"/> \(displayHtml)"
             } else {
                 displayHtml += "<img src=\"data:image/jpg;base64,\(base64)\"/>"
@@ -54,12 +54,12 @@ class Entry: Object {
         var r: CGFloat = -1
         var g: CGFloat = -1
         var b: CGFloat = -1
-        bgColor?.toColor().getRed(&r, green: &g, blue: &b, alpha: nil)
+        bgColor.value?.toColor().getRed(&r, green: &g, blue: &b, alpha: nil)
         let _r = Int(r * 255)
         let _g = Int(g * 255)
         let _b = Int(b * 255)
         
-        displayHtml = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(displayHtml)</body>"
+        displayHtml = bgColor.value == nil ? displayHtml : "<body style=\"background: rgb(\(_r), \(_g), \(_b))\">\(displayHtml)</body>"
         
         let ret = "<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)"
         return ret
@@ -69,33 +69,33 @@ class Entry: Object {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
-        let dateFormatted = formatter.string(from: date! as Date)
+        let dateFormatted = formatter.string(from: date!.toDate())
         
         let stylesheet = try! String(contentsOfFile: Bundle.main.path(forResource: "modest", ofType: "css")!)
         
-        let contentHtml = (try? MMMarkdown.htmlString(withMarkdown: content!, extensions: .gitHubFlavored)) ?? content!
-        let displayTitleAndContent = "<h1>\(title!)</h1>\(contentHtml)"
+        let contentHtml = (try? MMMarkdown.htmlString(withMarkdown: content, extensions: .gitHubFlavored)) ?? content
+        let displayTitleAndContent = "<h1>\(title)</h1>\(contentHtml)"
         var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
             let base64 = (image! as NSData).base64EncodedString()!
-            if imagePositionTop!.boolValue {
+            if imagePositionTop {
                 displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(displayHtml)"
             } else {
                 displayHtml += "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>"
             }
         }
         
-        displayHtml = bgColor == nil ? displayHtml : "<body style=\"background: rgb(\(self.bgColor!.toColor().redComponent), \(self.bgColor!.toColor().greenComponent), \(self.bgColor!.toColor().blueComponent))\">\(displayHtml)</body>"
+        displayHtml = bgColor.value == nil ? displayHtml : "<body style=\"background: rgb(\(self.bgColor.value!.toColor().redComponent), \(self.bgColor.value!.toColor().greenComponent), \(self.bgColor.value!.toColor().blueComponent))\">\(displayHtml)</body>"
         
         let ret = "<style>\(stylesheet)</style> \(displayHtml.emojiUnescapedString)"
         return ret
     }
 }
 
-extension NSNumber {
+extension Int {
     func toColor() -> UIColor {
-        let rgbValue = self.int32Value
+        let rgbValue = Int32(self)
         let red =   CGFloat((rgbValue & 0xFF0000) >> 16) / 0xFF
         let green = CGFloat((rgbValue & 0x00FF00) >> 8) / 0xFF
         let blue =  CGFloat(rgbValue & 0x0000FF) / 0xFF
