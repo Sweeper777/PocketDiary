@@ -1,14 +1,21 @@
 import Foundation
-import CoreData
+import RealmSwift
 import MMMarkdown
 import Emoji
 import Base64nl
 
-class Entry: NSManagedObject {
+class Entry: Object {
 
-    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertInto: context)
+    @objc dynamic var content = ""
+    @objc dynamic var date: LocalDate? {
+        didSet {
+            id = date?.toInt() ?? 0
+        }
     }
+    @objc dynamic var title = ""
+    let bgColor = RealmOptional<Int>()
+    @objc dynamic var image: Data? = nil
+    @objc dynamic var imagePositionTop = false
     
     convenience init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext, title: String, content: String, date: Date) {
         self.init(entity: entity, insertInto: context)
