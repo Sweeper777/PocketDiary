@@ -17,13 +17,6 @@ class Entry: Object {
     @objc dynamic var image: Data? = nil
     @objc dynamic var imagePositionTop = false
     
-    convenience init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext, title: String, content: String, date: Date) {
-        self.init(entity: entity, insertInto: context)
-        
-        self.content = content
-        self.date = date
-        self.title = title
-        self.imagePositionTop = true
     }
     
     override var hashValue: Int {
