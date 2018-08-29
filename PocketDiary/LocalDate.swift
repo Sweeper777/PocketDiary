@@ -22,4 +22,9 @@ class LocalDate: Object {
         localDate.day = components.day!
         return localDate
     }
+    
+    func toInt() -> Int {
+        return year * 10000 + month * 100 + day
+    }
+    
 }
