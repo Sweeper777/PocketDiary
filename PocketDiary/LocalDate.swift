@@ -13,4 +13,13 @@ class LocalDate: Object {
         dateComponents.day = day
         return Calendar(identifier: .gregorian).date(from: dateComponents)!
     }
+    
+    static func from(_ date: Date) -> LocalDate {
+        let localDate = LocalDate()
+        let components = Calendar(identifier: .gregorian).dateComponents(in: TimeZone.current, from: date)
+        localDate.year = components.year!
+        localDate.month = components.month!
+        localDate.day = components.day!
+        return localDate
+    }
 }
