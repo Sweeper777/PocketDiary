@@ -1,7 +1,7 @@
 import UIKit
 import FSCalendar
 import SZTextView
-import CoreData
+import RealmSwift
 import MMMarkdown
 import Emoji
 import Keyboardy
@@ -13,9 +13,10 @@ import FTPopOverMenu_Swift
 import SkyFloatingLabelTextField
 
 class DiaryEditorController: UIViewController, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate {
-    let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
-    var date: Date!
+    let realm = try! Realm()
+    
+    var date: LocalDate!
     var bgColor: UIColor?
     var image: Data?
     var imagePositionTop: Bool?
