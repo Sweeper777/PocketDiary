@@ -1,4 +1,4 @@
-import CoreData
+import RealmSwift
 import Foundation
 import FSCalendar
 
@@ -12,9 +12,8 @@ struct DiarySearcher {
     
     func search(_ dataContext: NSManagedObjectContext) -> [Entry]? {
         // get data
-        let request = NSFetchRequest<Entry>()
-        request.entity = NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)
-        guard var entries = try? dataContext.fetch(request) else { return nil }
+        guard let realm = try? Realm() else { return nil }
+        var entries = Array(realm.objects(Entry.self))
         
         // filter by date
         switch timeRange {
