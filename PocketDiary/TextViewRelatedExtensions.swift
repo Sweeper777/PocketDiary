@@ -68,7 +68,7 @@ extension String {
         
         var index = str.startIndex
         while index != str.endIndex {
-            if str.characters[index] == "\n" {
+            if str[index] == "\n" {
                 str.insert(contentsOf: prefix, at: str.index(after: index))
             }
             index = str.index(after: index)
@@ -77,26 +77,26 @@ extension String {
     }
     
     func line(at position: Int) -> String {
-        if characters.count == 0 {
+        if count == 0 {
             return ""
         }
         
         if position == 0 {
-            return String(characters.split(separator: "\n").first!)
+            return String(self.split(separator: "\n").first!)
         }
         
-        if position == characters.count {
+        if position == self.count {
             return line(at: position - 1)
         }
         
-        if self.characters[self.characters.index(self.characters.startIndex, offsetBy: position)] == "\n" {
-            if self.characters[self.characters.index(self.characters.startIndex, offsetBy: position - 1)] == "\n" {
+        if self[self.index(self.startIndex, offsetBy: position)] == "\n" {
+            if self[self.index(self.startIndex, offsetBy: position - 1)] == "\n" {
                 return ""
             }
             return line(at: position - 1)
         }
         
-        let lines = self.characters.split(separator: "\n")
+        let lines = self.split(separator: "\n")
         var i = 0
         for line in lines {
             for _ in line {
