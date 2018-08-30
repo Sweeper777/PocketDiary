@@ -36,17 +36,17 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .none
-        dateLabel.text = formatter.string(from: date)
+        dateLabel.text = formatter.string(from: date.toDate())
         txtTitle.title = NSLocalizedString("Title", comment: "")
         
         if entry != nil {
             txtTitle.text = entry.title
             txtContent.text = entry.content
-            bgColor = entry.bgColor?.toColor()
+            bgColor = entry.bgColor.value?.toColor()
             txtContent.backgroundColor = bgColor ?? UIColor.white
             txtTitle.backgroundColor = bgColor ?? UIColor.white
             image = entry.image as Data?
-            imagePositionTop = entry.imagePositionTop?.boolValue
+            imagePositionTop = entry.imagePositionTop
             tabs.selectedSegmentIndex = 1
             txtContent.isHidden = true
             preview.isHidden = false
@@ -83,7 +83,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
                 let placeholder = NSLocalizedString("Enter bold text", comment: "")
                 self.txtContent.insertText("**\(placeholder)**")
                 self.txtContent.moveCursor(by: -2)
-                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+                self.txtContent.selectTextBehind(offset: placeholder.count)
             } else {
                 let range = self.txtContent.selectedRange
                 self.txtContent.moveCursor(by: range.length)
@@ -100,7 +100,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
                 self.txtContent.moveCursorToStartOfLine()
                 let placeholder = NSLocalizedString("Enter code", comment: "")
                 self.txtContent.insertText("    \(placeholder)")
-                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+                self.txtContent.selectTextBehind(offset: placeholder.count)
             } else {
                 if !self.txtContent.isSelectingWholeLines {
                     if !self.txtContent.selectedTextRange!.isEmpty {
@@ -114,7 +114,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
                         let placeholder = NSLocalizedString("Enter code", comment: "")
                         self.txtContent.insertText("`\(placeholder)`")
                         self.txtContent.moveCursor(by: -1)
-                        self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+                        self.txtContent.selectTextBehind(offset: placeholder.count)
                     }
                 } else {
                     self.txtContent.insertText(self.txtContent.selectedText.insertLinePrefixes([" ", " ", " ", " "]))
@@ -129,7 +129,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
                 let placeholder = NSLocalizedString("Enter italic text", comment: "")
                 self.txtContent.insertText("*\(placeholder)*")
                 self.txtContent.moveCursor(by: -1)
-                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+                self.txtContent.selectTextBehind(offset: placeholder.count)
             } else {
                 let range = self.txtContent.selectedRange
                 self.txtContent.moveCursor(by: range.length)
@@ -147,7 +147,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
                 self.txtContent.moveCursorToStartOfLine()
                 let placeholder = NSLocalizedString("Enter quote", comment: "")
                 self.txtContent.insertText("> \(placeholder)")
-                self.txtContent.selectTextBehind(offset: placeholder.characters.count)
+                self.txtContent.selectTextBehind(offset: placeholder.count)
             } else {
                 if !self.txtContent.isSelectingWholeLines {
                     let cursorPosition = self.txtContent.cursorPosition
@@ -292,8 +292,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
         alert.addButton(NSLocalizedString("Yes, delete it!", comment: "")) {
             if self.entry != nil {
-                self.dataContext.delete(self.entry)
-                _ = self.dataContext.saveData()
+                try! self.realm.write { self.delete(self.entry) }
                 self.userDeletedEntry = true
                 self.performSegue(withIdentifier: "unwindFromEditor", sender: self)
             } else {
@@ -317,7 +316,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
-        let dateFormatted = formatter.string(from: date!)
+        let dateFormatted = formatter.string(from: date.toDate())
         
         let stylesheet = try! String(contentsOfFile: Bundle.main.path(forResource: "modest", ofType: "css")!)
         
@@ -463,7 +462,7 @@ public extension String {
         }
         let text = self
         if let detector = detector {
-            detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.characters.count), using: { result, _, _ in
+            detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.count), using: { result, _, _ in
                 if let result = result,
                     let url = result.url {
                     urls.append(url as URL)
