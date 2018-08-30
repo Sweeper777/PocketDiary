@@ -243,8 +243,9 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
             if entry == nil {
                 dismiss(animated: true, completion: nil)
             } else {
-                dataContext.delete(entry)
-                _ = dataContext.saveData()
+                try! realm.write { [unowned self] in
+                    self.realm.delete(entry)
+                }
                 userDeletedEntry = true
                 performSegue(withIdentifier: "unwindFromEditor", sender: self)
             }
@@ -253,18 +254,25 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         }
         
         if entry != nil {
-            entry.title = txtTitle.text
-            entry.content = txtContent.text
-            entry.bgColor = bgColor?.rgb() as NSNumber?
-            entry.image = self.image
-            entry.imagePositionTop = self.imagePositionTop as NSNumber?
-            _ = dataContext.saveData()
+            try! realm.write {
+                entry.title = self.txtTitle.text ?? ""
+                entry.content = self.txtContent.text ?? ""
+                entry.bgColor.value = self.bgColor?.rgb()
+                entry.image = self.image
+                entry.imagePositionTop = self.imagePositionTop ?? false
+            }
         } else {
-            entry = Entry(entity: NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)!, insertIntoManagedObjectContext: dataContext, title: txtTitle.text!, content: txtContent.text, date: date)
-            entry.bgColor = bgColor?.rgb() as NSNumber?
+            entry = Entry()
+            entry.title = txtTitle.text ?? ""
+            entry.content = txtContent.text ?? ""
+            entry.date = self.date
+            entry.bgColor.value = self.bgColor?.rgb()
             entry.image = self.image
-            entry.imagePositionTop = self.imagePositionTop as NSNumber?
-            _ = dataContext.saveData()
+            entry.imagePositionTop = self.imagePositionTop ?? false
+            try! realm.write {
+                self.realm.add(entry)
+            }
+            
         }
         
         performSegue(withIdentifier: "unwindFromEditor", sender: self)
