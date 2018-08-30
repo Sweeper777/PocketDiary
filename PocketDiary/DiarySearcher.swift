@@ -10,7 +10,7 @@ struct DiarySearcher {
     let sortMode: SortMode
     let customDateRange: ClosedRange<Date>?
     
-    func search(_ dataContext: NSManagedObjectContext) -> [Entry]? {
+    func search() -> [Int]? {
         // get data
         guard let realm = try? Realm() else { return nil }
         var entries = Array(realm.objects(Entry.self))
