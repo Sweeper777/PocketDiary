@@ -40,40 +40,40 @@ struct DiarySearcher {
         case .dateAscending:
             entries.sort {
                 (entry1, entry2) -> Bool in
-                return entry1.date!.compare(entry2.date!) == ComparisonResult.orderedAscending
+                return entry1.date!.toDate() < entry2.date!.toDate()
             }
         case .dateDescending:
             entries.sort {
                 (entry1, entry2) -> Bool in
-                return entry1.date!.compare(entry2.date!) == ComparisonResult.orderedDescending
+                return entry1.date!.toDate() > entry2.date!.toDate()
             }
         case .titleAscending:
             entries.sort {
                 (entry1, entry2) -> Bool in
-                return entry1.title!.lowercased() < entry2.title!.lowercased()
+                return entry1.title.lowercased() < entry2.title.lowercased()
             }
         case .titleDescending:
             entries.sort {
                 (entry1, entry2) -> Bool in
-                return entry1.title!.lowercased() > entry2.title!.lowercased()
+                return entry1.title.lowercased() > entry2.title.lowercased()
             }
         case .relevance:
             entries.sort {
                 entry1, entry2 in
                 switch self.searchRange {
                 case .titleOnly:
-                    return entry1.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) > entry2.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
+                    return entry1.title.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) > entry2.title.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
                 case .contentOnly:
-                    return entry1.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) > entry2.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
+                    return entry1.content.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) > entry2.content.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
                 case .titleAndContent:
-                    let occurrencesIn1 = entry1.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) + entry1.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
-                    let occurrencesIn2 = entry2.title!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) + entry2.content!.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
+                    let occurrencesIn1 = entry1.title.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) + entry1.content.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
+                    let occurrencesIn2 = entry2.title.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch) + entry2.content.numberOfOccurrencesOfSubstring(self.searchText, exactMatch: self.exactMatch)
                     return occurrencesIn1 > occurrencesIn2
                 }
             }
         }
         
-        return entries
+        return entries.map { $0.id }
     }
     
     fileprivate func filterByDate(_ entries: [Entry]) -> [Entry] {
@@ -95,15 +95,15 @@ struct DiarySearcher {
             dateRange = customDateRange!
         }
         
-        return entries.filter { dateRange.contains($0.date! as Date) }
+        return entries.filter { dateRange.contains($0.date!.toDate()) }
     }
     
     fileprivate func filterByTitle(_ entries: [Entry]) -> [Entry] {
-        return entries.filter { $0.title!.contains(searchText, exactMatch: exactMatch) }
+        return entries.filter { $0.title.contains(searchText, exactMatch: exactMatch) }
     }
     
     fileprivate func filterByContent(_ entries: [Entry]) -> [Entry] {
-        return entries.filter { $0.content!.emojiUnescapedString.contains(searchText, exactMatch: exactMatch) }
+        return entries.filter { $0.content.emojiUnescapedString.contains(searchText, exactMatch: exactMatch) }
     }
 }
 
