@@ -1,14 +1,14 @@
 import UIKit
 import FSCalendar
-import CoreData
+import RealmSwift
 import LTHPasscodeViewController
 import GoogleMobileAds
 import FTPopOverMenu_Swift
 
 class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     let dataContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
-    var entries: [Date: Entry] = [:]
-    var dateToPass: Date!
+    var entries: [LocalDate: Entry] = [:]
+    var dateToPass: LocalDate!
     @IBOutlet var calendar: FSCalendar!
     @IBOutlet var ad: GADBannerView!
     
