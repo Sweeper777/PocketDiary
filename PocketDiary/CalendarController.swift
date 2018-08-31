@@ -127,13 +127,3 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         }, cancel: {})
     }
 }
-
-extension NSManagedObjectContext {
-    func saveData() -> Bool {
-        if (try? self.save()) != nil {
-            return true
-        } else {
-            return false
-        }
-    }
-}
