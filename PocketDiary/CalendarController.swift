@@ -49,12 +49,12 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        dateToPass = date.ignoreTimeComponents()
+        dateToPass = LocalDate.from(date)
         performSegue(withIdentifier: "showEditor", sender: self)
     }
     
     func calendar(_ calendar: FSCalendar, hasEventFor date: Date) -> Bool {
-        return entries[date.ignoreTimeComponents()] != nil
+        return entries[LocalDate.from(date)] != nil
     }
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
@@ -62,7 +62,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return entries[date.ignoreTimeComponents()] != nil ? 1 : 0
+        return entries[LocalDate.from(date)] != nil ? 1 : 0
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,7 +81,7 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
             }
             
             if vc.userDeletedEntry {
-                entries.removeValue(forKey: vc.date as Date)
+                entries.removeValue(forKey: vc.date)
                 calendar.reloadData()
             }
         }
