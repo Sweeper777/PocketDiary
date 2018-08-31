@@ -2,7 +2,7 @@ import UIKit
 
 class DataPasserController: UINavigationController {
 
-    var date: Date!
+    var date: LocalDate!
     var entry: Entry!
     
     override func viewDidLoad() {
