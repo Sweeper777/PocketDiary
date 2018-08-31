@@ -11,10 +11,7 @@
 		5A003C961D223C55001EA872 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A003C981D223C55001EA872 /* InfoPlist.strings */; };
 		5A0096061D386D8700C34650 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0096051D386D8700C34650 /* AdUtility.swift */; };
 		5A00F7A11D37A7D3006ACC63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */; };
-		5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */; };
-		5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A04D0701D18FC8000868126 /* LLSwitch.framework */; };
 		5A16BBF81E4B935700A750BC /* TextViewRelatedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */; };
-		5A18718D1E266F65005D95AE /* SwiftyUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A18718C1E266F65005D95AE /* SwiftyUtils.framework */; };
 		5A1FDA281E5834E600E90B28 /* CenterItemsToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FDA271E5834E600E90B28 /* CenterItemsToolbar.swift */; };
 		5A1FDA2A1E58386900E90B28 /* Symbola.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FDA291E58386900E90B28 /* Symbola.ttf */; };
 		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
@@ -24,7 +21,6 @@
 		5A21FA7A1D01B16000B36AA7 /* PocketDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA781D01B16000B36AA7 /* PocketDiary.xcdatamodeld */; };
 		5A21FA7C1D01B16000B36AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A21FA7B1D01B16000B36AA7 /* Assets.xcassets */; };
 		5A21FA7F1D01B16000B36AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A21FA7D1D01B16000B36AA7 /* LaunchScreen.storyboard */; };
-		5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A21FAA21D01B78400B36AA7 /* FSCalendar.framework */; };
 		5A230A581EE1689E0018045B /* DiaryOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A230A571EE1689E0018045B /* DiaryOptionsController.swift */; };
 		5A26E9E21EE2B2F20010BA70 /* FormTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26E9E11EE2B2F20010BA70 /* FormTags.swift */; };
 		5A26E9E91EE2B3630010BA70 /* ColorPalettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26E9E41EE2B3630010BA70 /* ColorPalettes.swift */; };
@@ -32,26 +28,20 @@
 		5A26E9EB1EE2B3630010BA70 /* ColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26E9E61EE2B3630010BA70 /* ColorRow.swift */; };
 		5A26E9EC1EE2B3630010BA70 /* ColorSwatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26E9E71EE2B3630010BA70 /* ColorSwatchCell.swift */; };
 		5A26E9ED1EE2B3630010BA70 /* ColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26E9E81EE2B3630010BA70 /* ColorSwatchView.swift */; };
+		5A9B24F52132C02C005EC859 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9B24F42132C02C005EC859 /* FirebaseCore.framework */; };
+		5A9B24F72132C02C005EC859 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9B24F62132C02C005EC859 /* GoogleUtilities.framework */; };
 		5AA34950213149A80034CAA7 /* LocalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3494F213149A80034CAA7 /* LocalDate.swift */; };
-		5AD6D7131D23B6870015BF0E /* Keyboardy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD6D7121D23B6870015BF0E /* Keyboardy.framework */; };
 		5AF571261D02582400DF004F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF571241D02582400DF004F /* Entry.swift */; };
-		5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7ACAE1D0DAA6D00F5FBD2 /* SZTextView.framework */; };
 		5AF875B91D17D4DF00DF0669 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF875B81D17D4DF00DF0669 /* Threading.swift */; };
 		5AF8E50B1D250DDA00E2A547 /* DateRangeSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8E50A1D250DDA00E2A547 /* DateRangeSelectorController.swift */; };
-		5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9ACF21D124B1F00C8B856 /* Emoji.framework */; };
 		5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF61D125B9400C8B856 /* DiarySearchController.swift */; };
 		5AF9ACF91D12769300C8B856 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9ACF81D12769300C8B856 /* UserSettings.swift */; };
 		5AFB0E741D0E751000EEEA1F /* DiaryEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E731D0E751000EEEA1F /* DiaryEditorController.swift */; };
 		5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */; };
-		5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFB0E771D0EC14C00EEEA1F /* EZLoadingActivity.framework */; };
 		5AFB20661D13BCB8007910E6 /* DiarySearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB20651D13BCB8007910E6 /* DiarySearcher.swift */; };
 		5AFB59DA1D14CA2500BF4CAD /* highlight.js in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB59D91D14CA2500BF4CAD /* highlight.js */; };
 		5AFB59E41D158D8A00BF4CAD /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB59E31D158D8A00BF4CAD /* SearchResultsController.swift */; };
-		5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFBEAC01D111D4800F8A8D2 /* MMMarkdown.framework */; };
 		5AFBEAC31D111E1D00F8A8D2 /* modest.css in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBEAC21D111E1D00F8A8D2 /* modest.css */; };
-		5AFC26121D261395007C38B4 /* Base64nl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFC26101D261395007C38B4 /* Base64nl.framework */; };
-		5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD37D31D3389D2004901F1 /* LTHPasscodeViewController.framework */; };
-		5AFD86AC1D239C5700D80F8E /* ActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFD86AB1D239C5700D80F8E /* ActionSheetPicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +106,8 @@
 		5A3A43DF1D4B095400D9D5E2 /* FittableFontLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FittableFontLabel.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/FittableFontLabel/FittableFontLabel.framework"; sourceTree = "<group>"; };
 		5A8F55001D13DAA700EBE196 /* CHTCollectionViewWaterfallLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHTCollectionViewWaterfallLayout.framework; path = "Pods/../build/Debug-iphoneos/CHTCollectionViewWaterfallLayout.framework"; sourceTree = "<group>"; };
 		5A8F55041D13E76700EBE196 /* SelfSizingWaterfallCollectionViewLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SelfSizingWaterfallCollectionViewLayout.framework; path = "Pods/../build/Debug-iphoneos/SelfSizingWaterfallCollectionViewLayout.framework"; sourceTree = "<group>"; };
+		5A9B24F42132C02C005EC859 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A9B24F62132C02C005EC859 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA3494F213149A80034CAA7 /* LocalDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDate.swift; sourceTree = "<group>"; };
 		5AD6D7121D23B6870015BF0E /* Keyboardy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keyboardy.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/Keyboardy.framework"; sourceTree = "<group>"; };
 		5AD6D7141D23BEDE0015BF0E /* FRDoneAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FRDoneAccessory.framework; path = "Pods/../build/Debug-iphoneos/FRDoneAccessory.framework"; sourceTree = "<group>"; };
@@ -156,18 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A18718D1E266F65005D95AE /* SwiftyUtils.framework in Frameworks */,
-				5A02D0411D3B10AF00C048E6 /* GoogleMobileAds.framework in Frameworks */,
-				5AFD37D41D3389D2004901F1 /* LTHPasscodeViewController.framework in Frameworks */,
-				5AFC26121D261395007C38B4 /* Base64nl.framework in Frameworks */,
-				5AD6D7131D23B6870015BF0E /* Keyboardy.framework in Frameworks */,
-				5AFD86AC1D239C5700D80F8E /* ActionSheetPicker.framework in Frameworks */,
-				5A04D0711D18FC8000868126 /* LLSwitch.framework in Frameworks */,
-				5AF9ACF31D124B1F00C8B856 /* Emoji.framework in Frameworks */,
-				5AFBEAC11D111D4800F8A8D2 /* MMMarkdown.framework in Frameworks */,
-				5AFB0E7A1D0EC14C00EEEA1F /* EZLoadingActivity.framework in Frameworks */,
-				5AF7ACAF1D0DAA6D00F5FBD2 /* SZTextView.framework in Frameworks */,
-				5A21FAA31D01B78400B36AA7 /* FSCalendar.framework in Frameworks */,
+				5A9B24F52132C02C005EC859 /* FirebaseCore.framework in Frameworks */,
+				5A9B24F72132C02C005EC859 /* GoogleUtilities.framework in Frameworks */,
 				1EA93B3834DE21BA29F70C3F /* Pods_PocketDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +251,8 @@
 		CB021911B0AE96F7D484390D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A9B24F42132C02C005EC859 /* FirebaseCore.framework */,
+				5A9B24F62132C02C005EC859 /* GoogleUtilities.framework */,
 				5A18718C1E266F65005D95AE /* SwiftyUtils.framework */,
 				5A11F9C71E1FA29C0010C553 /* DropDown.framework */,
 				5A3A43DF1D4B095400D9D5E2 /* FittableFontLabel.framework */,
