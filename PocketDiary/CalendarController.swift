@@ -20,15 +20,10 @@ class CalendarController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         LTHPasscodeViewController.sharedUser().hidesCancelButton = false
         LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.white
         
-        let entity = NSEntityDescription.entity(forEntityName: "Entry", in: dataContext)
-        let request = NSFetchRequest<Entry>()
-        request.entity = entity
-        let anyObjs = try? dataContext.fetch(request)
-        if anyObjs != nil {
-            anyObjs!.forEach {
-                self.entries[$0.date!] = $0
-//                print(($0 as! Entry).date!)
-            }
+        let realm = try! Realm()
+        let entries = realm.objects(Entry.self)
+        for entry in entries {
+            self.entries[entry.date!] = entry
         }
         
         if LTHPasscodeViewController.doesPasscodeExist() {
