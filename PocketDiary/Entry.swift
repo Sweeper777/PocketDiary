@@ -23,7 +23,7 @@ class Entry: Object {
         return "id"
     }
     
-    override var hashValue: Int {
+    override var hash: Int {
         return id
     }
     

@@ -27,7 +27,7 @@ class LocalDate: Object {
         return year * 10000 + month * 100 + day
     }
     
-    override var hashValue: Int {
+    override var hash: Int {
         return toInt()
     }
 }
