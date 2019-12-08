@@ -333,7 +333,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
-            let base64 = (image! as NSData).base64EncodedString()!
+            let base64 = (image! as NSData).base64EncodedString()
             if imagePositionTop! {
                 displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr><img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/>\(displayTitleAndContent)"
             } else {

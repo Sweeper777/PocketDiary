@@ -2,7 +2,6 @@ import Foundation
 import RealmSwift
 import MMMarkdown
 import Emoji
-import Base64nl
 
 class Entry: Object {
 
@@ -43,7 +42,7 @@ class Entry: Object {
         var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
-            let base64 = (image! as NSData).base64EncodedString()!
+            let base64 = (image! as NSData).base64EncodedString()
             if imagePositionTop {
                 displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\"/> \(displayHtml)"
             } else {
@@ -78,7 +77,7 @@ class Entry: Object {
         var displayHtml = "&nbsp;&nbsp;&nbsp;&nbsp;\(dateFormatted)<hr>\(displayTitleAndContent)"
         
         if image != nil {
-            let base64 = (image! as NSData).base64EncodedString()!
+            let base64 = (image! as NSData).base64EncodedString()
             if imagePositionTop {
                 displayHtml = "<img src=\"data:image/jpg;base64,\(base64)\" style=\"max-width: 100%\"/> \(displayHtml)"
             } else {
