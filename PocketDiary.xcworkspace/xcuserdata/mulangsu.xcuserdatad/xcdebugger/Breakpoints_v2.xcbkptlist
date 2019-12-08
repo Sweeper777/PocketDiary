@@ -128,40 +128,6 @@
             endingLineNumber = "6"
             landmarkName = "addButtons()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D39F9D0E-E0A7-457B-B489-561255476AC2 - f7d546a6484ae9cf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PocketDiary.CenterItemsToolbar.addButtons() -&gt; ()"
-                  moduleName = "PocketDiary"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mulangsu/Documents/PocketDiary/PocketDiary/CenterItemsToolbar.swift"
-                  timestampString = "556808783.318691"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  uuid = "D39F9D0E-E0A7-457B-B489-561255476AC2 - fd176d7950de97fa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Any) -&gt; __ObjC.RFToolbarButton in PocketDiary.CenterItemsToolbar.addButtons() -&gt; ()"
-                  moduleName = "PocketDiary"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mulangsu/Documents/PocketDiary/PocketDiary/CenterItemsToolbar.swift"
-                  timestampString = "556808783.322651"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -11,8 +11,8 @@
 		5A003C961D223C55001EA872 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A003C981D223C55001EA872 /* InfoPlist.strings */; };
 		5A0096061D386D8700C34650 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0096051D386D8700C34650 /* AdUtility.swift */; };
 		5A00F7A11D37A7D3006ACC63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */; };
+		5A041133239BD536004901BB /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A041132239BD536004901BB /* GoogleMobileAds.framework */; };
 		5A16BBF81E4B935700A750BC /* TextViewRelatedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */; };
-		5A1FDA281E5834E600E90B28 /* CenterItemsToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1FDA271E5834E600E90B28 /* CenterItemsToolbar.swift */; };
 		5A1FDA2A1E58386900E90B28 /* Symbola.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FDA291E58386900E90B28 /* Symbola.ttf */; };
 		5A2193671D1E6EC500966DD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2193691D1E6EC500966DD4 /* Localizable.strings */; };
 		5A21FA721D01B16000B36AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21FA711D01B16000B36AA7 /* AppDelegate.swift */; };
@@ -68,6 +68,7 @@
 		5A0096051D386D8700C34650 /* AdUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUtility.swift; sourceTree = "<group>"; };
 		5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A02D0401D3B10AF00C048E6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = PocketDiary/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		5A041132239BD536004901BB /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../../Desktop/GoogleMobileAdsSdkiOS-7.52.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		5A04D0701D18FC8000868126 /* LLSwitch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLSwitch.framework; path = "Pods/../build/Debug-iphoneos/LLSwitch.framework"; sourceTree = "<group>"; };
 		5A11F9C71E1FA29C0010C553 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/PocketDiary-agnmdpowblsargatbddytldsabim/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
 		5A16BBF71E4B935700A750BC /* TextViewRelatedExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewRelatedExtensions.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		5A189E1F1E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5A189E201E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A189E211E22811E007E66D7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5A1FDA271E5834E600E90B28 /* CenterItemsToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterItemsToolbar.swift; sourceTree = "<group>"; };
 		5A1FDA291E58386900E90B28 /* Symbola.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Symbola.ttf; sourceTree = "<group>"; };
 		5A2193611D1E6E8800966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5A2193621D1E6E8900966DD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -150,6 +150,7 @@
 			files = (
 				5A9B24F52132C02C005EC859 /* FirebaseCore.framework in Frameworks */,
 				5A9B24F72132C02C005EC859 /* GoogleUtilities.framework in Frameworks */,
+				5A041133239BD536004901BB /* GoogleMobileAds.framework in Frameworks */,
 				1EA93B3834DE21BA29F70C3F /* Pods_PocketDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +206,7 @@
 			children = (
 				5A26E9E31EE2B3630010BA70 /* ColorPicker */,
 				5A1FDA291E58386900E90B28 /* Symbola.ttf */,
+				5A041132239BD536004901BB /* GoogleMobileAds.framework */,
 				5A00F7A01D37A7D3006ACC63 /* GoogleService-Info.plist */,
 				5AF875B81D17D4DF00DF0669 /* Threading.swift */,
 				5A2193691D1E6EC500966DD4 /* Localizable.strings */,
@@ -221,7 +223,6 @@
 				5AFB59E31D158D8A00BF4CAD /* SearchResultsController.swift */,
 				5A230A571EE1689E0018045B /* DiaryOptionsController.swift */,
 				5AFB0E751D0E79C100EEEA1F /* DataPasserController.swift */,
-				5A1FDA271E5834E600E90B28 /* CenterItemsToolbar.swift */,
 				5A21FA751D01B16000B36AA7 /* Main.storyboard */,
 				5AF9ACF81D12769300C8B856 /* UserSettings.swift */,
 				5AFB20651D13BCB8007910E6 /* DiarySearcher.swift */,
@@ -374,6 +375,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -450,8 +452,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Base64nl/Base64nl.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-PocketDiary/Pods-PocketDiary-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Emoji-swift/Emoji.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
@@ -474,7 +475,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64nl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Emoji.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
@@ -497,7 +497,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketDiary/Pods-PocketDiary-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PocketDiary/Pods-PocketDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -511,7 +511,6 @@
 				5A230A581EE1689E0018045B /* DiaryOptionsController.swift in Sources */,
 				5AFB0E761D0E79C100EEEA1F /* DataPasserController.swift in Sources */,
 				5AF9ACF71D125B9400C8B856 /* DiarySearchController.swift in Sources */,
-				5A1FDA281E5834E600E90B28 /* CenterItemsToolbar.swift in Sources */,
 				5AF571261D02582400DF004F /* Entry.swift in Sources */,
 				5A26E9EB1EE2B3630010BA70 /* ColorRow.swift in Sources */,
 				5AF875B91D17D4DF00DF0669 /* Threading.swift in Sources */,
@@ -737,7 +736,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyUtils",
 				);
 				INFOPLIST_FILE = PocketDiary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -764,7 +763,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyUtils",
 				);
 				INFOPLIST_FILE = PocketDiary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PocketDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
