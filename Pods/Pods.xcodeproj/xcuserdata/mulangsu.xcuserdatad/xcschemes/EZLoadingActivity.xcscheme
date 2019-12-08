@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7B6752FBC12267FFE2CFEE4AF13EB336"
+               BlueprintIdentifier = "4E1E8D76B5BC50914C21E3F50FA55B4A"
+               BuildableName = "EZLoadingActivity.framework"
                BlueprintName = "EZLoadingActivity"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "EZLoadingActivity.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

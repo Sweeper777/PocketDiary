@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A2D491F85C2F0E31F5BB90876BEEB149"
+               BlueprintIdentifier = "88BE8BE7A2FE6CED4193CCD8FF3CBEF7"
+               BuildableName = "Eureka.framework"
                BlueprintName = "Eureka"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Eureka.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -39,6 +39,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSURL *realmURL;
 
+/**
+ A local path to a file containing the trust anchors for SSL connections.
+
+ Only the certificates stored in the PEM file (or any certificates signed by it,
+ if the file contains a CA cert) will be accepted when initiating a connection
+ to a server. This prevents certain certain kinds of man-in-the-middle (MITM)
+ attacks, and can also be used to trust a self-signed certificate which would
+ otherwise be untrusted.
+
+ On macOS, the file may be in any of the formats supported by SecItemImport(),
+ including PEM and .cer (see SecExternalFormat for a complete list of possible
+ formats). On iOS and other platforms, only DER .cer files are supported.
+ */
+@property (nonatomic, nullable) NSURL *pinnedCertificateURL;
 
 /**
  Whether SSL certificate validation is enabled for the connection associated
@@ -48,14 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic) BOOL enableSSLValidation;
 
-/**
- Whether this Realm should be opened in 'partial synchronization' mode.
- Partial synchronization mode means that no objects are synchronized from the remote Realm
- except those matching queries that the user explicitly specifies.
-
- @warning Partial synchronization is a tech preview. Its APIs are subject to change.
- */
-@property (nonatomic) BOOL isPartial DEPRECATED_MSG_ATTRIBUTE("Use 'fullSynchronization' instead.");
+/// :nodoc:
+@property (nonatomic) BOOL isPartial __attribute__((unavailable("Use 'fullSynchronization' instead.")));
 
 /**
  Whether this Realm should be a fully synchronized Realm.
@@ -77,30 +85,14 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, nullable, copy) NSString *urlPrefix;
 
-/**
- Create a sync configuration instance.
+/// :nodoc:
+- (instancetype)initWithUser:(RLMSyncUser *)user realmURL:(NSURL *)url __attribute__((unavailable("Use [RLMSyncUser configurationWithURL:] instead")));
 
- @param user    A `RLMSyncUser` that owns the Realm at the given URL.
- @param url     The unresolved absolute URL to the Realm on the Realm Object Server, e.g.
-                `realm://example.org/~/path/to/realm`. "Unresolved" means the path should
-                contain the wildcard marker `~`, which will automatically be filled in with
-                the user identity by the Realm Object Server.
- */
-- (instancetype)initWithUser:(RLMSyncUser *)user realmURL:(NSURL *)url __attribute__((deprecated("Use [RLMSyncUser configurationWithURL] instead")));
+/// :nodoc:
++ (RLMRealmConfiguration *)automaticConfiguration __attribute__((unavailable("Use [RLMSyncUser configuration] instead")));
 
-/**
-Return a Realm configuration for syncing with the default Realm of the currently logged-in sync user.
-
-Partial synchronization is enabled in the returned configuration.
- */
-+ (RLMRealmConfiguration *)automaticConfiguration __attribute__((deprecated("Use [RLMSyncUser configuration] instead")));
-
-/**
- Return a Realm configuration for syncing with the default Realm of the given sync user.
-
- Partial synchronization is enabled in the returned configuration.
- */
-+ (RLMRealmConfiguration *)automaticConfigurationForUser:(RLMSyncUser *)user __attribute__((deprecated("Use [RLMSyncUser configuration] instead")));
+/// :nodoc:
++ (RLMRealmConfiguration *)automaticConfigurationForUser:(RLMSyncUser *)user __attribute__((unavailable("Use [RLMSyncUser configuration] instead")));
 
 /// :nodoc:
 - (instancetype)init __attribute__((unavailable("This type cannot be created directly")));

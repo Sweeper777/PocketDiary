@@ -13,10 +13,12 @@ extension UIAlertController {
     public convenience init(title: String,
                             message: String? = nil,
                             defaultActionButtonTitle: String = "OK",
-                            defaultActionButtonStyle: UIAlertActionStyle = .default,
+                            defaultActionButtonStyle: UIAlertAction.Style = .default,
                             tintColor: UIColor? = nil) {
         self.init(title: title, message: message, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: defaultActionButtonStyle, handler: nil)
+        let defaultAction = UIAlertAction(title: defaultActionButtonTitle,
+                                          style: defaultActionButtonStyle,
+                                          handler: nil)
         addAction(defaultAction)
         if let color = tintColor {
             view.tintColor = color
@@ -42,7 +44,7 @@ extension UIAlertController {
 
     @discardableResult
     func addAction(title: String,
-                   style: UIAlertActionStyle = .default,
+                   style: UIAlertAction.Style = .default,
                    isEnabled: Bool = true,
                    handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
         let action = UIAlertAction(title: title, style: style, handler: handler)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7C5A769BFFBADA4F3F8B153697F18BCB"
+               BlueprintIdentifier = "86DB0D79DBBB1F9C221EF6010C336A36"
+               BuildableName = "RFKeyboardToolbar.framework"
                BlueprintName = "RFKeyboardToolbar"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "RFKeyboardToolbar.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

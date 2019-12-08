@@ -30,7 +30,7 @@ public struct ImageRowSourceTypes: OptionSet {
     public var imagePickerControllerSourceTypeRawValue: Int { return self.rawValue >> 1 }
 
     public init(rawValue: Int) { self.rawValue = rawValue }
-    init(_ sourceType: UIImagePickerControllerSourceType) { self.init(rawValue: 1 << sourceType.rawValue) }
+    init(_ sourceType: UIImagePickerController.SourceType) { self.init(rawValue: 1 << sourceType.rawValue) }
 
     public static let PhotoLibrary = ImageRowSourceTypes(.photoLibrary)
     public static let Camera = ImageRowSourceTypes(.camera)
@@ -38,11 +38,11 @@ public struct ImageRowSourceTypes: OptionSet {
     public static let All: ImageRowSourceTypes = [Camera, PhotoLibrary, SavedPhotosAlbum]
 }
 
-extension ImageRowSourceTypes {
+public extension ImageRowSourceTypes {
     var localizedString: String {
         switch self {
         case ImageRowSourceTypes.Camera:
-            return NSLocalizedString("Take photo", comment: "") 
+            return NSLocalizedString("Take Photo", comment: "") 
         case ImageRowSourceTypes.PhotoLibrary:
             return NSLocalizedString("Photo Library", comment: "") 
         case ImageRowSourceTypes.SavedPhotosAlbum:
@@ -55,16 +55,16 @@ extension ImageRowSourceTypes {
 
 public enum ImageClearAction {
     case no
-    case yes(style: UIAlertActionStyle)
+    case yes(style: UIAlertAction.Style)
 }
 
-protocol ImageRowProtocol {
+public protocol ImageRowProtocol {
     var placeholderImage: UIImage? { get }
 }
 
 //MARK: Row
 
-open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageRowProtocol where Cell: BaseCell, Cell.Value == UIImage {
+open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageRowProtocol, ImagePickerProtocol where Cell: BaseCell, Cell.Value == UIImage {
   public typealias PresenterRow = ImagePickerController
 
   /// Defines how the view controller will be presented, pushed, etc.
@@ -78,11 +78,11 @@ open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageR
   open var clearAction = ImageClearAction.yes(style: .destructive)
   open var placeholderImage: UIImage?
     
-  open var userPickerInfo : [String:Any]?
+  open var userPickerInfo : [UIImagePickerController.InfoKey:Any]?
   open var allowEditor : Bool
   open var useEditedImage : Bool
 
-  private var _sourceType: UIImagePickerControllerSourceType = .camera
+  private var _sourceType: UIImagePickerController.SourceType = .camera
 
   public required init(tag: String?) {
     sourceTypes = .All
@@ -101,7 +101,7 @@ open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageR
   }
 
   // copy over the existing logic from the SelectorRow
-  func displayImagePickerController(_ sourceType: UIImagePickerControllerSourceType) {
+    func displayImagePickerController(_ sourceType: UIImagePickerController.SourceType) {
     if let presentationMode = presentationMode, !isDisabled {
       if let controller = presentationMode.makeController(){
         controller.row = self
@@ -115,83 +115,86 @@ open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageR
     }
   }
 
-  /// Extends `didSelect` method
-  /// Selecting the Image Row cell will open a popup to choose where to source the photo from,
-  /// based on the `sourceTypes` configured and the available sources.
-  open override func customDidSelect() {
-    guard !isDisabled else {
-      super.customDidSelect()
-      return
+    /// Extends `didSelect` method
+    /// Selecting the Image Row cell will open a popup to choose where to source the photo from,
+    /// based on the `sourceTypes` configured and the available sources.
+    open override func customDidSelect() {
+        guard !isDisabled else {
+            super.customDidSelect()
+            return
+        }
+
+        deselect()
+        selectSource()
     }
 
-    deselect()
+    open func selectSource() {
+        var availableSources: ImageRowSourceTypes = []
 
-    var availableSources: ImageRowSourceTypes = []
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let _ = availableSources.insert(.PhotoLibrary)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let _ = availableSources.insert(.Camera)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            let _ = availableSources.insert(.SavedPhotosAlbum)
+        }
 
-    if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-      let _ = availableSources.insert(.PhotoLibrary)
+        sourceTypes.formIntersection(availableSources)
+
+        if sourceTypes.isEmpty {
+            super.customDidSelect()
+            guard let presentationMode = presentationMode else { return }
+
+            if let controller = presentationMode.makeController() {
+                controller.row = self
+                controller.title = selectorTitle ?? controller.title
+                onPresentCallback?(cell.formViewController()!, controller)
+                presentationMode.present(controller, row: self, presentingController: self.cell.formViewController()!)
+            } else {
+                presentationMode.present(nil, row: self, presentingController: self.cell.formViewController()!)
+            }
+
+            return
+        }
+
+        // Now that we know the number of sources aren't empty, let the user select the source
+        let sourceActionSheet = UIAlertController(title: nil, message: selectorTitle, preferredStyle: .actionSheet)
+
+        guard let tableView = cell.formViewController()?.tableView  else { fatalError() }
+
+        if let popView = sourceActionSheet.popoverPresentationController {
+            popView.sourceView = tableView
+            popView.sourceRect = tableView.convert(cell.accessoryView?.frame ?? cell.contentView.frame, from: cell)
+        }
+
+        createOptionsForAlertController(sourceActionSheet)
+
+        if case .yes(let style) = clearAction, value != nil {
+            let clearPhotoOption = UIAlertAction(title: NSLocalizedString("Clear Photo", comment: ""), style: style) { [weak self] _ in
+                self?.value = nil
+                self?.imageURL = nil
+                self?.updateCell()
+            }
+
+            sourceActionSheet.addAction(clearPhotoOption)
+        }
+
+        if sourceActionSheet.actions.count == 1 {
+            if let imagePickerSourceType = UIImagePickerController.SourceType(rawValue: sourceTypes.imagePickerControllerSourceTypeRawValue) {
+                displayImagePickerController(imagePickerSourceType)
+            }
+        } else {
+            let cancelOption = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+
+            sourceActionSheet.addAction(cancelOption)
+
+            if let presentingViewController = cell.formViewController() {
+                presentingViewController.present(sourceActionSheet, animated: true)
+            }
+        }
     }
-    if UIImagePickerController.isSourceTypeAvailable(.camera) {
-      let _ = availableSources.insert(.Camera)
-    }
-    if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-      let _ = availableSources.insert(.SavedPhotosAlbum)
-    }
-
-    sourceTypes.formIntersection(availableSources)
-
-    if sourceTypes.isEmpty {
-      super.customDidSelect()
-      guard let presentationMode = presentationMode else { return }
-
-      if let controller = presentationMode.makeController() {
-        controller.row = self
-        controller.title = selectorTitle ?? controller.title
-        onPresentCallback?(cell.formViewController()!, controller)
-        presentationMode.present(controller, row: self, presentingController: self.cell.formViewController()!)
-      } else {
-        presentationMode.present(nil, row: self, presentingController: self.cell.formViewController()!)
-      }
-
-      return
-    }
-
-    // Now that we know the number of sources aren't empty, let the user select the source
-    let sourceActionSheet = UIAlertController(title: nil, message: selectorTitle, preferredStyle: .actionSheet)
-
-    guard let tableView = cell.formViewController()?.tableView  else { fatalError() }
-
-    if let popView = sourceActionSheet.popoverPresentationController {
-      popView.sourceView = tableView
-      popView.sourceRect = tableView.convert(cell.accessoryView?.frame ?? cell.contentView.frame, from: cell)
-    }
-
-    createOptionsForAlertController(sourceActionSheet)
-
-    if case .yes(let style) = clearAction, value != nil {
-      let clearPhotoOption = UIAlertAction(title: NSLocalizedString("Clear Photo", comment: ""), style: style) { [weak self] _ in
-        self?.value = nil
-        self?.imageURL = nil
-        self?.updateCell()
-      }
-
-      sourceActionSheet.addAction(clearPhotoOption)
-    }
-
-    if sourceActionSheet.actions.count == 1 {
-      if let imagePickerSourceType = UIImagePickerControllerSourceType(rawValue: sourceTypes.imagePickerControllerSourceTypeRawValue) {
-        displayImagePickerController(imagePickerSourceType)
-      }
-    } else {
-      let cancelOption = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-
-      sourceActionSheet.addAction(cancelOption)
-
-      if let presentingViewController = cell.formViewController() {
-        presentingViewController.present(sourceActionSheet, animated: true)
-      }
-    }
-  }
 
   /**
    Prepares the pushed row setting its title and completion callback.
@@ -207,9 +210,9 @@ open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageR
   }
 }
 
-extension _ImageRow {
+public extension _ImageRow {
     func createOptionForAlertController(_ alertController: UIAlertController, sourceType: ImageRowSourceTypes) {
-        guard let pickerSourceType = UIImagePickerControllerSourceType(rawValue: sourceType.imagePickerControllerSourceTypeRawValue), sourceTypes.contains(sourceType) else { return }
+        guard let pickerSourceType = UIImagePickerController.SourceType(rawValue: sourceType.imagePickerControllerSourceTypeRawValue), sourceTypes.contains(sourceType) else { return }
 
         let option = UIAlertAction(title: NSLocalizedString(sourceType.localizedString, comment: ""), style: .default) { [weak self] _ in
             self?.displayImagePickerController(pickerSourceType)

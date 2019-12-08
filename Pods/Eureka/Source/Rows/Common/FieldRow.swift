@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 public protocol InputTypeInitiable {
     init?(string stringValue: String)
@@ -86,7 +87,7 @@ open class FieldRow<Cell: CellType>: FormatteableRow<Cell>, FieldRowConformance,
     open var keyboardReturnType: KeyboardReturnTypeConfiguration?
 
     /// The percentage of the cell that should be occupied by the textField
-	@available (*, deprecated, message: "Use titleLabelPercentage instead")
+	@available (*, deprecated, message: "Use titlePercentage instead")
 	open var textFieldPercentage : CGFloat? {
 		get {
 			return titlePercentage.map { 1 - $0 }
@@ -140,7 +141,7 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
 
 	private var calculatedTitlePercentage: CGFloat = 0.7
 
-    public required init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public required init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 
         let textField = UITextField()
         self.textField = textField
@@ -153,20 +154,20 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
         contentView.addSubview(titleLabel!)
         contentView.addSubview(textField)
 
-        NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationWillResignActive, object: nil, queue: nil) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: nil) { [weak self] _ in
             guard let me = self else { return }
             guard me.observingTitleText else { return }
             me.titleLabel?.removeObserver(me, forKeyPath: "text")
             me.observingTitleText = false
         }
-        NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
             guard let me = self else { return }
             guard !me.observingTitleText else { return }
-            me.titleLabel?.addObserver(me, forKeyPath: "text", options: NSKeyValueObservingOptions.old.union(.new), context: nil)
+            me.titleLabel?.addObserver(me, forKeyPath: "text", options: [.new, .old], context: nil)
             me.observingTitleText = true
         }
 
-        NotificationCenter.default.addObserver(forName: Notification.Name.UIContentSizeCategoryDidChange, object: nil, queue: nil) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: nil) { [weak self] _ in
             self?.setupTitleLabel()
             self?.setNeedsUpdateConstraints()
         }
@@ -189,9 +190,9 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
             titleLabel?.removeObserver(self, forKeyPath: "text")
         }
         imageView?.removeObserver(self, forKeyPath: "image")
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIContentSizeCategoryDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIContentSizeCategory.didChangeNotification, object: nil)
     }
 
     open override func setup() {
@@ -199,9 +200,9 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
         selectionStyle = .none
 
         if !awakeFromNibCalled {
-            titleLabel?.addObserver(self, forKeyPath: "text", options: NSKeyValueObservingOptions.old.union(.new), context: nil)
+            titleLabel?.addObserver(self, forKeyPath: "text", options: [.new, .old], context: nil)
             observingTitleText = true
-            imageView?.addObserver(self, forKeyPath: "image", options: NSKeyValueObservingOptions.old.union(.new), context: nil)
+            imageView?.addObserver(self, forKeyPath: "image", options: [.new, .old], context: nil)
         }
         textField.addTarget(self, action: #selector(_FieldCell.textFieldDidChange(_:)), for: .editingChanged)
 
@@ -225,21 +226,33 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
                 textField.textAlignment = .left
                 textField.clearButtonMode = .whileEditing
             }
+        } else {
+            textLabel?.text = nil
+            titleLabel?.text = row.title
+            if #available(iOS 13.0, *) {
+                titleLabel?.textColor = row.isDisabled ? .tertiaryLabel : .label
+            } else {
+                titleLabel?.textColor = row.isDisabled ? .gray : .black
+            }
         }
         textField.delegate = self
         textField.text = row.displayValueFor?(row.value)
         textField.isEnabled = !row.isDisabled
-        textField.textColor = row.isDisabled ? .gray : .black
+        if #available(iOS 13.0, *) {
+            textField.textColor = row.isDisabled ? .tertiaryLabel : .label
+        } else {
+            textField.textColor = row.isDisabled ? .gray : .black
+        }
         textField.font = .preferredFont(forTextStyle: .body)
         if let placeholder = (row as? FieldRowConformance)?.placeholder {
             if let color = (row as? FieldRowConformance)?.placeholderColor {
-                textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: color])
+                textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: color])
             } else {
                 textField.placeholder = (row as? FieldRowConformance)?.placeholder
             }
         }
         if row.isHighlighted {
-            textLabel?.textColor = tintColor
+            titleLabel?.textColor = tintColor
         }
     }
 
@@ -282,10 +295,10 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
                 views["titleLabel"] = titleLabel
                 dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:[titleLabel]-3-[textField]", options: .alignAllLeading, metrics: nil, views: views)
                 // Here we are centering the textField with an offset of -4. This replicates the exact behavior of the default UITableViewCell with .subtitle style
-                dynamicConstraints.append(NSLayoutConstraint(item: textField, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: -4))
+                dynamicConstraints.append(NSLayoutConstraint(item: textField!, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: -4))
                 dynamicConstraints.append(NSLayoutConstraint(item: titleLabel, attribute: .centerX, relatedBy: .equal, toItem: textField, attribute: .centerX, multiplier: 1, constant: 0))
             } else {
-                dynamicConstraints.append(NSLayoutConstraint(item: textField, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0))
+                dynamicConstraints.append(NSLayoutConstraint(item: textField!, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0))
             }
             
             if let imageView = imageView, let _ = imageView.image {
@@ -363,7 +376,11 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
             return
         }
         if fieldRow.useFormatterDuringInput {
-            let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>.allocate(capacity: 1))
+            let unsafePointer = UnsafeMutablePointer<T>.allocate(capacity: 1)
+            defer {
+                unsafePointer.deallocate()
+            }
+            let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(unsafePointer)
             let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
             if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {
                 row.value = value.pointee as? T
@@ -375,7 +392,11 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
                 return
             }
         } else {
-            let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>.allocate(capacity: 1))
+            let unsafePointer = UnsafeMutablePointer<T>.allocate(capacity: 1)
+            defer {
+                unsafePointer.deallocate()
+            }
+            let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(unsafePointer)
             let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
             if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {
                 row.value = value.pointee as? T
@@ -455,11 +476,9 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
 		var targetTitleWidth = bounds.size.width * titlePercentage
 		if let imageView = imageView, let _ = imageView.image, let titleLabel = titleLabel {
 			var extraWidthToSubtract = titleLabel.frame.minX - imageView.frame.minX // Left-to-right interface layout
-			if #available(iOS 9.0, *) {
-				if UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft {
-					extraWidthToSubtract = imageView.frame.maxX - titleLabel.frame.maxX
-				}
-			}
+            if UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft {
+                extraWidthToSubtract = imageView.frame.maxX - titleLabel.frame.maxX
+            }
 			targetTitleWidth -= extraWidthToSubtract
 		}
 		calculatedTitlePercentage = targetTitleWidth / contentView.bounds.size.width

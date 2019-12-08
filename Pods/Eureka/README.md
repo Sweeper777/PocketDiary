@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://travis-ci.org/xmartlabs/Eureka"><img src="https://travis-ci.org/xmartlabs/Eureka.svg?branch=master" alt="Build status" /></a>
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-4BC51D.svg?style=flat" alt="Swift 4 compatible" /></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift5-compatible-4BC51D.svg?style=flat" alt="Swift 5 compatible" /></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
 <a href="https://cocoapods.org/pods/Eureka"><img src="https://img.shields.io/cocoapods/v/Eureka.svg" alt="CocoaPods compatible" /></a>
 <a href="https://raw.githubusercontent.com/xmartlabs/Eureka/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
@@ -56,8 +56,8 @@ Made with ❤️ by [XMARTLABS](http://xmartlabs.com). This is the re-creation o
 
 ## Requirements
 
-* Xcode 9.2+
-* Swift 4+
+* Xcode 10.2+
+* Swift 5.0+ (for latest release)
 
 ### Example project
 
@@ -533,7 +533,7 @@ override func viewDidLoad() {
             }
             .cellUpdate { cell, row in
                 if !row.isValid {
-                    cell.titleLabel?.textColor = .red
+                    cell.titleLabel?.textColor = .systemRed
                 }
             }
 
@@ -547,7 +547,7 @@ override func viewDidLoad() {
             }
             .cellUpdate { cell, row in
                 if !row.isValid {
-                    cell.titleLabel?.textColor = .red
+                    cell.titleLabel?.textColor = .systemRed
                 }
             }
 
@@ -591,9 +591,7 @@ As expected, the Rules must use the same types as the Row object. Be extra caref
 
 ### Swipe Actions
 
-Eureka 4.1.0 introduces the swipe feature.
-
-You are now able to define multiple `leadingSwipe` and `trailingSwipe` actions per row. As swipe actions depend on iOS system features, `leadingSwipe` is available on iOS 11.0+ only.
+By using swipe actions we can define multiple `leadingSwipe` and `trailingSwipe` actions per row. As swipe actions depend on iOS system features, `leadingSwipe` is available on iOS 11.0+ only.
 
 Let's see how to define swipe actions.
 
@@ -621,7 +619,7 @@ let row = TextRow() {
                     //make sure you call the completionHandler once done.
                     completionHandler?(true)
                 })
-            infoAction.backgroundColor = .blue
+            infoAction.actionBackgroundColor = .blue
             infoAction.image = UIImage(named: "icon-info")
 
             $0.leadingSwipe.actions = [infoAction]
@@ -687,25 +685,53 @@ Just like the callbacks cellSetup and CellUpdate, the `Cell` has the setup and u
 
 ### Custom inline rows
 
-A inline row is a specific type of row that shows dynamically a row below it, normally an inline row changes between a expand and collapse mode whenever the row is tapped.
+An inline row is a specific type of row that shows dynamically a row below it, normally an inline row changes between an expanded and collapsed mode whenever the row is tapped.
 
-So to create a inline row we need 2 rows, the row that are "always" visible and the row that will expand/collapse.
+So to create an inline row we need 2 rows, the row that is "always" visible and the row that will expand/collapse.
 
-Another requirement is that the value type of these 2 rows must be the same.
+Another requirement is that the value type of these 2 rows must be the same. This means if one row holds a `String` value then the other must have a `String` value too.
 
-Once we have these 2 rows, we should make the top row type conforms to `InlineRowType` which will add some methods to the top row class type such as:
+Once we have these 2 rows, we should make the top row type conform to `InlineRowType`.
+This protocol requires you to define an `InlineRow` typealias and a `setupInlineRow` function.
+The `InlineRow` type will be the type of the row that will expand/collapse.
+Take this as an example:
+
+```swift
+class PickerInlineRow<T> : Row<PickerInlineCell<T>> where T: Equatable {
+
+    public typealias InlineRow = PickerRow<T>
+    open var options = [T]()
+
+    required public init(tag: String?) {
+        super.init(tag: tag)
+    }
+
+    public func setupInlineRow(_ inlineRow: InlineRow) {
+        inlineRow.options = self.options
+        inlineRow.displayValueFor = self.displayValueFor
+        inlineRow.cell.height = { UITableViewAutomaticDimension }
+    }
+}
+```
+
+The `InlineRowType` will also add some methods to your inline row:
 
 ```swift
 func expandInlineRow()
-func hideInlineRow()
+func collapseInlineRow()
 func toggleInlineRow()
 ```
 
-Finally we must invoke `toggleInlineRow()` when the row is selected, for example overriding the customDidSelect() row method.
+These methods should work fine but should you want to override them keep in mind that it is `toggleInlineRow` that has to call `expandInlineRow` and `collapseInlineRow`.
+
+Finally you must invoke `toggleInlineRow()` when the row is selected, for example overriding `customDidSelect`:
 
 ```swift
 public override func customDidSelect() {
-    toggleInlineRow()
+    super.customDidSelect()
+    if !isDisabled {
+        toggleInlineRow()
+    }
 }
 ```
 
@@ -1033,7 +1059,7 @@ $ pod install
 Specify Eureka into your project's `Cartfile`:
 
 ```ogdl
-github "xmartlabs/Eureka" ~> 4.0
+github "xmartlabs/Eureka" ~> 5.0
 ```
 
 #### Manually as Embedded Framework
@@ -1227,6 +1253,12 @@ public func +=<C : Collection>(inout lhs: Section, rhs: C) where C.Element == Ba
 You can see how the rest of custom operators are implemented [here](https://github.com/xmartlabs/Eureka/blob/master/Source/Core/Operators.swift).
 
 It's up to you to decide if you want to use Eureka custom operators or not.
+
+#### How to set up your form from a storyboard
+The form is always displayed in a `UITableView`. You can set up your view controller in a storyboard and add a UITableView where you want it to be and then connect the outlet to FormViewController's `tableView` variable. This allows you to define a custom frame (possibly with constraints) for your form.
+
+All of this can also be done by programmatically changing frame, margins, etc. of the `tableView` of your FormViewController.
+
 
 <!--- In file -->
 [Introduction]: #introduction

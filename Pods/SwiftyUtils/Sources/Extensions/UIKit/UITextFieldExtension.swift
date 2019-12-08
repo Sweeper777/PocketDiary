@@ -31,13 +31,13 @@ extension UITextField {
 
 // MARK: - Placeholder
 
-public extension UITextField {
+extension UITextField {
 
     public func setPlaceHolderTextColor(_ color: UIColor) {
         guard let placeholder = placeholder, placeholder.isNotEmpty else {
             return
         }
-        let attributes = [NSAttributedStringKey.foregroundColor: color]
+        let attributes = [NSAttributedString.Key.foregroundColor: color]
         attributedPlaceholder = NSAttributedString(string: placeholder,
                                                    attributes: attributes)
     }

@@ -46,6 +46,28 @@ extension String {
         return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: self)
     }
 
+    public var isIP4Address: Bool {
+        return confirmIP4isValid(ip4: self)
+    }
+
+    public var isIP6Address: Bool {
+        return confirmIP6isValid(ip6: self)
+    }
+
+    public var isIPAddress: Bool {
+        return confirmIP4isValid(ip4: self) || confirmIP6isValid(ip6: self)
+    }
+
+    private func confirmIP4isValid(ip4: String) -> Bool {
+        var sin = sockaddr_in()
+        return ip4.withCString { cstring in inet_pton(AF_INET, cstring, &sin.sin_addr) } == 1
+    }
+
+    private func confirmIP6isValid(ip6: String) -> Bool {
+        var sin6 = sockaddr_in6()
+        return ip6.withCString { cstring in inet_pton(AF_INET6, cstring, &sin6.sin6_addr) } == 1
+    }
+
 }
 
 // MARK: - Computed Properties
@@ -54,9 +76,8 @@ extension String {
 
     public var uncamelized: String {
         let upperCase = CharacterSet.uppercaseLetters
-        return self.unicodeScalars.map {
-            upperCase.contains($0) ? "_" + String($0).lowercased(): String($0)
-        }.joined()
+        return self.unicodeScalars.map { upperCase.contains($0) ? "_" + String($0).lowercased(): String($0) }
+                                  .joined()
     }
 
     public var capitalizedFirst: String {
@@ -80,7 +101,7 @@ extension String {
 extension String {
 
     public func trimmed() -> String {
-        return components(separatedBy: NSCharacterSet.whitespacesAndNewlines).joined(separator: "")
+        return components(separatedBy: NSCharacterSet.whitespacesAndNewlines).joined()
     }
 
     public func truncated(limit: Int) -> String {
@@ -94,11 +115,9 @@ extension String {
 
     public func split(intoChunksOf chunkSize: Int) -> [String] {
         var output = [String]()
-        let splittedString = self
-            .map { $0 }
-            .split(intoChunksOf: chunkSize)
+        let splittedString = Array(self).split(intoChunksOf: chunkSize)
         splittedString.forEach {
-            output.append($0.map { String($0) }.joined(separator: ""))
+            output.append($0.map { String($0) }.joined())
         }
         return output
     }

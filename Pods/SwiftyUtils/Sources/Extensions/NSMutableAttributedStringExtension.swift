@@ -14,19 +14,24 @@ import Foundation
 
 extension NSMutableAttributedString {
 
-    public static func colored(inText text: String, color: SwiftyColor, afterOcurrence occurence: String) -> NSMutableAttributedString {
+    public static func colored(inText text: String,
+                               color: SwiftyColor,
+                               afterOcurrence occurence: String) -> NSMutableAttributedString {
         let attrStr = NSMutableAttributedString(string: text)
         attrStr.color(color, afterOcurrence: occurence)
         return attrStr
     }
 
-    public static func colored(inText text: String, color: SwiftyColor, occurences searchString: String) -> NSMutableAttributedString {
+    public static func colored(inText text: String,
+                               color: SwiftyColor,
+                               occurences searchString: String) -> NSMutableAttributedString {
         let attrStr = NSMutableAttributedString(string: text)
         attrStr.color(color, occurences: searchString)
         return attrStr
     }
 
-    public func color(_ color: SwiftyColor, afterOcurrence occurence: String) {
+    public func color(_ color: SwiftyColor,
+                      afterOcurrence occurence: String) {
         let range = NSRange(text: string, afterOccurence: occurence)
         if range.location != NSNotFound {
             addColorAttribute(value: color, range: range)
@@ -101,13 +106,17 @@ extension NSMutableAttributedString {
 
 extension NSMutableAttributedString {
 
-    public static func font(inText text: String, font: SwiftyFont, afterOcurrence occurence: String) -> NSMutableAttributedString {
+    public static func font(inText text: String,
+                            font: SwiftyFont,
+                            afterOcurrence occurence: String) -> NSMutableAttributedString {
         let attrStr = NSMutableAttributedString(string: text)
         attrStr.font(font, afterOcurrence: occurence)
         return attrStr
     }
 
-    public static func font(inText text: String, font: SwiftyFont, occurences searchString: String) -> NSMutableAttributedString {
+    public static func font(inText text: String,
+                            font: SwiftyFont,
+                            occurences searchString: String) -> NSMutableAttributedString {
         let attrStr = NSMutableAttributedString(string: text)
         attrStr.font(font, occurences: searchString)
         return attrStr
@@ -128,22 +137,22 @@ extension NSMutableAttributedString {
 
 // MARK: - Private
 
-fileprivate extension NSMutableAttributedString {
+extension NSMutableAttributedString {
 
     func addColorAttribute(value: Any, range: NSRange) {
-        addAttribute(NSAttributedStringKey.foregroundColor, value: value, range: range)
+        addAttribute(NSAttributedString.Key.foregroundColor, value: value, range: range)
     }
 
     func addStrikeAttribute(value: Any = 1, range: NSRange) {
-        addAttribute(NSAttributedStringKey.strikethroughStyle, value: value, range: range)
+        addAttribute(NSAttributedString.Key.strikethroughStyle, value: value, range: range)
     }
 
     func addUnderlineAttribute(value: Any = 1, range: NSRange) {
-        addAttribute(NSAttributedStringKey.underlineStyle, value: value, range: range)
+        addAttribute(NSAttributedString.Key.underlineStyle, value: value, range: range)
     }
 
     func addFontAttribute(value: Any = 1, range: NSRange) {
-        addAttribute(NSAttributedStringKey.font, value: value, range: range)
+        addAttribute(NSAttributedString.Key.font, value: value, range: range)
     }
 
     func addAttribute(forOccurence searchString: String,
@@ -156,7 +165,8 @@ fileprivate extension NSMutableAttributedString {
             range = (string as NSString).range(of: searchString, options: [], range: range)
             if range.location != NSNotFound {
                 addAttributeMethod(value, NSRange(location: range.location, length: searchLength))
-                range = NSRange(location: range.location + range.length, length: inputLength - (range.location + range.length))
+                range = NSRange(location: range.location + range.length,
+                                length: inputLength - (range.location + range.length))
             }
         }
     }

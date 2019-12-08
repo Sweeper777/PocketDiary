@@ -14,6 +14,10 @@
  */
 @property (nonatomic,strong) UIView *toolbarView;
 /**
+ *  The scroll view that's faked to look like a toolbar.
+ */
+@property (nonatomic,strong) UIScrollView *scrollView;
+/**
  *  The fake top border to replicate the toolbar.
  */
 @property (nonatomic,strong) CALayer *topBorder;
