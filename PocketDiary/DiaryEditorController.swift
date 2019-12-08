@@ -6,11 +6,11 @@ import MMMarkdown
 import Emoji
 import Keyboardy
 import GoogleMobileAds
-import RFKeyboardToolbar
 import SwiftyUtils
 import SCLAlertView
 import FTPopOverMenu_Swift
 import SkyFloatingLabelTextField
+import RFKeyboardToolbar
 
 class DiaryEditorController: UIViewController, UINavigationControllerDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate {
     
@@ -52,7 +52,9 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
             preview.isHidden = false
             dateLabel.isHidden = true
         } else {
-            _ = self.navigationItem.leftBarButtonItems?.remove(object: deleteBtn)
+            if let index = self.navigationItem.leftBarButtonItems?.firstIndex(of: deleteBtn) {
+                self.navigationItem.leftBarButtonItems?.remove(at: index)
+            }
         }
         
         txtContent.placeholder = NSLocalizedString("Write your diary here! (Markdown supported!)", comment: "")
@@ -181,7 +183,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
                     self.txtContent.insertText("[\(displayText.text!)](\(link.text!))")
                 }
                 alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
-                _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
+                _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"))
             } else {
                 if self.txtContent.selectedText.extractedURLs.count == 1 {
                     let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
@@ -192,7 +194,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
                         self.txtContent.insertText("[\(displayText.text!)](\(self.txtContent.selectedText))")
                     }
                     alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
-                    _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
+                    _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"))
                 } else {
                     let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
                     let link = alert.addTextField("https://")
@@ -209,7 +211,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
                         self.txtContent.insertText("[\(self.txtContent.selectedText)](\(link.text!))")
                     }
                     alert.addButton(NSLocalizedString("Cancel", comment: "")) {}
-                    _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"), icon: #imageLiteral(resourceName: "add_link"))
+                    _ = alert.showCustom(NSLocalizedString("Add Link", comment: ""), subTitle: "", color: UIColor(hex: "5abb5a"))
                 }
             }
             self.view.endEditing(true)
@@ -217,7 +219,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         linkButton.titleLabel!.font = UIFont(name: "Symbola", size: 14)
         linkButton.frame = linkButton.frame.with(width: boldButton.width)
         
-        let toolbar = CenterItemsToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton, linkButton])
+        let toolbar = RFKeyboardToolbar(buttons: [boldButton, italicButton, quoteButton, codeButton, linkButton])
         txtContent.inputAccessoryView = toolbar
     }
     
@@ -309,7 +311,7 @@ class DiaryEditorController: UIViewController, UINavigationControllerDelegate, U
         }
         
         alert.addButton(NSLocalizedString("No", comment: ""), action: {})
-        _ = alert.showCustom(NSLocalizedString("Delete this?", comment: ""), subTitle: NSLocalizedString("Do you really want to delete this entry?", comment: ""), color: UIColor.red, icon: #imageLiteral(resourceName: "delete"))
+        _ = alert.showCustom(NSLocalizedString("Delete this?", comment: ""), subTitle: NSLocalizedString("Do you really want to delete this entry?", comment: ""), color: UIColor.red)
     }
     
     @IBAction func showMore(_ sender: UIBarButtonItem) {
